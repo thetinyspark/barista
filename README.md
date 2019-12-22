@@ -32,4 +32,5 @@ Barista is a pedagogic project initiated by the Moocaccino community:
 
 - The technical documentation is in the "docs" directory. 
 - You can follow the whole creation process, on the youtube channel: https://www.youtube.com/channel/UChURQuW24XwekTrbvjgY7WA. 
+- If you don't like videos, you cand find a complete set of tutorials on http://moocaccino.fr/.
 - Don't hesitate to ask for help on the discord: https://discordapp.com/invite/WUfVsrz
