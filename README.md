@@ -22,19 +22,14 @@ npm start
 
 # Technical stack
 
-The entire project is written in Typescript: https.://www.typescriptlang.org/.
-
-The unit test framework is Jasmine: https://jasmine.github.io/.
-
-The project uses webpack as module bundler: https://webpack.js.org/.
+- The entire project is written in Typescript: https.://www.typescriptlang.org/.
+- The unit test framework is Jasmine: https://jasmine.github.io/.
+- The project uses webpack as module bundler: https://webpack.js.org/.
 
 # Documentation
 
-Barista is a pedagogic project initiated by the Moocaccino community. 
+Barista is a pedagogic project initiated by the Moocaccino community: 
 
-You can find the whole creation process, step by step, 
-on the Youtube channel: https://www.youtube.com/channel/UChURQuW24XwekTrbvjgY7WA. 
-
-You can ask for help to the memberson te discord: https://discordapp.com/invite/WUfVsrz
-
-The technical documentation is in the "docs" directory
+- The technical documentation is in the "docs" directory. 
+- You can follow the whole creation process, on the youtube channel: https://www.youtube.com/channel/UChURQuW24XwekTrbvjgY7WA. 
+- Don't hesitate to ask for help on the discord: https://discordapp.com/invite/WUfVsrz
