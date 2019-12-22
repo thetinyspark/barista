@@ -1,0 +1,25 @@
+# Dependency directories
+node_modules/
+
+# output
+dist/
+
+#docs
+docs/
+
+# TypeScript v1 declaration files
+typings/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+.env.test
+

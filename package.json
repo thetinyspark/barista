@@ -1,0 +1,38 @@
+{
+  "name": "ts-jasmine-webpack-template",
+  "version": "1.0.0",
+  "description": "A template for typescript jasmine webpack projects",
+  "main": "dist/lib/index.js",
+  "type": "dist/lib/index.ts",
+  "scripts": {
+    "build": "tsc && npm run doc && npm run pack",
+    "test": "tsc && jasmine",
+    "doc": "node_modules/.bin/typedoc --out docs --mode modules --exclude spec/**/*",
+    "pack": "npx webpack --config webpack.config.js",
+    "jasminit": "jasmine init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thetinyspark/ts-jasmine-webpack-template.git"
+  },
+  "keywords": [
+    "typescript",
+    "jasmine",
+    "webpack"
+  ],
+  "author": "The Tiny Spark <contact@the-tiny-spark.com> (http://the-tiny-spark.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thetinyspark/ts-jasmine-webpack-template/issues"
+  },
+  "homepage": "https://github.com/thetinyspark/ts-jasmine-webpack-template#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jasmine": "^3.5.0",
+    "jasmine": "^3.5.0",
+    "typedoc": "^0.15.5",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  }
+}

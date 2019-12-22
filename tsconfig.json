@@ -1,0 +1,10 @@
+{
+    "include": ["lib/**/*", "spec/**/*"],
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "declaration": true,
+      "outDir": "./dist",
+      "strict": false
+    }
+  }
