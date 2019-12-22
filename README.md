@@ -23,7 +23,9 @@ npm start
 # Technical stack
 
 The entire project is written in Typescript: https.://www.typescriptlang.org/.
+
 The unit test framework is Jasmine: https://jasmine.github.io/.
+
 The project uses webpack as module bundler: https://webpack.js.org/.
 
 # Documentation
