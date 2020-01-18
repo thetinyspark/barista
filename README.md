@@ -35,3 +35,35 @@ Barista is a pedagogic project initiated by the Moocaccino community:
 - You can follow the whole creation process, on the youtube channel: https://www.youtube.com/channel/UChURQuW24XwekTrbvjgY7WA. 
 - If you don't like videos, you cand find a complete set of tutorials on http://moocaccino.fr/.
 - Don't hesitate to ask for help on the discord: https://discordapp.com/invite/WUfVsrz
+
+# Exercices 
+
+## Exercice 1: Draw a Kirby with <canvas>
+
+This exercise is quite simple, you just have to draw a Kirby by using canvas API calls. 
+Specifically, the ones you've learn in episode 2 & 3 on the moocaccino youtube channel. 
+For those who don't know, Kirby is a very cute pink alien designed by Nintendo, your result 
+should look like this: 
+
+[Kirby](./kirby.png)
+
+Have fun !
+
+## Exercice 2: Draw a curve which represents variation throught time
+
+This exercise is more about data visualization, you have to draw a curve 
+which represents the following datas throught time: 
+
+const data = [
+    {amount: 0, time: 0},
+    {amount: 10, time: 5},
+    {amount: 12, time: 10},
+    {amount: 5, time: 15},
+    {amount: 7, time: 20},
+    {amount: 20, time: 25},
+    {amount: 10, time: 30},
+    {amount: 0, time: 35}
+]; 
+
+The result should look like this : 
+[curve](./curve.png)
