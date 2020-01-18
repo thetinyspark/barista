@@ -67,6 +67,7 @@ const data = [
 ```
 
 The result should look like this : 
+
 ![curve](./curve.png "Curve")
 
 ## Solutions 
