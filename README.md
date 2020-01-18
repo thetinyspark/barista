@@ -38,7 +38,7 @@ Barista is a pedagogic project initiated by the Moocaccino community:
 
 # Exercices 
 
-## Exercice 1: Draw a Kirby with <canvas>
+## Exercice 1: Draw a Kirby with canvas API
 
 This exercise is quite simple, you just have to draw a Kirby by using canvas API calls. 
 Specifically, the ones you've learn in episode 2 & 3 on the moocaccino youtube channel. 
