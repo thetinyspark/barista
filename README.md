@@ -45,7 +45,7 @@ Specifically, the ones you've learn in episode 2 & 3 on the moocaccino youtube c
 For those who don't know, Kirby is a very cute pink alien designed by Nintendo, your result 
 should look like this: 
 
-[Kirby](./kirby.png)
+[kirby]: ./kirby.png "Kirby"
 
 Have fun !
 
@@ -53,7 +53,7 @@ Have fun !
 
 This exercise is more about data visualization, you have to draw a curve 
 which represents the following datas throught time: 
-
+```typescript
 const data = [
     {amount: 0, time: 0},
     {amount: 10, time: 5},
@@ -64,6 +64,11 @@ const data = [
     {amount: 10, time: 30},
     {amount: 0, time: 35}
 ]; 
+```
 
 The result should look like this : 
-[curve](./curve.png)
+[curve]: ./curve.png "Curve"
+
+## Solutions 
+
+The solution for the curve exercise is on the index.ts file, but try by yourself before!
