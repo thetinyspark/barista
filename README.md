@@ -45,7 +45,7 @@ Specifically, the ones you've learn in episode 2 & 3 on the moocaccino youtube c
 For those who don't know, Kirby is a very cute pink alien designed by Nintendo, your result 
 should look like this: 
 
-[kirby]: ./kirby.png "Kirby"
+![kirby](./kirby.png "Kirby")
 
 Have fun !
 
@@ -67,7 +67,7 @@ const data = [
 ```
 
 The result should look like this : 
-[curve]: ./curve.png "Curve"
+![curve](./curve.png "Curve")
 
 ## Solutions 
 
