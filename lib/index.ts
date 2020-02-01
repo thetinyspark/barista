@@ -1,15 +1,3 @@
-
-const data = [
-    {amount: 0, time: 0},
-    {amount: 10, time: 5},
-    {amount: 12, time: 10},
-    {amount: 5, time: 15},
-    {amount: 7, time: 20},
-    {amount: 20, time: 25},
-    {amount: 10, time: 30},
-    {amount: 0, time: 35}
-]; 
-
 function init(){
     let canvas = getCanvas();
     let context  = getContext(); 
@@ -18,18 +6,40 @@ function init(){
     canvas.width = 640;
     canvas.height = 480;
 
-    const step = 640 / 35;
-
+    // on sauvegarde le contexte
     context.save();
-    context.strokeStyle ="blue";
-    context.moveTo(0,240);
-    data.map( 
-        (obj) => {
-            context.lineTo(obj.time * step, 240 - obj.amount * 5);
-        }
-    );
 
-    context.stroke();
+    // on récupère l'élément html de type image qui nous sert de texture (ici kirby)
+    const kirby = document.querySelector("img"); 
+
+    // on définit les propriétés de l'ombre portée pour tous les dessins 
+    // qui vont suivre. 
+
+    context.shadowBlur = 10; 
+    context.shadowColor = "#ff0000"; // l'ombre sera rouge
+    context.shadowOffsetX = 10; // ombre décalée de 10px vers la droite 
+    context.shadowOffsetY = 10; // ombre décalée de 10px vers le bas 
+
+    // on va dessiner notre kirby à travers un masque circulaire
+    // commençons par dessiner le cercle en question 
+
+    context.beginPath();
+    context.fillStyle = "red"; // ici peu importe la couleur du moment que le cercle est plein
+    context.moveTo(225,225); 
+    context.arc(225,255,125, 0, 360 * Math.PI / 180); 
+    context.fill();
+
+    // une fois notre cercle dessiné, on change le mode de fusion
+    // de la balise canvas pour le définir à source-in. 
+    // tous les dessins qui vont suivre seront dessinés à travers un masque
+
+    context.globalCompositeOperation = "source-in";
+
+
+    // puis on le dessine à l'aide de la méthode drawImage de l'objet de type context
+    context.drawImage(kirby, 0,0);
+
+    // on restaure le contexte
     context.restore();
 }
 
