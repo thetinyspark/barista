@@ -1,4 +1,5 @@
-import Stage from "../../lib/display/Stage";
+import Stage, { StageEvent } from "../../lib/display/Stage";
+import INotification from "../../lib/event/INotification";
 describe( 
     'Stage test suite', 
     ()=>{
@@ -28,6 +29,38 @@ describe(
 
                         stage.nextFrame();
                         expect(stage.getCurrentFrame()).toEqual(2);
+                    }
+                );
+
+                it( 'should be able to catch an StageEvent.ENTER_FRAME event and get the current frame', 
+                    ()=>{
+                        const stage = new Stage();
+                        let frame:number = 0;
+                        stage.subscribe(
+                            StageEvent.ENTER_FRAME,
+                            (notification:INotification)=>{
+                                frame = notification.getPayload() as number;
+                            }
+                        );
+
+                        stage.nextFrame();
+                        expect(frame).toEqual(1);
+                    }
+                );
+
+                it( 'should be able to catch an StageEvent.FRAME_END event and get the current frame', 
+                    ()=>{
+                        const stage = new Stage();
+                        let frame:number = 0;
+                        stage.subscribe(
+                            StageEvent.FRAME_END,
+                            (notification:INotification)=>{
+                                frame = notification.getPayload() as number;
+                            }
+                        );
+
+                        stage.nextFrame();
+                        expect(frame).toEqual(1);
                     }
                 );
             }

@@ -29,6 +29,13 @@ export default class Stage extends DisplayObjectContainer{
 
     public nextFrame():void{
         this._currentFrame++; 
+        this.emit(StageEvent.ENTER_FRAME, this._currentFrame);
         this.render(this._context);
+        this.emit(StageEvent.FRAME_END, this._currentFrame);
     }
+}
+
+export enum StageEvent{
+    ENTER_FRAME = "ENTER_FRAME",
+    FRAME_END = "FRAME_END"
 }
