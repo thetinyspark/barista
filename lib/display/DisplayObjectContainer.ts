@@ -1,6 +1,6 @@
 import DisplayObject from "./DisplayObject";
-import { IDisplayObject } from "./IDisplayObject";
-import { IDisplayObjectContainer } from "./IDisplayObjectContainer";
+import IDisplayObject from "./IDisplayObject";
+import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
 export default class DisplayObjectContainer extends DisplayObject implements IDisplayObjectContainer {
 
