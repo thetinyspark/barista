@@ -28,6 +28,7 @@
   "homepage": "https://github.com/thetinyspark/ts-jasmine-webpack-template#readme",
   "dependencies": {
     "@types/jasmine": "^3.5.12",
+    "gl-matrix": "^3.3.0",
     "jasmine": "^3.6.1"
   },
   "devDependencies": {
