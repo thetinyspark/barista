@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "type": "dist/index.ts",
   "scripts": {
-    "start": "concurrently \"npm run watch\" \"live-server dist --port=3000\"",
+    "start": "concurrently \"npm run watch\" \"live-server ./ --port=3000\"",
     "watch": "nodemon -w lib -x \"npm run build\" -e ts",
     "build": "tsc && npx webpack --config webpack.config.js",
     "test": "karma start",
