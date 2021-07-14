@@ -1,8 +1,9 @@
 import { mat2d } from "gl-matrix";
+import Emitter from "../event/Emitter";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
-export default class DisplayObject implements IDisplayObject{
+export default class DisplayObject extends Emitter implements IDisplayObject{
 
     public worldMatrix: mat2d = mat2d.create();
     public matrix: mat2d = mat2d.create();

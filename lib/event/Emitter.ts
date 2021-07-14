@@ -25,12 +25,10 @@ export default class Emitter implements IEmitter{
             this._observers.delete(eventType);
     }
 
-    
     isObserver(eventType: string, observer: Function): boolean {
         const observers:Function[] = this._observers.get(eventType) || [];
         return observers.indexOf(observer) > -1;
     }
-
 
     subscribe(eventType: string, observer: Function): boolean {
         if( this.isObserver(eventType, observer ))
