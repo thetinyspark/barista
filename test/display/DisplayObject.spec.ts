@@ -1,8 +1,6 @@
 import { mat2d } from "gl-matrix";
-import DisplayObject, {} from "../../lib/display/DisplayObject";
-import DisplayObjectContainer, {} from "../../lib/display/DisplayObjectContainer";
-import { IDisplayObject } from "../../lib/display/IDisplayObject";
-import { IDisplayObjectContainer } from "../../lib/display/IDisplayObjectContainer";
+import DisplayObject from "../../lib/display/DisplayObject";
+import DisplayObjectContainer from "../../lib/display/DisplayObjectContainer";
 describe( 
     'DisplayObject test suite', 
     ()=>{

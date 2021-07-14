@@ -1,6 +1,6 @@
-import { IDisplayObject } from "./IDisplayObject";
+import IDisplayObject from "./IDisplayObject";
 
-export interface IDisplayObjectContainer extends IDisplayObject{
+export default interface IDisplayObjectContainer extends IDisplayObject{
     addChild(child:IDisplayObject);
     removeChild(child:IDisplayObject):IDisplayObject; 
     addChildAt(child:IDisplayObject, index:number);

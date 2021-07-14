@@ -1,6 +1,5 @@
 import DisplayObject from "../../lib/display/DisplayObject";
-import DisplayObjectContainer, {} from "../../lib/display/DisplayObjectContainer";
-import { IDisplayObject } from "../../lib/display/IDisplayObject";
+import DisplayObjectContainer from "../../lib/display/DisplayObjectContainer";
 describe( 
     'DisplayObjectContainer test suite', 
     ()=>{

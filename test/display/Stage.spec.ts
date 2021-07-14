@@ -1,6 +1,6 @@
 import Stage from "../../lib/display/Stage";
 describe( 
-    'Bitmap test suite', 
+    'Stage test suite', 
     ()=>{
         describe("constructor and structure", 
             ()=>{
@@ -18,7 +18,6 @@ describe(
                         expect(stage.getContext()).toBeInstanceOf(CanvasRenderingContext2D);
                     }
                 ); 
-
 
                 it( 'should be able to play next frame',
                     ()=>{

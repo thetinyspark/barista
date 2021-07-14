@@ -1,6 +1,6 @@
-import { mat2, mat2d, mat3 } from "gl-matrix";
-import { IDisplayObject } from "./IDisplayObject";
-import { IDisplayObjectContainer } from "./IDisplayObjectContainer";
+import { mat2d } from "gl-matrix";
+import IDisplayObject from "./IDisplayObject";
+import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
 export default class DisplayObject implements IDisplayObject{
 

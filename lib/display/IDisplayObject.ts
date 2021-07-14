@@ -1,7 +1,7 @@
 import { mat2d } from "gl-matrix";
-import { IDisplayObjectContainer } from "./IDisplayObjectContainer";
+import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
-export interface IDisplayObject{
+export default interface IDisplayObject{
     render(context:CanvasRenderingContext2D):void;
     updateMatrix():void;
     parent:IDisplayObjectContainer|null;
