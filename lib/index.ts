@@ -6,15 +6,16 @@ import IDisplayObject from "./display/IDisplayObject";
 const stats:Stats = new Stats();
 
 function renderLoop(stage:Stage){
+   stage.updateMatrix();
    stage.nextFrame();
+   
    stage.getChildren().forEach( 
       (child:IDisplayObject)=>{
-         child.rotation++;
-         child.updateMatrix();
+         child.rotation+=2;
       }
    );
    
-   console.log(stats.getFps());
+   // console.log(stats.getFps());
    
    
    window.requestAnimationFrame(
@@ -25,17 +26,13 @@ function renderLoop(stage:Stage){
 }
 
 function addChildren(stage:Stage):void{
-   for( let i:number = 0; i < 1000; i++ ){
+   for( let i:number = 0; i < 20; i++ ){
       const bmp:Bitmap = new Bitmap();
       bmp.texture = document.getElementById("img") as HTMLImageElement;
       bmp.width = 100;
       bmp.height = 100;
       bmp.x = Math.round( Math.random() * 640 ); 
       bmp.y = Math.round( Math.random() * 480 );
-      bmp.scaleX = 0.5;
-      bmp.scaleY = 0.5;
-      bmp.rotation = 45;
-      bmp.updateMatrix();
       stage.addChild(bmp);
    }
 }

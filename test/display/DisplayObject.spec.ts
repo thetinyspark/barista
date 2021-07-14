@@ -14,7 +14,7 @@ describe(
                     }
                 ); 
 
-                it( "should be able to set/get x,y,width,height and parent properties", 
+                it( "should be able to set/get x,y,width,height,opacity, scaleX, scaleY, rotation and parent properties", 
                     ()=>{
                         const object = new DisplayObject();
         
@@ -23,6 +23,10 @@ describe(
                         expect(object.width).toBeDefined();
                         expect(object.height).toBeDefined();
                         expect(object.parent).toBeDefined();
+                        expect(object.scaleX).toBeDefined();
+                        expect(object.scaleY).toBeDefined();
+                        expect(object.rotation).toBeDefined();
+                        expect(object.opacity).toBeDefined();
                     }
                  );
             }
@@ -30,7 +34,28 @@ describe(
 
         describe("transformation test suite", 
             ()=>{
-                
+                it("should get the global opacity",
+                    ()=>{
+                        // given 
+                        const canvas = document.createElement("canvas");
+                        const context = canvas.getContext("2d");
+                        const parent = new DisplayObjectContainer();
+                        const child = new DisplayObject();
+                        parent.addChild(child); 
+        
+                        parent.opacity = 0.5;
+                        child.opacity = 0.5;
+        
+                        // when 
+                        parent.prepareContext(context); 
+                        child.prepareContext(context);
+
+                        // then
+                        expect(context.globalAlpha).toEqual(child.opacity * parent.opacity);
+                        parent.restoreContext(context);
+                        child.restoreContext(context);
+                    }
+                )
     
                 it( "should update the transformation matrix", 
                     ()=>{
@@ -57,7 +82,7 @@ describe(
                         parent.y = 200;
         
                         parent.addChild(child);
-                        child.updateMatrix();
+                        parent.updateMatrix();
         
                         // when 
                         const worldMatrix = child.worldMatrix;
@@ -82,23 +107,18 @@ describe(
                         parent.x = 100;
                         parent.y = 200;
 
+                        parent.updateMatrix();
                         child.updateMatrix();
 
-                        const spy = spyOn(context,"transform");
-                        const worldMatrix = child.worldMatrix;
+                        const spy = spyOn(context,"setTransform");
         
                         // using
+                        parent.prepareContext(context );
                         parent.render(context);
+                        parent.restoreContext(context);
         
                         // then
-                        expect(spy).toHaveBeenCalledWith(
-                            worldMatrix[0],
-                            worldMatrix[1],
-                            worldMatrix[2],
-                            worldMatrix[3],
-                            worldMatrix[4],
-                            worldMatrix[5],
-                        );
+                        expect(spy).toHaveBeenCalledTimes(2);
                     }
                 );
             }

@@ -1,3 +1,4 @@
+import { mat2d } from "gl-matrix";
 import DisplayObjectContainer from "./DisplayObjectContainer";
 export default class Stage extends DisplayObjectContainer{
 
@@ -31,7 +32,11 @@ export default class Stage extends DisplayObjectContainer{
         this._context.clearRect(0,0, this._canvas.width, this._canvas.height);
         this._currentFrame++; 
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);
+
+        this.prepareContext(this._context);
         this.render(this._context);
+        this.restoreContext(this._context);
+
         this.emit(StageEvent.FRAME_END, this._currentFrame);
     }
 }

@@ -3,8 +3,10 @@ import IEmitter from "../event/IEmitter";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
 export default interface IDisplayObject extends IEmitter{
+    prepareContext(context:CanvasRenderingContext2D):void;
+    restoreContext(context:CanvasRenderingContext2D):void;
     render(context:CanvasRenderingContext2D):void;
-    updateMatrix():void;
+    updateMatrix(worldMatrix:mat2d|null):void;
     parent:IDisplayObjectContainer|null;
     matrix:mat2d;
     worldMatrix:mat2d;
@@ -15,4 +17,5 @@ export default interface IDisplayObject extends IEmitter{
     y:number;
     width:number;
     height:number;
+    opacity:number;
 }

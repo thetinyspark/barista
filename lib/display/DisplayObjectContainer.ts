@@ -1,3 +1,4 @@
+import { mat2d } from "gl-matrix";
 import DisplayObject from "./DisplayObject";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
@@ -56,10 +57,21 @@ export default class DisplayObjectContainer extends DisplayObject implements IDi
         }
     }
 
+    public updateMatrix(worldMatrix:mat2d|null = null):void{
+        super.updateMatrix(worldMatrix);
+        this._children.forEach(
+            (child:IDisplayObject)=>{
+                child.updateMatrix(this.worldMatrix);
+            }
+        );
+    }
+
     public render(context:CanvasRenderingContext2D):void{
         this._children.forEach( 
             (child:IDisplayObject)=>{
+                child.prepareContext(context);
                 child.render(context);
+                child.restoreContext(context);
             }
         );
     }
