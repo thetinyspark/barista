@@ -2,14 +2,14 @@
   "name": "ts-jasmine-webpack-template",
   "version": "1.0.0",
   "description": "A template for typescript jasmine webpack projects",
-  "main": "dist/lib/index.js",
-  "type": "dist/lib/index.ts",
+  "main": "dist/index.js",
+  "type": "dist/index.ts",
   "scripts": {
-    "build": "tsc && npm run doc && npm run pack",
-    "test": "tsc && jasmine",
-    "doc": "node_modules/.bin/typedoc --out docs --mode modules --exclude spec/**/*",
-    "pack": "npx webpack --config webpack.config.js",
-    "jasminit": "jasmine init"
+    "start": "concurrently \"npm run watch\" \"live-server dist --port=3000\"",
+    "watch": "nodemon -w lib -x \"npm run build\" -e ts",
+    "build": "tsc && npx webpack --config webpack.config.js",
+    "test": "karma start",
+    "doc": "node_modules/.bin/typedoc --out docs --mode modules --exclude spec/**/*"
   },
   "repository": {
     "type": "git",
@@ -26,13 +26,25 @@
     "url": "https://github.com/thetinyspark/ts-jasmine-webpack-template/issues"
   },
   "homepage": "https://github.com/thetinyspark/ts-jasmine-webpack-template#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@types/jasmine": "^3.5.12",
+    "jasmine": "^3.6.1"
+  },
   "devDependencies": {
-    "@types/jasmine": "^3.5.0",
-    "jasmine": "^3.5.0",
-    "typedoc": "^0.15.5",
-    "typescript": "^3.7.4",
-    "webpack": "^4.41.4",
-    "webpack-cli": "^3.3.10"
+    "@types/jasmine": "^2.8.7",
+    "@types/node": "^10.1.3",
+    "concurrently": "^5.3.0",
+    "jasmine-core": "^3.6.0",
+    "karma": "^5.1.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^3.3.1",
+    "karma-jasmine-html-reporter": "^1.5.4",
+    "karma-spec-reporter": "0.0.32",
+    "karma-typescript": "^5.0.3",
+    "nodemon": "^2.0.4",
+    "typedoc": "^0.15.8",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }
