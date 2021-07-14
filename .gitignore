@@ -19,6 +19,9 @@ typings/
 # Optional eslint cache
 .eslintcache
 
+#test coverage 
+coverage
+
 # dotenv environment variables file
 .env
 .env.test
