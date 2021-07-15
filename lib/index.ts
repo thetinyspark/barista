@@ -45,7 +45,6 @@ function renderRawLoop(canvas:HTMLCanvasElement, context:CanvasRenderingContext2
 
 function renderLoop(stage:Stage){
   
-   
    stage.getChildren().forEach( 
       (child:IDisplayObject)=>{
          child.x = Math.round( Math.random() * window.innerWidth - 100 ); 
@@ -54,8 +53,6 @@ function renderLoop(stage:Stage){
    );
 
    stats.x = stats.y = 0;
-   
-   stage.updateMatrix();
    stage.nextFrame();
    
    

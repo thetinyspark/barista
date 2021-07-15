@@ -40,6 +40,8 @@ export default class Stage extends DisplayObjectContainer{
     }
 
     public nextFrame():void{
+        this.updateMatrix();
+
         this._context.clearRect(0,0, this._canvas.width, this._canvas.height);
         this._currentFrame++; 
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);
