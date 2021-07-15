@@ -1,4 +1,3 @@
-import { EMSGSIZE } from "constants";
 import { mat2d } from "gl-matrix";
 import Emitter from "../event/Emitter";
 import IDisplayObject from "./IDisplayObject";
@@ -32,10 +31,10 @@ export default class DisplayObject extends Emitter implements IDisplayObject{
     }
 
     public prepareContext(context: CanvasRenderingContext2D):void{
-        const matrix = this.matrix;
+        const matrix = this.worldMatrix;
         context.save();
         context.globalAlpha = context.globalAlpha * this.opacity;
-        context.transform(matrix[0],matrix[1],matrix[2],matrix[3], matrix[4], matrix[5]);
+        context.setTransform(matrix[0],matrix[1],matrix[2],matrix[3], matrix[4], matrix[5]);
     }
 
     public restoreContext(context:CanvasRenderingContext2D):void{
