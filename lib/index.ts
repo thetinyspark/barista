@@ -12,7 +12,7 @@ function renderRawLoop(canvas:HTMLCanvasElement, context:CanvasRenderingContext2
    const texture = document.getElementById("img") as HTMLImageElement;
    context.clearRect(0,0,canvas.width, canvas.height);
    context.save();
-   for( let i:number = 0; i < 1000; i++ ){
+   for( let i:number = 0; i < 1; i++ ){
       const x = Math.round( Math.random() * window.innerWidth - 100 ); 
       const y = Math.round( Math.random() * window.innerHeight - 100 );
       context.save();
@@ -67,7 +67,7 @@ function renderLoop(stage:Stage){
 }
 
 function addChildren(stage:Stage):void{
-   for( let i:number = 0; i < 5000; i++ ){
+   for( let i:number = 0; i < 10; i++ ){
       const bmp:Bitmap = new Bitmap();
       bmp.texture = document.getElementById("img") as HTMLImageElement;
       bmp.width = 100;
