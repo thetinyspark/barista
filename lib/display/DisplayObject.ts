@@ -1,10 +1,12 @@
 import { mat2d } from "gl-matrix";
 import Emitter from "../event/Emitter";
+import IRenderer from "../rendering/IRenderer";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
 export default class DisplayObject extends Emitter implements IDisplayObject{
 
+    public texture:HTMLImageElement|HTMLCanvasElement|null = null;
     public worldMatrix: mat2d = mat2d.create();
     public matrix: mat2d = mat2d.create();
     public x: number = 0;
@@ -29,17 +31,8 @@ export default class DisplayObject extends Emitter implements IDisplayObject{
         else
             this.worldMatrix = this.matrix;
     }
-
-    public prepareContext(context: CanvasRenderingContext2D):void{
-        const matrix = this.worldMatrix;
-        context.save();
-        context.globalAlpha = context.globalAlpha * this.opacity;
-        context.setTransform(matrix[0],matrix[1],matrix[2],matrix[3], matrix[4], matrix[5]);
+    
+    public render(renderer:IRenderer): void {
+        renderer.add(this);
     }
-
-    public restoreContext(context:CanvasRenderingContext2D):void{
-        context.restore();
-    }
-
-    public render(context: CanvasRenderingContext2D): void {}
 }

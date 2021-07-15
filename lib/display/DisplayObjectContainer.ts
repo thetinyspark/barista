@@ -1,4 +1,5 @@
 import { mat2d } from "gl-matrix";
+import IRenderer from "../rendering/IRenderer";
 import DisplayObject from "./DisplayObject";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
@@ -66,14 +67,14 @@ export default class DisplayObjectContainer extends DisplayObject implements IDi
         );
     }
 
-    public render(context:CanvasRenderingContext2D):void{
+    public render(renderer:IRenderer):void{
+        super.render(renderer); 
+
         this._children.forEach( 
             (child:IDisplayObject)=>{
-                child.prepareContext(context);
-                child.render(context);
-                child.restoreContext(context);
+                child.render(renderer);
             }
-        );
+        ); 
     }
     
 }

@@ -14,7 +14,7 @@ describe(
                     }
                 ); 
 
-                it( "should be able to set/get x,y,width,height,opacity, scaleX, scaleY, rotation and parent properties", 
+                it( "should be able to set/get x,y,width,height,opacity, scaleX, scaleY, rotation, texture and parent properties", 
                     ()=>{
                         const object = new DisplayObject();
         
@@ -27,6 +27,7 @@ describe(
                         expect(object.scaleY).toBeDefined();
                         expect(object.rotation).toBeDefined();
                         expect(object.opacity).toBeDefined();
+                        expect(object.texture).toBeDefined();
                     }
                  );
             }
@@ -34,28 +35,6 @@ describe(
 
         describe("transformation test suite", 
             ()=>{
-                it("should get the global opacity",
-                    ()=>{
-                        // given 
-                        const canvas = document.createElement("canvas");
-                        const context = canvas.getContext("2d");
-                        const parent = new DisplayObjectContainer();
-                        const child = new DisplayObject();
-                        parent.addChild(child); 
-        
-                        parent.opacity = 0.5;
-                        child.opacity = 0.5;
-        
-                        // when 
-                        parent.prepareContext(context); 
-                        child.prepareContext(context);
-
-                        // then
-                        expect(context.globalAlpha).toEqual(child.opacity * parent.opacity);
-                        parent.restoreContext(context);
-                        child.restoreContext(context);
-                    }
-                )
     
                 it( "should update the transformation matrix", 
                     ()=>{
@@ -93,34 +72,6 @@ describe(
                     }
                 );
 
-                it( "should transform the context when rendering and restore it", 
-                    ()=>{
-                        // when 
-                        const canvas = document.createElement("canvas");
-                        const context = canvas.getContext("2d");
-                        const parent = new DisplayObjectContainer();
-                        const child = new DisplayObject();
-                        parent.addChild(child);
-        
-                        child.x = 10; 
-                        child.y = 20;
-                        parent.x = 100;
-                        parent.y = 200;
-
-                        parent.updateMatrix();
-                        child.updateMatrix();
-
-                        const spy = spyOn(context,"setTransform");
-        
-                        // using
-                        parent.prepareContext(context );
-                        parent.render(context);
-                        parent.restoreContext(context);
-        
-                        // then
-                        expect(spy).toHaveBeenCalledTimes(2);
-                    }
-                );
             }
         );
 

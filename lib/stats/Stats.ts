@@ -1,6 +1,7 @@
 import Stage, { StageEvent } from "../display/Stage";
 import DisplayObject from "../display/DisplayObject";
 import INotification from "../event/INotification";
+import IRenderer from "../rendering/IRenderer";
 
 export default class Stats extends DisplayObject{
     private _stage: Stage|null = null;
@@ -8,7 +9,10 @@ export default class Stats extends DisplayObject{
     private _monitoring:boolean = false;
     private _elapsedTime:number = 0;
 
-    constructor(){ super(); }
+    constructor(){ 
+        super(); 
+        this.texture = document.createElement("canvas"); 
+    }
 
     public getStage(): Stage|null {
         return this._stage;
@@ -42,7 +46,11 @@ export default class Stats extends DisplayObject{
         return this._monitoring ? Math.round( 1000 / this._elapsedTime ) : -1;
     }
 
-    public render(context:CanvasRenderingContext2D):void{
+    public render(renderer:IRenderer):void{
+        super.render(renderer);
+        const context = ( this.texture as HTMLCanvasElement ).getContext("2d");
+        this.texture.width = this.width;
+        this.texture.height = this.height;
         context.beginPath();
         context.fillStyle = "black";
         context.fillRect(0,0, this.width, this.height); 
