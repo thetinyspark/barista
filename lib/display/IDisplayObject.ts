@@ -1,12 +1,12 @@
 import { mat2d } from "gl-matrix";
 import IEmitter from "../event/IEmitter";
+import IRenderer from "../rendering/IRenderer";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
 export default interface IDisplayObject extends IEmitter{
-    prepareContext(context:CanvasRenderingContext2D):void;
-    restoreContext(context:CanvasRenderingContext2D):void;
-    render(context:CanvasRenderingContext2D):void;
+    render(renderer:IRenderer):void;
     updateMatrix(worldMatrix:mat2d|null):void;
+    texture:HTMLImageElement|HTMLCanvasElement|null;
     parent:IDisplayObjectContainer|null;
     matrix:mat2d;
     worldMatrix:mat2d;

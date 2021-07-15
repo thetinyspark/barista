@@ -1,3 +1,4 @@
+import Canvas2DRenderer from "../../lib/rendering/Canvas2DRenderer";
 import DisplayObject from "../../lib/display/DisplayObject";
 import DisplayObjectContainer from "../../lib/display/DisplayObjectContainer";
 describe( 
@@ -18,8 +19,7 @@ describe(
 
         describe( "add children suite", 
             ()=>{
-                it( 
-                    "should add a child at the end of children list when position is out of bound", 
+                it( "should add a child at the end of children list when position is out of bound", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         const object = new DisplayObject();
@@ -29,8 +29,7 @@ describe(
                     }
                 ); 
         
-                it( 
-                    "should not be able to add the same child twice when using addChild", 
+                it( "should not be able to add the same child twice when using addChild", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         const object = new DisplayObject();
@@ -41,8 +40,7 @@ describe(
                     }
                 ); 
         
-                it( 
-                    "should not be able to add the same child twice when using addChildAt", 
+                it( "should not be able to add the same child twice when using addChildAt", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         const object = new DisplayObject();
@@ -53,8 +51,7 @@ describe(
                     }
                 ); 
         
-                it( 
-                    "should add a child at a particular position", 
+                it( "should add a child at a particular position", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         for( let i:number = 0; i  < 10; i++){
@@ -67,8 +64,7 @@ describe(
                     }
                 ); 
 
-                it( 
-                    "should be able to add a child and retrieve a child", 
+                it( "should be able to add a child and retrieve a child", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         const object = new DisplayObject();
@@ -82,8 +78,7 @@ describe(
 
         describe( "parenting suite", 
             ()=>{
-                it( 
-                    "should set the parent to container when using addChildAt", 
+                it( "should set the parent to container when using addChildAt", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         for( let i:number = 0; i  < 10; i++){
@@ -95,8 +90,7 @@ describe(
                     }
                 ); 
         
-                it( 
-                    "should set removed child's parent to null", 
+                it( "should set removed child's parent to null", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         const object = new DisplayObject();
@@ -106,8 +100,7 @@ describe(
                     }
                 ); 
         
-                it( 
-                    "should set positionned removed child's parent to null", 
+                it( "should set positionned removed child's parent to null", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         
@@ -121,8 +114,7 @@ describe(
                     }
                 ); 
 
-                it( 
-                    "should set the child's parent to container", 
+                it( "should set the child's parent to container", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         const object = new DisplayObject();
@@ -132,8 +124,7 @@ describe(
                     }
                 );
 
-                it( 
-                    "should set all children's parents to null", 
+                it( "should set all children's parents to null", 
                     ()=>{
                         const container = new DisplayObjectContainer();
                         for( let i:number = 0; i  < 10; i++){
@@ -245,21 +236,19 @@ describe(
                         const object2 = new DisplayObject();
                         const spy1 = spyOn(object1, "render");
                         const spy2 = spyOn(object2, "render"); 
-                        const canvas = document.createElement("canvas");
-                        const context = canvas.getContext("2d");
+                        const renderer = new Canvas2DRenderer();
                         const container = new DisplayObjectContainer(); 
                         container.addChild(object1);
                         container.addChild(object2);
 
                         // using
-                        container.render(context);
+                        container.render(renderer);
 
                         // then
-                        expect(spy1).toHaveBeenCalledOnceWith(context);
-                        expect(spy2).toHaveBeenCalledOnceWith(context);
+                        expect(spy1).toHaveBeenCalledOnceWith(renderer);
+                        expect(spy2).toHaveBeenCalledOnceWith(renderer);
                     }
-                )
-
+                );
             }
         );
     }

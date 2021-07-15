@@ -1,10 +1,13 @@
 import { mat2d } from "gl-matrix";
+import Canvas2DRenderer from "../rendering/Canvas2DRenderer";
+import IRenderer from "../rendering/IRenderer";
 import DisplayObjectContainer from "./DisplayObjectContainer";
 export default class Stage extends DisplayObjectContainer{
 
     private _canvas:HTMLCanvasElement;
     private _context:CanvasRenderingContext2D;
     private _currentFrame:number = 0;
+    private _renderer:IRenderer = new Canvas2DRenderer();
 
     constructor(){
         super();
@@ -14,6 +17,14 @@ export default class Stage extends DisplayObjectContainer{
     private _setCanvas(canvas:HTMLCanvasElement):void{
         this._canvas = canvas;
         this._context = canvas.getContext("2d");
+    }
+
+    public getRenderer():IRenderer{
+        return this._renderer;
+    }
+
+    public setRenderer(renderer:IRenderer):void{
+        this._renderer = renderer;
     }
 
     public getCanvas():HTMLCanvasElement{
@@ -33,10 +44,14 @@ export default class Stage extends DisplayObjectContainer{
         this._currentFrame++; 
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);
 
-        this.prepareContext(this._context);
-        this.render(this._context);
-        this.restoreContext(this._context);
+        // clear the rendering pipeline
+        this._renderer.clear();
 
+        // add children to rendering pipeline
+        this.render(this._renderer);
+
+        // draw objects
+        this._renderer.draw(this._canvas, this._context);
         this.emit(StageEvent.FRAME_END, this._currentFrame);
     }
 }

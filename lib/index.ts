@@ -1,7 +1,7 @@
 import Stats from "./stats/Stats";
-import Bitmap from "./display/Bitmap";
 import Stage from "./display/Stage";
 import IDisplayObject from "./display/IDisplayObject";
+import DisplayObject from "./display/DisplayObject";
 
 const stats:Stats = new Stats();
 
@@ -67,8 +67,8 @@ function renderLoop(stage:Stage){
 }
 
 function addChildren(stage:Stage):void{
-   for( let i:number = 0; i < 10; i++ ){
-      const bmp:Bitmap = new Bitmap();
+   for( let i:number = 0; i < 1000; i++ ){
+      const bmp:DisplayObject = new DisplayObject();
       bmp.texture = document.getElementById("img") as HTMLImageElement;
       bmp.width = 100;
       bmp.height = 100;
