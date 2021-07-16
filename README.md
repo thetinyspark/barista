@@ -1,6 +1,6 @@
 # Barista
 
-An caffeinated HTML5 canvas rendering engine which you can use for creating:
+A caffeinated HTML5 canvas rendering engine which you can use for creating:
 
 - Video games. 
 - Amazing data visualization tools.
