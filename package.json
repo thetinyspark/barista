@@ -1,5 +1,5 @@
 {
-  "name": "@thetinyspark/barista",
+  "name": "@thetinyspark-barista",
   "version": "1.0.0",
   "description": "A template for typescript jasmine webpack projects",
   "main": "dist/index.js",
