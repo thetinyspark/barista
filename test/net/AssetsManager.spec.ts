@@ -1,4 +1,4 @@
-import AssetsManager, { IMAGE_TYPE, JSON_TYPE } from "../lib/AssetsManager";
+import AssetsManager, { IMAGE_TYPE, JSON_TYPE } from "../../lib/net/AssetsManager";
 
 describe(
     "AssetsManager test suite",

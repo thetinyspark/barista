@@ -25,7 +25,7 @@ module.exports = (config) => {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     // browsers: localBrowsers,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
     singleRun: false
   })
 }

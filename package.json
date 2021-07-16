@@ -1,9 +1,10 @@
 {
-  "name": "ts-jasmine-webpack-template",
+  "name": "barista",
   "version": "1.0.0",
   "description": "A template for typescript jasmine webpack projects",
   "main": "dist/index.js",
-  "type": "dist/index.ts",
+  "types": "dist/index.ts",
+  "files": ["/dist"],
   "scripts": {
     "start": "concurrently \"npm run watch\" \"live-server ./ --port=3000\"",
     "watch": "nodemon -w lib -x \"npm run build\" -e ts",
@@ -13,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thetinyspark/ts-jasmine-webpack-template.git"
+    "url": "git+https://github.com/thetinyspark/barista.git"
   },
   "keywords": [
     "typescript",
@@ -23,9 +24,9 @@
   "author": "The Tiny Spark <contact@the-tiny-spark.com> (http://the-tiny-spark.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thetinyspark/ts-jasmine-webpack-template/issues"
+    "url": "https://github.com/thetinyspark/barista/issues"
   },
-  "homepage": "https://github.com/thetinyspark/ts-jasmine-webpack-template#readme",
+  "homepage": "https://github.com/thetinyspark/barista#readme",
   "dependencies": {
     "@types/jasmine": "^3.5.12",
     "gl-matrix": "^3.3.0",
