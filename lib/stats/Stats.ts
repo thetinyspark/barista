@@ -47,7 +47,6 @@ export default class Stats extends DisplayObject{
     }
 
     public render(renderer:IRenderer):void{
-        super.render(renderer);
         const context = ( this.texture as HTMLCanvasElement ).getContext("2d");
         this.texture.width = this.width;
         this.texture.height = this.height;
@@ -55,10 +54,12 @@ export default class Stats extends DisplayObject{
         context.fillStyle = "black";
         context.fillRect(0,0, this.width, this.height); 
         context.fill();
-
+        
         context.fillStyle = "red"; 
         context.fillText( this.getFps().toString(), 0, Math.round(this.height / 2));
         context.closePath();
+        
+        super.render(renderer);
     }
 
 
