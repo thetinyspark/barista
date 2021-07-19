@@ -40,13 +40,7 @@ export default class Stats extends DisplayObject{
     private _enterFrame = (notification:INotification):void => {
         this._elapsedTime = new Date().getTime() - this._lastFrameTime;
         this._lastFrameTime = new Date().getTime();
-    }
 
-    public getFps():number{
-        return this._monitoring ? Math.round( 1000 / this._elapsedTime ) : -1;
-    }
-
-    public render(renderer:IRenderer):void{
         const context = ( this.texture as HTMLCanvasElement ).getContext("2d");
         this.texture.width = this.width;
         this.texture.height = this.height;
@@ -58,9 +52,9 @@ export default class Stats extends DisplayObject{
         context.fillStyle = "red"; 
         context.fillText( this.getFps().toString(), 0, Math.round(this.height / 2));
         context.closePath();
-        
-        super.render(renderer);
     }
 
-
+    public getFps():number{
+        return this._monitoring ? Math.round( 1000 / this._elapsedTime ) : -1;
+    }
 }
