@@ -1,17 +1,22 @@
 import Stage, { StageEvent } from "../display/Stage";
 import DisplayObject from "../display/DisplayObject";
 import INotification from "../event/INotification";
-import IRenderer from "../rendering/IRenderer";
+import Texture from "../texture/Texture";
 
 export default class Stats extends DisplayObject{
     private _stage: Stage|null = null;
     private _lastFrameTime:number = 0;
     private _monitoring:boolean = false;
     private _elapsedTime:number = 0;
+    private _context:CanvasRenderingContext2D;
 
     constructor(){ 
         super(); 
-        this.texture = document.createElement("canvas"); 
+        const data = document.createElement("canvas"); 
+        data.width = 100;
+        data.height = 50;
+        this.texture = new Texture("stats_texture", data, 0, 0, data.width, data.height);
+        this._context = (this.texture.data as HTMLCanvasElement).getContext("2d");
     }
 
     public getStage(): Stage|null {
@@ -41,9 +46,7 @@ export default class Stats extends DisplayObject{
         this._elapsedTime = new Date().getTime() - this._lastFrameTime;
         this._lastFrameTime = new Date().getTime();
 
-        const context = ( this.texture as HTMLCanvasElement ).getContext("2d");
-        this.texture.width = this.width;
-        this.texture.height = this.height;
+        const context = this._context;
         context.beginPath();
         context.fillStyle = "black";
         context.fillRect(0,0, this.width, this.height); 

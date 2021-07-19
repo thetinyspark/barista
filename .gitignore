@@ -4,6 +4,10 @@ node_modules/
 # output
 #dist/
 
+notes.txt
+backlog.ods
+
+
 #docs
 docs/
 
