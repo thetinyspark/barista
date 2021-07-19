@@ -5,7 +5,7 @@ import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
 export default interface IDisplayObject extends IEmitter{
     render(renderer:IRenderer):void;
-    updateMatrix(worldMatrix:mat2d, worldOpacity:number):void;
+    update(worldMatrix:mat2d, worldOpacity:number):void;
     texture:HTMLImageElement|HTMLCanvasElement|null;
     parent:IDisplayObjectContainer|null;
     matrix:mat2d;

@@ -21,7 +21,7 @@ export default class DisplayObject extends Emitter implements IDisplayObject{
     public parent:IDisplayObjectContainer|null = null;
 
 
-    public updateMatrix( worldMatrix:mat2d, worldOpacity:number = 1 ):void{
+    public update( worldMatrix:mat2d, worldOpacity:number = 1 ):void{
         mat2d.identity(this.matrix);
         mat2d.translate(this.matrix, this.matrix, [this.x, this.y]);
         mat2d.rotate(this.matrix, this.matrix, this.rotation * (Math.PI / 180));
