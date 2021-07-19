@@ -62,7 +62,7 @@ export default class DisplayObjectContainer extends DisplayObject implements IDi
         super.updateMatrix(worldMatrix);
         this._children.forEach(
             (child:IDisplayObject)=>{
-                child.updateMatrix(this.worldMatrix);
+                child.updateMatrix(this.worldMatrix, this.worldOpacity);
             }
         );
     }

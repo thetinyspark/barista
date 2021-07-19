@@ -14,7 +14,7 @@ describe(
                     }
                 ); 
 
-                it( "should be able to set/get x,y,width,height,opacity, scaleX, scaleY, rotation, texture and parent properties", 
+                it( "should be able to set/get x,y,width,height,opacity, scaleX, scaleY, rotation, texture, worldOpacity and parent properties", 
                     ()=>{
                         const object = new DisplayObject();
         
@@ -28,6 +28,7 @@ describe(
                         expect(object.rotation).toBeDefined();
                         expect(object.opacity).toBeDefined();
                         expect(object.texture).toBeDefined();
+                        expect(object.worldOpacity).toBeDefined();
                     }
                  );
             }
@@ -35,6 +36,25 @@ describe(
 
         describe("transformation test suite", 
             ()=>{
+
+                it("should calculate the world opacity",
+                    ()=>{
+                        // given 
+                        const parent = new DisplayObjectContainer();
+                        const child = new DisplayObject();
+
+                        child.opacity = 0.5; 
+                        parent.opacity = 0.5;
+
+                        parent.addChild(child);
+                        
+                        // when 
+                        parent.updateMatrix(mat2d.create());
+
+                        // then
+                        expect(child.worldOpacity).toEqual(0.25);
+                    }
+                )
     
                 it( "should update the transformation matrix", 
                     ()=>{
@@ -43,7 +63,7 @@ describe(
         
                         expect(object.matrix).toEqual(identity);
         
-                        object.updateMatrix();
+                        object.updateMatrix(mat2d.create());
                         expect(object.matrix[4]).toEqual(object.x);
                         expect(object.matrix[5]).toEqual(object.y);
                     }
@@ -61,7 +81,7 @@ describe(
                         parent.y = 200;
         
                         parent.addChild(child);
-                        parent.updateMatrix();
+                        parent.updateMatrix(mat2d.create());
         
                         // when 
                         const worldMatrix = child.worldMatrix;
