@@ -20,7 +20,7 @@ class Canvas2DRenderer {
                 return;
             const matrix = child.worldMatrix;
             context.save();
-            context.globalAlpha = context.globalAlpha * child.opacity;
+            context.globalAlpha = child.worldOpacity;
             context.setTransform(matrix[0], matrix[1], matrix[2], matrix[3], matrix[4], matrix[5]);
             context.drawImage(child.texture, 0, 0, child.texture.width, child.texture.height, 0, 0, child.width, child.height);
             context.restore();

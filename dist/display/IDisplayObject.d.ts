@@ -4,7 +4,7 @@ import IRenderer from "../rendering/IRenderer";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 export default interface IDisplayObject extends IEmitter {
     render(renderer: IRenderer): void;
-    updateMatrix(worldMatrix: mat2d | null): void;
+    update(worldMatrix: mat2d, worldOpacity: number): void;
     texture: HTMLImageElement | HTMLCanvasElement | null;
     parent: IDisplayObjectContainer | null;
     matrix: mat2d;
@@ -17,4 +17,5 @@ export default interface IDisplayObject extends IEmitter {
     width: number;
     height: number;
     opacity: number;
+    worldOpacity: number;
 }

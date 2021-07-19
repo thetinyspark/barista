@@ -13,6 +13,6 @@ export default class DisplayObjectContainer extends DisplayObject implements IDi
     getChildIndex(child: IDisplayObject): number;
     contains(child: IDisplayObject): boolean;
     removeChildren(): void;
-    updateMatrix(worldMatrix?: mat2d | null): void;
+    update(worldMatrix?: mat2d | null): void;
     render(renderer: IRenderer): void;
 }

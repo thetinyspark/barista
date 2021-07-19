@@ -10,12 +10,13 @@ export default class DisplayObject extends Emitter implements IDisplayObject {
     x: number;
     y: number;
     opacity: number;
+    worldOpacity: number;
     scaleX: number;
     scaleY: number;
     rotation: number;
     width: number;
     height: number;
     parent: IDisplayObjectContainer | null;
-    updateMatrix(worldMatrix?: mat2d | null): void;
+    update(worldMatrix: mat2d, worldOpacity?: number): void;
     render(renderer: IRenderer): void;
 }

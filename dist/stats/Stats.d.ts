@@ -1,6 +1,5 @@
 import Stage from "../display/Stage";
 import DisplayObject from "../display/DisplayObject";
-import IRenderer from "../rendering/IRenderer";
 export default class Stats extends DisplayObject {
     private _stage;
     private _lastFrameTime;
@@ -13,5 +12,4 @@ export default class Stats extends DisplayObject {
     setStage(value: Stage): void;
     private _enterFrame;
     getFps(): number;
-    render(renderer: IRenderer): void;
 }

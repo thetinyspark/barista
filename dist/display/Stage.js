@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StageEvent = void 0;
+const gl_matrix_1 = require("gl-matrix");
 const Canvas2DRenderer_1 = require("../rendering/Canvas2DRenderer");
 const DisplayObjectContainer_1 = require("./DisplayObjectContainer");
 class Stage extends DisplayObjectContainer_1.default {
@@ -30,7 +31,7 @@ class Stage extends DisplayObjectContainer_1.default {
         return this._currentFrame;
     }
     nextFrame() {
-        this.updateMatrix();
+        this.update(gl_matrix_1.mat2d.create());
         this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
         this._currentFrame++;
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);

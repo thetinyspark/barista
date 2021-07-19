@@ -12,6 +12,16 @@ class Stats extends DisplayObject_1.default {
         this._enterFrame = (notification) => {
             this._elapsedTime = new Date().getTime() - this._lastFrameTime;
             this._lastFrameTime = new Date().getTime();
+            const context = this.texture.getContext("2d");
+            this.texture.width = this.width;
+            this.texture.height = this.height;
+            context.beginPath();
+            context.fillStyle = "black";
+            context.fillRect(0, 0, this.width, this.height);
+            context.fill();
+            context.fillStyle = "red";
+            context.fillText(this.getFps().toString(), 0, Math.round(this.height / 2));
+            context.closePath();
         };
         this.texture = document.createElement("canvas");
     }
@@ -34,19 +44,6 @@ class Stats extends DisplayObject_1.default {
     }
     getFps() {
         return this._monitoring ? Math.round(1000 / this._elapsedTime) : -1;
-    }
-    render(renderer) {
-        super.render(renderer);
-        const context = this.texture.getContext("2d");
-        this.texture.width = this.width;
-        this.texture.height = this.height;
-        context.beginPath();
-        context.fillStyle = "black";
-        context.fillRect(0, 0, this.width, this.height);
-        context.fill();
-        context.fillStyle = "red";
-        context.fillText(this.getFps().toString(), 0, Math.round(this.height / 2));
-        context.closePath();
     }
 }
 exports.default = Stats;
