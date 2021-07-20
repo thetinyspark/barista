@@ -27,7 +27,6 @@ class Animation extends DisplayObject_1.default {
         if (this._playing) {
             const step = (this._forwarding) ? 1 : -1;
             this.goToFrame(this._currentFrameIndex + step);
-            this.texture = this.getCurrentFrameTexture();
         }
     }
     clearFrames() {
@@ -38,7 +37,12 @@ class Animation extends DisplayObject_1.default {
         this._framesTextures[frameIndex] = texture;
     }
     getCurrentFrameTexture() {
-        return this.getFrameTexture(this.getCurrentFrameIndex());
+        let current = this.getFrameTexture(this.getCurrentFrameIndex());
+        if (current === null && this._forwarding)
+            current = this.getPreviousDefinedFrameTexture(this.getCurrentFrameIndex());
+        else if (current === null && !this._forwarding)
+            current = this.getNextDefinedFrameTexture(this.getCurrentFrameIndex());
+        return current;
     }
     getFrameTexture(frameIndex) {
         return this._framesTextures[frameIndex] || null;
@@ -79,6 +83,7 @@ class Animation extends DisplayObject_1.default {
             frameIndex = (frameIndex < 0) ? 0 : frameIndex;
         }
         this._currentFrameIndex = frameIndex;
+        this.texture = this.getCurrentFrameTexture();
         this.emit(AnimationEvent.PLAY_FRAME, this._currentFrameIndex);
     }
 }

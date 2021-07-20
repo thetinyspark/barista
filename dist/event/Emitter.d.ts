@@ -6,4 +6,5 @@ export default class Emitter implements IEmitter {
     unsubscribe(eventType: string, observer: Function): void;
     isObserver(eventType: string, observer: Function): boolean;
     subscribe(eventType: string, observer: Function): boolean;
+    unsubscribeAll(): void;
 }

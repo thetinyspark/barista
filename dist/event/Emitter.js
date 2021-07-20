@@ -31,5 +31,8 @@ class Emitter {
         this._observers.set(eventType, observers);
         return true;
     }
+    unsubscribeAll() {
+        this._observers = new Map();
+    }
 }
 exports.default = Emitter;
