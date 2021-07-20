@@ -1,5 +1,5 @@
-import Stage, { StageEvent } from "../display/Stage";
-import DisplayObject from "../display/DisplayObject";
+import Stage, { StageEvent } from "./Stage";
+import DisplayObject from "./DisplayObject";
 import INotification from "../event/INotification";
 import Texture from "../texture/Texture";
 

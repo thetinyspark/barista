@@ -1,4 +1,5 @@
-import Stats from "./stats/Stats";
+import Animation from "./display/Animation";
+import Stats from "./display/Stats";
 import Stage from "./display/Stage";
 import IDisplayObject from "./display/IDisplayObject";
 import DisplayObject from "./display/DisplayObject";
@@ -13,6 +14,7 @@ import IRenderer from "./rendering/IRenderer";
 import AssetsManager from "./net/AssetsManager";
 
 
+export {Animation};
 export {Stats};
 export {Stage}; 
 export {IDisplayObject}; 
