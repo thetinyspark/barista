@@ -30,7 +30,6 @@ export default class Animation extends DisplayObject{
         if( this._playing ){
             const step:number = (this._forwarding) ? 1 : -1;
             this.goToFrame(this._currentFrameIndex + step);
-            this.texture = this.getCurrentFrameTexture();
         }
     }
 
@@ -44,7 +43,13 @@ export default class Animation extends DisplayObject{
     }
 
     public getCurrentFrameTexture():Texture|null{
-        return this.getFrameTexture(this.getCurrentFrameIndex());
+        let current:Texture = this.getFrameTexture(this.getCurrentFrameIndex());
+        if( current === null && this._forwarding )
+            current = this.getPreviousDefinedFrameTexture(this.getCurrentFrameIndex());
+        else if( current === null && !this._forwarding )
+            current = this.getNextDefinedFrameTexture( this.getCurrentFrameIndex() );
+        
+        return current;
     }
 
     public getFrameTexture(frameIndex:number):Texture|null{
@@ -97,6 +102,7 @@ export default class Animation extends DisplayObject{
             frameIndex = (frameIndex <  0) ? 0 : frameIndex;
         }
         this._currentFrameIndex = frameIndex;
+        this.texture = this.getCurrentFrameTexture();
         this.emit( AnimationEvent.PLAY_FRAME, this._currentFrameIndex );
     }
 }

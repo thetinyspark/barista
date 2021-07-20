@@ -122,6 +122,18 @@ describe("Animation test suite",
         expect(animation.getCurrentFrameTexture()).toBe(sub);
     }); 
 
+    it("should return the previous texture if current is null and play forward", 
+    ()=>{
+        const sub = texture.createSubTexture("sub",0,0,50,50);
+        animation.setFrameTexture(0, texture);
+        animation.setFrameTexture(1, texture);
+        animation.setFrameTexture(2, sub);
+        animation.setFrameTexture(4, texture);
+        animation.play();
+        animation.goToFrame(3);
+        expect(animation.getCurrentFrameTexture()).toBe(sub);
+    })
+
     it("should be able to play an animation forward", 
     ()=>{        
         // given 
@@ -238,4 +250,6 @@ describe("Animation test suite",
         //then 
         expect(currentFrame).toEqual(2);
     });
+
+  
 });

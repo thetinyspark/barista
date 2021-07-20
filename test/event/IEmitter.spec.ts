@@ -169,5 +169,18 @@ describe(
             }
         );
 
+        it( 
+            "Lorsque je souscris à plusieurs abonnements, je dois pouvoir tous les résilier d'un seul coup", 
+            ()=>{
+
+                emitter.subscribe(eventType, observer); 
+                emitter.subscribe(anotherEventType, observer2 );
+                emitter.unsubscribeAll();
+                
+                expect(emitter.hasObservers(eventType)).toBeFalse();
+                expect(emitter.hasObservers(anotherEventType)).toBeFalse();
+            }
+        );
+
     }
 )

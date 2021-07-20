@@ -41,5 +41,9 @@ export default class Emitter implements IEmitter{
         return true;
     }
 
+    unsubscribeAll():void{
+        this._observers = new Map<string,Function[]>();
+    }
+
 
 }
