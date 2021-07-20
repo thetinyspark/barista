@@ -1,4 +1,5 @@
-import Stats from "./stats/Stats";
+import Animation from "./display/Animation";
+import Stats from "./display/Stats";
 import Stage from "./display/Stage";
 import IDisplayObject from "./display/IDisplayObject";
 import DisplayObject from "./display/DisplayObject";
@@ -11,6 +12,9 @@ import Notification from "./event/Notification";
 import Canvas2DRenderer from "./rendering/Canvas2DRenderer";
 import IRenderer from "./rendering/IRenderer";
 import AssetsManager from "./net/AssetsManager";
+import Texture from "./texture/Texture";
+export { Texture };
+export { Animation };
 export { Stats };
 export { Stage };
 export { IDisplayObject };

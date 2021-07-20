@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetsManager = exports.Canvas2DRenderer = exports.Notification = exports.Emitter = exports.DisplayObjectContainer = exports.DisplayObject = exports.Stage = exports.Stats = void 0;
-const Stats_1 = require("./stats/Stats");
+exports.AssetsManager = exports.Canvas2DRenderer = exports.Notification = exports.Emitter = exports.DisplayObjectContainer = exports.DisplayObject = exports.Stage = exports.Stats = exports.Animation = exports.Texture = void 0;
+const Animation_1 = require("./display/Animation");
+exports.Animation = Animation_1.default;
+const Stats_1 = require("./display/Stats");
 exports.Stats = Stats_1.default;
 const Stage_1 = require("./display/Stage");
 exports.Stage = Stage_1.default;
@@ -17,3 +19,5 @@ const Canvas2DRenderer_1 = require("./rendering/Canvas2DRenderer");
 exports.Canvas2DRenderer = Canvas2DRenderer_1.default;
 const AssetsManager_1 = require("./net/AssetsManager");
 exports.AssetsManager = AssetsManager_1.default;
+const Texture_1 = require("./texture/Texture");
+exports.Texture = Texture_1.default;

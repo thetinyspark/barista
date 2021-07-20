@@ -1,10 +1,11 @@
 import { mat2d } from "gl-matrix";
 import Emitter from "../event/Emitter";
 import IRenderer from "../rendering/IRenderer";
+import Texture from "../texture/Texture";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 export default class DisplayObject extends Emitter implements IDisplayObject {
-    texture: HTMLImageElement | HTMLCanvasElement | null;
+    texture: Texture | null;
     worldMatrix: mat2d;
     matrix: mat2d;
     x: number;
