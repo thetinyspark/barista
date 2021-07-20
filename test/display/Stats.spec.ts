@@ -1,4 +1,4 @@
-import Stats from "../../lib/stats/Stats";
+import Stats from "../../lib/display/Stats";
 import Stage from "../../lib/display/Stage";
 
 export function wait(ms:number):Promise<void>{
