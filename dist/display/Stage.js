@@ -31,7 +31,7 @@ class Stage extends DisplayObjectContainer_1.default {
         return this._currentFrame;
     }
     nextFrame() {
-        this.update(gl_matrix_1.mat2d.create());
+        this.update(gl_matrix_1.mat2d.create(), 1);
         this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
         this._currentFrame++;
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);

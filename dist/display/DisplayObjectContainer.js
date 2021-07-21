@@ -45,8 +45,8 @@ class DisplayObjectContainer extends DisplayObject_1.default {
             this.removeChildAt(0);
         }
     }
-    update(worldMatrix = null) {
-        super.update(worldMatrix);
+    update(worldMatrix, worldOpacity) {
+        super.update(worldMatrix, worldOpacity);
         this._children.forEach((child) => {
             child.update(this.worldMatrix, this.worldOpacity);
         });
