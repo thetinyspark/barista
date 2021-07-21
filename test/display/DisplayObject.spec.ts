@@ -49,7 +49,7 @@ describe(
                         parent.addChild(child);
                         
                         // when 
-                        parent.update(mat2d.create());
+                        parent.update(mat2d.create(), 1);
 
                         // then
                         expect(child.worldOpacity).toEqual(0.25);
@@ -63,7 +63,7 @@ describe(
         
                         expect(object.matrix).toEqual(identity);
         
-                        object.update(mat2d.create());
+                        object.update(mat2d.create(), 1);
                         expect(object.matrix[4]).toEqual(object.x);
                         expect(object.matrix[5]).toEqual(object.y);
                     }
@@ -81,7 +81,7 @@ describe(
                         parent.y = 200;
         
                         parent.addChild(child);
-                        parent.update(mat2d.create());
+                        parent.update(mat2d.create(), 1);
         
                         // when 
                         const worldMatrix = child.worldMatrix;

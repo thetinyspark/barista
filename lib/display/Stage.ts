@@ -40,7 +40,7 @@ export default class Stage extends DisplayObjectContainer{
     }
 
     public nextFrame():void{
-        this.update(mat2d.create());
+        this.update(mat2d.create(), 1);
 
         this._context.clearRect(0,0, this._canvas.width, this._canvas.height);
         this._currentFrame++; 
