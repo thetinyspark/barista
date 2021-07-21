@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetsManager = exports.Canvas2DRenderer = exports.Notification = exports.Emitter = exports.DisplayObjectContainer = exports.DisplayObject = exports.Stage = exports.Stats = exports.Animation = exports.Texture = exports.StageEvent = exports.AnimationEvent = exports.JSON_TYPE = exports.IMAGE_TYPE = void 0;
+exports.AssetsManager = exports.Canvas2DRenderer = exports.Notification = exports.Emitter = exports.DisplayObjectContainer = exports.DisplayObject = exports.Stage = exports.Stats = exports.Animation = exports.Texture = exports.StageEvent = exports.AnimationEvent = exports.JSON_TYPE = exports.IMAGE_TYPE = exports.Geometry = void 0;
 const Animation_1 = require("./display/Animation");
 exports.Animation = Animation_1.default;
 Object.defineProperty(exports, "AnimationEvent", { enumerable: true, get: function () { return Animation_1.AnimationEvent; } });
@@ -25,3 +25,5 @@ Object.defineProperty(exports, "IMAGE_TYPE", { enumerable: true, get: function (
 Object.defineProperty(exports, "JSON_TYPE", { enumerable: true, get: function () { return AssetsManager_1.JSON_TYPE; } });
 const Texture_1 = require("./texture/Texture");
 exports.Texture = Texture_1.default;
+const Geometry_1 = require("./geom/Geometry");
+exports.Geometry = Geometry_1.default;

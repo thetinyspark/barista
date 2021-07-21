@@ -13,6 +13,8 @@ import Canvas2DRenderer from "./rendering/Canvas2DRenderer";
 import IRenderer from "./rendering/IRenderer";
 import AssetsManager, { IMAGE_TYPE, JSON_TYPE } from "./net/AssetsManager";
 import Texture from "./texture/Texture";
+import Geometry, { Hitbox, Point, Rectangle } from "./geom/Geometry";
+export { Geometry, Hitbox, Point, Rectangle };
 export { IMAGE_TYPE };
 export { JSON_TYPE };
 export { AnimationEvent };
