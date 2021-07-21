@@ -58,8 +58,8 @@ export default class DisplayObjectContainer extends DisplayObject implements IDi
         }
     }
 
-    public update(worldMatrix:mat2d|null = null):void{
-        super.update(worldMatrix);
+    public update(worldMatrix:mat2d, worldOpacity:number):void{
+        super.update(worldMatrix, worldOpacity);
         this._children.forEach(
             (child:IDisplayObject)=>{
                 child.update(this.worldMatrix, this.worldOpacity);
