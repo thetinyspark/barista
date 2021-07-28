@@ -115,7 +115,7 @@ describe('webgl utils test suite',
                     
                     data.width = 800; 
                     data.height = 480;
-                    const texture = new Texture("test", data, 0, 0, 256, 256);
+                    const texture = new Texture("test2", data, 0, 0, 256, 256);
 
                     // when 
                     const result1:WebGlTextureData = buildWebGlTextureData(context, texture);
@@ -123,6 +123,7 @@ describe('webgl utils test suite',
 
                     // then 
                     expect(result1.texture).toBe(result2.texture);
+                    expect(result1.uid).toBe(result2.uid);
                });
 
                it('should create a unique WebGlTextureData based on Texture data id', 
@@ -133,7 +134,7 @@ describe('webgl utils test suite',
                     
                     data.width = 800; 
                     data.height = 480;
-                    const texture = new Texture("test", data, 0, 0, 256, 256);
+                    const texture = new Texture("test3", data, 0, 0, 256, 256);
 
                     // when 
                     const result1:WebGlTextureData = buildWebGlTextureData(context, texture);

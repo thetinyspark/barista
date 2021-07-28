@@ -152,6 +152,7 @@ export function buildWebGlTextureData(context:WebGLRenderingContext, texture:Tex
         _mapGl.set(texture.textureUid, glTexture);
     }
 
+    
     if( !_glData.has(texture.id) ){
         _glData.set(
             texture.id, 
@@ -179,6 +180,6 @@ export function buildWebGlTextureData(context:WebGLRenderingContext, texture:Tex
         );
     }
    
-
-    return _glData.get(texture.id);
+    const result = _glData.get(texture.id);
+    return result;
 }
