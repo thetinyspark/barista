@@ -12,6 +12,7 @@
     "watch": "nodemon -w lib -x \"npm run build\" -e ts",
     "build": "tsc && npx webpack --config webpack.config.js",
     "test": "karma start",
+    "test:ci": "karma start --single-run",
     "doc": "node_modules/.bin/typedoc --out docs --mode modules --exclude spec/**/*"
   },
   "repository": {
