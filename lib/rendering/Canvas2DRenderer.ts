@@ -30,7 +30,7 @@ export default class Canvas2DRenderer implements IRenderer{
                 context.globalAlpha = child.worldOpacity;
                 context.setTransform(matrix[0],matrix[1],matrix[2],matrix[3], matrix[4], matrix[5]);
                 context.drawImage(
-                    child.texture.data, 
+                    child.texture.source, 
                     child.texture.sx, 
                     child.texture.sy, 
                     child.texture.sw, 

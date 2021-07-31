@@ -2,12 +2,13 @@ import Animation, {AnimationEvent} from "../../lib/display/Animation";
 import Texture from "../../lib/texture/Texture";
 import IRenderer from "../../lib/rendering/IRenderer";
 import IDisplayObject from "../../lib/display/IDisplayObject";
+import TextureData from "../../lib/texture/TextureData";
 describe("Animation test suite",
 ()=>{
     
     const data = document.createElement("canvas");
     const animation:Animation = new Animation();
-    const texture:Texture = new Texture("texture",data);
+    const texture:Texture = new Texture("texture", new TextureData(data) );
     const fakeRenderer:IRenderer = {
         add: (child:IDisplayObject):void =>{},
         getChildren: ():IDisplayObject[] =>{ return []},

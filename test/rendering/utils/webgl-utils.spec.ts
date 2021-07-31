@@ -1,8 +1,9 @@
 import DisplayObject from "../../../lib/display/DisplayObject";
 import Texture from "../../../lib/texture/Texture";
-import {batch, buildPowerOf2TextureData, getNextPowerOf2, buildWebGlTextureData, pushVerticesInto, createVertexArray, createIndexArray, VERTEX_SIZE, MAX_QUAD_PER_CALL, VERTEX_ARRAY_SIZE, WebGlTextureData} from "../../../lib/rendering/webgl/utils/utils";
+import {batch, getNextPowerOf2, pushVerticesInto, createVertexArray, createIndexArray, VERTEX_SIZE, MAX_QUAD_PER_CALL, VERTEX_ARRAY_SIZE, WebGlTextureData} from "../../../lib/rendering/webgl/utils/utils";
 import IDisplayObject from "../../../lib/display/IDisplayObject";
 import { mat2d } from "gl-matrix";
+import TextureData from "../../../lib/texture/TextureData";
 
 describe('webgl utils test suite', 
      ()=>{
@@ -13,9 +14,9 @@ describe('webgl utils test suite',
                     ()=>{
                          const children = []; 
                          const textures = [
-                              new Texture("A", document.createElement("canvas"), 0, 0, 0, 0),
-                              new Texture("B", document.createElement("canvas"), 0, 0, 0, 0),
-                              new Texture("C", document.createElement("canvas"), 0, 0, 0, 0)
+                              new Texture("A", new TextureData( document.createElement("canvas") ), 0, 0, 0, 0),
+                              new Texture("B", new TextureData( document.createElement("canvas") ), 0, 0, 0, 0),
+                              new Texture("C", new TextureData( document.createElement("canvas") ), 0, 0, 0, 0),
                          ];
 
                          for( let i:number = 0; i < 10678; i++ ){
@@ -56,93 +57,6 @@ describe('webgl utils test suite',
                     }
                )
                
-          });
-          
-          describe('#buildPowerOf2TextureData', 
-          ()=>{
-               it('should transform data into one with length multiple of 2', 
-               ()=>{
-                    // given 
-                    const data = document.createElement("canvas");
-                    data.width = 800; 
-                    data.height = 480;
-                    const texture = new Texture("test", data, 0, 0, data.width, data.height);
-
-                    // when 
-                    const result = buildPowerOf2TextureData(texture); 
-
-                    // then 
-                    expect(result.width).toEqual(1024);
-                    expect(result.height).toEqual(512);
-               });
-          });
-
-          describe('#buildWebGlTextureData', 
-          ()=>{
-               it('should create a WebGlTextureData from Texture object', 
-               ()=>{
-                    // given 
-                    const data = document.createElement("canvas");
-                    const context = data.getContext("webgl");
-                    
-                    data.width = 800; 
-                    data.height = 480;
-                    const texture = new Texture("test", data, 0, 0, 256, 256);
-                    const expected = {
-                         topLeft: {u: 0, v: 1},
-                         topRight: {u: 0.25, v: 1},
-                         bottomLeft: {u: 0, v: 0.5},
-                         bottomRight: {u: 0.25, v: 0.5},
-                    };
-
-                    // when 
-                    const result:WebGlTextureData = buildWebGlTextureData(context, texture);
-
-                    // then 
-                    expect(result).not.toBeNull();
-                    expect(result.uid).toEqual(texture.textureUid);
-                    expect(result.topLeftUv).toEqual(expected.topLeft);
-                    expect(result.topRightUv).toEqual(expected.topRight);
-                    expect(result.bottomLeftUv).toEqual(expected.bottomLeft);
-                    expect(result.bottomRightUv).toEqual(expected.bottomRight);
-               });
-
-               it('should create a unique glTexture based on Texture data uid', 
-               ()=>{
-                    // given 
-                    const data = document.createElement("canvas");
-                    const context = data.getContext("webgl");
-                    
-                    data.width = 800; 
-                    data.height = 480;
-                    const texture = new Texture("test2", data, 0, 0, 256, 256);
-
-                    // when 
-                    const result1:WebGlTextureData = buildWebGlTextureData(context, texture);
-                    const result2:WebGlTextureData = buildWebGlTextureData(context, texture);
-
-                    // then 
-                    expect(result1.texture).toBe(result2.texture);
-                    expect(result1.uid).toBe(result2.uid);
-               });
-
-               it('should create a unique WebGlTextureData based on Texture data id', 
-               ()=>{
-                    // given 
-                    const data = document.createElement("canvas");
-                    const context = data.getContext("webgl");
-                    
-                    data.width = 800; 
-                    data.height = 480;
-                    const texture = new Texture("test3", data, 0, 0, 256, 256);
-
-                    // when 
-                    const result1:WebGlTextureData = buildWebGlTextureData(context, texture);
-                    const result2:WebGlTextureData = buildWebGlTextureData(context, texture);
-
-                    // then 
-                    expect(result1).toBe(result2);
-               });
           });
 
           describe('#pushVerticesInto', 

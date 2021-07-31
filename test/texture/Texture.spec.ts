@@ -1,8 +1,9 @@
 import Texture from "../../lib/texture/Texture";
+import TextureData from "../../lib/texture/TextureData";
 describe("Texture test suite", () => {
 
-  const data = document.createElement("canvas");
-  const data2 = document.createElement("canvas");
+  const data = new TextureData( document.createElement("canvas") );
+  const data2 = new TextureData( document.createElement("canvas") );
 
   it("should be able to create a texture objet", 
     () => {
@@ -35,12 +36,6 @@ describe("Texture test suite", () => {
     const main = new Texture("main", data);
     const sub = main.createSubTexture("sub_texture", 0, 0, 100, 100 ); 
     expect(sub).toBeTruthy();
-  }); 
-
-  it("should be able to get texture uid by data",
-  ()=>{
-    const texture:Texture = new Texture("texture", data);
-    expect(texture.textureUid).toBeTruthy(Texture.getTextureUidByData(texture.data));
   }); 
 
 });

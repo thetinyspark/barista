@@ -3,11 +3,13 @@ import Stage from "../../lib/display/Stage";
 import Webgl2DRenderer from "../../lib/rendering/Webgl2DRenderer";
 import DisplayObject from "../../lib/display/DisplayObject";
 import IDisplayObject from "../../lib/display/IDisplayObject";
+import TextureData from "../../lib/texture/TextureData";
 
 xdescribe('Webgl2DRenderer test suite', 
     ()=>{
 
         const fakeCanvas:HTMLCanvasElement = document.createElement("canvas");
+        const fakeTextureData = new TextureData(fakeCanvas);
         const fakeContext:CanvasRenderingContext2D = fakeCanvas.getContext("2d"); 
         const renderer:Webgl2DRenderer  = new Webgl2DRenderer();
 
@@ -90,7 +92,14 @@ xdescribe('Webgl2DRenderer test suite',
                 // given 
                 const stage = new Stage();
                 const bmp = new DisplayObject();
-                const texture = new Texture("fake", fakeCanvas, 0, 0, fakeCanvas.width, fakeCanvas.height);
+                const texture = new Texture(
+                    "fake", 
+                    fakeTextureData,
+                    0, 
+                    0, 
+                    fakeCanvas.width, 
+                    fakeCanvas.height
+                );
 
                 bmp.width = 100; 
                 bmp.height = 100;
@@ -116,7 +125,7 @@ xdescribe('Webgl2DRenderer test suite',
                 // given 
                 const stage = new Stage();
                 const bmp = new DisplayObject();
-                const mainTexture = new Texture("fake", fakeCanvas, 0, 0, fakeCanvas.width, fakeCanvas.height);
+                const mainTexture = new Texture("fake", fakeTextureData, 0, 0, fakeCanvas.width, fakeCanvas.height);
                 const texture = mainTexture.createSubTexture("subfake", 100, 0, 100, 200);
 
                 bmp.width = 100; 

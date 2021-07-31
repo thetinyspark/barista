@@ -1,5 +1,4 @@
 import IDisplayObject from "../../../display/IDisplayObject";
-import Texture from "../../../texture/Texture";
 
 export type WebGlTextureData = {
     topLeftUv:{u:number, v:number}, 
@@ -15,9 +14,6 @@ export const NUM_VERTICES_PER_QUAD:number = 4;
 export const MAX_QUAD_PER_CALL:number = Math.floor( 65535 / VERTEX_SIZE / NUM_VERTICES_PER_QUAD );
 export const VERTEX_ARRAY_SIZE:number = MAX_QUAD_PER_CALL * NUM_VERTICES_PER_QUAD * VERTEX_SIZE;
 export const INDICES_PER_QUAD:number = 6;
-
-const _mapGl = new Map<string,WebGLTexture>();
-const _glData = new Map<string, WebGlTextureData>();
 
 export function batch(children:IDisplayObject[]):IDisplayObject[][]{
     children.sort( 
@@ -122,64 +118,4 @@ export function getNextPowerOf2(value:number):number{
     }
     
     return num;
-}
-
-export function buildPowerOf2TextureData(texture:Texture):HTMLCanvasElement{
-    const nwidth:number = getNextPowerOf2(texture.data.width);
-    const nheight:number = getNextPowerOf2(texture.data.height);
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d");
-    canvas.width = nwidth;
-    canvas.height = nheight;
-    context.drawImage(texture.data, 0, 0);
-    return canvas;
-}
-
-export function buildWebGlTextureData(context:WebGLRenderingContext, texture:Texture):WebGlTextureData|null{
-    
-    const width:number = getNextPowerOf2( texture.data.width );
-    const height:number = getNextPowerOf2( texture.data.height );
-
-    if( !_mapGl.has(texture.textureUid )){
-        const glTexture = context.createTexture(); 
-        const data = buildPowerOf2TextureData(texture); 
-        context.bindTexture(context.TEXTURE_2D, glTexture);
-        context.pixelStorei(context.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
-        context.texImage2D(context.TEXTURE_2D, 0, context.RGBA, context.RGBA, context.UNSIGNED_BYTE, data);
-        context.texParameteri(context.TEXTURE_2D, context.TEXTURE_MAG_FILTER, context.LINEAR);
-        context.texParameteri(context.TEXTURE_2D, context.TEXTURE_MIN_FILTER, context.LINEAR);
-        context.bindTexture(context.TEXTURE_2D, null);
-        _mapGl.set(texture.textureUid, glTexture);
-    }
-
-    
-    if( !_glData.has(texture.id) ){
-        _glData.set(
-            texture.id, 
-            {
-                topLeftUv: {
-                    u: texture.sx / width, 
-                    v: 1-(texture.sy / height)
-                },
-                bottomLeftUv: {
-                    u: texture.sx / width, 
-                    v: 1-( (texture.sy + texture.sh) / height )
-                },
-                topRightUv: 
-                {
-                    u: (texture.sx + texture.sw) / width, 
-                    v: 1-(texture.sy / height)
-                },
-                bottomRightUv: {
-                    u: (texture.sx + texture.sw) / width, 
-                    v: 1-( (texture.sy + texture.sh) / height )
-                },
-                texture: _mapGl.get(texture.textureUid ), 
-                uid: texture.textureUid
-            }
-        );
-    }
-   
-    const result = _glData.get(texture.id);
-    return result;
 }
