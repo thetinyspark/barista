@@ -1,6 +1,6 @@
 import DisplayObject from "../../../lib/display/DisplayObject";
 import Texture from "../../../lib/texture/Texture";
-import {batch, getNextPowerOf2, pushVerticesInto, createVertexArray, createIndexArray, VERTEX_SIZE, MAX_QUAD_PER_CALL, VERTEX_ARRAY_SIZE, WebGlTextureData} from "../../../lib/rendering/webgl/utils/utils";
+import {batch, getNextPowerOf2, pushVerticesInto, createVertexArray, createIndexArray, MAX_QUAD_PER_CALL, VERTEX_ARRAY_SIZE} from "../../../lib/rendering/webgl/utils/utils";
 import IDisplayObject from "../../../lib/display/IDisplayObject";
 import { mat2d } from "gl-matrix";
 import TextureData from "../../../lib/texture/TextureData";

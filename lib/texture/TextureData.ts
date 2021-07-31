@@ -1,6 +1,8 @@
 import { getNextPowerOf2 } from "../rendering/webgl/utils/utils";
 export default class TextureData{
 
+    public width:number = 0;
+    public height:number = 0;
     private _source:CanvasImageSource;
     private _uid:string;
     private _glTexture:WebGLTexture|null = null;
@@ -18,8 +20,11 @@ export default class TextureData{
         const context = canvas.getContext("2d");
         canvas.width = nwidth;
         canvas.height = nheight;
+
         context.drawImage(source, 0, 0);
         this._source = canvas;
+        this.width = nwidth;
+        this.height = nheight;
     }
 
     public getGlTexture(context:WebGLRenderingContext):WebGLTexture{

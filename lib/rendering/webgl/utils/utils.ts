@@ -1,14 +1,5 @@
 import IDisplayObject from "../../../display/IDisplayObject";
 
-export type WebGlTextureData = {
-    topLeftUv:{u:number, v:number}, 
-    topRightUv:{u:number, v:number}, 
-    bottomLeftUv:{u:number, v:number}, 
-    bottomRightUv:{u:number, v:number}, 
-    texture:WebGLTexture, 
-    uid:string
-};
-
 export const VERTEX_SIZE:number = 9;
 export const NUM_VERTICES_PER_QUAD:number = 4; 
 export const MAX_QUAD_PER_CALL:number = Math.floor( 65535 / VERTEX_SIZE / NUM_VERTICES_PER_QUAD );
