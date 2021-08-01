@@ -1,13 +1,8 @@
 import IDisplayObject from "../../display/IDisplayObject";
 import Texture from "../../texture/Texture";
-import Default2DShader from "./shaders/Default2DShader";
+import Default2DShader from "./Default2DShader";
 import IRenderer from "../IRenderer";
-
-export const VERTEX_SIZE:number = 11;
-export const NUM_VERTICES_PER_QUAD:number = 4; 
-export const MAX_QUAD_PER_CALL:number = Math.floor( 65535 / VERTEX_SIZE / NUM_VERTICES_PER_QUAD );
-export const VERTEX_ARRAY_SIZE:number = MAX_QUAD_PER_CALL * NUM_VERTICES_PER_QUAD * VERTEX_SIZE;
-export const INDICES_PER_QUAD:number = 6;
+import WebGlConfig from "./WebGlConfig";
 
 export default class Webgl2DRenderer implements IRenderer{
     private _children:IDisplayObject[] = []; 
@@ -30,8 +25,8 @@ export default class Webgl2DRenderer implements IRenderer{
         this._canvas = document.createElement("canvas"); 
         this._context = this._canvas.getContext("webgl");
 
-        this._vertexArray = this.createVertexArray();
-        this._indexArray = this.createIndexArray();
+        this._vertexArray = WebGlConfig.createVertexArray();
+        this._indexArray = WebGlConfig.createIndexArray();
 
         // init buffer
         this._vertexBuffer = this._context.createBuffer();
@@ -87,24 +82,24 @@ export default class Webgl2DRenderer implements IRenderer{
 
                 const first = currentBatch[0]; 
                 this._currentTexture = first.texture; 
-                this._currentShader.pushVerticesInto(currentBatch, this._vertexArray);
+                WebGlConfig.pushVerticesInto(currentBatch, this._vertexArray);
                 
 
                 const context = this._context;		
                 context.activeTexture(context.TEXTURE0);
                 context.bindTexture(context.TEXTURE_2D, this._currentTexture.data.getGlTexture(context));
                     
-                if( currentBatch.length > MAX_QUAD_PER_CALL >> 1 )
+                if( currentBatch.length > WebGlConfig.MAX_QUAD_PER_CALL >> 1 )
                 {
                     context.bufferSubData(context.ARRAY_BUFFER, 0, this._vertexArray);
                 }
                 else
                 {
-                	const view = this._vertexArray.subarray(0, currentBatch.length * 4 * VERTEX_SIZE);
+                	const view = this._vertexArray.subarray(0, currentBatch.length * 4 * WebGlConfig.VERTEX_SIZE);
                 	context.bufferSubData(context.ARRAY_BUFFER, 0, view);
                 }
 
-                context.drawElements(context.TRIANGLES, currentBatch.length * INDICES_PER_QUAD, context.UNSIGNED_SHORT, 0 );
+                context.drawElements(context.TRIANGLES, currentBatch.length * WebGlConfig.INDICES_PER_QUAD, context.UNSIGNED_SHORT, 0 );
 
             }
         ); 
@@ -117,7 +112,7 @@ export default class Webgl2DRenderer implements IRenderer{
                 return child.texture !== null;
             }
         ); 
-        
+
         children.sort( 
             (a, b)=>{
                 return (a.texture.textureUid < b.texture.textureUid) ? -1 : 1;
@@ -129,7 +124,7 @@ export default class Webgl2DRenderer implements IRenderer{
         let texId:string = "";
         
         for( let i:number = 0; i < children.length; i++ ){
-            if( children[i].texture.textureUid !== texId || i%MAX_QUAD_PER_CALL === 0 ){
+            if( children[i].texture.textureUid !== texId || i % WebGlConfig.MAX_QUAD_PER_CALL === 0 ){
                 batch = [];
                 result.push(batch);
                 texId = children[i].texture.textureUid;
@@ -141,26 +136,4 @@ export default class Webgl2DRenderer implements IRenderer{
         return result;
     }
 
-    createVertexArray():Float32Array{
-        return new Float32Array(MAX_QUAD_PER_CALL * VERTEX_SIZE * NUM_VERTICES_PER_QUAD);
-    }
-    
-    createIndexArray():Uint16Array{
-        const size:number = MAX_QUAD_PER_CALL * INDICES_PER_QUAD;
-        const indexArray = new Uint16Array(size);
-        let vertexPos:number = 0;
-    
-        for( let i:number = 0; i < size; i+=INDICES_PER_QUAD){
-            indexArray[i+0] = vertexPos+0;
-            indexArray[i+1] = vertexPos+1;
-            indexArray[i+2] = vertexPos+2;
-            indexArray[i+3] = vertexPos+1;
-            indexArray[i+4] = vertexPos+2;
-            indexArray[i+5] = vertexPos+3;
-            vertexPos += NUM_VERTICES_PER_QUAD;
-        }
-        return indexArray;
-    }
-    
-    
 }

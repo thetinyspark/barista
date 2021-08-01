@@ -1,5 +1,4 @@
-import IDisplayObject from "../../../display/IDisplayObject";
-import { VERTEX_SIZE } from "../Webgl2DRenderer";
+import WebGlConfig from "./WebGlConfig";
 
 export default class Default2DShader{
 
@@ -27,7 +26,7 @@ export default class Default2DShader{
 		let worldMatrixPointer2:number = 0;
 		let samplerPointer:WebGLUniformLocation = 0;
 		let projectionPointer:WebGLUniformLocation = 0;
-		let stride = VERTEX_SIZE * 4;
+		let stride = WebGlConfig.VERTEX_SIZE * 4;
 		// let stride = 0;
 		
 		this.fragmentShader = this._compile(context, this._getFragmentSource(), context.FRAGMENT_SHADER );
@@ -47,9 +46,7 @@ export default class Default2DShader{
 		
 		//if the program is not linked...
 		if (!context.getProgramParameter(this.program, context.LINK_STATUS)) 
-		{
-			alert("Could not initialise shaders");
-		}
+			throw new Error("Could not initialise shaders");
 	
 		context.useProgram(this.program); // use the shaderProgram
 		
@@ -79,65 +76,6 @@ export default class Default2DShader{
 		
 		this.projectionPointer = projectionPointer;
 		
-    }
-
-	public pushVerticesInto(children:IDisplayObject[], vertexArray:Float32Array):void{
-        let pos:number = 0;
-        for( let i:number = 0; i < children.length; i++ ){
-            const current = children[i];
-    
-            // topleft
-            vertexArray[pos++] = 0; // x
-            vertexArray[pos++] = 0; // y
-            vertexArray[pos++] = current.texture.topLeftUv.u; // u
-            vertexArray[pos++] = current.texture.topLeftUv.v; // v
-            vertexArray[pos++] = current.worldMatrix[0]; // a
-            vertexArray[pos++] = current.worldMatrix[1]; // b
-            vertexArray[pos++] = current.worldMatrix[2]; // c
-            vertexArray[pos++] = current.worldMatrix[3]; // d
-            vertexArray[pos++] = current.worldMatrix[4]; // tx
-            vertexArray[pos++] = current.worldMatrix[5]; // ty
-            vertexArray[pos++] = current.worldOpacity; // opacity
-    
-            // topright
-            vertexArray[pos++] = current.width; // x
-            vertexArray[pos++] = 0; // y
-            vertexArray[pos++] = current.texture.topRightUv.u; // u
-            vertexArray[pos++] = current.texture.topRightUv.v; // v
-            vertexArray[pos++] = current.worldMatrix[0]; // a
-            vertexArray[pos++] = current.worldMatrix[1]; // b
-            vertexArray[pos++] = current.worldMatrix[2]; // c
-            vertexArray[pos++] = current.worldMatrix[3]; // d
-            vertexArray[pos++] = current.worldMatrix[4]; // tx
-            vertexArray[pos++] = current.worldMatrix[5]; // ty
-            vertexArray[pos++] = current.worldOpacity; //  opacity
-    
-            // bottomleft
-            vertexArray[pos++] = 0; // x
-            vertexArray[pos++] = current.height; // y
-            vertexArray[pos++] = current.texture.bottomLeftUv.u; // u
-            vertexArray[pos++] = current.texture.bottomLeftUv.v; // v
-            vertexArray[pos++] = current.worldMatrix[0]; // a
-            vertexArray[pos++] = current.worldMatrix[1]; // b
-            vertexArray[pos++] = current.worldMatrix[2]; // c
-            vertexArray[pos++] = current.worldMatrix[3]; // d
-            vertexArray[pos++] = current.worldMatrix[4]; // tx
-            vertexArray[pos++] = current.worldMatrix[5]; // ty
-            vertexArray[pos++] = current.worldOpacity; // opacity
-    
-            // bottomright
-            vertexArray[pos++] = current.width; // x
-            vertexArray[pos++] = current.height; // y
-            vertexArray[pos++] = current.texture.bottomRightUv.u; // u
-            vertexArray[pos++] = current.texture.bottomRightUv.v; // v
-            vertexArray[pos++] = current.worldMatrix[0]; // a
-            vertexArray[pos++] = current.worldMatrix[1]; // b
-            vertexArray[pos++] = current.worldMatrix[2]; // c
-            vertexArray[pos++] = current.worldMatrix[3]; // d
-            vertexArray[pos++] = current.worldMatrix[4]; // tx
-            vertexArray[pos++] = current.worldMatrix[5]; // ty
-            vertexArray[pos++] = current.worldOpacity; // opacity
-        }
     }
 
     private _compile(context:WebGLRenderingContext, source:string, type:number):WebGLShader{

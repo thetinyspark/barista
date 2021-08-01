@@ -1,18 +1,16 @@
-import Default2DShader from "../../../lib/rendering/webgl/shaders/Default2DShader"; "../../../lib/rendering/webgl/shaders/Default2DShader";
-import DisplayObject from "../../../lib/display/DisplayObject";
-import Texture from "../../../lib/texture/Texture";
-import TextureData from "../../../lib/texture/TextureData";
+import DisplayObject from "../../lib/display/DisplayObject";
+import WebGlConfig from "../../lib/rendering/webgl/WebGlConfig";
+import Texture from "../../lib/texture/Texture";
+import TextureData from "../../lib/texture/TextureData";
 
-describe("DefaultShader test suite", 
+describe("WebglConfig test suite", 
     ()=>{
-        it('should push vertices data into a vertexArray, vertices contains 4 points, each with x,y,opacity and worldMatrix data', 
+        it('should push vertices data into a vertexArray, according to the size of a vertex per num children', 
         ()=>{
             // given 
             const canvas = document.createElement("canvas"); 
-            const context = canvas.getContext("webgl");
             const vertexArray = new Float32Array(65535);
             const emptyArray = new Float32Array(0);
-            const shader = new Default2DShader(context);
             const children = []; 
 
             canvas.width = canvas.height = 128; 
@@ -25,7 +23,8 @@ describe("DefaultShader test suite",
             }
      
             // when 
-            shader.pushVerticesInto(children, vertexArray);
+            WebGlConfig.pushVerticesInto(children, vertexArray);
+            
      
             // then 
             expect(vertexArray).not.toEqual(emptyArray);

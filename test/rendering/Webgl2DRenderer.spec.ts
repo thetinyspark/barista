@@ -1,10 +1,10 @@
 import Texture from "../../lib/texture/Texture";
 import Stage from "../../lib/display/Stage";
-import Webgl2DRenderer, { MAX_QUAD_PER_CALL, VERTEX_ARRAY_SIZE } from "../../lib/rendering/webgl/Webgl2DRenderer";
+import Webgl2DRenderer from "../../lib/rendering/webgl/Webgl2DRenderer";
+import WebGlConfig from "../../lib/rendering/webgl/WebGlConfig";
 import DisplayObject from "../../lib/display/DisplayObject";
 import IDisplayObject from "../../lib/display/IDisplayObject";
 import TextureData from "../../lib/texture/TextureData";
-import { mat2d } from "gl-matrix";
 
 describe('Webgl2DRenderer test suite', 
     ()=>{
@@ -199,7 +199,7 @@ describe('Webgl2DRenderer test suite',
                     (currentBatch:IDisplayObject[])=>{
                             const ids = currentBatch.map( value => value.texture.textureUid ); 
                             const uniqueIds = Array.from( new Set(ids) );
-                            expect(currentBatch.length).toBeLessThanOrEqual(MAX_QUAD_PER_CALL); 
+                            expect(currentBatch.length).toBeLessThanOrEqual(WebGlConfig.MAX_QUAD_PER_CALL); 
                             expect(uniqueIds.length).toEqual(1);
                     }
                 );
@@ -209,10 +209,10 @@ describe('Webgl2DRenderer test suite',
         it('should create an empty vertexArray with the maximum size', 
         ()=>{
             // when 
-            const result = renderer.createVertexArray();
+            const result = WebGlConfig.createVertexArray();
 
             // then 
-            expect(result.length).toEqual(VERTEX_ARRAY_SIZE);
+            expect(result.length).toEqual(WebGlConfig.VERTEX_ARRAY_SIZE);
         });
 
         it('should create an index Array with the good indices and a maximum of quads', 
@@ -225,7 +225,7 @@ describe('Webgl2DRenderer test suite',
                             ];
 
             // when 
-            const result = renderer.createIndexArray();
+            const result = WebGlConfig.createIndexArray();
 
             // then 
             expect(Array.from(result).splice(0,expected.length)).toEqual(expected);
