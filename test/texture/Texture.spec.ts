@@ -60,10 +60,10 @@ describe("Texture test suite", () => {
     expect(textureA.topRightUv.v).toEqual(0.5);
 
     expect(textureA.bottomLeftUv.u).toEqual(0.5);
-    expect(textureA.bottomLeftUv.v).toEqual(0.25);
+    expect(textureA.bottomLeftUv.v).toEqual(0.75);
 
     expect(textureA.bottomRightUv.u).toEqual(0.75);
-    expect(textureA.bottomRightUv.v).toEqual(0.25);
+    expect(textureA.bottomRightUv.v).toEqual(0.75);
   })
 
 });

@@ -1,20 +1,15 @@
 import Animation, {AnimationEvent} from "../../lib/display/Animation";
 import Texture from "../../lib/texture/Texture";
 import IRenderer from "../../lib/rendering/IRenderer";
-import IDisplayObject from "../../lib/display/IDisplayObject";
 import TextureData from "../../lib/texture/TextureData";
+import Canvas2DRenderer from "../../lib/rendering/Canvas2DRenderer";
 describe("Animation test suite",
 ()=>{
     
     const data = document.createElement("canvas");
     const animation:Animation = new Animation();
     const texture:Texture = new Texture("texture", new TextureData(data) );
-    const fakeRenderer:IRenderer = {
-        add: (child:IDisplayObject):void =>{},
-        getChildren: ():IDisplayObject[] =>{ return []},
-        clear: ():void =>{},
-        draw: (canvas:HTMLCanvasElement, context:CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext):void =>{}
-    }
+    const fakeRenderer:IRenderer = new Canvas2DRenderer();
 
     beforeEach(
         ()=>{

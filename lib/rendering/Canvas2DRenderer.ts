@@ -3,6 +3,22 @@ import IRenderer from "./IRenderer";
 
 export default class Canvas2DRenderer implements IRenderer{
     private _children:IDisplayObject[] = []; 
+    private _canvas:HTMLCanvasElement; 
+    private _context:CanvasRenderingContext2D; 
+
+
+    constructor(){
+        this._canvas = document.createElement("canvas"); 
+        this._context = this._canvas.getContext("2d");
+    }
+
+    getContext():CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext{
+        return this._context;
+    }
+
+    getCanvas():HTMLCanvasElement{
+        return this._canvas;
+    }
 
     add(child: IDisplayObject): void {
         this._children.push(child);

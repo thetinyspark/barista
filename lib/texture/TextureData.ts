@@ -1,4 +1,4 @@
-import { getNextPowerOf2 } from "../rendering/webgl/utils/utils";
+import MathUtils from "../utils/MathUtils";
 export default class TextureData{
 
     public width:number = 0;
@@ -14,8 +14,8 @@ export default class TextureData{
     }
 
     private _setSource(source:CanvasImageSource):void{
-        const nwidth:number = getNextPowerOf2(source.width as number);
-        const nheight:number = getNextPowerOf2(source.height as number);
+        const nwidth:number = MathUtils.getNextPowerOf2(source.width as number);
+        const nheight:number = MathUtils.getNextPowerOf2(source.height as number);
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d");
         canvas.width = nwidth;

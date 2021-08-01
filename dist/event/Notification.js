@@ -1,19 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class Notification {
-    constructor(type, emitter, payload) {
+var Notification = /** @class */ (function () {
+    function Notification(type, emitter, payload) {
         this._type = type;
         this._emitter = emitter;
         this._payload = payload;
     }
-    getEventType() {
+    Notification.prototype.getEventType = function () {
         return this._type;
-    }
-    getEmitter() {
+    };
+    Notification.prototype.getEmitter = function () {
         return this._emitter;
-    }
-    getPayload() {
+    };
+    Notification.prototype.getPayload = function () {
         return this._payload;
-    }
-}
+    };
+    return Notification;
+}());
 exports.default = Notification;

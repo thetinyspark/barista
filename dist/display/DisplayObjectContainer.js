@@ -1,61 +1,85 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const DisplayObject_1 = require("./DisplayObject");
-class DisplayObjectContainer extends DisplayObject_1.default {
-    constructor() {
-        super(...arguments);
-        this._children = [];
+var DisplayObject_1 = require("./DisplayObject");
+var DisplayObjectContainer = /** @class */ (function (_super) {
+    __extends(DisplayObjectContainer, _super);
+    function DisplayObjectContainer() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._children = [];
+        return _this;
     }
-    addChild(child) {
+    DisplayObjectContainer.prototype.addChild = function (child) {
         if (this.contains(child))
             this.removeChild(child);
         this._children.push(child);
         child.parent = this;
-    }
-    removeChild(child) {
-        const pos = this.getChildIndex(child);
+    };
+    DisplayObjectContainer.prototype.removeChild = function (child) {
+        var pos = this.getChildIndex(child);
         return this.removeChildAt(pos);
-    }
-    addChildAt(child, index) {
+    };
+    DisplayObjectContainer.prototype.addChildAt = function (child, index) {
         if (this.contains(child))
             this.removeChild(child);
-        const before = this._children.splice(0, index);
+        var before = this._children.splice(0, index);
         child.parent = this;
-        this._children = [...before, child, ...this._children];
-    }
-    removeChildAt(index) {
-        const child = this._children[index] || null;
+        this._children = __spreadArray(__spreadArray(__spreadArray([], before), [child]), this._children);
+    };
+    DisplayObjectContainer.prototype.removeChildAt = function (index) {
+        var child = this._children[index] || null;
         if (child === null)
             throw new Error("out of bound index for removeChildAt");
         this._children.splice(index, 1);
         child.parent = null;
         return child;
-    }
-    getChildren() {
+    };
+    DisplayObjectContainer.prototype.getChildren = function () {
         return this._children;
-    }
-    getChildIndex(child) {
+    };
+    DisplayObjectContainer.prototype.getChildIndex = function (child) {
         return this._children.indexOf(child);
-    }
-    contains(child) {
+    };
+    DisplayObjectContainer.prototype.contains = function (child) {
         return child.parent === this && this.getChildIndex(child) > -1;
-    }
-    removeChildren() {
+    };
+    DisplayObjectContainer.prototype.removeChildren = function () {
         while (this._children.length > 0) {
             this.removeChildAt(0);
         }
-    }
-    update(worldMatrix, worldOpacity) {
-        super.update(worldMatrix, worldOpacity);
-        this._children.forEach((child) => {
-            child.update(this.worldMatrix, this.worldOpacity);
+    };
+    DisplayObjectContainer.prototype.update = function (worldMatrix, worldOpacity) {
+        var _this = this;
+        _super.prototype.update.call(this, worldMatrix, worldOpacity);
+        this._children.forEach(function (child) {
+            child.update(_this.worldMatrix, _this.worldOpacity);
         });
-    }
-    render(renderer) {
-        super.render(renderer);
-        this._children.forEach((child) => {
+    };
+    DisplayObjectContainer.prototype.render = function (renderer) {
+        _super.prototype.render.call(this, renderer);
+        this._children.forEach(function (child) {
             child.render(renderer);
         });
-    }
-}
+    };
+    return DisplayObjectContainer;
+}(DisplayObject_1.default));
 exports.default = DisplayObjectContainer;

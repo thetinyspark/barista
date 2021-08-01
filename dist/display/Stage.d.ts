@@ -6,11 +6,10 @@ export default class Stage extends DisplayObjectContainer {
     private _currentFrame;
     private _renderer;
     constructor();
-    private _setCanvas;
     getRenderer(): IRenderer;
     setRenderer(renderer: IRenderer): void;
     getCanvas(): HTMLCanvasElement;
-    getContext(): CanvasRenderingContext2D;
+    getContext(): CanvasRenderingContext2D | WebGLRenderingContext | WebGL2RenderingContext;
     getCurrentFrame(): number;
     nextFrame(): void;
 }

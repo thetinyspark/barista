@@ -1,7 +1,7 @@
-import { mat2, mat2d } from "gl-matrix";
+import { mat2d } from "gl-matrix";
 import DisplayObject from "../../lib/display/DisplayObject";
 import DisplayObjectContainer from "../../lib/display/DisplayObjectContainer";
-import Geometry from "../../lib/geom/Geometry";
+import Geometry from "../../lib/utils/Geometry";
 
 describe("Geometry test suite", 
 ()=>{

@@ -40,8 +40,8 @@ export default class Texture{
         const height:number = this._data.getSource().height as number;
         const xl:number = this.sx / width;
         const xr:number = ( this.sx + this.sw ) / width;
-        const yt:number = 1-(this.sy / height);
-        const yb:number = 1-( ( this.sy + this.sh ) / height);
+        const yt:number = (this.sy / height);
+        const yb:number = ( ( this.sy + this.sh ) / height);
 
         this.topLeftUv.u = xl;
         this.topLeftUv.v = yt;

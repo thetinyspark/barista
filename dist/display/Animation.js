@@ -1,79 +1,96 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AnimationEvent = void 0;
-const DisplayObject_1 = require("./DisplayObject");
-class Animation extends DisplayObject_1.default {
-    constructor() {
-        super(...arguments);
-        this._framesTextures = [];
-        this._currentFrameIndex = 0;
-        this._playing = false;
-        this._forwarding = true;
-        this.loop = false;
+var DisplayObject_1 = require("./DisplayObject");
+var Animation = /** @class */ (function (_super) {
+    __extends(Animation, _super);
+    function Animation() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._framesTextures = [];
+        _this._currentFrameIndex = 0;
+        _this._playing = false;
+        _this._forwarding = true;
+        _this.loop = false;
+        return _this;
     }
-    play() {
+    Animation.prototype.play = function () {
         this._playing = true;
         this._forwarding = true;
-    }
-    rewind() {
+    };
+    Animation.prototype.rewind = function () {
         this._playing = true;
         this._forwarding = false;
-    }
-    stop() {
+    };
+    Animation.prototype.stop = function () {
         this._playing = false;
-    }
-    render(renderer) {
-        super.render(renderer);
+    };
+    Animation.prototype.render = function (renderer) {
+        _super.prototype.render.call(this, renderer);
         if (this._playing) {
-            const step = (this._forwarding) ? 1 : -1;
+            var step = (this._forwarding) ? 1 : -1;
             this.goToFrame(this._currentFrameIndex + step);
         }
-    }
-    clearFrames() {
+    };
+    Animation.prototype.clearFrames = function () {
         this._currentFrameIndex = 0;
         this._framesTextures = [];
-    }
-    setFrameTexture(frameIndex, texture) {
+    };
+    Animation.prototype.setFrameTexture = function (frameIndex, texture) {
         this._framesTextures[frameIndex] = texture;
-    }
-    getCurrentFrameTexture() {
-        let current = this.getFrameTexture(this.getCurrentFrameIndex());
+    };
+    Animation.prototype.getCurrentFrameTexture = function () {
+        var current = this.getFrameTexture(this.getCurrentFrameIndex());
         if (current === null && this._forwarding)
             current = this.getPreviousDefinedFrameTexture(this.getCurrentFrameIndex());
         else if (current === null && !this._forwarding)
             current = this.getNextDefinedFrameTexture(this.getCurrentFrameIndex());
         return current;
-    }
-    getFrameTexture(frameIndex) {
+    };
+    Animation.prototype.getFrameTexture = function (frameIndex) {
         return this._framesTextures[frameIndex] || null;
-    }
-    getPreviousDefinedFrameTexture(frameIndex) {
-        let texture = null;
+    };
+    Animation.prototype.getPreviousDefinedFrameTexture = function (frameIndex) {
+        var texture = null;
         while (texture === null && frameIndex > -1) {
             texture = this.getFrameTexture(frameIndex--);
         }
         return texture;
-    }
-    getNextDefinedFrameTexture(frameIndex) {
-        let texture = null;
+    };
+    Animation.prototype.getNextDefinedFrameTexture = function (frameIndex) {
+        var texture = null;
         while (texture === null && frameIndex <= this.getLastFrameIndex()) {
             texture = this.getFrameTexture(frameIndex++);
         }
         return texture;
-    }
-    removeFrameTexture(frameIndex) {
+    };
+    Animation.prototype.removeFrameTexture = function (frameIndex) {
         this._framesTextures[frameIndex] = null;
-    }
-    getAnimationLength() {
+    };
+    Animation.prototype.getAnimationLength = function () {
         return this._framesTextures.length;
-    }
-    getLastFrameIndex() {
+    };
+    Animation.prototype.getLastFrameIndex = function () {
         return this.getAnimationLength() - 1;
-    }
-    getCurrentFrameIndex() {
+    };
+    Animation.prototype.getCurrentFrameIndex = function () {
         return this._currentFrameIndex;
-    }
-    goToFrame(frameIndex) {
+    };
+    Animation.prototype.goToFrame = function (frameIndex) {
         if (this.loop) {
             frameIndex = (frameIndex > this.getLastFrameIndex()) ? 0 : frameIndex;
             frameIndex = (frameIndex < 0) ? this.getLastFrameIndex() : frameIndex;
@@ -85,8 +102,9 @@ class Animation extends DisplayObject_1.default {
         this._currentFrameIndex = frameIndex;
         this.texture = this.getCurrentFrameTexture();
         this.emit(AnimationEvent.PLAY_FRAME, this._currentFrameIndex);
-    }
-}
+    };
+    return Animation;
+}(DisplayObject_1.default));
 exports.default = Animation;
 var AnimationEvent;
 (function (AnimationEvent) {
