@@ -13,14 +13,14 @@ import Canvas2DRenderer from "./rendering/Canvas2DRenderer";
 import IRenderer from "./rendering/IRenderer";
 import AssetsManager, {IMAGE_TYPE, JSON_TYPE} from "./net/AssetsManager";
 import Texture from "./texture/Texture";
-import Geometry, {Hitbox, Point, Rectangle} from "./geom/Geometry";
+import Geometry, {Hitbox, Point, Rectangle} from "./utils/Geometry";
+import { isDisplayObjectContainer } from "./utils/isser";
+import TextureData from "./texture/TextureData";
+import Default2DShader from "./rendering/webgl/Default2DShader";
+import Webgl2DRenderer from "./rendering/webgl/Webgl2DRenderer";
+import MathUtils from "./utils/MathUtils";
 
-export {Geometry, Hitbox, Point, Rectangle}
-export {IMAGE_TYPE};
-export {JSON_TYPE};
-export {AnimationEvent};
-export {StageEvent};
-export {Texture};
+// display objects 
 export {Animation};
 export {Stats};
 export {Stage}; 
@@ -28,10 +28,37 @@ export {IDisplayObject};
 export {DisplayObject}; 
 export {DisplayObjectContainer};
 export {IDisplayObjectContainer};
+export {AnimationEvent};
+export {StageEvent};
+
+// event 
 export {Emitter};
 export {IEmitter};
 export {INotification};
 export {Notification};
+
+// net 
+export {AssetsManager};
+export {IMAGE_TYPE};
+export {JSON_TYPE};
+
+
+// rendering
+export {Webgl2DRenderer}
+export {Default2DShader}
 export {IRenderer};
 export {Canvas2DRenderer};
-export {AssetsManager};
+
+// texture
+
+export {Texture};
+export {TextureData}
+
+// utils
+export {MathUtils};
+export {Geometry, Hitbox, Point, Rectangle}
+export {isDisplayObjectContainer}
+
+
+
+

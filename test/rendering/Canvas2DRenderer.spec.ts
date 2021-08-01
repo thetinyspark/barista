@@ -4,6 +4,7 @@ import Canvas2DRenderer from "../../lib/rendering/Canvas2DRenderer";
 import DisplayObject from "../../lib/display/DisplayObject";
 import IDisplayObject from "../../lib/display/IDisplayObject";
 import IRenderer from "../../lib/rendering/IRenderer";
+import TextureData from "../../lib/texture/TextureData";
 
 describe('Canvas2DRenderer test suite', 
     ()=>{
@@ -12,6 +13,7 @@ describe('Canvas2DRenderer test suite',
         const fakeContext:CanvasRenderingContext2D = fakeCanvas.getContext("2d"); 
         const sceneCanvas:HTMLCanvasElement = document.createElement("canvas");
         const sceneContext:CanvasRenderingContext2D = sceneCanvas.getContext("2d");
+        let fakeTexture = new TextureData(fakeCanvas);
 
         beforeEach(
             ()=>{
@@ -21,6 +23,8 @@ describe('Canvas2DRenderer test suite',
 
                 fakeCanvas.width = 200; 
                 fakeCanvas.height = 200; 
+
+                
 
                 // clear the scene
                 sceneContext.save();
@@ -46,6 +50,9 @@ describe('Canvas2DRenderer test suite',
                 fakeContext.fill();
                 fakeContext.closePath();
                 fakeContext.restore();
+
+                // build texture data from fakeCanvas 
+                fakeTexture = new TextureData(fakeCanvas);
                 
                
             }
@@ -90,7 +97,8 @@ describe('Canvas2DRenderer test suite',
                 const renderer = new Canvas2DRenderer();
                 const stage = new Stage();
                 const bmp = new DisplayObject();
-                const texture = new Texture("fake", fakeCanvas, 0, 0, fakeCanvas.width, fakeCanvas.height);
+                
+                const texture = new Texture("fake", fakeTexture, 0, 0, fakeCanvas.width, fakeCanvas.height);
 
                 bmp.width = 100; 
                 bmp.height = 100;
@@ -117,7 +125,7 @@ describe('Canvas2DRenderer test suite',
                 const renderer = new Canvas2DRenderer();
                 const stage = new Stage();
                 const bmp = new DisplayObject();
-                const mainTexture = new Texture("fake", fakeCanvas, 0, 0, fakeCanvas.width, fakeCanvas.height);
+                const mainTexture = new Texture("fake", fakeTexture, 0, 0, fakeCanvas.width, fakeCanvas.height);
                 const texture = mainTexture.createSubTexture("subfake", 100, 0, 100, 200);
 
                 bmp.width = 100; 

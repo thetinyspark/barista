@@ -11,6 +11,9 @@ backlog.ods
 #docs
 docs/
 
+#debug 
+debug/
+
 # TypeScript v1 declaration files
 typings/
 

@@ -1,49 +1,61 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StageEvent = void 0;
-const gl_matrix_1 = require("gl-matrix");
-const Canvas2DRenderer_1 = require("../rendering/Canvas2DRenderer");
-const DisplayObjectContainer_1 = require("./DisplayObjectContainer");
-class Stage extends DisplayObjectContainer_1.default {
-    constructor() {
-        super();
-        this._currentFrame = 0;
-        this._renderer = new Canvas2DRenderer_1.default();
-        this._setCanvas(document.createElement("canvas"));
+var gl_matrix_1 = require("gl-matrix");
+var Canvas2DRenderer_1 = require("../rendering/Canvas2DRenderer");
+var DisplayObjectContainer_1 = require("./DisplayObjectContainer");
+var Stage = /** @class */ (function (_super) {
+    __extends(Stage, _super);
+    function Stage() {
+        var _this = _super.call(this) || this;
+        _this._currentFrame = 0;
+        _this._renderer = new Canvas2DRenderer_1.default();
+        return _this;
     }
-    _setCanvas(canvas) {
-        this._canvas = canvas;
-        this._context = canvas.getContext("2d");
-    }
-    getRenderer() {
+    Stage.prototype.getRenderer = function () {
         return this._renderer;
-    }
-    setRenderer(renderer) {
+    };
+    Stage.prototype.setRenderer = function (renderer) {
         this._renderer = renderer;
-    }
-    getCanvas() {
-        return this._canvas;
-    }
-    getContext() {
-        return this._context;
-    }
-    getCurrentFrame() {
+    };
+    Stage.prototype.getCanvas = function () {
+        return this._renderer.getCanvas();
+    };
+    Stage.prototype.getContext = function () {
+        return this._renderer.getContext();
+    };
+    Stage.prototype.getCurrentFrame = function () {
         return this._currentFrame;
-    }
-    nextFrame() {
-        this.update(gl_matrix_1.mat2d.create(), 1);
-        this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
+    };
+    Stage.prototype.nextFrame = function () {
         this._currentFrame++;
+        this.update(gl_matrix_1.mat2d.create(), 1);
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);
         // clear the rendering pipeline
         this._renderer.clear();
         // add children to rendering pipeline
         this.render(this._renderer);
         // draw objects
-        this._renderer.draw(this._canvas, this._context);
+        this._renderer.draw(this._renderer.getCanvas(), this._renderer.getContext());
         this.emit(StageEvent.FRAME_END, this._currentFrame);
-    }
-}
+    };
+    return Stage;
+}(DisplayObjectContainer_1.default));
 exports.default = Stage;
 var StageEvent;
 (function (StageEvent) {

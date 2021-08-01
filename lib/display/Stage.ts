@@ -11,12 +11,6 @@ export default class Stage extends DisplayObjectContainer{
 
     constructor(){
         super();
-        this._setCanvas(document.createElement("canvas"));
-    }
-
-    private _setCanvas(canvas:HTMLCanvasElement):void{
-        this._canvas = canvas;
-        this._context = canvas.getContext("2d");
     }
 
     public getRenderer():IRenderer{
@@ -28,11 +22,11 @@ export default class Stage extends DisplayObjectContainer{
     }
 
     public getCanvas():HTMLCanvasElement{
-        return this._canvas;
+        return this._renderer.getCanvas();
     }
 
-    public getContext():CanvasRenderingContext2D{
-        return this._context;
+    public getContext():CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext{
+        return this._renderer.getContext();
     }
 
     public getCurrentFrame():number{
@@ -40,10 +34,8 @@ export default class Stage extends DisplayObjectContainer{
     }
 
     public nextFrame():void{
-        this.update(mat2d.create(), 1);
-
-        this._context.clearRect(0,0, this._canvas.width, this._canvas.height);
         this._currentFrame++; 
+        this.update(mat2d.create(), 1);
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);
 
         // clear the rendering pipeline
@@ -53,7 +45,7 @@ export default class Stage extends DisplayObjectContainer{
         this.render(this._renderer);
 
         // draw objects
-        this._renderer.draw(this._canvas, this._context);
+        this._renderer.draw(this._renderer.getCanvas(), this._renderer.getContext());
         this.emit(StageEvent.FRAME_END, this._currentFrame);
     }
 }

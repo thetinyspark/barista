@@ -2,6 +2,7 @@ import Stage, { StageEvent } from "./Stage";
 import DisplayObject from "./DisplayObject";
 import INotification from "../event/INotification";
 import Texture from "../texture/Texture";
+import TextureData from "../texture/TextureData";
 
 export default class Stats extends DisplayObject{
     private _stage: Stage|null = null;
@@ -12,11 +13,19 @@ export default class Stats extends DisplayObject{
 
     constructor(){ 
         super(); 
+
         const data = document.createElement("canvas"); 
         data.width = 100;
         data.height = 50;
-        this.texture = new Texture("stats_texture", data, 0, 0, data.width, data.height);
-        this._context = (this.texture.data as HTMLCanvasElement).getContext("2d");
+        this.texture = new Texture(
+            "stats_texture", 
+            new TextureData(data), 
+            0, 
+            0, 
+            data.width, 
+            data.height
+        );
+        this._context = (this.texture.source as HTMLCanvasElement).getContext("2d");
     }
 
     public getStage(): Stage|null {

@@ -1,15 +1,23 @@
+import TextureData from "./TextureData";
+export declare type UV = {
+    u: number;
+    v: number;
+};
 export default class Texture {
-    data: HTMLImageElement | HTMLCanvasElement | HTMLVideoElement;
+    private _data;
     sx: number;
     sy: number;
     sw: number;
     sh: number;
+    topLeftUv: UV;
+    topRightUv: UV;
+    bottomLeftUv: UV;
+    bottomRightUv: UV;
     id: string;
-    private _texUid;
-    private static _COUNTER;
-    private static _map;
-    static getTextureUidByData(data: HTMLImageElement | HTMLCanvasElement | HTMLVideoElement): string;
-    constructor(id: string, data: HTMLImageElement | HTMLCanvasElement | HTMLVideoElement, sx?: number, sy?: number, sw?: number, sh?: number);
+    constructor(id: string, data: TextureData, sx?: number, sy?: number, sw?: number, sh?: number);
+    calcUv(): void;
     get textureUid(): string;
+    get data(): TextureData;
+    get source(): CanvasImageSource;
     createSubTexture(id: string, sx: number, sy: number, sw: number, sh: number): Texture;
 }

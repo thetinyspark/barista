@@ -1,15 +1,11 @@
 import { mat2d } from "gl-matrix";
 import IDisplayObject from "../display/IDisplayObject";
-import IDisplayObjectContainer from "../display/IDisplayObjectContainer";
+import { isDisplayObjectContainer } from "./isser";
 
 export default class Geometry{
-    private static _isDisplayObjectContainer(value: IDisplayObject | IDisplayObjectContainer): value is IDisplayObjectContainer {
-        return (value as IDisplayObjectContainer).getChildren !== undefined;
-    }
-
     public static getHitbox(child:IDisplayObject):Hitbox{
 
-        if( this._isDisplayObjectContainer(child) ){
+        if( isDisplayObjectContainer(child) ){
             const hitboxes:Hitbox[] = child.getChildren().map(child=>this.getHitbox(child));
             const allX = []; 
             const allY = []; 
