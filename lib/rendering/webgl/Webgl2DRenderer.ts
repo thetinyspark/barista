@@ -43,9 +43,13 @@ export default class Webgl2DRenderer implements IRenderer{
         // init default shader
         this._currentShader = new Default2DShader(this._context);
 
-        // init blend func
+        // disable depth test
 		this._context.disable(this._context.DEPTH_TEST);
+
+        // disable culling faces
 		this._context.disable(this._context.CULL_FACE);
+
+        // init blend func
 		this._context.blendFunc( this._context.ONE, this._context.ONE_MINUS_SRC_ALPHA );
 		this._context.enable(this._context.BLEND);
     }    
@@ -112,31 +116,26 @@ export default class Webgl2DRenderer implements IRenderer{
     }
 
     batch(children:IDisplayObject[]):IDisplayObject[][]{
-
-        children = children.filter( 
-            (child:IDisplayObject)=>{
-                return child.texture !== null;
-            }
-        ); 
-
-        children.sort( 
-            (a, b)=>{
-                return (a.texture.textureUid < b.texture.textureUid) ? -1 : 1;
-            }
-        ); 
     
         const result = []; 
         let batch = [];
         let texId:string = "";
+        let counter:number = 0;
         
         for( let i:number = 0; i < children.length; i++ ){
-            if( children[i].texture.textureUid !== texId || i % WebGlConfig.MAX_QUAD_PER_CALL === 0 ){
+
+            if( children[i].texture === null )
+                continue;
+
+            if( children[i].texture.textureUid !== texId || counter % WebGlConfig.MAX_QUAD_PER_CALL === 0 ){
                 batch = [];
                 result.push(batch);
                 texId = children[i].texture.textureUid;
+                counter = 0;
             }
     
             batch.push(children[i]);
+            counter++;
         }
     
         return result;
