@@ -42,6 +42,12 @@ export default class Webgl2DRenderer implements IRenderer{
 
         // init default shader
         this._currentShader = new Default2DShader(this._context);
+
+        // init blend func
+		this._context.disable(this._context.DEPTH_TEST);
+		this._context.disable(this._context.CULL_FACE);
+		this._context.blendFunc( this._context.ONE, this._context.ONE_MINUS_SRC_ALPHA );
+		this._context.enable(this._context.BLEND);
     }    
 
 
@@ -70,7 +76,7 @@ export default class Webgl2DRenderer implements IRenderer{
         const x = canvas.width/2;  
         const y = -canvas.height/2;
         context.uniform2f( this._currentShader.projectionPointer, x, y );
-        context.clearColor(1.0,1.0,1.0,1.0);
+        context.clearColor(0.0,0.0,0.0,1.0);
 		context.viewport(0, 0, canvas.width, canvas.height);
 		context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT);
 

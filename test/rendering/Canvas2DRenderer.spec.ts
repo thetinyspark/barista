@@ -1,60 +1,26 @@
-import Texture from "../../lib/texture/Texture";
 import Stage from "../../lib/display/Stage";
 import Canvas2DRenderer from "../../lib/rendering/Canvas2DRenderer";
 import DisplayObject from "../../lib/display/DisplayObject";
 import IDisplayObject from "../../lib/display/IDisplayObject";
 import IRenderer from "../../lib/rendering/IRenderer";
-import TextureData from "../../lib/texture/TextureData";
+import { canvasPixelToRGBA, clearCanvas, createCanvas, createDisplayObjectFromCanvas, fillRect, getCanvasPixel } from "../test_utils/canvas.utils.spec";
 
 describe('Canvas2DRenderer test suite', 
     ()=>{
 
-        const fakeCanvas:HTMLCanvasElement = document.createElement("canvas");
-        const fakeContext:CanvasRenderingContext2D = fakeCanvas.getContext("2d"); 
-        const sceneCanvas:HTMLCanvasElement = document.createElement("canvas");
+        const fakeCanvas:HTMLCanvasElement = createCanvas(200,200);
+        const sceneCanvas:HTMLCanvasElement = createCanvas(640,480);
         const sceneContext:CanvasRenderingContext2D = sceneCanvas.getContext("2d");
-        let fakeTexture = new TextureData(fakeCanvas);
 
         beforeEach(
             ()=>{
-
-                sceneCanvas.width = 640;
-                sceneCanvas.height = 480;
-
-                fakeCanvas.width = 200; 
-                fakeCanvas.height = 200; 
-
-                
-
                 // clear the scene
-                sceneContext.save();
-                sceneContext.fillRect(0,0,sceneCanvas.width, sceneCanvas.height);
-                sceneContext.restore();
+                clearCanvas(sceneCanvas);
 
-               
                 // clear fake texture
-                fakeContext.clearRect(0,0,200,200);
-
-                fakeContext.save();
-                fakeContext.beginPath();
-                fakeContext.fillStyle = "red"; 
-                fakeContext.fillRect(0,0,100,200); 
-                fakeContext.fill();
-                fakeContext.closePath();
-                fakeContext.restore();
-                
-                fakeContext.save();
-                fakeContext.beginPath();
-                fakeContext.fillStyle = "blue"; 
-                fakeContext.fillRect(100,0,100,200); 
-                fakeContext.fill();
-                fakeContext.closePath();
-                fakeContext.restore();
-
-                // build texture data from fakeCanvas 
-                fakeTexture = new TextureData(fakeCanvas);
-                
-               
+                clearCanvas(fakeCanvas);
+                fillRect(fakeCanvas, "red", 0, 0, 100, 200);
+                fillRect(fakeCanvas, "blue", 100, 0, 100, 200);
             }
         )
 
@@ -96,13 +62,7 @@ describe('Canvas2DRenderer test suite',
                 // given 
                 const renderer = new Canvas2DRenderer();
                 const stage = new Stage();
-                const bmp = new DisplayObject();
-                
-                const texture = new Texture("fake", fakeTexture, 0, 0, fakeCanvas.width, fakeCanvas.height);
-
-                bmp.width = 100; 
-                bmp.height = 100;
-                bmp.texture = texture;
+                const bmp = createDisplayObjectFromCanvas("fake", fakeCanvas);
                 stage.addChild(bmp);
                 renderer.add(stage);
                 renderer.add(bmp);
@@ -111,11 +71,8 @@ describe('Canvas2DRenderer test suite',
                 renderer.draw(sceneCanvas, sceneContext);
 
                 // then 
-                const pixel00 = sceneContext.getImageData(0, 0, texture.sw, texture.sh).data; 
-                expect(pixel00[0]).toEqual(255);
-                expect(pixel00[1]).toEqual(0);
-                expect(pixel00[2]).toEqual(0);
-                expect(pixel00[3]).toEqual(255);
+                const pixel = canvasPixelToRGBA( getCanvasPixel(sceneCanvas, 0, 0) ); 
+                expect(pixel).toEqual({r:255, g:0, b:0, a:255});
             }
         );
 
@@ -124,13 +81,12 @@ describe('Canvas2DRenderer test suite',
                 // given 
                 const renderer = new Canvas2DRenderer();
                 const stage = new Stage();
-                const bmp = new DisplayObject();
-                const mainTexture = new Texture("fake", fakeTexture, 0, 0, fakeCanvas.width, fakeCanvas.height);
-                const texture = mainTexture.createSubTexture("subfake", 100, 0, 100, 200);
-
+                const bmp = createDisplayObjectFromCanvas("fake", fakeCanvas); 
+                bmp.texture.sx = 100; 
+                bmp.texture.sw = 100; 
                 bmp.width = 100; 
                 bmp.height = 100;
-                bmp.texture = texture;
+
                 stage.addChild(bmp);
                 renderer.add(stage);
                 renderer.add(bmp);
@@ -139,11 +95,8 @@ describe('Canvas2DRenderer test suite',
                 renderer.draw(sceneCanvas, sceneContext);
 
                 // then 
-                const pixel00 = sceneContext.getImageData(0, 0, texture.sw, texture.sh).data; 
-                expect(pixel00[0]).toEqual(0);
-                expect(pixel00[1]).toEqual(0);
-                expect(pixel00[2]).toEqual(255);
-                expect(pixel00[3]).toEqual(255);
+                const pixel = canvasPixelToRGBA( getCanvasPixel(sceneCanvas, 0, 0) ); 
+                expect(pixel).toEqual({r:0, g:0, b:255, a:255});
             }
         );
 

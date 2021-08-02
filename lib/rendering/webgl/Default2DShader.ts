@@ -110,13 +110,12 @@ export default class Default2DShader{
 		void main(void) {
 
 			mat3 worldMatrix = mat3(
-				vec3(wmat1.x, wmat1.y, 0.0),
-				vec3(wmat1.z, wmat1.a, 0.0),
-				vec3(wmat2.x, wmat2.y, 1.0)
+				vec3(wmat1.x, wmat1.z, wmat2.x),
+				vec3(wmat1.y, wmat1.w, wmat2.y),
+				vec3(0.0, 0.0, 1.0)
 			);
 
-			vec3 tmp = vec3( vertexPos, 0) * worldMatrix;
-
+			vec3 tmp = vec3( vertexPos, 1.0) * worldMatrix;
 			gl_Position = vec4((tmp / vec3(uProjection,1)) + center, 1.0);
 
 			uvs = uvCoords;

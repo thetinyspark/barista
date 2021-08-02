@@ -23,6 +23,11 @@ var Webgl2DRenderer = /** @class */ (function () {
         this._context.bufferData(this._context.ELEMENT_ARRAY_BUFFER, this._indexArray, this._context.STATIC_DRAW);
         // init default shader
         this._currentShader = new Default2DShader_1.default(this._context);
+        // init blend func
+        this._context.disable(this._context.DEPTH_TEST);
+        this._context.disable(this._context.CULL_FACE);
+        this._context.blendFunc(this._context.ONE, this._context.ONE_MINUS_SRC_ALPHA);
+        this._context.enable(this._context.BLEND);
     };
     Webgl2DRenderer.prototype.add = function (child) {
         this._children.push(child);
@@ -44,7 +49,7 @@ var Webgl2DRenderer = /** @class */ (function () {
         var x = canvas.width / 2;
         var y = -canvas.height / 2;
         context.uniform2f(this._currentShader.projectionPointer, x, y);
-        context.clearColor(1.0, 1.0, 1.0, 1.0);
+        context.clearColor(0.0, 0.0, 0.0, 1.0);
         context.viewport(0, 0, canvas.width, canvas.height);
         context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT);
         var batched = this.batch(this._children);
