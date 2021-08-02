@@ -17,6 +17,7 @@ import Geometry, {Hitbox, Point, Rectangle} from "./utils/Geometry";
 import { isDisplayObjectContainer } from "./utils/isser";
 import TextureData from "./texture/TextureData";
 import Default2DShader from "./rendering/webgl/Default2DShader";
+import WebGlConfig from "./rendering/webgl/WebGlConfig";
 import Webgl2DRenderer from "./rendering/webgl/Webgl2DRenderer";
 import MathUtils from "./utils/MathUtils";
 
@@ -48,6 +49,7 @@ export {Webgl2DRenderer}
 export {Default2DShader}
 export {IRenderer};
 export {Canvas2DRenderer};
+export {WebGlConfig};
 
 // texture
 

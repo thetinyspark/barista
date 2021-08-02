@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isDisplayObjectContainer = exports.Geometry = exports.MathUtils = exports.TextureData = exports.Texture = exports.Canvas2DRenderer = exports.Default2DShader = exports.Webgl2DRenderer = exports.JSON_TYPE = exports.IMAGE_TYPE = exports.AssetsManager = exports.Notification = exports.Emitter = exports.StageEvent = exports.AnimationEvent = exports.DisplayObjectContainer = exports.DisplayObject = exports.Stage = exports.Stats = exports.Animation = void 0;
+exports.isDisplayObjectContainer = exports.Geometry = exports.MathUtils = exports.TextureData = exports.Texture = exports.WebGlConfig = exports.Canvas2DRenderer = exports.Default2DShader = exports.Webgl2DRenderer = exports.JSON_TYPE = exports.IMAGE_TYPE = exports.AssetsManager = exports.Notification = exports.Emitter = exports.StageEvent = exports.AnimationEvent = exports.DisplayObjectContainer = exports.DisplayObject = exports.Stage = exports.Stats = exports.Animation = void 0;
 var Animation_1 = require("./display/Animation");
 exports.Animation = Animation_1.default;
 Object.defineProperty(exports, "AnimationEvent", { enumerable: true, get: function () { return Animation_1.AnimationEvent; } });
@@ -33,6 +33,8 @@ var TextureData_1 = require("./texture/TextureData");
 exports.TextureData = TextureData_1.default;
 var Default2DShader_1 = require("./rendering/webgl/Default2DShader");
 exports.Default2DShader = Default2DShader_1.default;
+var WebGlConfig_1 = require("./rendering/webgl/WebGlConfig");
+exports.WebGlConfig = WebGlConfig_1.default;
 var Webgl2DRenderer_1 = require("./rendering/webgl/Webgl2DRenderer");
 exports.Webgl2DRenderer = Webgl2DRenderer_1.default;
 var MathUtils_1 = require("./utils/MathUtils");
