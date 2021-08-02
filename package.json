@@ -1,6 +1,6 @@
 {
   "name": "@thetinyspark/moocaccino-barista",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A caffeinated HTML5 canvas rendering engine",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,7 @@
     "/dist"
   ],
   "scripts": {
+    "publish": "npm login && npm publish --access public",
     "start": "concurrently \"npm run watch\" \"live-server ./ --port=3000\"",
     "watch": "nodemon -w lib -x \"npm run build\" -e ts",
     "build": "tsc && npx webpack --config webpack.config.js",
