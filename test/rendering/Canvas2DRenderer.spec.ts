@@ -1,60 +1,26 @@
-import Texture from "../../lib/texture/Texture";
 import Stage from "../../lib/display/Stage";
 import Canvas2DRenderer from "../../lib/rendering/Canvas2DRenderer";
 import DisplayObject from "../../lib/display/DisplayObject";
 import IDisplayObject from "../../lib/display/IDisplayObject";
 import IRenderer from "../../lib/rendering/IRenderer";
-import TextureData from "../../lib/texture/TextureData";
+import { canvasPixelToRGBA, clearCanvas, create2DScene, createCanvas, createDisplayObjectFromCanvas, fillRect, getCanvasPixel } from "../test_utils/canvas.utils.spec";
 
 describe('Canvas2DRenderer test suite', 
     ()=>{
 
-        const fakeCanvas:HTMLCanvasElement = document.createElement("canvas");
-        const fakeContext:CanvasRenderingContext2D = fakeCanvas.getContext("2d"); 
-        const sceneCanvas:HTMLCanvasElement = document.createElement("canvas");
-        const sceneContext:CanvasRenderingContext2D = sceneCanvas.getContext("2d");
-        let fakeTexture = new TextureData(fakeCanvas);
+        const biColorCanvas:HTMLCanvasElement = createCanvas(200,200);
+        const whiteCanvas:HTMLCanvasElement = createCanvas(200,200);
 
         beforeEach(
             ()=>{
+                // clear fake textures
+                clearCanvas(biColorCanvas);
+                fillRect(biColorCanvas, "red", 0, 0, 100, 200);
+                fillRect(biColorCanvas, "blue", 100, 0, 100, 200);
 
-                sceneCanvas.width = 640;
-                sceneCanvas.height = 480;
+                clearCanvas(whiteCanvas); 
+                fillRect(whiteCanvas, "white", 0, 0, 200,200);
 
-                fakeCanvas.width = 200; 
-                fakeCanvas.height = 200; 
-
-                
-
-                // clear the scene
-                sceneContext.save();
-                sceneContext.fillRect(0,0,sceneCanvas.width, sceneCanvas.height);
-                sceneContext.restore();
-
-               
-                // clear fake texture
-                fakeContext.clearRect(0,0,200,200);
-
-                fakeContext.save();
-                fakeContext.beginPath();
-                fakeContext.fillStyle = "red"; 
-                fakeContext.fillRect(0,0,100,200); 
-                fakeContext.fill();
-                fakeContext.closePath();
-                fakeContext.restore();
-                
-                fakeContext.save();
-                fakeContext.beginPath();
-                fakeContext.fillStyle = "blue"; 
-                fakeContext.fillRect(100,0,100,200); 
-                fakeContext.fill();
-                fakeContext.closePath();
-                fakeContext.restore();
-
-                // build texture data from fakeCanvas 
-                fakeTexture = new TextureData(fakeCanvas);
-                
-               
             }
         )
 
@@ -94,58 +60,55 @@ describe('Canvas2DRenderer test suite',
         it('should draw texture on canvas',
             ()=>{
                 // given 
-                const renderer = new Canvas2DRenderer();
-                const stage = new Stage();
-                const bmp = new DisplayObject();
-                
-                const texture = new Texture("fake", fakeTexture, 0, 0, fakeCanvas.width, fakeCanvas.height);
-
-                bmp.width = 100; 
-                bmp.height = 100;
-                bmp.texture = texture;
+                const stage = create2DScene(640,480);
+                const bmp = createDisplayObjectFromCanvas("fake", biColorCanvas);
                 stage.addChild(bmp);
-                renderer.add(stage);
-                renderer.add(bmp);
 
                 // when 
-                renderer.draw(sceneCanvas, sceneContext);
+                stage.nextFrame();
 
                 // then 
-                const pixel00 = sceneContext.getImageData(0, 0, texture.sw, texture.sh).data; 
-                expect(pixel00[0]).toEqual(255);
-                expect(pixel00[1]).toEqual(0);
-                expect(pixel00[2]).toEqual(0);
-                expect(pixel00[3]).toEqual(255);
+                const pixel = canvasPixelToRGBA( getCanvasPixel(stage.getCanvas(), 0, 0) ); 
+                expect(pixel).toEqual({r:255, g:0, b:0, a:255});
             }
         );
 
         it('should draw a portion of the texture on canvas',
             ()=>{
                 // given 
-                const renderer = new Canvas2DRenderer();
-                const stage = new Stage();
-                const bmp = new DisplayObject();
-                const mainTexture = new Texture("fake", fakeTexture, 0, 0, fakeCanvas.width, fakeCanvas.height);
-                const texture = mainTexture.createSubTexture("subfake", 100, 0, 100, 200);
-
+                const stage = create2DScene(640,480);
+                const bmp = createDisplayObjectFromCanvas("fake", biColorCanvas); 
+                
+                // when 
+                bmp.texture.sx = 100; 
+                bmp.texture.sw = 100; 
                 bmp.width = 100; 
                 bmp.height = 100;
-                bmp.texture = texture;
                 stage.addChild(bmp);
-                renderer.add(stage);
-                renderer.add(bmp);
-
-                // when 
-                renderer.draw(sceneCanvas, sceneContext);
+                stage.nextFrame();
 
                 // then 
-                const pixel00 = sceneContext.getImageData(0, 0, texture.sw, texture.sh).data; 
-                expect(pixel00[0]).toEqual(0);
-                expect(pixel00[1]).toEqual(0);
-                expect(pixel00[2]).toEqual(255);
-                expect(pixel00[3]).toEqual(255);
+                const pixel = canvasPixelToRGBA( getCanvasPixel(stage.getCanvas(), 0, 0) ); 
+                expect(pixel).toEqual({r:0, g:0, b:255, a:255});
             }
         );
+
+        it('should draw objects according to children depths', 
+        ()=>{
+                // given 
+                const stage = create2DScene(640,480);
+                const bmp1 = createDisplayObjectFromCanvas("bicolor", biColorCanvas);
+                const bmp2 = createDisplayObjectFromCanvas("white", whiteCanvas);
+                stage.addChild(bmp1);
+                stage.addChild(bmp2);
+
+                // when 
+                stage.nextFrame();
+
+                // then 
+                const pixel = canvasPixelToRGBA( getCanvasPixel(stage.getCanvas(), 0, 0) ); 
+                expect(pixel).toEqual({r:255, g:255, b:255, a:255});
+        });
 
         it('should have all the displayobjects on the pipeline',
             ()=>{

@@ -5,6 +5,7 @@ import WebGlConfig from "../../lib/rendering/webgl/WebGlConfig";
 import DisplayObject from "../../lib/display/DisplayObject";
 import IDisplayObject from "../../lib/display/IDisplayObject";
 import TextureData from "../../lib/texture/TextureData";
+import {canvasPixelToRGBA, createCanvas, createDisplayObjectFromCanvas, createGlScene, fillRect, getCanvasPixel} from "../test_utils/canvas.utils.spec";
 
 describe('Webgl2DRenderer test suite', 
     ()=>{
@@ -159,6 +160,29 @@ describe('Webgl2DRenderer test suite',
                 expect(pixels[3]).toEqual(255);
             }
         );
+
+        it('should draw objects according to children depths', 
+        ()=>{
+                // given 
+                const whiteCanvas = createCanvas(200,200);
+                const blueCanvas = createCanvas(200,200);
+
+                fillRect(whiteCanvas, "white", 0, 0, 200, 200);
+                fillRect(blueCanvas, "blue", 0, 0, 200, 200);
+
+                const stage = createGlScene(640,480);
+                const bmp1 = createDisplayObjectFromCanvas("blue", blueCanvas);
+                const bmp2 = createDisplayObjectFromCanvas("white", whiteCanvas);
+                stage.addChild(bmp1);
+                stage.addChild(bmp2);            
+
+                // when 
+                stage.nextFrame();
+
+                // then 
+                const pixel = canvasPixelToRGBA( getCanvasPixel(stage.getCanvas(), 0, 0) ); 
+                expect(pixel).toEqual({r:255, g:255, b:255, a:255});
+        });
 
         it('should have all the displayobjects on the pipeline',
             ()=>{

@@ -67,7 +67,7 @@ var Default2DShader = /** @class */ (function () {
         return shader;
     };
     Default2DShader.prototype._getVertexSource = function () {
-        return "\n\t\tattribute vec2 vertexPos;\n\t\tattribute vec2 uvCoords;\n\t\tattribute vec4 wmat1;\n\t\tattribute vec2 wmat2;\n\t\tattribute float worldOpacity;\n\t\tvarying vec4 vColor;\n\t\tvarying vec2 uvs;\n\t\tuniform vec2 uProjection;\n\t\tconst vec3 center = vec3(-1.0, 1.0, 0);\n\n\n\n\t\tvoid main(void) {\n\n\t\t\tmat3 worldMatrix = mat3(\n\t\t\t\tvec3(wmat1.x, wmat1.y, 0.0),\n\t\t\t\tvec3(wmat1.z, wmat1.a, 0.0),\n\t\t\t\tvec3(wmat2.x, wmat2.y, 1.0)\n\t\t\t);\n\n\t\t\tvec3 tmp = vec3( vertexPos, 0) * worldMatrix;\n\n\t\t\tgl_Position = vec4((tmp / vec3(uProjection,1)) + center, 1.0);\n\n\t\t\tuvs = uvCoords;\n\n\t\t\tvColor = vec4(1.0, 1.0, 1.0, worldOpacity);\n\n\t\t}\n        ";
+        return "\n\t\tattribute vec2 vertexPos;\n\t\tattribute vec2 uvCoords;\n\t\tattribute vec4 wmat1;\n\t\tattribute vec2 wmat2;\n\t\tattribute float worldOpacity;\n\t\tvarying vec4 vColor;\n\t\tvarying vec2 uvs;\n\t\tuniform vec2 uProjection;\n\t\tconst vec3 center = vec3(-1.0, 1.0, 0);\n\n\n\n\t\tvoid main(void) {\n\n\t\t\tmat3 worldMatrix = mat3(\n\t\t\t\tvec3(wmat1.x, wmat1.z, wmat2.x),\n\t\t\t\tvec3(wmat1.y, wmat1.w, wmat2.y),\n\t\t\t\tvec3(0.0, 0.0, 1.0)\n\t\t\t);\n\n\t\t\tvec3 tmp = vec3( vertexPos, 1.0) * worldMatrix;\n\t\t\tgl_Position = vec4((tmp / vec3(uProjection,1)) + center, 1.0);\n\n\t\t\tuvs = uvCoords;\n\n\t\t\tvColor = vec4(1.0, 1.0, 1.0, worldOpacity);\n\n\t\t}\n        ";
     };
     ;
     Default2DShader.prototype._getFragmentSource = function () {

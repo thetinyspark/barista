@@ -6,6 +6,7 @@ var TextureData = /** @class */ (function () {
         this.width = 0;
         this.height = 0;
         this._glTexture = null;
+        this._isDynamic = false;
         this._setSource(source);
         this._uid = "texture_data_" + TextureData._counter++;
     }
@@ -21,6 +22,16 @@ var TextureData = /** @class */ (function () {
         this.width = nwidth;
         this.height = nheight;
     };
+    Object.defineProperty(TextureData.prototype, "isDynamic", {
+        get: function () {
+            return this._isDynamic;
+        },
+        set: function (value) {
+            this._isDynamic = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
     TextureData.prototype.getGlTexture = function (context) {
         if (this._glTexture === null) {
             this._glTexture = context.createTexture();
@@ -30,6 +41,10 @@ var TextureData = /** @class */ (function () {
             context.texParameteri(context.TEXTURE_2D, context.TEXTURE_MAG_FILTER, context.LINEAR);
             context.texParameteri(context.TEXTURE_2D, context.TEXTURE_MIN_FILTER, context.LINEAR);
             context.bindTexture(context.TEXTURE_2D, null);
+        }
+        if (this._isDynamic) {
+            context.bindTexture(context.TEXTURE_2D, this._glTexture);
+            context.texImage2D(context.TEXTURE_2D, 0, context.RGBA, context.RGBA, context.UNSIGNED_BYTE, this._source);
         }
         return this._glTexture;
     };
