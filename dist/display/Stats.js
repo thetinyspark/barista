@@ -30,14 +30,18 @@ var Stats = /** @class */ (function (_super) {
         _this._enterFrame = function (notification) {
             _this._elapsedTime = new Date().getTime() - _this._lastFrameTime;
             _this._lastFrameTime = new Date().getTime();
-            var context = _this._context;
-            context.beginPath();
-            context.fillStyle = "black";
-            context.fillRect(0, 0, _this.width, _this.height);
-            context.fill();
-            context.fillStyle = "red";
-            context.fillText(_this.getFps().toString(), 0, Math.round(_this.height / 2));
-            context.closePath();
+            var currentFrame = notification.getPayload();
+            if (currentFrame % 60 === 0) {
+                var context = _this._context;
+                context.beginPath();
+                context.fillStyle = "black";
+                context.fillRect(0, 0, _this.width, _this.height);
+                context.fill();
+                context.font = "24px Arial";
+                context.fillStyle = "red";
+                context.fillText(_this.getFps().toString(), 0, Math.round(_this.height / 2));
+                context.closePath();
+            }
         };
         var data = document.createElement("canvas");
         data.width = 100;

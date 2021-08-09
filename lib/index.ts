@@ -20,6 +20,8 @@ import Default2DShader from "./rendering/webgl/Default2DShader";
 import WebGlConfig from "./rendering/webgl/WebGlConfig";
 import Webgl2DRenderer from "./rendering/webgl/Webgl2DRenderer";
 import MathUtils from "./utils/MathUtils";
+import IFilter from "./filters/IFilter";
+import PixelateFilter from "./filters/PixelateFilter";
 
 // display objects 
 export {Animation};
@@ -60,6 +62,10 @@ export {TextureData}
 export {MathUtils};
 export {Geometry, Hitbox, Point, Rectangle}
 export {isDisplayObjectContainer}
+
+// filters
+export{ IFilter }
+export{ PixelateFilter }
 
 
 

@@ -5,12 +5,13 @@ export default class TextureData {
     private _uid;
     private _glTexture;
     private _isDynamic;
+    private _updateNextFrame;
     private static _counter;
     constructor(source: CanvasImageSource);
-    private _setSource;
-    get isDynamic(): boolean;
-    set isDynamic(value: boolean);
+    setSource(source: CanvasImageSource): void;
     getGlTexture(context: WebGLRenderingContext): WebGLTexture;
     getSource(): CanvasImageSource;
     get uid(): string;
+    get isDynamic(): boolean;
+    set isDynamic(value: boolean);
 }

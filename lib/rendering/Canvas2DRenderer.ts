@@ -4,7 +4,7 @@ import IRenderer from "./IRenderer";
 export default class Canvas2DRenderer implements IRenderer{
     private _children:IDisplayObject[] = []; 
     private _canvas:HTMLCanvasElement; 
-    private _context:CanvasRenderingContext2D; 
+    private _context:CanvasRenderingContext2D;
 
 
     constructor(){
@@ -46,7 +46,7 @@ export default class Canvas2DRenderer implements IRenderer{
                 context.globalAlpha = child.worldOpacity;
                 context.setTransform(matrix[0],matrix[1],matrix[2],matrix[3], matrix[4], matrix[5]);
                 context.drawImage(
-                    child.texture.source, 
+                    child.texture.source,
                     child.texture.sx, 
                     child.texture.sy, 
                     child.texture.sw, 

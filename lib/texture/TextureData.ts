@@ -7,15 +7,16 @@ export default class TextureData{
     private _uid:string;
     private _glTexture:WebGLTexture|null = null;
     private _isDynamic: boolean = false;
+    private _updateNextFrame:boolean = false;
 
     private static _counter:number = 0;
 
     constructor(source:CanvasImageSource){
-        this._setSource(source);
+        this.setSource(source);
         this._uid = "texture_data_"+TextureData._counter++;
     }
 
-    private _setSource(source:CanvasImageSource):void{
+    public setSource(source:CanvasImageSource):void{
         const nwidth:number = MathUtils.getNextPowerOf2(source.width as number);
         const nheight:number = MathUtils.getNextPowerOf2(source.height as number);
         const canvas = document.createElement("canvas");
@@ -27,14 +28,11 @@ export default class TextureData{
         this._source = canvas;
         this.width = nwidth;
         this.height = nheight;
+
+        this._updateNextFrame = true;
     }
 
-    public get isDynamic(): boolean {
-        return this._isDynamic;
-    }
-    public set isDynamic(value: boolean) {
-        this._isDynamic = value;
-    }
+   
 
     public getGlTexture(context:WebGLRenderingContext):WebGLTexture{
 
@@ -50,7 +48,8 @@ export default class TextureData{
             context.bindTexture(context.TEXTURE_2D, null);
         }
 
-        if( this._isDynamic ){
+        if( this._isDynamic || this._updateNextFrame ){
+            this._updateNextFrame = false;
             context.bindTexture(context.TEXTURE_2D, this._glTexture);
             context.texImage2D(context.TEXTURE_2D, 0, context.RGBA, context.RGBA, context.UNSIGNED_BYTE, this._source as TexImageSource);
         }
@@ -66,4 +65,10 @@ export default class TextureData{
         return this._uid;
     }
 
+     public get isDynamic(): boolean {
+        return this._isDynamic;
+    }
+    public set isDynamic(value: boolean) {
+        this._isDynamic = value;
+    }
 }

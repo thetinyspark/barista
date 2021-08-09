@@ -54,16 +54,20 @@ export default class Stats extends DisplayObject{
     private _enterFrame = (notification:INotification):void => {
         this._elapsedTime = new Date().getTime() - this._lastFrameTime;
         this._lastFrameTime = new Date().getTime();
+        const currentFrame:number = notification.getPayload() as number;
 
-        const context = this._context;
-        context.beginPath();
-        context.fillStyle = "black";
-        context.fillRect(0,0, this.width, this.height); 
-        context.fill();
-        
-        context.fillStyle = "red"; 
-        context.fillText( this.getFps().toString(), 0, Math.round(this.height / 2));
-        context.closePath();
+        if( currentFrame % 60 === 0 ){
+            const context = this._context;
+            context.beginPath();
+            context.fillStyle = "black";
+            context.fillRect(0,0, this.width, this.height); 
+            context.fill();
+            
+            context.font = "24px Arial";
+            context.fillStyle = "red"; 
+            context.fillText( this.getFps().toString(), 0, Math.round(this.height / 2));
+            context.closePath();
+        }
     }
 
     public getFps():number{
