@@ -21,6 +21,7 @@ var DisplayObject = /** @class */ (function (_super) {
     __extends(DisplayObject, _super);
     function DisplayObject() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.filters = [];
         _this.texture = null;
         _this.worldMatrix = gl_matrix_1.mat2d.create();
         _this.matrix = gl_matrix_1.mat2d.create();

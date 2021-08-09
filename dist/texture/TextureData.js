@@ -7,10 +7,11 @@ var TextureData = /** @class */ (function () {
         this.height = 0;
         this._glTexture = null;
         this._isDynamic = false;
-        this._setSource(source);
+        this._updateNextFrame = false;
+        this.setSource(source);
         this._uid = "texture_data_" + TextureData._counter++;
     }
-    TextureData.prototype._setSource = function (source) {
+    TextureData.prototype.setSource = function (source) {
         var nwidth = MathUtils_1.default.getNextPowerOf2(source.width);
         var nheight = MathUtils_1.default.getNextPowerOf2(source.height);
         var canvas = document.createElement("canvas");
@@ -21,17 +22,8 @@ var TextureData = /** @class */ (function () {
         this._source = canvas;
         this.width = nwidth;
         this.height = nheight;
+        this._updateNextFrame = true;
     };
-    Object.defineProperty(TextureData.prototype, "isDynamic", {
-        get: function () {
-            return this._isDynamic;
-        },
-        set: function (value) {
-            this._isDynamic = value;
-        },
-        enumerable: false,
-        configurable: true
-    });
     TextureData.prototype.getGlTexture = function (context) {
         if (this._glTexture === null) {
             this._glTexture = context.createTexture();
@@ -42,7 +34,8 @@ var TextureData = /** @class */ (function () {
             context.texParameteri(context.TEXTURE_2D, context.TEXTURE_MIN_FILTER, context.LINEAR);
             context.bindTexture(context.TEXTURE_2D, null);
         }
-        if (this._isDynamic) {
+        if (this._isDynamic || this._updateNextFrame) {
+            this._updateNextFrame = false;
             context.bindTexture(context.TEXTURE_2D, this._glTexture);
             context.texImage2D(context.TEXTURE_2D, 0, context.RGBA, context.RGBA, context.UNSIGNED_BYTE, this._source);
         }
@@ -54,6 +47,16 @@ var TextureData = /** @class */ (function () {
     Object.defineProperty(TextureData.prototype, "uid", {
         get: function () {
             return this._uid;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(TextureData.prototype, "isDynamic", {
+        get: function () {
+            return this._isDynamic;
+        },
+        set: function (value) {
+            this._isDynamic = value;
         },
         enumerable: false,
         configurable: true

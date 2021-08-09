@@ -1,6 +1,7 @@
 import DisplayObject from "../../lib/display/DisplayObject";
 import IDisplayObject from "../../lib/display/IDisplayObject";
 import Stage from "../../lib/display/Stage";
+import IFilter from "../../lib/filters/IFilter";
 import Canvas2DRenderer from "../../lib/rendering/Canvas2DRenderer";
 import Webglrenderer from "../../lib/rendering/webgl/Webgl2DRenderer";
 import Texture from "../../lib/texture/Texture";
@@ -96,4 +97,41 @@ export function pixelsAreTheSame(pixelsA:number[], pixelsB:number[]):boolean{
     }
 
     return true;
+}
+
+export function getRedFilter():IFilter{
+
+    const filter = {
+        _save: null, 
+
+        save(child:IDisplayObject):void{
+            if( child.texture === null )
+                return; 
+
+            this._save = child.texture.data.getSource() as HTMLCanvasElement;
+        },
+        apply(child:IDisplayObject):void{
+            if( child.texture === null )
+                return; 
+                
+           
+            const dest = document.createElement("canvas");
+            dest.width = child.width; 
+            dest.height = child.height; 
+            const ctx = dest.getContext("2d");
+            ctx.save();
+            ctx.beginPath();
+            ctx.fillStyle = "red";
+            ctx.fillRect(0,0,dest.width, dest.height);
+            ctx.closePath();
+            ctx.restore();
+            child.texture.data.setSource(dest); 
+        }, 
+        rollback(child:IDisplayObject):void{
+            if( child.texture === null )
+                return; 
+            child.texture.data.setSource(this._save); 
+        }
+    }; 
+    return filter;
 }

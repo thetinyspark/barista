@@ -1,5 +1,6 @@
 import { mat2d } from "gl-matrix";
 import Emitter from "../event/Emitter";
+import IFilter from "../filters/IFilter";
 import IRenderer from "../rendering/IRenderer";
 import Texture from "../texture/Texture";
 import IDisplayObject from "./IDisplayObject";
@@ -7,6 +8,7 @@ import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
 export default class DisplayObject extends Emitter implements IDisplayObject{
 
+    public filters:IFilter[] = [];
     public texture:Texture|null = null;
     public worldMatrix: mat2d = mat2d.create();
     public matrix: mat2d = mat2d.create();
