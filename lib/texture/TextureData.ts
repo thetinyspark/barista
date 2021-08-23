@@ -32,8 +32,6 @@ export default class TextureData{
         this._updateNextFrame = true;
     }
 
-   
-
     public getGlTexture(context:WebGLRenderingContext):WebGLTexture{
 
 
@@ -65,9 +63,10 @@ export default class TextureData{
         return this._uid;
     }
 
-     public get isDynamic(): boolean {
+    public get isDynamic(): boolean {
         return this._isDynamic;
     }
+    
     public set isDynamic(value: boolean) {
         this._isDynamic = value;
     }

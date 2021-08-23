@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var TextureData_1 = require("../texture/TextureData");
+var Texture_1 = require("../texture/Texture");
 var PixelateFilter = /** @class */ (function () {
     function PixelateFilter() {
         this._save = null;
@@ -7,30 +9,32 @@ var PixelateFilter = /** @class */ (function () {
         this.scaleY = 1;
     }
     PixelateFilter.prototype.save = function (child) {
-        if (child.texture !== null)
-            this._save = child.texture.data.getSource();
+        this._save = child.texture;
     };
     PixelateFilter.prototype.apply = function (child) {
-        if (child.texture === null)
+        if (this._save === null)
             return;
+        var source = this._save.data.getSource();
         var dest = document.createElement("canvas");
         var ctx = dest.getContext("2d");
         dest.width = child.width;
         dest.height = child.height;
         ctx.save();
         ctx.scale(1 / this.scaleX, 1 / this.scaleY);
-        ctx.drawImage(this._save, 0, 0);
+        ctx.drawImage(source, 0, 0);
         ctx.restore();
         ctx.save();
         ctx.scale(this.scaleX, this.scaleY);
         ctx.drawImage(dest, 0, 0);
         ctx.restore();
-        child.texture.data.setSource(dest);
+        var data = new TextureData_1.default(dest);
+        var texture = new Texture_1.default("pixelate_child", data, 0, 0, dest.width, dest.height);
+        data.setSource(dest);
+        child.texture = texture;
     };
     PixelateFilter.prototype.rollback = function (child) {
-        if (child.texture === null || this._save === null)
-            return;
-        child.texture.data.setSource(this._save);
+        child.texture = this._save;
+        this._save = null;
     };
     return PixelateFilter;
 }());

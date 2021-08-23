@@ -20,6 +20,7 @@ export default class DisplayObject extends Emitter implements IDisplayObject {
     width: number;
     height: number;
     parent: IDisplayObjectContainer | null;
+    snapshot(): HTMLCanvasElement;
     update(worldMatrix: mat2d, worldOpacity?: number): void;
     render(renderer: IRenderer): void;
 }

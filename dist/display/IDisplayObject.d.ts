@@ -21,4 +21,5 @@ export default interface IDisplayObject extends IEmitter {
     height: number;
     opacity: number;
     worldOpacity: number;
+    snapshot(): HTMLCanvasElement;
 }
