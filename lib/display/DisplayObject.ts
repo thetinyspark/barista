@@ -1,8 +1,10 @@
 import { mat2d } from "gl-matrix";
 import Emitter from "../event/Emitter";
 import IFilter from "../filters/IFilter";
+import Canvas2DRenderer from "../rendering/Canvas2DRenderer";
 import IRenderer from "../rendering/IRenderer";
 import Texture from "../texture/Texture";
+import Geometry from "../utils/Geometry";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 
@@ -23,6 +25,27 @@ export default class DisplayObject extends Emitter implements IDisplayObject{
     public height: number = 0;
     public parent:IDisplayObjectContainer|null = null;
 
+    public snapshot():HTMLCanvasElement{
+        const renderer = new Canvas2DRenderer();
+        const saveMatrix = this.matrix; 
+        const saveWMatrix = this.worldMatrix;
+        const canvas = renderer.getCanvas();
+        const context = renderer.getContext() as CanvasRenderingContext2D;
+
+        mat2d.identity(this.matrix);
+        mat2d.identity(this.worldMatrix);
+
+        
+        canvas.width = this.width; 
+        canvas.height = this.height; 
+
+        renderer.add(this);
+        renderer.draw( canvas, context );
+
+        this.matrix = saveMatrix;
+        this.worldMatrix = saveWMatrix;
+        return renderer.getCanvas();
+    }
 
     public update( worldMatrix:mat2d, worldOpacity:number = 1 ):void{
         mat2d.identity(this.matrix);

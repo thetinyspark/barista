@@ -21,7 +21,8 @@ import WebGlConfig from "./rendering/webgl/WebGlConfig";
 import Webgl2DRenderer from "./rendering/webgl/Webgl2DRenderer";
 import MathUtils from "./utils/MathUtils";
 import IFilter from "./filters/IFilter";
-import PixelateFilter from "./filters/PixelateFilter";
+import MouseControl, {MouseControlEvent} from "./controls/MouseControl";
+
 
 // display objects 
 export {Animation};
@@ -65,7 +66,9 @@ export {isDisplayObjectContainer}
 
 // filters
 export{ IFilter }
-export{ PixelateFilter }
+
+// controls
+export { MouseControl, MouseControlEvent}
 
 
 

@@ -17,6 +17,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var gl_matrix_1 = require("gl-matrix");
 var Emitter_1 = require("../event/Emitter");
+var Canvas2DRenderer_1 = require("../rendering/Canvas2DRenderer");
 var DisplayObject = /** @class */ (function (_super) {
     __extends(DisplayObject, _super);
     function DisplayObject() {
@@ -37,6 +38,22 @@ var DisplayObject = /** @class */ (function (_super) {
         _this.parent = null;
         return _this;
     }
+    DisplayObject.prototype.snapshot = function () {
+        var renderer = new Canvas2DRenderer_1.default();
+        var saveMatrix = this.matrix;
+        var saveWMatrix = this.worldMatrix;
+        var canvas = renderer.getCanvas();
+        var context = renderer.getContext();
+        gl_matrix_1.mat2d.identity(this.matrix);
+        gl_matrix_1.mat2d.identity(this.worldMatrix);
+        canvas.width = this.width;
+        canvas.height = this.height;
+        renderer.add(this);
+        renderer.draw(canvas, context);
+        this.matrix = saveMatrix;
+        this.worldMatrix = saveWMatrix;
+        return renderer.getCanvas();
+    };
     DisplayObject.prototype.update = function (worldMatrix, worldOpacity) {
         if (worldOpacity === void 0) { worldOpacity = 1; }
         gl_matrix_1.mat2d.identity(this.matrix);
