@@ -32,21 +32,23 @@ var Stats = /** @class */ (function (_super) {
             _this._lastFrameTime = new Date().getTime();
             var currentFrame = notification.getPayload();
             if (currentFrame % 60 === 0) {
+                var info = "fps: " + _this.getFps() + ", frame: " + currentFrame;
                 var context = _this._context;
                 context.beginPath();
                 context.fillStyle = "black";
                 context.fillRect(0, 0, _this.width, _this.height);
                 context.fill();
-                context.font = "24px Arial";
+                context.font = "20px Arial";
                 context.fillStyle = "red";
-                context.fillText(_this.getFps().toString(), 0, Math.round(_this.height / 2));
+                context.fillText(info, 0, Math.round(_this.height / 2));
                 context.closePath();
             }
         };
         var data = document.createElement("canvas");
-        data.width = 100;
-        data.height = 50;
+        _this.width = data.width = 200;
+        _this.height = data.height = 50;
         _this.texture = new Texture_1.default("stats_texture", new TextureData_1.default(data), 0, 0, data.width, data.height);
+        _this.texture.data.isDynamic = true;
         _this._context = _this.texture.source.getContext("2d");
         return _this;
     }

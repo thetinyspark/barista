@@ -15,8 +15,8 @@ export default class Stats extends DisplayObject{
         super(); 
 
         const data = document.createElement("canvas"); 
-        data.width = 100;
-        data.height = 50;
+        this.width = data.width = 200;
+        this.height = data.height = 50;
         this.texture = new Texture(
             "stats_texture", 
             new TextureData(data), 
@@ -25,6 +25,7 @@ export default class Stats extends DisplayObject{
             data.width, 
             data.height
         );
+        this.texture.data.isDynamic= true;
         this._context = (this.texture.source as HTMLCanvasElement).getContext("2d");
     }
 
@@ -55,17 +56,19 @@ export default class Stats extends DisplayObject{
         this._elapsedTime = new Date().getTime() - this._lastFrameTime;
         this._lastFrameTime = new Date().getTime();
         const currentFrame:number = notification.getPayload() as number;
-
         if( currentFrame % 60 === 0 ){
+
+            const info = "fps: "+this.getFps()+", frame: "+currentFrame
+            
             const context = this._context;
             context.beginPath();
             context.fillStyle = "black";
             context.fillRect(0,0, this.width, this.height); 
             context.fill();
             
-            context.font = "24px Arial";
+            context.font = "20px Arial";
             context.fillStyle = "red"; 
-            context.fillText( this.getFps().toString(), 0, Math.round(this.height / 2));
+            context.fillText( info, 0, Math.round(this.height / 2));
             context.closePath();
         }
     }
