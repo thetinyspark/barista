@@ -11,7 +11,7 @@ import INotification from "./event/INotification";
 import Notification from "./event/Notification";
 import Canvas2DRenderer from "./rendering/Canvas2DRenderer";
 import IRenderer from "./rendering/IRenderer";
-import AssetsManager, { IMAGE_TYPE, JSON_TYPE } from "./net/AssetsManager";
+import AssetsManager, { IMAGE_TYPE, JSON_TYPE } from "./assets/AssetsManager";
 import Texture from "./texture/Texture";
 import Geometry, { Hitbox, Point, Rectangle } from "./utils/Geometry";
 import { isDisplayObjectContainer } from "./utils/isser";

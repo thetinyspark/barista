@@ -19,7 +19,7 @@ var Notification_1 = require("./event/Notification");
 exports.Notification = Notification_1.default;
 var Canvas2DRenderer_1 = require("./rendering/Canvas2DRenderer");
 exports.Canvas2DRenderer = Canvas2DRenderer_1.default;
-var AssetsManager_1 = require("./net/AssetsManager");
+var AssetsManager_1 = require("./assets/AssetsManager");
 exports.AssetsManager = AssetsManager_1.default;
 Object.defineProperty(exports, "IMAGE_TYPE", { enumerable: true, get: function () { return AssetsManager_1.IMAGE_TYPE; } });
 Object.defineProperty(exports, "JSON_TYPE", { enumerable: true, get: function () { return AssetsManager_1.JSON_TYPE; } });
