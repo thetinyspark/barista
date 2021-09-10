@@ -8,6 +8,7 @@ export default class AssetsManager {
     getQueue(): any[];
     freeQueue(): void;
     loadQueue(): Promise<any[]>;
+    getUris(): any;
     getUri(alias: string): string;
     get(alias: string): any;
     load(uri: string, type: string, alias: string): Promise<any>;

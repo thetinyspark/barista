@@ -32,6 +32,13 @@ var AssetsManager = /** @class */ (function () {
         });
     };
     ;
+    AssetsManager.prototype.getUris = function () {
+        var result = {};
+        this.uris.forEach(function (value, key) {
+            result[key] = value;
+        });
+        return result;
+    };
     AssetsManager.prototype.getUri = function (alias) {
         return this.uris.get(alias);
     };
