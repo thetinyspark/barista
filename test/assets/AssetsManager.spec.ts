@@ -1,4 +1,4 @@
-import AssetsManager, { IMAGE_TYPE, JSON_TYPE } from "../../lib/net/AssetsManager";
+import AssetsManager, { IMAGE_TYPE, JSON_TYPE } from "../../lib/assets/AssetsManager";
 
 describe(
     "AssetsManager test suite",
@@ -37,8 +37,7 @@ describe(
 
         
         // IMAGE LOADING TEST
-        it(
-            "should load an image ressource",
+        it("should load an image ressource",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 const fake = Promise.resolve(new Response(imageBlob));
@@ -53,8 +52,7 @@ describe(
             }
         );
 
-        it(
-            "the image ressource should be 100 width, 100 height",
+        it("the image ressource should be 100 width, 100 height",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 const fake = Promise.resolve(new Response(imageBlob));
@@ -70,8 +68,7 @@ describe(
             }
         );
 
-        it(
-            "the image ressource should be available at the right alias",
+        it("the image ressource should be available at the right alias",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 const fake = Promise.resolve(new Response(imageBlob));
@@ -90,8 +87,7 @@ describe(
 
 
         // JSON LOADING TEST
-        it(
-            "should load a json ressource",
+        it("should load a json ressource",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 const mock = { msg: "hello world" };
@@ -107,8 +103,7 @@ describe(
             }
         );
 
-        it(
-            "the json ressource should have a specific message",
+        it("the json ressource should have a specific message",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 const mock = { msg: "hello world" };
@@ -124,8 +119,7 @@ describe(
             }
         );
 
-        it(
-            "the json ressource should be available at the right alias",
+        it("the json ressource should be available at the right alias",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 const mock = { msg: "hello world" };
@@ -144,8 +138,7 @@ describe(
 
 
         // SET, UNSET AND DESTROY TEST
-        it(
-            "the json ressource should be deleted",
+        it("the json ressource should be deleted",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 const mock = { msg: "hello world" };
@@ -162,8 +155,7 @@ describe(
             }
         );
 
-        it(
-            "the ressource should be available at the right alias",
+        it("the ressource should be available at the right alias",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 const data = { msg: "hello" };
@@ -173,8 +165,7 @@ describe(
             }
         );
 
-        it(
-            "all the ressources should be deleted",
+        it("all the ressources should be deleted",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 manager.set(1, "mydata1");
@@ -189,8 +180,7 @@ describe(
 
 
         // QUEUE LOADING TEST
-        it(
-            "should queue and load ressources",
+        it("should queue and load ressources",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 const fakeJSON = Promise.resolve(new Response(JSON.stringify({ msg: "hello" })));
@@ -223,8 +213,7 @@ describe(
             }
         );
 
-        it(
-            "should fill queue",
+        it("should fill queue",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 manager.queue("uri1", JSON_TYPE, "myjson");
@@ -234,8 +223,7 @@ describe(
             }
         );
 
-        it(
-            "should free queue",
+        it("should free queue",
             (done) => {
                 const manager: AssetsManager = new AssetsManager();
                 manager.queue("uri1", JSON_TYPE, "myjson");
@@ -245,6 +233,65 @@ describe(
                 done();
             }
         );
+
+        // SHOULD BE ABLE TO RETRIEVE THE RIGHT URI FOR A RESSOURCE 
+        it("should be able to retrieve the right uri for a specific ressource when using set", 
+        ()=>{
+            const manager: AssetsManager = new AssetsManager();
+            const data = { msg: "hello" };
+            const uri = "lol who cares ?";
+            manager.set(data, "mydata", uri);
+            expect(manager.getUri("mydata")).toBe(uri);
+        });
+
+        it("should be able to retrieve the right uri for a specific ressource when using load", 
+        ()=>{
+            (done) => {
+                const manager: AssetsManager = new AssetsManager();
+                const mock = { msg: "hello world" };
+                const fake = Promise.resolve(new Response(JSON.stringify(mock)));
+                const fakeurl: string = "lol who cares ?";
+                spyOn(window, "fetch").and.returnValue(fake);
+                manager.load(fakeurl, JSON_TYPE, "mydata").then(
+                    (data: any) => {
+                        expect(manager.getUri("mydata")).toEqual(fakeurl);
+                        done();
+                    }
+                );
+            }
+        });
+
+        it("should be able to retrieve the right uri for a specific ressource when using queue", 
+        ()=>{
+            (done) => {
+                const manager: AssetsManager = new AssetsManager();
+                const fakeJSON = Promise.resolve(new Response(JSON.stringify({ msg: "hello" })));
+                const jsonuri = "jsonuri";
+
+                spyOn(window, "fetch").and.callFake((input) => fakeJSON);
+
+                manager.queue(jsonuri, JSON_TYPE, "myjson");
+                manager.loadQueue().then(
+                    (data: any[]) => {
+                        expect(manager.getUri("myjson")).toEqual(jsonuri);
+                        done();
+                    }
+                );
+            }
+        });
+
+        it("should be able to retrieve all uris and aliases", 
+        ()=>{
+            const manager: AssetsManager = new AssetsManager();
+            manager.set(10, "mydata1", "uri1");
+            manager.set(12, "mydata2", "uri2");
+            expect(manager.getUris()).toEqual(
+                {
+                    mydata1: "uri1",
+                    mydata2: "uri2",
+                }
+            );
+        })
 
     }
 )

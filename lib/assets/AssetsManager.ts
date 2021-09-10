@@ -1,6 +1,7 @@
 
 export default class AssetsManager {
 
+    private uris:Map<string, string> = new Map<string,string>();
     private data: Map<string, any>;
     private list: any[];
 
@@ -9,24 +10,24 @@ export default class AssetsManager {
         this.list = [];
     }
 
-    public getAll = (): Map<string, any> => {
+    public getAll(): Map<string, any>{
         return this.data;
     };
 
 
-    public queue = (uri: string, type: string = JSON_TYPE, alias: string):void => {
+    public queue(uri: string, type: string = JSON_TYPE, alias: string):void{
         this.list.push({ uri, type, alias });
     };
 
-    public getQueue = (): any[] => {
+    public getQueue(): any[]{
         return this.list;
     };
 
-    public freeQueue = ():void => {
+    public freeQueue():void{
         this.list = [];
     };
 
-    public loadQueue = (): Promise<any[]> => {
+    public loadQueue(): Promise<any[]>{
         return Promise.all(this.list.map(cur => this.load(cur.uri, cur.type, cur.alias))).then(
             (data: any[]) => {
                 this.freeQueue();
@@ -36,12 +37,25 @@ export default class AssetsManager {
     };
 
 
+    public getUris():any{
+        const result = {};
+        this.uris.forEach( 
+            (value:string, key:string)=>{
+                result[key] = value;
+            }
+        );
+        return result;
+    }
 
-    public get = (alias: string): any => {
+    public getUri(alias:string):string{
+        return this.uris.get(alias);
+    }
+
+    public get(alias: string): any{
         return this.data.get(alias);
     };
 
-    public load = (uri: string, type: string = JSON_TYPE, alias: string): Promise<any> => {
+    public load (uri: string, type: string = JSON_TYPE, alias: string): Promise<any>{
 
         let promise: Promise<any> = null;
 
@@ -55,32 +69,33 @@ export default class AssetsManager {
 
         return promise.then(
             (data: any) => {
-                this.set(data, alias);
+                this.set(data, alias, uri);
                 return data;
             }
         );
 
     };
 
-    public set = (data: any, alias: string) => {
+    public set(data: any, alias: string, uri:string = ""){
+        this.uris.set(alias, uri);
         this.data.set(alias, data);
     };
 
-    public delete = (alias: string): boolean => {
+    public delete (alias: string): boolean{
         return this.getAll().delete(alias);
     };
 
-    public destroy = (): void => {
+    public destroy (): void {
         this.getAll().clear();
     };
 
 
 
-    private loadJSON = (uri: string): Promise<any> => {
+    private loadJSON (uri: string): Promise<any>{
         return fetch(uri).then(response => response.json());
     };
 
-    private loadImage = (uri: string): Promise<HTMLImageElement> => {
+    private loadImage(uri: string): Promise<HTMLImageElement> {
         return fetch(uri).then(response => response.blob()).then(
             (data: Blob) => {
                 return new Promise(
