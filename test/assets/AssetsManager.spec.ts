@@ -280,5 +280,18 @@ describe(
             }
         });
 
+        it("should be able to retrieve all uris and aliases", 
+        ()=>{
+            const manager: AssetsManager = new AssetsManager();
+            manager.set(10, "mydata1", "uri1");
+            manager.set(12, "mydata2", "uri2");
+            expect(manager.getUris()).toEqual(
+                {
+                    mydata1: "uri1",
+                    mydata2: "uri2",
+                }
+            );
+        })
+
     }
 )

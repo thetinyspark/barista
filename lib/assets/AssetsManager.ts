@@ -37,6 +37,15 @@ export default class AssetsManager {
     };
 
 
+    public getUris():any{
+        const result = {};
+        this.uris.forEach( 
+            (value:string, key:string)=>{
+                result[key] = value;
+            }
+        );
+        return result;
+    }
 
     public getUri(alias:string):string{
         return this.uris.get(alias);
