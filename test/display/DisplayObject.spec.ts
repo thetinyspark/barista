@@ -74,6 +74,25 @@ describe(
                         expect(child.worldOpacity).toEqual(0.5);
                     }
                 )
+                
+                it("world opacity should not be above 1",
+                ()=>{
+                    // given 
+                    const parent = new DisplayObjectContainer();
+                    const child = new DisplayObject();
+
+                    child.opacity = 2; 
+                    parent.opacity = 2;
+
+                    parent.addChild(child);
+                    
+                    // when 
+                    parent.update(mat2d.create(), 1);
+
+                    // then
+                    expect(child.worldOpacity).toEqual(1);
+                }
+            )
     
                 it("world opacity should not be under 0",
                 ()=>{

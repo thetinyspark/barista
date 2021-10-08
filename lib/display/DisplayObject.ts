@@ -1,3 +1,4 @@
+import { WSASERVICE_NOT_FOUND } from "constants";
 import { mat2d } from "gl-matrix";
 import Emitter from "../event/Emitter";
 import IFilter from "../filters/IFilter";
@@ -53,6 +54,8 @@ export default class DisplayObject extends Emitter implements IDisplayObject{
         mat2d.rotate(this.matrix, this.matrix, this.rotation * (Math.PI / 180));
         mat2d.scale(this.matrix, this.matrix, [this.scaleX, this.scaleY]);
         mat2d.multiply(this.worldMatrix, worldMatrix, this.matrix);
+        if (this.opacity>1) this.opacity = 1;
+        if (this.opacity<0) this.opacity = 0;
         this.worldOpacity = worldOpacity * this.opacity;
     }
     
