@@ -61,6 +61,10 @@ var DisplayObject = /** @class */ (function (_super) {
         gl_matrix_1.mat2d.rotate(this.matrix, this.matrix, this.rotation * (Math.PI / 180));
         gl_matrix_1.mat2d.scale(this.matrix, this.matrix, [this.scaleX, this.scaleY]);
         gl_matrix_1.mat2d.multiply(this.worldMatrix, worldMatrix, this.matrix);
+        if (this.opacity > 1)
+            this.opacity = 1;
+        if (this.opacity < 0)
+            this.opacity = 0;
         this.worldOpacity = worldOpacity * this.opacity;
     };
     DisplayObject.prototype.render = function (renderer) {

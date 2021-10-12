@@ -1,13 +1,11 @@
-import { WSASERVICE_NOT_FOUND } from "constants";
 import { mat2d } from "gl-matrix";
-import Emitter from "../event/Emitter";
-import IFilter from "../filters/IFilter";
+import { Emitter } from "@thetinyspark/tiny-observer";
 import Canvas2DRenderer from "../rendering/Canvas2DRenderer";
 import IRenderer from "../rendering/IRenderer";
 import Texture from "../texture/Texture";
-import Geometry from "../utils/Geometry";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
+import IFilter from "../filters/IFilter";
 
 export default class DisplayObject extends Emitter implements IDisplayObject{
 

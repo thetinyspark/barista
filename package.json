@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/thetinyspark/barista#readme",
   "dependencies": {
+    "@thetinyspark/tiny-observer": "^1.0.1",
     "gl-matrix": "^3.3.0"
   },
   "devDependencies": {
