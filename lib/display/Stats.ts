@@ -1,6 +1,6 @@
 import Stage, { StageEvent } from "./Stage";
 import DisplayObject from "./DisplayObject";
-import INotification from "../event/INotification";
+import {INotification} from "@thetinyspark/tiny-observer";
 import Texture from "../texture/Texture";
 import TextureData from "../texture/TextureData";
 

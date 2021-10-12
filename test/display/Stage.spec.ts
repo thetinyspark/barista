@@ -1,5 +1,5 @@
 import Stage, { StageEvent } from "../../lib/display/Stage";
-import INotification from "../../lib/event/INotification";
+import {INotification} from "@thetinyspark/tiny-observer";
 describe( 
     'Stage test suite', 
     ()=>{

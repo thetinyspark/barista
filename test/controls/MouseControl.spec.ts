@@ -1,5 +1,5 @@
 import MouseControl, { MouseControlEvent } from "../../lib/controls/MouseControl";
-import INotification from "../../lib/event/INotification";
+import {INotification} from "@thetinyspark/tiny-observer";
 import { create2DScene, createCanvas, createDisplayObjectFromCanvas } from "../test_utils/canvas.utils.spec";
 
 
