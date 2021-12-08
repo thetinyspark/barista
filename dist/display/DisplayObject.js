@@ -16,7 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var gl_matrix_1 = require("gl-matrix");
-var Emitter_1 = require("../event/Emitter");
+var tiny_observer_1 = require("@thetinyspark/tiny-observer");
 var Canvas2DRenderer_1 = require("../rendering/Canvas2DRenderer");
 var DisplayObject = /** @class */ (function (_super) {
     __extends(DisplayObject, _super);
@@ -35,6 +35,7 @@ var DisplayObject = /** @class */ (function (_super) {
         _this.rotation = 0;
         _this.width = 0;
         _this.height = 0;
+        _this.transformOrigin = { x: 0, y: 0 };
         _this.parent = null;
         return _this;
     }
@@ -57,9 +58,10 @@ var DisplayObject = /** @class */ (function (_super) {
     DisplayObject.prototype.update = function (worldMatrix, worldOpacity) {
         if (worldOpacity === void 0) { worldOpacity = 1; }
         gl_matrix_1.mat2d.identity(this.matrix);
-        gl_matrix_1.mat2d.translate(this.matrix, this.matrix, [this.x, this.y]);
+        gl_matrix_1.mat2d.translate(this.matrix, this.matrix, [this.x + this.transformOrigin.x, this.y + this.transformOrigin.y]);
         gl_matrix_1.mat2d.rotate(this.matrix, this.matrix, this.rotation * (Math.PI / 180));
         gl_matrix_1.mat2d.scale(this.matrix, this.matrix, [this.scaleX, this.scaleY]);
+        gl_matrix_1.mat2d.translate(this.matrix, this.matrix, [-this.transformOrigin.x, -this.transformOrigin.y]);
         gl_matrix_1.mat2d.multiply(this.worldMatrix, worldMatrix, this.matrix);
         if (this.opacity > 1)
             this.opacity = 1;
@@ -71,5 +73,5 @@ var DisplayObject = /** @class */ (function (_super) {
         renderer.add(this);
     };
     return DisplayObject;
-}(Emitter_1.default));
+}(tiny_observer_1.Emitter));
 exports.default = DisplayObject;

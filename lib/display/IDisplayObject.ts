@@ -1,5 +1,6 @@
 import { IEmitter } from "@thetinyspark/tiny-observer";
 import { mat2d } from "gl-matrix";
+import { Point } from "..";
 import IFilter from "../filters/IFilter";
 import IRenderer from "../rendering/IRenderer";
 import Texture from "../texture/Texture";
@@ -22,5 +23,6 @@ export default interface IDisplayObject extends IEmitter{
     height:number;
     opacity:number;
     worldOpacity:number;
+    transformOrigin:Point;
     snapshot():HTMLCanvasElement;
 }

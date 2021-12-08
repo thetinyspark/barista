@@ -6,6 +6,7 @@ import Texture from "../texture/Texture";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 import IFilter from "../filters/IFilter";
+import { Point } from "..";
 
 export default class DisplayObject extends Emitter implements IDisplayObject{
 
@@ -22,6 +23,7 @@ export default class DisplayObject extends Emitter implements IDisplayObject{
     public rotation:number = 0;
     public width: number = 0;
     public height: number = 0;
+    public transformOrigin:Point = {x:0,y:0};
     public parent:IDisplayObjectContainer|null = null;
 
     public snapshot():HTMLCanvasElement{
@@ -48,9 +50,10 @@ export default class DisplayObject extends Emitter implements IDisplayObject{
 
     public update( worldMatrix:mat2d, worldOpacity:number = 1 ):void{
         mat2d.identity(this.matrix);
-        mat2d.translate(this.matrix, this.matrix, [this.x, this.y]);
+        mat2d.translate(this.matrix, this.matrix, [this.x + this.transformOrigin.x, this.y + this.transformOrigin.y]);
         mat2d.rotate(this.matrix, this.matrix, this.rotation * (Math.PI / 180));
         mat2d.scale(this.matrix, this.matrix, [this.scaleX, this.scaleY]);
+        mat2d.translate(this.matrix, this.matrix, [-this.transformOrigin.x, -this.transformOrigin.y]);
         mat2d.multiply(this.worldMatrix, worldMatrix, this.matrix);
         if (this.opacity>1) this.opacity = 1;
         if (this.opacity<0) this.opacity = 0;
