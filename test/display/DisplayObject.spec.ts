@@ -76,23 +76,23 @@ describe(
                 )
                 
                 it("world opacity should not be above 1",
-                ()=>{
-                    // given 
-                    const parent = new DisplayObjectContainer();
-                    const child = new DisplayObject();
+                    ()=>{
+                        // given 
+                        const parent = new DisplayObjectContainer();
+                        const child = new DisplayObject();
 
-                    child.opacity = 2; 
-                    parent.opacity = 2;
+                        child.opacity = 2; 
+                        parent.opacity = 2;
 
-                    parent.addChild(child);
-                    
-                    // when 
-                    parent.update(mat2d.create(), 1);
+                        parent.addChild(child);
+                        
+                        // when 
+                        parent.update(mat2d.create(), 1);
 
-                    // then
-                    expect(child.worldOpacity).toEqual(1);
-                }
-            )
+                        // then
+                        expect(child.worldOpacity).toEqual(1);
+                    }
+                );
     
                 it("world opacity should not be under 0",
                 ()=>{
@@ -111,7 +111,7 @@ describe(
                     // then
                     expect(child.worldOpacity).toEqual(0);
                 }
-            )
+                );
 
                 it( "should update the transformation matrix", 
                     ()=>{
@@ -148,6 +148,26 @@ describe(
                         expect(worldMatrix[5]).toEqual(220);
                     }
                 );
+
+                it("should transform object according to transform origin", 
+                ()=>{
+                    // given
+                    const object = new DisplayObject(); 
+                    object.x = 0;
+                    object.y = 0;
+                    object.width = 100;
+                    object.height = 100;
+                    object.transformOrigin.x = 50;
+                    object.transformOrigin.y = 50;
+                    object.rotation = 180;
+
+                    // when
+                    object.update(mat2d.create(), 1);
+
+                    // then
+                    expect( object.matrix[4]).toEqual(100);
+                    expect( object.matrix[5]).toEqual(100);
+                });
 
             }
         );
