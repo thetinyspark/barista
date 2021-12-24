@@ -1,4 +1,4 @@
-import AssetsManager, { IMAGE_TYPE, JSON_TYPE } from "../../lib/assets/AssetsManager";
+import AssetsManager, { BLOB_TYPE, IMAGE_TYPE, JSON_TYPE, LOAD_ERROR, LOAD_SUCCESS } from "../../lib/assets/AssetsManager";
 
 describe(
     "AssetsManager test suite",
@@ -34,6 +34,51 @@ describe(
             }
         );
 
+
+        // EVENT DISPATCH 
+        it("should dispatch an event on loading error",
+        (done)=>{
+            // given
+            const manager: AssetsManager = new AssetsManager();
+            const fake = Promise.resolve(new Response(imageBlob, {status: 404, statusText: "not found"}));
+            const fakeurl: string = "omagade ?";
+            spyOn(window, "fetch").and.returnValue(fake);
+
+            // when
+            manager.subscribe(
+                LOAD_ERROR, 
+                ()=>{
+                    // then
+                    expect( manager.get("mydata") ).toBeUndefined();
+                    done();
+                }
+            );
+
+            manager.load(fakeurl, BLOB_TYPE, "mydata");
+            
+        });
+
+        it("should dispatch an event on loading success",
+        (done)=>{
+            // given
+            const manager: AssetsManager = new AssetsManager();
+            const fake = Promise.resolve(new Response(imageBlob));
+            const fakeurl: string = "omagade ?";
+            spyOn(window, "fetch").and.returnValue(fake);
+
+            // when
+            manager.subscribe(
+                LOAD_SUCCESS, 
+                ()=>{
+                    // then
+                    expect( manager.get("mydata") ).toBeTruthy();
+                    done();
+                }
+            );
+
+            manager.load(fakeurl, BLOB_TYPE, "mydata");
+            
+        });
 
         
         // IMAGE LOADING TEST
@@ -84,7 +129,36 @@ describe(
         );
 
 
+        // BLOB LOADING TEST
+        it("should load a blob ressource",
+            (done) => {
+                const manager: AssetsManager = new AssetsManager();
+                const fake = Promise.resolve(new Response(imageBlob));
+                const fakeurl: string = "lol who cares ?";
+                spyOn(window, "fetch").and.returnValue(fake);
+                manager.load(fakeurl, BLOB_TYPE, "mydata").then(
+                    (blob: Blob) => {
+                        expect(blob).toBeTruthy();
+                        done();
+                    }
+                );
+            }
+        );
 
+        it("the blob ressource should be available at the right alias",
+            (done) => {
+                const manager: AssetsManager = new AssetsManager();
+                const fake = Promise.resolve(new Response(imageBlob));
+                const fakeurl: string = "lol who cares ?";
+                spyOn(window, "fetch").and.returnValue(fake);
+                manager.load(fakeurl, BLOB_TYPE, "myblob").then(
+                    (blob: Blob) => {
+                        expect(manager.get("myblob")).toBeTruthy();
+                        done();
+                    }
+                )
+            }
+        );
 
         // JSON LOADING TEST
         it("should load a json ressource",
@@ -185,8 +259,10 @@ describe(
                 const manager: AssetsManager = new AssetsManager();
                 const fakeJSON = Promise.resolve(new Response(JSON.stringify({ msg: "hello" })));
                 const fakeImg = Promise.resolve(new Response(imageBlob));
+                const fakeBlob = Promise.resolve(new Response(imageBlob));
                 const jsonuri = "jsonuri";
                 const imguri = "imguri";
+                const bloburi = "bloburi";
 
                 spyOn(window, "fetch").and.callFake(
                     (input) => {
@@ -194,6 +270,7 @@ describe(
                         switch (input) {
                             case jsonuri: return fakeJSON;
                             case imguri: return fakeImg;
+                            case bloburi: return fakeBlob;
                             default: return fakeJSON;
                         }
 
@@ -202,10 +279,12 @@ describe(
 
                 manager.queue(jsonuri, JSON_TYPE, "myjson");
                 manager.queue(imguri, IMAGE_TYPE, "myimg");
+                manager.queue(bloburi, BLOB_TYPE, "myblob");
                 manager.loadQueue().then(
                     (data: any[]) => {
                         expect(manager.get("myjson")).toBeTruthy();
                         expect(manager.get("myimg")).toBeTruthy();
+                        expect(manager.get("myblob")).toBeTruthy();
                         expect(manager.getQueue().length).toEqual(0);
                         done();
                     }
