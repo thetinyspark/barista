@@ -6,6 +6,38 @@ import Canvas2DRenderer from "../../lib/rendering/Canvas2DRenderer";
 import Webglrenderer from "../../lib/rendering/webgl/Webgl2DRenderer";
 import Texture from "../../lib/texture/Texture";
 import TextureData from "../../lib/texture/TextureData";
+import { audioBase64d, videobase64 } from "./data.base64.spec";
+
+
+export function base64ToBlob(base64:string):Blob{
+    // Split into two parts
+    const parts = base64.split(';base64,');
+    
+    // Hold the content type
+    const contentType = parts[0].split(':')[1];
+    
+    // Decode Base64 string
+    const decodedData = window.atob(parts[1]);
+    
+    // Create UNIT8ARRAY of size same as row data length
+    const uInt8Array = new Uint8Array(decodedData.length);
+    
+    // Insert all character code into uInt8Array
+    for (let i = 0; i < decodedData.length; ++i) {
+        uInt8Array[i] = decodedData.charCodeAt(i);
+    }
+    
+    // Return BLOB after conversion
+    return new Blob([uInt8Array], { type: contentType });
+}
+
+export function createVideoBlob(){
+    return base64ToBlob(videobase64);
+}
+
+export function createAudioBlob(){
+    return base64ToBlob(audioBase64d);
+}
 
 export function createCanvas(width:number, height:number):HTMLCanvasElement{
     const canvas = document.createElement("canvas"); 
