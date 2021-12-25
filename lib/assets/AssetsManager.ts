@@ -68,6 +68,12 @@ export default class AssetsManager extends Emitter{
                     case JSON_TYPE:
                         return AssetsManager.blobToJSON(data).catch(this._errorHandler);
 
+                    case VIDEO_TYPE:
+                        return AssetsManager.blobToVideo(data).catch(this._errorHandler);
+
+                    case SOUND_TYPE:
+                        return AssetsManager.blobToSound(data).catch(this._errorHandler);
+
                     default: 
                         return data;
                 }
@@ -112,6 +118,33 @@ export default class AssetsManager extends Emitter{
     }
 
     // add static conversion method
+    public static blobToSound(data: Blob): Promise<HTMLAudioElement>{
+        return new Promise(
+            (resolve, reject) => {
+                const audio = document.createElement("audio");
+                const objectURL: string = URL.createObjectURL(data);
+
+                const cbk = (e:Event)=>{
+                    audio.removeEventListener("loadeddata", cbk);
+                    audio.removeEventListener("error", err);
+                    resolve(audio);
+                }; 
+
+                const err = (e:Event)=>{
+                    audio.removeEventListener("loadeddata", cbk);
+                    audio.removeEventListener("error", err);
+                    reject("unable to load audio from source");
+                };
+
+
+                audio.addEventListener("loadeddata", cbk);
+                audio.addEventListener("error", err);
+                audio.src = objectURL;
+                audio.load();
+            }
+        );
+    };
+
     public static blobToJSON (data: Blob): Promise<any>{ 
         return new Promise( 
             (resolve)=>{
@@ -129,17 +162,53 @@ export default class AssetsManager extends Emitter{
 
     public static blobToImage(data:Blob): Promise<HTMLImageElement> {
         return new Promise(
-            (resolve) => {
+            (resolve, reject) => {
                 const image = new Image();
-                image.addEventListener(
-                    "load",
-                    (e: Event) => {
-                        resolve(image);
-                    }
-                );
+
+                const err = (e:Event)=>{
+                    image.removeEventListener("load", cbk);
+                    image.removeEventListener("error", err);
+                    reject("unable to load image from source");
+                };
+
+                const cbk =  (e: Event) => {
+                    image.removeEventListener("load", cbk);
+                    image.removeEventListener("error", err);
+                    resolve(image);
+                }; 
+
+                image.addEventListener("load", cbk);
+                image.addEventListener("error", err);
 
                 const objectURL: string = URL.createObjectURL(data);
                 image.src = objectURL;
+            }
+        );
+    };
+
+    public static blobToVideo(data:Blob): Promise<HTMLVideoElement> {
+        return new Promise(
+            (resolve, reject) => {
+                const video = document.createElement("video");
+                const objectURL: string = URL.createObjectURL(data);
+
+                const cbk = (e:Event)=>{
+                    video.removeEventListener("loadeddata", cbk);
+                    video.removeEventListener("error", err);
+                    resolve(video);
+                }; 
+
+                const err = (e:Event)=>{
+                    video.removeEventListener("loadeddata", cbk);
+                    video.removeEventListener("error", err);
+                    reject("unable to load video from source");
+                };
+
+
+                video.addEventListener("loadeddata", cbk);
+                video.addEventListener("error", err);
+                video.src = objectURL;
+                video.load();
             }
         );
     };
@@ -150,5 +219,7 @@ export const LOAD_ERROR:string = "LOAD_ERROR";
 export const LOAD_SUCCESS:string = "LOAD_SUCCESS";
 
 export const IMAGE_TYPE: string = "IMAGE_TYPE";
+export const VIDEO_TYPE: string = "VIDEO_TYPE";
+export const SOUND_TYPE: string = "SOUND_TYPE";
 export const JSON_TYPE: string = "JSON_TYPE";
 export const BLOB_TYPE: string = "BLOB_TYPE";

@@ -1,10 +1,13 @@
-import AssetsManager, { BLOB_TYPE, IMAGE_TYPE, JSON_TYPE, LOAD_ERROR, LOAD_SUCCESS } from "../../lib/assets/AssetsManager";
+import AssetsManager, { BLOB_TYPE, IMAGE_TYPE, JSON_TYPE, LOAD_ERROR, LOAD_SUCCESS, SOUND_TYPE, VIDEO_TYPE } from "../../lib/assets/AssetsManager";
+import {createAudioBlob, createVideoBlob} from "../test_utils/canvas.utils.spec";
 
 describe(
     "AssetsManager test suite",
     () => {
 
         var imageBlob: Blob = null;
+        const videoBlob = createVideoBlob();
+        const audioBlob = createAudioBlob();
 
         beforeAll(
             (done) => {
@@ -23,8 +26,9 @@ describe(
                     }, "image/png", 1
                 );
             }
-        )
+        ); 
 
+        // INSTANCE TEST
         it(
             "expect AssetsManager instance to be truthy",
             (done) => {
@@ -122,6 +126,68 @@ describe(
                 manager.load(fakeurl, IMAGE_TYPE, "myimg").then(
                     (image: HTMLImageElement) => {
                         expect(manager.get("myimg")).toBe(image);
+                        done();
+                    }
+                )
+            }
+        );
+
+        // VIDEO LOADING TEST
+        it("should load a video ressource",
+            (done) => {
+                const manager: AssetsManager = new AssetsManager();
+                const fake = Promise.resolve(new Response(videoBlob));
+                const fakeurl: string = "lol who cares ?";
+                spyOn(window, "fetch").and.returnValue(fake);
+                manager.load(fakeurl, VIDEO_TYPE, "mydata").then(
+                    (video: HTMLVideoElement) => {
+                        expect(video).toBeTruthy();
+                        done();
+                    }
+                );
+            }
+        );
+
+        it("the video ressource should be available at the right alias",
+            (done) => {
+                const manager: AssetsManager = new AssetsManager();
+                const fake = Promise.resolve(new Response(videoBlob));
+                const fakeurl: string = "lol who cares ?";
+                spyOn(window, "fetch").and.returnValue(fake);
+                manager.load(fakeurl, VIDEO_TYPE, "myvid").then(
+                    (video: HTMLVideoElement) => {
+                        expect(manager.get("myvid")).toBe(video);
+                        done();
+                    }
+                )
+            }
+        );
+
+        // AUDIO LOADING TEST
+        it("should load an audio ressource",
+            (done) => {
+                const manager: AssetsManager = new AssetsManager();
+                const fake = Promise.resolve(new Response(audioBlob));
+                const fakeurl: string = "lol who cares ?";
+                spyOn(window, "fetch").and.returnValue(fake);
+                manager.load(fakeurl, SOUND_TYPE, "mydata").then(
+                    (audio: HTMLAudioElement) => {
+                        expect(audio).toBeTruthy();
+                        done();
+                    }
+                );
+            }
+        );
+
+        it("the audio ressource should be available at the right alias",
+            (done) => {
+                const manager: AssetsManager = new AssetsManager();
+                const fake = Promise.resolve(new Response(audioBlob));
+                const fakeurl: string = "lol who cares ?";
+                spyOn(window, "fetch").and.returnValue(fake);
+                manager.load(fakeurl, SOUND_TYPE, "mysound").then(
+                    (audio: HTMLAudioElement) => {
+                        expect(manager.get("mysound")).toBe(audio);
                         done();
                     }
                 )
