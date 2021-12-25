@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "pub": "npm login && npm publish --access public",
-    "build": "tsc && npx webpack --config webpack.config.js",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && tsc && npx webpack --config webpack.config.js",
     "test": "karma start",
     "test:ci": "karma start --single-run",
     "doc": "typedoc"
