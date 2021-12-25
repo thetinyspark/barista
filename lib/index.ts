@@ -7,7 +7,7 @@ import DisplayObjectContainer from "./display/DisplayObjectContainer";
 import IDisplayObjectContainer from "./display/IDisplayObjectContainer";
 import Canvas2DRenderer from "./rendering/Canvas2DRenderer";
 import IRenderer from "./rendering/IRenderer";
-import AssetsManager, {IMAGE_TYPE, JSON_TYPE} from "./assets/AssetsManager";
+import AssetsManager, {IMAGE_TYPE, JSON_TYPE,BLOB_TYPE, LOAD_ERROR, LOAD_SUCCESS, SOUND_TYPE, VIDEO_TYPE} from "./assets/AssetsManager";
 import Texture from "./texture/Texture";
 import Geometry, {Hitbox, Point, Rectangle} from "./utils/Geometry";
 import { isDisplayObjectContainer } from "./utils/isser";
@@ -39,9 +39,7 @@ export {INotification};
 export {Notification};
 
 // net 
-export {AssetsManager};
-export {IMAGE_TYPE};
-export {JSON_TYPE};
+export {AssetsManager, IMAGE_TYPE, JSON_TYPE, SOUND_TYPE, BLOB_TYPE, VIDEO_TYPE, LOAD_ERROR, LOAD_SUCCESS};
 
 
 // rendering
