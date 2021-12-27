@@ -1,3 +1,4 @@
+import Camera from "../display/Camera";
 import IDisplayObject from "../display/IDisplayObject";
 
 export default interface IRenderer{

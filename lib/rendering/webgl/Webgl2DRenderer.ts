@@ -3,6 +3,7 @@ import Texture from "../../texture/Texture";
 import Default2DShader from "./Default2DShader";
 import IRenderer from "../IRenderer";
 import WebGlConfig from "./WebGlConfig";
+import Camera from "../../display/Camera";
 
 export default class Webgl2DRenderer implements IRenderer{
     private _children:IDisplayObject[] = []; 
