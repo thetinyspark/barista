@@ -23,10 +23,24 @@ var Stage = /** @class */ (function (_super) {
     __extends(Stage, _super);
     function Stage() {
         var _this = _super.call(this) || this;
+        _this._camera = null;
         _this._currentFrame = 0;
         _this._renderer = new Canvas2DRenderer_1.default();
+        _this._clippingStrategy = null;
         return _this;
     }
+    Stage.prototype.setCamera = function (camera) {
+        this._camera = camera;
+    };
+    Stage.prototype.getCamera = function () {
+        return this._camera;
+    };
+    Stage.prototype.setClippingStrategy = function (strategy) {
+        this._clippingStrategy = strategy;
+    };
+    Stage.prototype.getClippingStrategy = function () {
+        return this._clippingStrategy;
+    };
     Stage.prototype.getRenderer = function () {
         return this._renderer;
     };
@@ -44,8 +58,18 @@ var Stage = /** @class */ (function (_super) {
     };
     Stage.prototype.nextFrame = function () {
         this._currentFrame++;
-        this.update(gl_matrix_1.mat2d.create(), 1);
+        if (this._camera !== null) {
+            this._camera.update(gl_matrix_1.mat2d.create(), 1);
+            this.update(this._camera.getRevertWorldMatrix(), 1);
+        }
+        else {
+            this.update(gl_matrix_1.mat2d.create(), 1);
+        }
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);
+        // apply clipping strategy if there is one
+        if (this._clippingStrategy !== null && this._camera !== null) {
+            this._clippingStrategy(this, this._camera);
+        }
         // clear the rendering pipeline
         this._renderer.clear();
         // add children to rendering pipeline
