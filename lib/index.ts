@@ -10,7 +10,7 @@ import IRenderer from "./rendering/IRenderer";
 import AssetsManager, {IMAGE_TYPE, JSON_TYPE,BLOB_TYPE, LOAD_ERROR, LOAD_SUCCESS, SOUND_TYPE, VIDEO_TYPE} from "./assets/AssetsManager";
 import Texture from "./texture/Texture";
 import Geometry, {Hitbox, Point, Rectangle} from "./utils/Geometry";
-import { isDisplayObjectContainer } from "./utils/isser";
+import { isDisplayObjectContainer, isWebGLAvailable } from "./utils/isser";
 import TextureData from "./texture/TextureData";
 import Default2DShader from "./rendering/webgl/Default2DShader";
 import WebGlConfig from "./rendering/webgl/WebGlConfig";
@@ -57,7 +57,7 @@ export {TextureData}
 // utils
 export {MathUtils};
 export {Geometry, Hitbox, Point, Rectangle}
-export {isDisplayObjectContainer}
+export {isDisplayObjectContainer, isWebGLAvailable}
 
 // filters
 export{ IFilter }
