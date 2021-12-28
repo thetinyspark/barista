@@ -72,6 +72,13 @@ var DisplayObject = /** @class */ (function (_super) {
     DisplayObject.prototype.render = function (renderer) {
         renderer.add(this);
     };
+    DisplayObject.createFromTexture = function (texture) {
+        var disp = new DisplayObject();
+        disp.width = texture.sw;
+        disp.height = texture.sh;
+        disp.texture = texture;
+        return disp;
+    };
     return DisplayObject;
 }(tiny_observer_1.Emitter));
 exports.default = DisplayObject;

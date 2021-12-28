@@ -247,5 +247,27 @@ describe("Animation test suite",
         expect(currentFrame).toEqual(2);
     });
 
+    it("should be able to create an animation from a set of textures and frames", 
+    ()=>{
+        // given
+        const texture1 = texture;
+        const texture2 = texture1.createSubTexture("sub",0,0,texture1.sw >> 1, texture1.sh >> 1);
+        const desc = [
+            {frame:0, texture: texture1},
+            {frame:10, texture: texture2},
+        ]; 
+
+        // when 
+        const anim = Animation.createFromTexturesAndFrames(desc);
+
+        // then
+        expect(anim).toBeTruthy();
+        desc.forEach(
+            (frameconfig)=>{
+                expect(anim.getFrameTexture(frameconfig.frame)).toBe(frameconfig.texture);
+            }
+        );
+    });
+
   
 });

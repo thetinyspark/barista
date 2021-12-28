@@ -22,6 +22,10 @@ export default class Animation extends DisplayObject {
     getLastFrameIndex(): number;
     getCurrentFrameIndex(): number;
     goToFrame(frameIndex: number): void;
+    static createFromTexturesAndFrames(desc: {
+        frame: number;
+        texture: Texture;
+    }[]): Animation;
 }
 export declare enum AnimationEvent {
     PLAY_FRAME = "PLAY_FRAME"

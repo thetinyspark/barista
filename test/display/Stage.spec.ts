@@ -3,6 +3,7 @@ import {INotification} from "@thetinyspark/tiny-observer";
 import Camera from "../../lib/display/Camera";
 import { mat2d } from "gl-matrix";
 import { Rectangle } from "../../lib";
+import { isWebGLAvailable } from "../../lib/utils/isser";
 describe( 
     'Stage test suite', 
     ()=>{

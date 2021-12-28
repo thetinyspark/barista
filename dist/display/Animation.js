@@ -103,6 +103,13 @@ var Animation = /** @class */ (function (_super) {
         this.texture = this.getCurrentFrameTexture();
         this.emit(AnimationEvent.PLAY_FRAME, this._currentFrameIndex);
     };
+    Animation.createFromTexturesAndFrames = function (desc) {
+        var anim = new Animation();
+        desc.forEach(function (frameConfig) {
+            anim.setFrameTexture(frameConfig.frame, frameConfig.texture);
+        });
+        return anim;
+    };
     return Animation;
 }(DisplayObject_1.default));
 exports.default = Animation;

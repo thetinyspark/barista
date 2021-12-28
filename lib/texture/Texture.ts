@@ -72,5 +72,18 @@ export default class Texture{
     public createSubTexture(id:string, sx:number, sy:number, sw:number, sh:number ):Texture{
         return new Texture(id, this._data, sx, sy, sw, sh);
     }
+
+    public createSubTextures(zones:{id:string, sx:number, sy:number, sw:number, sh:number}[]):Texture[]{
+        return zones.map(
+            (zone)=>this.createSubTexture(zone.id, zone.sx, zone.sy, zone.sw, zone.sh)
+        );
+    }
     
+    public static createFromSource(id:string, source:CanvasImageSource):Texture{
+        const data = new TextureData(source);
+        if( source instanceof HTMLVideoElement ){
+            data.isDynamic = true;
+        }
+        return new Texture(id, data, 0, 0, data.width, data.height);
+    }
 }

@@ -1,5 +1,6 @@
 import Texture from "../../lib/texture/Texture";
 import TextureData from "../../lib/texture/TextureData";
+import MathUtils from "../../lib/utils/MathUtils";
 describe("Texture test suite", () => {
 
   const fakeCanvas = document.createElement("canvas");
@@ -41,6 +42,34 @@ describe("Texture test suite", () => {
     expect(sub).toBeTruthy();
   }); 
 
+  it("should be able to create multiple subtextures", 
+  ()=>{
+    // given
+    const main = new Texture("main", data);
+    const zones = [
+      {id:"sub_texture1", sx:0, sy:0, sw:100, sh:100 },
+      {id:"sub_texture2", sx:100, sy:100, sw:100, sh:100 },
+      {id:"sub_texture3", sx:100, sy:0, sw:100, sh:100 },
+      {id:"sub_texture4", sx:0, sy:100, sw:100, sh:100 },
+    ];
+
+    // when
+    const subs = main.createSubTextures(zones); 
+
+    // then
+    expect(subs.length).toEqual(zones.length);
+    zones.forEach(
+      (zone, index)=>{
+        expect(subs[index].id).toEqual(zone.id);
+        expect(subs[index].sx).toEqual(zone.sx);
+        expect(subs[index].sy).toEqual(zone.sy);
+        expect(subs[index].sw).toEqual(zone.sw);
+        expect(subs[index].sh).toEqual(zone.sh);
+        expect(subs[index].data).toBe(main.data);
+      }
+    );
+  }); 
+
   it("should be able to compute uv coordinates for the 4 corners", 
   ()=>{
     const textureA:Texture = new Texture("textureA", data); 
@@ -64,6 +93,40 @@ describe("Texture test suite", () => {
 
     expect(textureA.bottomRightUv.u).toEqual(0.75);
     expect(textureA.bottomRightUv.v).toEqual(0.75);
-  })
+  }); 
+
+  it("should be able to create a non dynamic texture from a source", 
+  ()=>{
+    // given
+    const id = "my_texture"; 
+    const source = fakeCanvas;
+
+    // when
+    const texture = Texture.createFromSource(id,source);
+
+    // when then
+    expect(texture).toBeTruthy();
+    expect(texture.id).toEqual(id);
+    expect(texture.source.width).toEqual( MathUtils.getNextPowerOf2(source.width ));
+    expect(texture.source.height).toEqual( MathUtils.getNextPowerOf2(source.height ));
+    expect(texture.data.isDynamic).toBeFalse();
+  });
+
+  it("should be able to create a dynamic texture from an video source", 
+  ()=>{
+    // given
+    const id = "my_texture"; 
+    const source = document.createElement("video");
+
+    // when
+    const texture = Texture.createFromSource(id,source);
+
+    // when then
+    expect(texture).toBeTruthy();
+    expect(texture.id).toEqual(id);
+    expect(texture.source.width).toEqual( MathUtils.getNextPowerOf2(source.width ));
+    expect(texture.source.height).toEqual( MathUtils.getNextPowerOf2(source.height ));
+    expect(texture.data.isDynamic).toBeTrue();
+  });
 
 });

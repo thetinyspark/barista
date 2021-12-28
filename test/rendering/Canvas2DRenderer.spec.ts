@@ -22,7 +22,7 @@ describe('Canvas2DRenderer test suite',
                 fillRect(whiteCanvas, "white", 0, 0, 200,200);
 
             }
-        )
+        );
 
         it('should be able to add and retrieve displayobjects to the rendering pipeline', 
             ()=>{

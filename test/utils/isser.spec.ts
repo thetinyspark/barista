@@ -1,7 +1,7 @@
 import DisplayObject from "../../lib/display/DisplayObject";
 import DisplayObjectContainer from "../../lib/display/DisplayObjectContainer";
 import Stage from "../../lib/display/Stage";
-import {isDisplayObjectContainer} from "../../lib/utils/isser";
+import {isDisplayObjectContainer, isWebGLAvailable} from "../../lib/utils/isser";
 
 describe('isser test suite', 
      ()=>{
@@ -21,6 +21,26 @@ describe('isser test suite',
                          );
                     }
                )
+               
+          });
+
+          describe('#isWebGlAvailable', 
+          ()=>{
+               
+               it(`should say if that webgl is not available`,
+                    ()=>{
+                         const stub = spyOn(HTMLCanvasElement.prototype, "getContext").and.returnValue(null);
+                         const available = isWebGLAvailable();
+                         expect(available).toBeFalse();
+                    }
+               );
+
+               it(`should say if that webgl is available`,
+                    ()=>{
+                         const available = isWebGLAvailable();
+                         expect(available).toBeTrue();
+                    }
+               );
                
           });
      }

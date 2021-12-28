@@ -105,6 +105,16 @@ export default class Animation extends DisplayObject{
         this.texture = this.getCurrentFrameTexture();
         this.emit( AnimationEvent.PLAY_FRAME, this._currentFrameIndex );
     }
+
+    public static createFromTexturesAndFrames(desc:{frame:number, texture:Texture}[]):Animation{
+        const anim = new Animation();
+        desc.forEach( 
+            (frameConfig)=>{
+                anim.setFrameTexture(frameConfig.frame, frameConfig.texture);
+            }
+        );
+        return anim;
+    }
 }
 
 
