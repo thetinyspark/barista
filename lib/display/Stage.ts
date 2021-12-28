@@ -31,7 +31,7 @@ export default class Stage extends DisplayObjectContainer{
         return this._clippingStrategy;
     }
 
-    
+
     public getRenderer():IRenderer{
         return this._renderer;
     }

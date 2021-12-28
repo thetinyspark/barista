@@ -25,4 +25,5 @@ export default class DisplayObject extends Emitter implements IDisplayObject {
     snapshot(): HTMLCanvasElement;
     update(worldMatrix: mat2d, worldOpacity?: number): void;
     render(renderer: IRenderer): void;
+    static createFromTexture(texture: Texture): IDisplayObject;
 }

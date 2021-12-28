@@ -20,4 +20,12 @@ export default class Texture {
     get data(): TextureData;
     get source(): CanvasImageSource;
     createSubTexture(id: string, sx: number, sy: number, sw: number, sh: number): Texture;
+    createSubTextures(zones: {
+        id: string;
+        sx: number;
+        sy: number;
+        sw: number;
+        sh: number;
+    }[]): Texture[];
+    static createFromSource(id: string, source: CanvasImageSource): Texture;
 }

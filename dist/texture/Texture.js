@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var TextureData_1 = require("./TextureData");
 var Texture = /** @class */ (function () {
     function Texture(id, data, sx, sy, sw, sh) {
         if (id === void 0) { id = ""; }
@@ -63,6 +64,17 @@ var Texture = /** @class */ (function () {
     });
     Texture.prototype.createSubTexture = function (id, sx, sy, sw, sh) {
         return new Texture(id, this._data, sx, sy, sw, sh);
+    };
+    Texture.prototype.createSubTextures = function (zones) {
+        var _this = this;
+        return zones.map(function (zone) { return _this.createSubTexture(zone.id, zone.sx, zone.sy, zone.sw, zone.sh); });
+    };
+    Texture.createFromSource = function (id, source) {
+        var data = new TextureData_1.default(source);
+        if (source instanceof HTMLVideoElement) {
+            data.isDynamic = true;
+        }
+        return new Texture(id, data, 0, 0, data.width, data.height);
     };
     return Texture;
 }());

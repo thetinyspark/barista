@@ -1,4 +1,5 @@
 import { mat2d } from "gl-matrix";
+import Texture from "../../lib/texture/Texture";
 import DisplayObject from "../../lib/display/DisplayObject";
 import DisplayObjectContainer from "../../lib/display/DisplayObjectContainer";
 describe( 
@@ -30,7 +31,23 @@ describe(
                         expect(object.texture).toBeDefined();
                         expect(object.worldOpacity).toBeDefined();
                     }
-                 );
+                );
+
+                it("should be able to create a displayobject from a texture", 
+                ()=>{
+                    // given
+                    const canvas = document.createElement("canvas");
+                    canvas.width = canvas.height = 100;
+                    const texture = Texture.createFromSource("my_tex", canvas);
+
+                    // when
+                    const disp = DisplayObject.createFromTexture(texture);
+
+                    // then
+                    expect(disp.width).toEqual(texture.sw);
+                    expect(disp.height).toEqual(texture.sh);
+                    expect(disp).toBeTruthy();
+                })
             }
         );
 

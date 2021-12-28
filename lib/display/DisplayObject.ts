@@ -63,4 +63,12 @@ export default class DisplayObject extends Emitter implements IDisplayObject{
     public render(renderer:IRenderer): void {
         renderer.add(this);
     }
+
+    public static createFromTexture(texture:Texture):IDisplayObject{
+        const disp = new DisplayObject();
+        disp.width = texture.sw;
+        disp.height = texture.sh;
+        disp.texture = texture;
+        return disp;
+    }
 }
