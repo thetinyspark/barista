@@ -3,6 +3,10 @@ import Canvas2DRenderer from "../rendering/Canvas2DRenderer";
 import IRenderer from "../rendering/IRenderer";
 import Camera from "./Camera";
 import DisplayObjectContainer from "./DisplayObjectContainer";
+/**
+ * The Stage class is the base class for the scene.
+ * It supports basic functionality like camera, clipping strategy, rendering...
+ */
 export default class Stage extends DisplayObjectContainer{
 
 
@@ -15,43 +19,87 @@ export default class Stage extends DisplayObjectContainer{
         super();
     }
 
+    /**
+     * Sets the current Stage Camera, default is null
+     * @param camera Camera object
+     */
     public setCamera(camera:Camera):void{
         this._camera = camera;
     }
 
+    /**
+     * Returns the current stage's Camera
+     * @returns Camera object
+     */
     public getCamera():Camera{
         return this._camera;
     }
 
+    /**
+     * Sets a specific function which is used to clip the scene.
+     * Clipping the scene consists of removing certain objects from 
+     * the rendering pipeline according to specific conditions.
+     * @param strategy ClippingStrategy function
+     */
     public setClippingStrategy(strategy:ClippingStrategy):void{
         this._clippingStrategy = strategy;
     }
 
+    /**
+     * Returns the current stage's clipping strategy, default is null
+     * @returns ClippingStrategy function
+     */
     public getClippingStrategy():ClippingStrategy{
         return this._clippingStrategy;
     }
 
-
+    /**
+     * Returns the current stage's renderer, default is Canvas2DRenderer
+     * @returns IRenderer object
+     */
     public getRenderer():IRenderer{
         return this._renderer;
     }
 
+    /**
+     * Sets the current stage's renderer
+     * @param renderer IRenderer object
+     */
     public setRenderer(renderer:IRenderer):void{
         this._renderer = renderer;
     }
 
+    /**
+     * Returns the renderer's canvas.
+     * @returns HTMLCanvasElement object
+     */
     public getCanvas():HTMLCanvasElement{
         return this._renderer.getCanvas();
     }
 
+    /**
+     * Returns the renderer's rendering context
+     * @returns CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext object
+     */
     public getContext():CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext{
         return this._renderer.getContext();
     }
 
+    /**
+     * Returns the current frame
+     * @returns number
+     */
     public getCurrentFrame():number{
         return this._currentFrame;
     }
 
+    /**
+     * Updates every DisplayObject matrices. 
+     * Increase current frame.
+     * Applies clipping strategy if there is one.
+     * Renders the display list.
+     * Emit events (ENTER_FRAME & FRAME_END)
+     */
     public nextFrame():void{
         this._currentFrame++; 
         if( this._camera !== null ){
