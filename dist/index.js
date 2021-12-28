@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MouseControlEvent = exports.MouseControl = exports.isDisplayObjectContainer = exports.Geometry = exports.MathUtils = exports.TextureData = exports.Texture = exports.WebGlConfig = exports.Canvas2DRenderer = exports.Default2DShader = exports.Webgl2DRenderer = exports.LOAD_SUCCESS = exports.LOAD_ERROR = exports.VIDEO_TYPE = exports.BLOB_TYPE = exports.SOUND_TYPE = exports.JSON_TYPE = exports.IMAGE_TYPE = exports.AssetsManager = exports.Notification = exports.Emitter = exports.StageEvent = exports.AnimationEvent = exports.DisplayObjectContainer = exports.DisplayObject = exports.Stage = exports.Stats = exports.Animation = void 0;
+exports.MouseControlEvent = exports.MouseControl = exports.isWebGLAvailable = exports.isDisplayObjectContainer = exports.Geometry = exports.MathUtils = exports.TextureData = exports.Texture = exports.WebGlConfig = exports.Canvas2DRenderer = exports.Default2DShader = exports.Webgl2DRenderer = exports.LOAD_SUCCESS = exports.LOAD_ERROR = exports.VIDEO_TYPE = exports.BLOB_TYPE = exports.SOUND_TYPE = exports.JSON_TYPE = exports.IMAGE_TYPE = exports.AssetsManager = exports.Notification = exports.Emitter = exports.StageEvent = exports.AnimationEvent = exports.DisplayObjectContainer = exports.DisplayObject = exports.Stage = exports.Stats = exports.Animation = void 0;
 var Animation_1 = require("./display/Animation");
 exports.Animation = Animation_1.default;
 Object.defineProperty(exports, "AnimationEvent", { enumerable: true, get: function () { return Animation_1.AnimationEvent; } });
@@ -30,6 +30,7 @@ var Geometry_1 = require("./utils/Geometry");
 exports.Geometry = Geometry_1.default;
 var isser_1 = require("./utils/isser");
 Object.defineProperty(exports, "isDisplayObjectContainer", { enumerable: true, get: function () { return isser_1.isDisplayObjectContainer; } });
+Object.defineProperty(exports, "isWebGLAvailable", { enumerable: true, get: function () { return isser_1.isWebGLAvailable; } });
 var TextureData_1 = require("./texture/TextureData");
 exports.TextureData = TextureData_1.default;
 var Default2DShader_1 = require("./rendering/webgl/Default2DShader");
