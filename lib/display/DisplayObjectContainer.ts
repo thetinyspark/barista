@@ -3,7 +3,11 @@ import IRenderer from "../rendering/IRenderer";
 import DisplayObject from "./DisplayObject";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
-
+/**
+ * The DisplayObjectContainer class is the base class for every DisplayObjects containers.
+ * It supports basic functionality like adding, removing, containing children at a specific index or not.
+ * It inherits from DisplayObject, so it could be transformed, but it's texture property is useless.
+ */
 export default class DisplayObjectContainer extends DisplayObject implements IDisplayObjectContainer {
 
     private _children:IDisplayObject[] = [];

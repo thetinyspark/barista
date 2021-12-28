@@ -3,7 +3,10 @@ import DisplayObject from "./DisplayObject";
 import {INotification} from "@thetinyspark/tiny-observer";
 import Texture from "../texture/Texture";
 import TextureData from "../texture/TextureData";
-
+/**
+ * The Stats class is a basic frame counter.
+ * It supports basic functionality like start, stop, getFps
+ */
 export default class Stats extends DisplayObject{
     private _stage: Stage|null = null;
     private _lastFrameTime:number = 0;
@@ -29,17 +32,36 @@ export default class Stats extends DisplayObject{
         this._context = (this.texture.source as HTMLCanvasElement).getContext("2d");
     }
 
+    /**
+     * Returns the stage object which is monitored by Stats instance
+     * @returns Stage object
+     */
     public getStage(): Stage|null {
         return this._stage;
     }
 
+    /**
+     * Sets the stage object which will be monitored by Stats instance
+     * @param value Stage object
+     */
+    public setStage(value: Stage) {
+        this.stop();
+        this._stage = value;
+    }
+
+    /**
+     * Starts monitoring the stage
+     */
     public start():void{
         if( this._stage !== null )
             this._stage.subscribe(StageEvent.ENTER_FRAME,this._enterFrame);
 
         this._monitoring = true;
     }
-    
+
+    /**
+     * Stops monitoring the stage
+     */
     public stop():void{
         if( this._stage !== null )
             this._stage.unsubscribe(StageEvent.ENTER_FRAME, this._enterFrame); 
@@ -47,9 +69,12 @@ export default class Stats extends DisplayObject{
         this._monitoring = false;
     }
 
-    public setStage(value: Stage) {
-        this.stop();
-        this._stage = value;
+    /**
+     * Returns the current FPS (frame per second) of the monitored stage.
+     * @returns number
+     */
+    public getFps():number{
+        return this._monitoring ? Math.round( 1000 / this._elapsedTime ) : -1;
     }
 
     private _enterFrame = (notification:INotification):void => {
@@ -73,7 +98,4 @@ export default class Stats extends DisplayObject{
         }
     }
 
-    public getFps():number{
-        return this._monitoring ? Math.round( 1000 / this._elapsedTime ) : -1;
-    }
 }

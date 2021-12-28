@@ -86,6 +86,13 @@ export function createIndexArray():Uint16Array{
     return indexArray;
 }
 
+/**
+ * The WebGlConfig is a set of values which are necessary
+ * for the WebGL2DRenderer. You can changes the values if 
+ * you want to optimize the rendering process. The default 
+ * configuration stands that indices array has a max length
+ * of 65536 (2 words) which is an old limitation.
+ */
 export default class WebGlConfig{
     public static VERTEX_SIZE:number            = VERTEX_SIZE;
     public static NUM_VERTICES_PER_QUAD:number  = NUM_VERTICES_PER_QUAD;

@@ -1,6 +1,8 @@
 import IDisplayObject from "../display/IDisplayObject";
 import IRenderer from "./IRenderer";
-
+/**
+ * The Canvas2DRenderer class is the base class for non GPU 2d rendering.
+ */
 export default class Canvas2DRenderer implements IRenderer{
     private _children:IDisplayObject[] = []; 
     private _canvas:HTMLCanvasElement; 

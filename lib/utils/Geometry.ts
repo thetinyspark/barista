@@ -2,7 +2,17 @@ import { mat2d } from "gl-matrix";
 import IDisplayObject from "../display/IDisplayObject";
 import { isDisplayObjectContainer } from "./isser";
 
+/**
+ * The Geometry class is a set of utilitaries functions.
+ */
 export default class Geometry{
+
+    /**
+     * Calculates and returns the IDisplayObject's Hitbox 
+     * in the world space coordinates.
+     * @param child IDisplayObject
+     * @returns HitBox
+     */
     public static getHitbox(child:IDisplayObject):Hitbox{
 
         if( isDisplayObjectContainer(child) ){
@@ -45,6 +55,12 @@ export default class Geometry{
         }
     }
 
+    /**
+     * Calculates and returns the IDisplayObject's bouding Rectangle 
+     * in the world space coordinates.
+     * @param child IDisplayObject
+     * @returns Rectangle
+     */
     public static  getBoundingRect(child:IDisplayObject):Rectangle{
 
         const hitbox = this.getHitbox(child);        
@@ -61,6 +77,13 @@ export default class Geometry{
         };
     }
 
+    /**
+     * Transforms a pair of x,y coordinates with a matrix
+     * @param x number
+     * @param y number
+     * @param matrix mat2d
+     * @returns Point
+     */
     public static  transformPoint(x:number, y:number, matrix:mat2d):Point{
         return {
             x: Math.round(x * matrix[0] + y * matrix[2] + matrix[4]),
@@ -68,6 +91,13 @@ export default class Geometry{
         };
     }
 
+    /**
+     * Says if the IDisplayObject collides the x,y coordinates or not
+     * @param x number
+     * @param y number
+     * @param child IDisplayObject
+     * @returns boolean
+     */
     public static collide(x:number, y:number, child:IDisplayObject):boolean{
         const rect = this.getBoundingRect(child);
         const out = ( 
@@ -80,6 +110,15 @@ export default class Geometry{
     }
 }
 
+/**
+ * An object type which defines four points representing an hitbox
+ */
 export type Hitbox = {topLeft:Point, topRight:Point, bottomLeft:Point, bottomRight:Point};
+/**
+ * An object type which a 2d point (x,y)
+ */
 export type Point = {x:number, y:number};
+/**
+ * An object type which represents a Rectangle
+ */
 export type Rectangle = {x:number, y:number, width:number, height:number};

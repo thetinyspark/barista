@@ -7,7 +7,11 @@ import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 import IFilter from "../filters/IFilter";
 import { Point } from "..";
-
+/**
+ * The DisplayObject class is the base class for all objects that can be placed on the display list.
+ * It supports basic functionality like the x and y position of an object, as well as more advanced
+ * properties of the object such as its transformation matrix.
+ */
 export default class DisplayObject extends Emitter implements IDisplayObject{
 
     public filters:IFilter[] = [];
@@ -64,6 +68,12 @@ export default class DisplayObject extends Emitter implements IDisplayObject{
         renderer.add(this);
     }
 
+    /**
+    * Creates and returns a Display Object from a Texture object.
+    * The resulting object will have the same width and height
+    * as the "sx" and "sy" properties of the Texture object. 
+    * The "texture" property will contains the Texture object.
+    **/
     public static createFromTexture(texture:Texture):IDisplayObject{
         const disp = new DisplayObject();
         disp.width = texture.sw;
