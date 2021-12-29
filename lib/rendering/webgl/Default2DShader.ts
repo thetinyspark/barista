@@ -1,11 +1,20 @@
 import WebGlConfig from "./WebGlConfig";
-
+/**
+ * The Default2DShader class is the base class for WebGL 2d rendering.
+ * It is used by the WebGL2DRenderer class.
+ */
 export default class Default2DShader{
 
+	/**
+	 * The shader's id
+	 */
     public id 					                    = 0;
 	public fragmentShader:WebGLShader|null 	        = null;
 	public vertexShader:WebGLShader|null            = null;
 	public program:WebGLProgram|null 			    = null;
+	/**
+	 * The projection pointer is used to set the center of the world
+	 */
 	public projectionPointer:WebGLUniformLocation 	= 0;
 
 	constructor(context:WebGLRenderingContext){

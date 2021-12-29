@@ -1,7 +1,18 @@
 import MathUtils from "../utils/MathUtils";
+/**
+ * The TextureData class is the base class for containing graphic source.
+ * It defines a width, a height and a dynamic property 
+ * It can create,hold and return a WebGLTexture from the graphic source.
+ */
 export default class TextureData{
 
+    /**
+     * The width of the texture data
+     */
     public width:number = 0;
+    /**
+     * The height of the texture data
+     */
     public height:number = 0;
     private _source:CanvasImageSource;
     private _uid:string;
@@ -11,11 +22,19 @@ export default class TextureData{
 
     private static _counter:number = 0;
 
+    /**
+     * Creates a new TextureData object which hold the graphic source passed in param.
+     * @param source CanvasImageSource the graphic source
+     */
     constructor(source:CanvasImageSource){
         this.setSource(source);
         this._uid = "texture_data_"+TextureData._counter++;
     }
 
+    /**
+     * Sets the current TextureData source
+     * @param source CanvasImageSource
+     */
     public setSource(source:CanvasImageSource):void{
         const nwidth:number = MathUtils.getNextPowerOf2(source.width as number);
         const nheight:number = MathUtils.getNextPowerOf2(source.height as number);
@@ -32,6 +51,21 @@ export default class TextureData{
         this._updateNextFrame = true;
     }
 
+    /**
+     * Returns the current TextureData source
+     * @returns CanvasImageSource
+     */
+    public getSource():CanvasImageSource{
+        return this._source;
+    }
+
+    /**
+     * Returns a WebGLTexture object created from the source.
+     * If the TextureData is dynamic, the WebGLTexture will 
+     * be refreshed and sent to the rendering context passed in param.
+     * @param context WebGLRenderingContext
+     * @returns WebGLTexture object
+     */
     public getGlTexture(context:WebGLRenderingContext):WebGLTexture{
 
 
@@ -55,18 +89,24 @@ export default class TextureData{
         return this._glTexture;
     }
 
-    public getSource():CanvasImageSource{
-        return this._source;
-    }
-
+    /**
+     * The TextureData unique id
+     */
     public get uid():string{
         return this._uid;
     }
 
+    /**
+     * Says if current TextureData is dynamic or not
+     * @returns boolean
+     */
     public get isDynamic(): boolean {
         return this._isDynamic;
     }
     
+    /**
+     * Sets the dynamic property of the current TextureData
+     */
     public set isDynamic(value: boolean) {
         this._isDynamic = value;
     }
