@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Default2DShader_1 = require("./Default2DShader");
 var WebGlConfig_1 = require("./WebGlConfig");
+var CanvasUtils_1 = require("../../utils/CanvasUtils");
 /**
  * The Webgl2DRenderer class is the base class for WebGL2d rendering.
  */
@@ -12,7 +13,7 @@ var Webgl2DRenderer = /** @class */ (function () {
     }
     Webgl2DRenderer.prototype._init = function () {
         // init canvas
-        this._canvas = document.createElement("canvas");
+        this._canvas = CanvasUtils_1.default.create();
         this._context = this._canvas.getContext("webgl");
         this._vertexArray = WebGlConfig_1.default.createVertexArray();
         this._indexArray = WebGlConfig_1.default.createIndexArray();

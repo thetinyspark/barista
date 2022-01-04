@@ -3,6 +3,7 @@ import Texture from "../../texture/Texture";
 import Default2DShader from "./Default2DShader";
 import IRenderer from "../IRenderer";
 import WebGlConfig from "./WebGlConfig";
+import CanvasUtils from "../../utils/CanvasUtils";
 /**
  * The Webgl2DRenderer class is the base class for WebGL2d rendering.
  */
@@ -24,7 +25,7 @@ export default class Webgl2DRenderer implements IRenderer{
     private _init():void{
 
         // init canvas
-        this._canvas = document.createElement("canvas"); 
+        this._canvas = CanvasUtils.create(); 
         this._context = this._canvas.getContext("webgl");
 
         this._vertexArray = WebGlConfig.createVertexArray();

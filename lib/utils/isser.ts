@@ -1,3 +1,4 @@
+import CanvasUtils from "../utils/CanvasUtils";
 import IDisplayObject from "../display/IDisplayObject";
 import IDisplayObjectContainer from "../display/IDisplayObjectContainer";
 
@@ -15,7 +16,7 @@ export function isDisplayObjectContainer(value: IDisplayObject | IDisplayObjectC
  * @returns boolean
  */
 export function isWebGLAvailable():boolean{
-    const canvas = document.createElement("canvas");
+    const canvas = CanvasUtils.create();
     const context = canvas.getContext("webgl");
     return context !== null;
 }

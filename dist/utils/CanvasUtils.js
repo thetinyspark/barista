@@ -7,6 +7,8 @@ var CanvasUtils = /** @class */ (function () {
     function CanvasUtils() {
     }
     CanvasUtils.create = function (width, height) {
+        if (width === void 0) { width = 1; }
+        if (height === void 0) { height = 1; }
         var canvas = document.createElement("canvas");
         canvas.width = width;
         canvas.height = height;

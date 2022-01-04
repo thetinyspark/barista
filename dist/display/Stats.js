@@ -19,6 +19,7 @@ var Stage_1 = require("./Stage");
 var DisplayObject_1 = require("./DisplayObject");
 var Texture_1 = require("../texture/Texture");
 var TextureData_1 = require("../texture/TextureData");
+var CanvasUtils_1 = require("../utils/CanvasUtils");
 /**
  * The Stats class is a basic frame counter.
  * It supports basic functionality like start, stop, getFps
@@ -48,7 +49,7 @@ var Stats = /** @class */ (function (_super) {
                 context.closePath();
             }
         };
-        var data = document.createElement("canvas");
+        var data = CanvasUtils_1.default.create();
         _this.width = data.width = 200;
         _this.height = data.height = 50;
         _this.texture = new Texture_1.default("stats_texture", new TextureData_1.default(data), 0, 0, data.width, data.height);

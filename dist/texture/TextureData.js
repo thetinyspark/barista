@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var CanvasUtils_1 = require("../utils/CanvasUtils");
 var MathUtils_1 = require("../utils/MathUtils");
 /**
  * The TextureData class is the base class for containing graphic source.
@@ -33,7 +34,7 @@ var TextureData = /** @class */ (function () {
     TextureData.prototype.setSource = function (source) {
         var nwidth = MathUtils_1.default.getNextPowerOf2(source.width);
         var nheight = MathUtils_1.default.getNextPowerOf2(source.height);
-        var canvas = document.createElement("canvas");
+        var canvas = CanvasUtils_1.default.create();
         var context = canvas.getContext("2d");
         canvas.width = nwidth;
         canvas.height = nheight;
