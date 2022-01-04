@@ -21,6 +21,11 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var DisplayObject_1 = require("./DisplayObject");
+/**
+ * The DisplayObjectContainer class is the base class for every DisplayObjects containers.
+ * It supports basic functionality like adding, removing, containing children at a specific index or not.
+ * It inherits from DisplayObject, so it could be transformed, but it's texture property is useless.
+ */
 var DisplayObjectContainer = /** @class */ (function (_super) {
     __extends(DisplayObjectContainer, _super);
     function DisplayObjectContainer() {

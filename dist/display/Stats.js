@@ -19,6 +19,10 @@ var Stage_1 = require("./Stage");
 var DisplayObject_1 = require("./DisplayObject");
 var Texture_1 = require("../texture/Texture");
 var TextureData_1 = require("../texture/TextureData");
+/**
+ * The Stats class is a basic frame counter.
+ * It supports basic functionality like start, stop, getFps
+ */
 var Stats = /** @class */ (function (_super) {
     __extends(Stats, _super);
     function Stats() {
@@ -52,23 +56,41 @@ var Stats = /** @class */ (function (_super) {
         _this._context = _this.texture.source.getContext("2d");
         return _this;
     }
+    /**
+     * Returns the stage object which is monitored by Stats instance
+     * @returns Stage object
+     */
     Stats.prototype.getStage = function () {
         return this._stage;
     };
+    /**
+     * Sets the stage object which will be monitored by Stats instance
+     * @param value Stage object
+     */
+    Stats.prototype.setStage = function (value) {
+        this.stop();
+        this._stage = value;
+    };
+    /**
+     * Starts monitoring the stage
+     */
     Stats.prototype.start = function () {
         if (this._stage !== null)
             this._stage.subscribe(Stage_1.StageEvent.ENTER_FRAME, this._enterFrame);
         this._monitoring = true;
     };
+    /**
+     * Stops monitoring the stage
+     */
     Stats.prototype.stop = function () {
         if (this._stage !== null)
             this._stage.unsubscribe(Stage_1.StageEvent.ENTER_FRAME, this._enterFrame);
         this._monitoring = false;
     };
-    Stats.prototype.setStage = function (value) {
-        this.stop();
-        this._stage = value;
-    };
+    /**
+     * Returns the current FPS (frame per second) of the monitored stage.
+     * @returns number
+     */
     Stats.prototype.getFps = function () {
         return this._monitoring ? Math.round(1000 / this._elapsedTime) : -1;
     };

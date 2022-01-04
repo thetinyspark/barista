@@ -1,5 +1,8 @@
 import IDisplayObject from "../../display/IDisplayObject";
 import IRenderer from "../IRenderer";
+/**
+ * The Webgl2DRenderer class is the base class for WebGL2d rendering.
+ */
 export default class Webgl2DRenderer implements IRenderer {
     private _children;
     private _canvas;

@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Default2DShader_1 = require("./Default2DShader");
 var WebGlConfig_1 = require("./WebGlConfig");
+/**
+ * The Webgl2DRenderer class is the base class for WebGL2d rendering.
+ */
 var Webgl2DRenderer = /** @class */ (function () {
     function Webgl2DRenderer() {
         this._children = [];

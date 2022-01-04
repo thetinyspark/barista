@@ -18,6 +18,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var gl_matrix_1 = require("gl-matrix");
 var tiny_observer_1 = require("@thetinyspark/tiny-observer");
 var Canvas2DRenderer_1 = require("../rendering/Canvas2DRenderer");
+/**
+ * The DisplayObject class is the base class for all objects that can be placed on the display list.
+ * It supports basic functionality like the x and y position of an object, as well as more advanced
+ * properties of the object such as its transformation matrix.
+ */
 var DisplayObject = /** @class */ (function (_super) {
     __extends(DisplayObject, _super);
     function DisplayObject() {
@@ -72,6 +77,12 @@ var DisplayObject = /** @class */ (function (_super) {
     DisplayObject.prototype.render = function (renderer) {
         renderer.add(this);
     };
+    /**
+    * Creates and returns a Display Object from a Texture object.
+    * The resulting object will have the same width and height
+    * as the "sx" and "sy" properties of the Texture object.
+    * The "texture" property will contains the Texture object.
+    **/
     DisplayObject.createFromTexture = function (texture) {
         var disp = new DisplayObject();
         disp.width = texture.sw;

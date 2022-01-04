@@ -19,6 +19,10 @@ exports.StageEvent = void 0;
 var gl_matrix_1 = require("gl-matrix");
 var Canvas2DRenderer_1 = require("../rendering/Canvas2DRenderer");
 var DisplayObjectContainer_1 = require("./DisplayObjectContainer");
+/**
+ * The Stage class is the base class for the scene.
+ * It supports basic functionality like camera, clipping strategy, rendering...
+ */
 var Stage = /** @class */ (function (_super) {
     __extends(Stage, _super);
     function Stage() {
@@ -29,33 +33,78 @@ var Stage = /** @class */ (function (_super) {
         _this._clippingStrategy = null;
         return _this;
     }
+    /**
+     * Sets the current Stage Camera, default is null
+     * @param camera Camera object
+     */
     Stage.prototype.setCamera = function (camera) {
         this._camera = camera;
     };
+    /**
+     * Returns the current stage's Camera
+     * @returns Camera object
+     */
     Stage.prototype.getCamera = function () {
         return this._camera;
     };
+    /**
+     * Sets a specific function which is used to clip the scene.
+     * Clipping the scene consists of removing certain objects from
+     * the rendering pipeline according to specific conditions.
+     * @param strategy ClippingStrategy function
+     */
     Stage.prototype.setClippingStrategy = function (strategy) {
         this._clippingStrategy = strategy;
     };
+    /**
+     * Returns the current stage's clipping strategy, default is null
+     * @returns ClippingStrategy function
+     */
     Stage.prototype.getClippingStrategy = function () {
         return this._clippingStrategy;
     };
+    /**
+     * Returns the current stage's renderer, default is Canvas2DRenderer
+     * @returns IRenderer object
+     */
     Stage.prototype.getRenderer = function () {
         return this._renderer;
     };
+    /**
+     * Sets the current stage's renderer
+     * @param renderer IRenderer object
+     */
     Stage.prototype.setRenderer = function (renderer) {
         this._renderer = renderer;
     };
+    /**
+     * Returns the renderer's canvas.
+     * @returns HTMLCanvasElement object
+     */
     Stage.prototype.getCanvas = function () {
         return this._renderer.getCanvas();
     };
+    /**
+     * Returns the renderer's rendering context
+     * @returns CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext object
+     */
     Stage.prototype.getContext = function () {
         return this._renderer.getContext();
     };
+    /**
+     * Returns the current frame
+     * @returns number
+     */
     Stage.prototype.getCurrentFrame = function () {
         return this._currentFrame;
     };
+    /**
+     * Updates every DisplayObject matrices.
+     * Increase current frame.
+     * Applies clipping strategy if there is one.
+     * Renders the display list.
+     * Emit events (ENTER_FRAME & FRAME_END)
+     */
     Stage.prototype.nextFrame = function () {
         this._currentFrame++;
         if (this._camera !== null) {

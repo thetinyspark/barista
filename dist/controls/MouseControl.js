@@ -3,6 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MouseControlEvent = void 0;
 var Geometry_1 = require("../utils/Geometry");
 var isser_1 = require("../utils/isser");
+/**
+ * A MouseControl object is used to monitor mouse events which happened on the scene's canvas.
+ * It will map native events to custom events.
+ * It will also remap the original events coordinates into the scene's coordinate system.
+ * And finally, it can detect which DisplayObject is targeted by the event.
+ */
 var MouseControl = /** @class */ (function () {
     function MouseControl(stage) {
         var _this = this;
@@ -28,6 +34,9 @@ var MouseControl = /** @class */ (function () {
         };
         this._stage = stage;
     }
+    /**
+     * Starts stage monitoring
+     */
     MouseControl.prototype.activate = function () {
         this.deactivate();
         this._stage.getCanvas().addEventListener("click", this._handler);
@@ -35,6 +44,9 @@ var MouseControl = /** @class */ (function () {
         this._stage.getCanvas().addEventListener("mousedown", this._handler);
         this._stage.getCanvas().addEventListener("mousemove", this._handler);
     };
+    /**
+     * Stops stage monitoring
+     */
     MouseControl.prototype.deactivate = function () {
         this._stage.getCanvas().removeEventListener("click", this._handler);
         this._stage.getCanvas().removeEventListener("mouseup", this._handler);
@@ -59,6 +71,13 @@ var MouseControl = /** @class */ (function () {
         }
         return null;
     };
+    /**
+     * Generates a, event at a specific position on the Stage.
+     * It acts like a virtual mouse.
+     * @param x number The x position of the virtual mouse
+     * @param y number The y position of the virtual mouse
+     * @param type The virtual mouse event type
+     */
     MouseControl.prototype.dispatchAt = function (x, y, type) {
         var object = this._getObjectUnderPointRecursive(x, y, this._stage);
         var target = (object === null) ? this._stage : object;

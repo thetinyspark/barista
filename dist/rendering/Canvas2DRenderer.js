@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * The Canvas2DRenderer class is the base class for non GPU 2d rendering.
+ */
 var Canvas2DRenderer = /** @class */ (function () {
     function Canvas2DRenderer() {
         this._children = [];
