@@ -3,6 +3,7 @@ import DisplayObject from "./DisplayObject";
 import {INotification} from "@thetinyspark/tiny-observer";
 import Texture from "../texture/Texture";
 import TextureData from "../texture/TextureData";
+import CanvasUtils from "../utils/CanvasUtils";
 /**
  * The Stats class is a basic frame counter.
  * It supports basic functionality like start, stop, getFps
@@ -17,7 +18,7 @@ export default class Stats extends DisplayObject{
     constructor(){ 
         super(); 
 
-        const data = document.createElement("canvas"); 
+        const data = CanvasUtils.create();
         this.width = data.width = 200;
         this.height = data.height = 50;
         this.texture = new Texture(

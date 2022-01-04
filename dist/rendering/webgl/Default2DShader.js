@@ -1,12 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var WebGlConfig_1 = require("./WebGlConfig");
+/**
+ * The Default2DShader class is the base class for WebGL 2d rendering.
+ * It is used by the WebGL2DRenderer class.
+ */
 var Default2DShader = /** @class */ (function () {
     function Default2DShader(context) {
+        /**
+         * The shader's id
+         */
         this.id = 0;
         this.fragmentShader = null;
         this.vertexShader = null;
         this.program = null;
+        /**
+         * The projection pointer is used to set the center of the world
+         */
         this.projectionPointer = 0;
         this._init(context);
     }

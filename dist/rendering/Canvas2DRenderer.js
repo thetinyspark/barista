@@ -1,9 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var CanvasUtils_1 = require("../utils/CanvasUtils");
+/**
+ * The Canvas2DRenderer class is the base class for non GPU 2d rendering.
+ */
 var Canvas2DRenderer = /** @class */ (function () {
     function Canvas2DRenderer() {
         this._children = [];
-        this._canvas = document.createElement("canvas");
+        this._canvas = CanvasUtils_1.default.create();
         this._context = this._canvas.getContext("2d");
     }
     Canvas2DRenderer.prototype.getContext = function () {

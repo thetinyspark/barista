@@ -1,3 +1,4 @@
+import CanvasUtils from "../utils/CanvasUtils";
 import IDisplayObject from "../display/IDisplayObject";
 import IRenderer from "./IRenderer";
 /**
@@ -10,7 +11,7 @@ export default class Canvas2DRenderer implements IRenderer{
 
 
     constructor(){
-        this._canvas = document.createElement("canvas"); 
+        this._canvas = CanvasUtils.create();
         this._context = this._canvas.getContext("2d");
     }
 

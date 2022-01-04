@@ -1,3 +1,4 @@
+import CanvasUtils from "../utils/CanvasUtils";
 import MathUtils from "../utils/MathUtils";
 /**
  * The TextureData class is the base class for containing graphic source.
@@ -38,7 +39,7 @@ export default class TextureData{
     public setSource(source:CanvasImageSource):void{
         const nwidth:number = MathUtils.getNextPowerOf2(source.width as number);
         const nheight:number = MathUtils.getNextPowerOf2(source.height as number);
-        const canvas = document.createElement("canvas");
+        const canvas = CanvasUtils.create();
         const context = canvas.getContext("2d");
         canvas.width = nwidth;
         canvas.height = nheight;

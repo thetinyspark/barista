@@ -1,9 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var isser_1 = require("./isser");
+/**
+ * The Geometry class is a set of utilitaries functions.
+ */
 var Geometry = /** @class */ (function () {
     function Geometry() {
     }
+    /**
+     * Calculates and returns the IDisplayObject's Hitbox
+     * in the world space coordinates.
+     * @param child IDisplayObject
+     * @returns HitBox
+     */
     Geometry.getHitbox = function (child) {
         var _this = this;
         if (isser_1.isDisplayObjectContainer(child)) {
@@ -41,6 +50,12 @@ var Geometry = /** @class */ (function () {
             return result;
         }
     };
+    /**
+     * Calculates and returns the IDisplayObject's bouding Rectangle
+     * in the world space coordinates.
+     * @param child IDisplayObject
+     * @returns Rectangle
+     */
     Geometry.getBoundingRect = function (child) {
         var hitbox = this.getHitbox(child);
         var left = Math.min(hitbox.topLeft.x, hitbox.topRight.x, hitbox.bottomLeft.x, hitbox.bottomRight.x);
@@ -54,12 +69,26 @@ var Geometry = /** @class */ (function () {
             height: bottom - top
         };
     };
+    /**
+     * Transforms a pair of x,y coordinates with a matrix
+     * @param x number
+     * @param y number
+     * @param matrix mat2d
+     * @returns Point
+     */
     Geometry.transformPoint = function (x, y, matrix) {
         return {
             x: Math.round(x * matrix[0] + y * matrix[2] + matrix[4]),
             y: Math.round(x * matrix[1] + y * matrix[3] + matrix[5]),
         };
     };
+    /**
+     * Says if the IDisplayObject collides the x,y coordinates or not
+     * @param x number
+     * @param y number
+     * @param child IDisplayObject
+     * @returns boolean
+     */
     Geometry.collide = function (x, y, child) {
         var rect = this.getBoundingRect(child);
         var out = (x < rect.x ||
