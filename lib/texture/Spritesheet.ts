@@ -1,3 +1,4 @@
+import { TextureData } from "..";
 import Texture from "../texture/Texture";
 import CanvasUtils from "../utils/CanvasUtils";
 import MathUtils from "../utils/MathUtils";
@@ -14,6 +15,7 @@ export default class Spritesheet {
   private _height: number = 0;
   private _zones: Zone[] = [];
   private _textures:Texture[] = [];
+  private _textureData:TextureData = null;
 
   constructor(width: number, height: number, sources:{id:string,source:CanvasImageSource}[] = []) {
     this._reset(width,height, sources);
@@ -33,9 +35,10 @@ export default class Spritesheet {
   }
 
   private _drawTextures():Texture[]{
-    const canvas = CanvasUtils.create(this._width, this._height);
+    const source = CanvasUtils.create(this._width, this._height);
+    const mainTexture = Texture.createFromSource("main",source);
+    const canvas = mainTexture.data.getSource() as HTMLCanvasElement;
     const context = canvas.getContext("2d");
-    const mainTexture = Texture.createFromSource("main",canvas);
 
     const filledZones = this.getZones().filter( zone => !zone.isEmpty());
     const textureZones = filledZones.map(
@@ -53,10 +56,12 @@ export default class Spritesheet {
     filledZones.forEach( 
       (zone)=>{
         context.save();
-        context.drawImage( mainTexture.data.getSource(), zone.x, zone.y, zone.width, zone.height );
+        context.drawImage( zone.data.source,zone.x, zone.y, zone.width, zone.height );
         context.restore();
       }
     );
+
+    this._textureData = mainTexture.data;
 
     return mainTexture.createSubTextures(textureZones);
   }
@@ -113,6 +118,14 @@ export default class Spritesheet {
     }
 
     this._textures = this._drawTextures();
+  }
+
+  /**
+   * Returns a the new TextureData.
+   * @returns TextureData
+   */
+  public getTextureData():TextureData{
+    return this._textureData;
   }
 
   /**

@@ -17,6 +17,7 @@ var Spritesheet = /** @class */ (function () {
         this._height = 0;
         this._zones = [];
         this._textures = [];
+        this._textureData = null;
         this._reset(width, height, sources);
     }
     Spritesheet.prototype._sortZonesByAreaAsc = function (a, b) {
@@ -28,9 +29,10 @@ var Spritesheet = /** @class */ (function () {
         return area1 > area2 ? -1 : 1;
     };
     Spritesheet.prototype._drawTextures = function () {
-        var canvas = CanvasUtils_1.default.create(this._width, this._height);
+        var source = CanvasUtils_1.default.create(this._width, this._height);
+        var mainTexture = Texture_1.default.createFromSource("main", source);
+        var canvas = mainTexture.data.getSource();
         var context = canvas.getContext("2d");
-        var mainTexture = Texture_1.default.createFromSource("main", canvas);
         var filledZones = this.getZones().filter(function (zone) { return !zone.isEmpty(); });
         var textureZones = filledZones.map(function (zone) {
             return {
@@ -43,9 +45,10 @@ var Spritesheet = /** @class */ (function () {
         });
         filledZones.forEach(function (zone) {
             context.save();
-            context.drawImage(mainTexture.data.getSource(), zone.x, zone.y, zone.width, zone.height);
+            context.drawImage(zone.data.source, zone.x, zone.y, zone.width, zone.height);
             context.restore();
         });
+        this._textureData = mainTexture.data;
         return mainTexture.createSubTextures(textureZones);
     };
     Spritesheet.prototype._addSource = function (source) {
@@ -84,6 +87,13 @@ var Spritesheet = /** @class */ (function () {
             this._addSource(current);
         }
         this._textures = this._drawTextures();
+    };
+    /**
+     * Returns a the new TextureData.
+     * @returns TextureData
+     */
+    Spritesheet.prototype.getTextureData = function () {
+        return this._textureData;
     };
     /**
      * Returns a set of Texture objects which could be put onto this Spritesheet.

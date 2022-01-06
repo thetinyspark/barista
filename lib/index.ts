@@ -1,6 +1,6 @@
 import Animation, {AnimationEvent} from "./display/Animation";
 import Stats from "./display/Stats";
-import Stage, {StageEvent} from "./display/Stage";
+import Stage, {StageEvent, ClippingStrategy} from "./display/Stage";
 import IDisplayObject from "./display/IDisplayObject";
 import DisplayObject from "./display/DisplayObject";
 import DisplayObjectContainer from "./display/DisplayObjectContainer";
@@ -27,7 +27,7 @@ import {Emitter, IEmitter, INotification, Notification} from "@thetinyspark/tiny
 // display objects 
 export {Animation};
 export {Stats};
-export {Stage}; 
+export {Stage, ClippingStrategy}; 
 export {IDisplayObject}; 
 export {DisplayObject}; 
 export {DisplayObjectContainer};

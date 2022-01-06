@@ -1,3 +1,4 @@
+import { TextureData } from "..";
 import Texture from "../texture/Texture";
 import Zone from "./Zone";
 /**
@@ -11,6 +12,7 @@ export default class Spritesheet {
     private _height;
     private _zones;
     private _textures;
+    private _textureData;
     constructor(width: number, height: number, sources?: {
         id: string;
         source: CanvasImageSource;
@@ -21,6 +23,11 @@ export default class Spritesheet {
     private _addSource;
     private _findFreeZoneFor;
     private _reset;
+    /**
+     * Returns a the new TextureData.
+     * @returns TextureData
+     */
+    getTextureData(): TextureData;
     /**
      * Returns a set of Texture objects which could be put onto this Spritesheet.
      * @returns Texture[]

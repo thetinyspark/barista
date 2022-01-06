@@ -78,4 +78,8 @@ export default interface IDisplayObject extends IEmitter {
      * The origin point of all object's transformations
      */
     transformOrigin: Point;
+    /**
+     * Says wether or not the object is visible
+     */
+    visible: Boolean;
 }

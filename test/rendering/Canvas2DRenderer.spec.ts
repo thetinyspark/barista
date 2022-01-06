@@ -110,7 +110,7 @@ describe('Canvas2DRenderer test suite',
                 expect(pixel).toEqual({r:255, g:255, b:255, a:255});
         });
 
-        it('should have all the displayobjects on the pipeline',
+        it('should have all visible displayobjects on the pipeline',
             ()=>{
                 //given
                 const renderer:IRenderer = new Canvas2DRenderer();
@@ -118,14 +118,16 @@ describe('Canvas2DRenderer test suite',
 
                 stage.setRenderer(renderer);
                 for( let i:number = 0; i < 1000; i++ ){
-                    stage.addChild( new DisplayObject() ); 
+                    const sprite = new DisplayObject(); 
+                    sprite.visible = i%2==0;
+                    stage.addChild( sprite ); 
                 }
 
                 //when
                 stage.nextFrame();
 
                 //then
-                expect(renderer.getChildren().length).toEqual(1001);
+                expect(renderer.getChildren().length).toEqual(501);
             }
         );
     }

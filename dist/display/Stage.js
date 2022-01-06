@@ -22,6 +22,51 @@ var DisplayObjectContainer_1 = require("./DisplayObjectContainer");
 /**
  * The Stage class is the base class for the scene.
  * It supports basic functionality like camera, clipping strategy, rendering...
+ *
+ * ```typescript
+ * import {Stage, Camera} from "@thetinyspark/moocaccino-barista";
+ *
+ * // Create stage instance
+ * const stage:Stage = new Stage();
+ *
+ * // Defines renderer's canvas width & height
+ * stage.getRenderer().getCanvas().width = stage.width = 1024;
+ * stage.getRenderer().getCanvas().height = stage.height = 1024;
+ *
+ *
+ * // Now process the next frame
+ * stage.nextFrame();
+ *
+ * // Add the canvas to the HTML document.
+ * document.body.appendChild(stage.getRenderer().getCanvas());
+ *
+ * // Event thought a Stage is a DisplayObject,
+ * // the most of the time we should avoid to transform it.
+ * // If you want to manipulate the whole scene, you have
+ * // a basic camera support.
+ *
+ * // create and sets the Camera
+ * stage.setCamera(new Camera());
+ *
+ * // then you can transform it.
+ * // Here we translate the camera by 100px to the right,
+ * // that will pan the whole scene by 100px to the left.
+ * // Every transformation which is applied to the Camera
+ * // is reversed and applied to the whole scene.
+ * stage.getCamera().x = 100;
+ *
+ * // If you wanna have control on which objects is actually drawn,
+ * // 'cause you have too many offscreen objects for example,
+ * // then you can define a custom clipping strategy.
+ *
+ * const strategy:ClippingStrategy = (stage:Stage, camera:Camera)=>{
+ *   // applies your clipping strategy code here
+ * };
+ * stage.setClippingStrategy(strategy);
+ *
+ * stage.nextFrame();
+ * ```
+ *
  */
 var Stage = /** @class */ (function (_super) {
     __extends(Stage, _super);
