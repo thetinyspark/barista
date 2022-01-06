@@ -1,12 +1,12 @@
-import CanvasUtils from "../../lib/utils/CanvasUtils";
-import DisplayObject from "../../lib/display/DisplayObject";
-import IDisplayObject from "../../lib/display/IDisplayObject";
-import Stage from "../../lib/display/Stage";
-import IFilter from "../../lib/filters/IFilter";
-import Canvas2DRenderer from "../../lib/rendering/Canvas2DRenderer";
-import Webglrenderer from "../../lib/rendering/webgl/Webgl2DRenderer";
-import Texture from "../../lib/texture/Texture";
-import TextureData from "../../lib/texture/TextureData";
+import CanvasUtils from "../../lib/core/utils/CanvasUtils";
+import DisplayObject from "../../lib/core/display/DisplayObject";
+import IDisplayObject from "../../lib/core/display/IDisplayObject";
+import Stage from "../../lib/core/display/Stage";
+import IFilter from "../../lib/core/filters/IFilter";
+import Canvas2DRenderer from "../../lib/core/rendering/Canvas2DRenderer";
+import Webglrenderer from "../../lib/core/rendering/webgl/Webgl2DRenderer";
+import Texture from "../../lib/core/texture/Texture";
+import TextureData from "../../lib/core/texture/TextureData";
 import { audioBase64d, videobase64 } from "./data.base64.spec";
 
 
