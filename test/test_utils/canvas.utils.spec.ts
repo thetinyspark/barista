@@ -1,3 +1,4 @@
+import CanvasUtils from "../../lib/utils/CanvasUtils";
 import DisplayObject from "../../lib/display/DisplayObject";
 import IDisplayObject from "../../lib/display/IDisplayObject";
 import Stage from "../../lib/display/Stage";
@@ -40,10 +41,7 @@ export function createAudioBlob(){
 }
 
 export function createCanvas(width:number, height:number):HTMLCanvasElement{
-    const canvas = document.createElement("canvas"); 
-    canvas.width = width; 
-    canvas.height = height; 
-    return canvas;
+    return CanvasUtils.create(width,height);
 }
 
 export function clearCanvas(canvas:HTMLCanvasElement):void{
@@ -51,14 +49,7 @@ export function clearCanvas(canvas:HTMLCanvasElement):void{
 }
 
 export function fillRect(canvas:HTMLCanvasElement,color:string, x:number, y:number, width:number, height:number){
-    const context = canvas.getContext("2d"); 
-    context.save();
-    context.beginPath();
-    context.fillStyle = color; 
-    context.fillRect(x,y,width, height); 
-    context.fill();
-    context.closePath();
-    context.restore();
+    CanvasUtils.fillRect(canvas,color,x,y,width,height);
 }
 
 export function createTextureFromCanvas(id:string, canvas:HTMLCanvasElement):Texture{
@@ -75,30 +66,15 @@ export function createDisplayObjectFromCanvas(texId:string, canvas:HTMLCanvasEle
 }
 
 export function getCanvasPixels(canvas:HTMLCanvasElement):Uint8ClampedArray{
-    const offscreen = createCanvas(canvas.width, canvas.height); 
-    offscreen.getContext("2d").drawImage(canvas, 0, 0); 
-    return offscreen.getContext("2d").getImageData(0,0,offscreen.width, offscreen.height).data;
+    return CanvasUtils.getCanvasPixels(canvas);
 }
 
 export function getCanvasPixel(canvas:HTMLCanvasElement, x:number, y:number):number[]{
-    const pixels = getCanvasPixels(canvas);
-    const row = Math.floor( y / canvas.width );
-    const pos = row * canvas.width * 4 + ( x * 4);
-    return [
-        pixels[pos],
-        pixels[pos+1],
-        pixels[pos+2],
-        pixels[pos+3],
-    ]; 
+    return CanvasUtils.getCanvasPixel(canvas, x, y);
 }
 
 export function canvasPixelToRGBA(pixelData: number[]):{r:number, g:number, b:number, a:number}{
-    return {
-        r: pixelData[0],
-        g: pixelData[1],
-        b: pixelData[2],
-        a: pixelData[3]
-    }
+    return CanvasUtils.canvasPixelToRGBA(pixelData);
 }
 
 export function create2DScene(width:number, height:number):Stage{
@@ -120,15 +96,7 @@ export function createGlScene(width:number, height:number):Stage{
 }
 
 export function pixelsAreTheSame(pixelsA:number[], pixelsB:number[]):boolean{
-    if( pixelsA.length !== pixelsB.length )
-        return false; 
-
-    for( let i:number = 0; i < pixelsA.length; i++ ){
-        if( pixelsA[i] !== pixelsB[i])
-            return false;
-    }
-
-    return true;
+    return CanvasUtils.pixelsAreTheSame(pixelsA, pixelsB);
 }
 
 export function getRedFilter():IFilter{

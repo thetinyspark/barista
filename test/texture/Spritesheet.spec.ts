@@ -1,5 +1,6 @@
 import Spritesheet from "../../lib/texture/Spritesheet";
 import CanvasUtils from "../../lib/utils/CanvasUtils";
+import { canvasPixelToRGBA, fillRect, getCanvasPixel } from "../test_utils/canvas.utils.spec";
 describe("Spritesheet test suite", () => {
   describe("#constructor", () => {
     it("should be able to create a Spritesheet objet", () => {
@@ -30,6 +31,34 @@ describe("Spritesheet test suite", () => {
       expect(zone.width).toEqual(128);
       expect(zone.height).toEqual(128);
       expect(zone.isEmpty()).toBeTrue();
+    });
+
+    it("should draw on the resulting TextureData", 
+    ()=>{
+      const source1 = {id:"blue", source: CanvasUtils.create(1, 1)};
+      const source2 = {id:"red", source: CanvasUtils.create(1, 1)};
+      fillRect(source1.source,"blue",0,0,1,1);
+      fillRect(source2.source,"red",0,0,1,1);
+      const ref = {
+        blue: CanvasUtils.getCanvasPixel(source1.source as HTMLCanvasElement, 0,0),
+        red: CanvasUtils.getCanvasPixel(source2.source as HTMLCanvasElement, 0,0),
+      };
+      
+      // when
+      const sheet = new Spritesheet(2, 2, [source1,source2]);
+
+      // then
+      sheet.getTextures().map( 
+        (texture)=>{
+          const color = CanvasUtils.getCanvasPixel(
+            sheet.getTextureData().getSource() as HTMLCanvasElement, 
+            texture.sx, 
+            texture.sy
+          );
+          const refcolor = ref[texture.id];
+          expect(color).toEqual(refcolor);
+        }
+      );
     });
 
     [

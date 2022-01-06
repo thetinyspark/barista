@@ -135,6 +135,38 @@ describe('Webgl2DRenderer test suite',
             }
         );
 
+        it('should not draw texture on canvas if object is not visble',
+            ()=>{
+                // given 
+                const bmp = new DisplayObject();
+                const texture = new Texture(
+                    "fake", 
+                    fakeTextureData,
+                    0, 
+                    0, 
+                    fakeCanvas.width, 
+                    fakeCanvas.height
+                );
+
+                bmp.width = 100; 
+                bmp.height = 100;
+                bmp.texture = texture;
+                stage.addChild(bmp);
+                renderer.add(stage);
+                renderer.add(bmp);
+
+                // when 
+                renderer.draw(stage.getCanvas(), stage.getContext() as WebGLRenderingContext);
+
+                // then 
+                const pixels = getPixels(renderer.getCanvas(), 0, 0, 1, 1).data;
+                expect(pixels[0]).toEqual(255);
+                expect(pixels[1]).toEqual(0);
+                expect(pixels[2]).toEqual(0);
+                expect(pixels[3]).toEqual(255);
+            }
+        );
+
         it('should draw a portion of the texture on canvas',
             ()=>{
                 // given 
@@ -184,21 +216,23 @@ describe('Webgl2DRenderer test suite',
                 expect(pixel).toEqual({r:255, g:255, b:255, a:255});
         });
 
-        it('should have all the displayobjects on the pipeline',
+        it('should have all visible displayobjects on the pipeline',
             ()=>{
                 //given
                 const stage:Stage = new Stage();
 
                 stage.setRenderer(renderer);
                 for( let i:number = 0; i < 1000; i++ ){
-                    stage.addChild( new DisplayObject() ); 
+                    const sprite = new DisplayObject(); 
+                    sprite.visible = i%2==0;
+                    stage.addChild( sprite ); 
                 }
 
                 //when
                 stage.nextFrame();
 
                 //then
-                expect(renderer.getChildren().length).toEqual(1001);
+                expect(renderer.getChildren().length).toEqual(501);
             }
         );
 

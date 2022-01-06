@@ -2,8 +2,7 @@ import Stage, { StageEvent } from "../../lib/display/Stage";
 import {INotification} from "@thetinyspark/tiny-observer";
 import Camera from "../../lib/display/Camera";
 import { mat2d } from "gl-matrix";
-import { Rectangle } from "../../lib";
-import { isWebGLAvailable } from "../../lib/utils/isser";
+import DisplayObject from "../../lib/display/DisplayObject";
 describe( 
     'Stage test suite', 
     ()=>{
@@ -159,6 +158,33 @@ describe(
 
                     // then
                     expect(spy).toHaveBeenCalledWith(stage, camera);
+                });
+
+                it('should be able to filter displayobject with clipping strategy method', 
+                ()=>{
+                    // given
+                    const stage = new Stage();
+                    const strategy = (stage:Stage, camera:Camera)=>{
+                        stage.getChildren().forEach( 
+                            (value, index)=>{
+                                value.visible = index%2==0;
+                            }
+                        )
+                    }; 
+                    const camera = new Camera();
+                    stage.addChild( new DisplayObject() );
+                    stage.addChild( new DisplayObject() );
+                    stage.addChild( new DisplayObject() );
+                    stage.addChild( new DisplayObject() );
+
+                    //when
+                    stage.setCamera(camera);
+                    stage.setClippingStrategy(strategy);
+                    stage.nextFrame();
+
+                    // then
+                    expect(stage.getChildren().length).toEqual(4);
+                    expect(stage.getRenderer().getChildren().length).toEqual(3);
                 });
             }
         );

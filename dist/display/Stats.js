@@ -23,6 +23,30 @@ var CanvasUtils_1 = require("../utils/CanvasUtils");
 /**
  * The Stats class is a basic frame counter.
  * It supports basic functionality like start, stop, getFps
+ * ```typescript
+ * import {Stage, Stats} from "@thetinyspark/moocaccino-barista";
+ * // Create stage instance
+ * const stage:Stage = new Stage();
+ * // Defines renderer canvas width & height
+ * stage.getRenderer().getCanvas().width = stage.width = 1024;
+ * stage.getRenderer().getCanvas().height = stage.height = 1024;
+ * ```
+ * ```typescript
+ * // Create and add stats object
+ * const stats:Stats = new Stats();
+ * stats.x = stats.y = 0;
+ * stats.width = 100;
+ * stats.height = 30;
+ * stage.addChild(stats);
+ * ```
+ * ```typescript
+ * // render loop
+ * function render():void{
+ *   stage.nextFrame();
+ *   window.requestAnimation(render);
+ * }
+ * render();
+ * ```
  */
 var Stats = /** @class */ (function (_super) {
     __extends(Stats, _super);
