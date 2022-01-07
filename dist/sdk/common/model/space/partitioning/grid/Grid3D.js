@@ -12,14 +12,14 @@ class Grid3D {
         this._numCols = cols;
         this._numLayers = layers;
         this._map = [];
-        for (let i = 0; i < rows; i++) {
-            const col = [];
-            this._map.push(col);
-            for (let j = 0; j < cols; j++) {
-                const layer = [];
-                col.push(layer);
-                for (let k = 0; k < layers; k++) {
-                    layer.push(null);
+        for (let k = 0; k < layers; k++) {
+            const layer = [];
+            this._map.push(layer);
+            for (let i = 0; i < rows; i++) {
+                const row = [];
+                layer.push(row);
+                for (let j = 0; j < cols; j++) {
+                    row.push(null);
                 }
             }
         }
@@ -33,17 +33,17 @@ class Grid3D {
     getAt(row, col, layer) {
         if (this.isOutOfBounds(row, col, layer))
             return null;
-        return this._map[row][col][layer];
+        return this._map[layer][row][col];
     }
     addAt(row, col, layer, value) {
         if (this.isOutOfBounds(row, col, layer))
             return;
-        this._map[row][col][layer] = value;
+        this._map[layer][row][col] = value;
     }
     removeAt(row, col, layer) {
         if (this.isOutOfBounds(row, col, layer))
             return;
-        this._map[row][col][layer] = null;
+        this._map[layer][row][col] = null;
     }
     isOutOfBounds(row, col, layer) {
         return (row > this.numRows - 1 ||
@@ -54,10 +54,10 @@ class Grid3D {
             col < 0);
     }
     forEach(func) {
-        for (let i = 0; i < this.numRows; i++) {
-            for (let j = 0; j < this.numCols; j++) {
-                for (let k = 0; k < this.numLayers; k++) {
-                    func(this._map[i][j][k], i, j, k);
+        for (let k = 0; k < this.numLayers; k++) {
+            for (let i = 0; i < this.numRows; i++) {
+                for (let j = 0; j < this.numCols; j++) {
+                    func(this._map[k][i][j], i, j, k);
                 }
             }
         }

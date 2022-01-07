@@ -13,16 +13,16 @@ export default class Grid3D<T> {
 
     this._map = [];
 
-    for (let i: number = 0; i < rows; i++) {
-      const col = [];
-      this._map.push(col);
+    for (let k: number = 0; k < layers; k++) {
+      const layer = [];
+      this._map.push(layer);
 
-      for (let j: number = 0; j < cols; j++) {
-        const layer: T | null[] = [];
-        col.push(layer);
+      for (let i: number = 0; i < rows; i++) {
+        const row = [];
+        layer.push(row);
 
-        for (let k = 0; k < layers; k++) {
-          layer.push(null);
+        for (let j = 0; j < cols; j++) {
+          row.push(null);
         }
       }
     }
@@ -38,19 +38,19 @@ export default class Grid3D<T> {
   public getAt(row: number, col: number, layer: number): T | null {
     if (this.isOutOfBounds(row, col, layer)) return null;
 
-    return this._map[row][col][layer];
+    return this._map[layer][row][col];
   }
 
   public addAt(row: number, col: number, layer: number, value: T): void {
     if (this.isOutOfBounds(row, col, layer)) return;
 
-    this._map[row][col][layer] = value;
+    this._map[layer][row][col] = value;
   }
 
   public removeAt(row: number, col: number, layer: number): void {
     if (this.isOutOfBounds(row, col, layer)) return;
 
-    this._map[row][col][layer] = null;
+    this._map[layer][row][col] = null;
   }
 
   public isOutOfBounds(row: number, col: number, layer: number): boolean {
@@ -65,10 +65,11 @@ export default class Grid3D<T> {
   }
 
   public forEach(func: (value:T, row:number,col:number,layer:number)=>void): void {
-    for (let i: number = 0; i < this.numRows; i++) {
-      for (let j: number = 0; j < this.numCols; j++) {
-        for (let k: number = 0; k < this.numLayers; k++) {
-            func(this._map[i][j][k], i, j, k);
+
+    for (let k: number = 0; k < this.numLayers; k++) {
+      for (let i: number = 0; i < this.numRows; i++) {
+        for (let j: number = 0; j < this.numCols; j++) {
+            func(this._map[k][i][j], i, j, k);
         }
       }
     }
