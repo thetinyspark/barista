@@ -247,10 +247,10 @@ export default class Grid3D<T> {
     return this._numLayers;
   }
   public get numCols(): number {
-    return this._numRows;
+    return this._numCols;
   }
   public get numRows(): number {
-    return this._numCols;
+    return this._numRows;
   }
   public get data(){
     return this._map;

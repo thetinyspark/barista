@@ -86,10 +86,10 @@ class Grid2D {
         }
     }
     get numCols() {
-        return this._numRows;
+        return this._numCols;
     }
     get numRows() {
-        return this._numCols;
+        return this._numRows;
     }
     get data() {
         return this._map;

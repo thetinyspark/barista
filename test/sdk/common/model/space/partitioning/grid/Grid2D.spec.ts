@@ -5,7 +5,7 @@ describe('Grid2D test suite',
 
     let grid = new Grid2D<string>();
     const numRows = 100;
-    const numCols = 100;
+    const numCols = 102;
 
     beforeEach( 
         ()=>{

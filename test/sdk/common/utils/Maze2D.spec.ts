@@ -16,12 +16,12 @@ describe('Maze2D test suite',
         const maze = new Maze2D();
 
         // when 
-        maze.reset(10,10,1,1);
+        maze.reset(10,5,1,1);
 
         // then 
         expect(maze.getRows()).toEqual(10);
-        expect(maze.getCols()).toEqual(10);
-        expect(maze.getData().flat(2).length).toEqual(100);
+        expect(maze.getCols()).toEqual(5);
+        expect(maze.getData().flat(2).length).toEqual(50);
     }); 
 
     it('should have a state.type property on each node which is equal to BLOCK or WALL after reset', 

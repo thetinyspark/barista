@@ -5,8 +5,8 @@ describe('Grid3D test suite',
 
     let grid = new Grid3D<string>();
     const numRows = 100;
-    const numCols = 100;
-    const numLayers = 100;
+    const numCols = 102;
+    const numLayers = 103;
 
     beforeEach( 
         ()=>{
