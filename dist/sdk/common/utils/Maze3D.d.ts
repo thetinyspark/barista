@@ -1,14 +1,16 @@
 import { GameNode } from "../model/node";
-export default class Maze2D {
+export default class Maze3D {
     private _grid;
     private _pathCoords;
     private _currentRow;
     private _currentCol;
-    reset(rows: number, cols: number, startRow: number, startCol: number): void;
+    private _currentLayer;
+    reset(rows: number, cols: number, depth: number, startRow: number, startCol: number, startLayer: number): void;
     getRows(): number;
     getCols(): number;
+    getLayers(): number;
     getCurrentNode(): GameNode;
-    getData(): GameNode[][];
+    getData(): GameNode[][][];
     isFinished(): boolean;
     finalize(): void;
     step(): void;
