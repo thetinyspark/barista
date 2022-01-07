@@ -1,4 +1,4 @@
-import Grid2D from "../../../../../../lib/sdk/common/model/space/partitioning/grid/Grid2D";
+import Grid2D from "../../../../../../../lib/sdk/common/model/space/partitioning/grid/Grid2D";
 
 describe('Grid2D test suite', 
 ()=>{
@@ -91,6 +91,34 @@ describe('Grid2D test suite',
         ); 
 
         expect(counter).toEqual(expected);
+    }); 
+
+    it('should ge able to get neighbours', 
+    ()=>{
+        // given 
+        grid.reset(3, 3);
+        grid.forEach( 
+            (value, row, col)=>{
+                grid.addAt(row, col, "_"+row+"_"+col);
+            }
+        );
+        const expected = {
+            topLeft: "_0_0",
+            top: "_0_1",
+            topRight: "_0_2",
+            left: "_1_0",
+            center: "_1_1",
+            right: "_1_2",
+            bottomLeft: "_2_0",
+            bottom: "_2_1",
+            bottomRight: "_2_2",
+        }
+
+        // when 
+        const neighbours = grid.getNeighbours(1,1);
+
+        // then 
+        expect(neighbours).toEqual(expected);
     })
 
 });

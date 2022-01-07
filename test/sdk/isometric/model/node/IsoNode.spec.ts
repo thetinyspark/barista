@@ -1,4 +1,4 @@
-import IsoNode from "../../../../lib/sdk/isometric/model/node/IsoNode";
+import IsoNode from "../../../../../lib/sdk/isometric/model/node/IsoNode";
 describe('IsoNode test suite', 
 ()=>{
 

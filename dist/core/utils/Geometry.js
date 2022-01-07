@@ -1,47 +1,44 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var isser_1 = require("./isser");
+const isser_1 = require("./isser");
 /**
  * The Geometry class is a set of utilitaries functions.
  */
-var Geometry = /** @class */ (function () {
-    function Geometry() {
-    }
+class Geometry {
     /**
      * Calculates and returns the IDisplayObject's Hitbox
      * in the world space coordinates.
      * @param child IDisplayObject
      * @returns HitBox
      */
-    Geometry.getHitbox = function (child) {
-        var _this = this;
+    static getHitbox(child) {
         if (isser_1.isDisplayObjectContainer(child)) {
-            var hitboxes = child.getChildren().map(function (child) { return _this.getHitbox(child); });
-            var allX_1 = [];
-            var allY_1 = [];
-            hitboxes.forEach(function (box) {
-                allX_1.push(box.topLeft.x, box.topRight.x, box.bottomLeft.x, box.bottomRight.x);
-                allY_1.push(box.topLeft.y, box.topRight.y, box.bottomLeft.y, box.bottomRight.y);
+            const hitboxes = child.getChildren().map(child => this.getHitbox(child));
+            const allX = [];
+            const allY = [];
+            hitboxes.forEach((box) => {
+                allX.push(box.topLeft.x, box.topRight.x, box.bottomLeft.x, box.bottomRight.x);
+                allY.push(box.topLeft.y, box.topRight.y, box.bottomLeft.y, box.bottomRight.y);
             });
-            var left = Math.min.apply(Math, allX_1);
-            var right = Math.max.apply(Math, allX_1);
-            var top_1 = Math.min.apply(Math, allY_1);
-            var bottom = Math.max.apply(Math, allY_1);
-            var result = {
-                topLeft: { x: left, y: top_1 },
-                topRight: { x: right, y: top_1 },
+            const left = Math.min(...allX);
+            const right = Math.max(...allX);
+            const top = Math.min(...allY);
+            const bottom = Math.max(...allY);
+            const result = {
+                topLeft: { x: left, y: top },
+                topRight: { x: right, y: top },
                 bottomLeft: { x: left, y: bottom },
                 bottomRight: { x: right, y: bottom }
             };
             return result;
         }
         else {
-            var matrix = child.worldMatrix;
-            var topLeft = this.transformPoint(0, 0, matrix);
-            var topRight = this.transformPoint(child.width, 0, matrix);
-            var bottomLeft = this.transformPoint(0, child.height, matrix);
-            var bottomRight = this.transformPoint(child.width, child.height, matrix);
-            var result = {
+            const matrix = child.worldMatrix;
+            const topLeft = this.transformPoint(0, 0, matrix);
+            const topRight = this.transformPoint(child.width, 0, matrix);
+            const bottomLeft = this.transformPoint(0, child.height, matrix);
+            const bottomRight = this.transformPoint(child.width, child.height, matrix);
+            const result = {
                 topLeft: topLeft,
                 topRight: topRight,
                 bottomLeft: bottomLeft,
@@ -49,26 +46,26 @@ var Geometry = /** @class */ (function () {
             };
             return result;
         }
-    };
+    }
     /**
      * Calculates and returns the IDisplayObject's bouding Rectangle
      * in the world space coordinates.
      * @param child IDisplayObject
      * @returns Rectangle
      */
-    Geometry.getBoundingRect = function (child) {
-        var hitbox = this.getHitbox(child);
-        var left = Math.min(hitbox.topLeft.x, hitbox.topRight.x, hitbox.bottomLeft.x, hitbox.bottomRight.x);
-        var right = Math.max(hitbox.topLeft.x, hitbox.topRight.x, hitbox.bottomLeft.x, hitbox.bottomRight.x);
-        var top = Math.min(hitbox.topLeft.y, hitbox.topRight.y, hitbox.bottomLeft.y, hitbox.bottomRight.y);
-        var bottom = Math.max(hitbox.topLeft.y, hitbox.topRight.y, hitbox.bottomLeft.y, hitbox.bottomRight.y);
+    static getBoundingRect(child) {
+        const hitbox = this.getHitbox(child);
+        const left = Math.min(hitbox.topLeft.x, hitbox.topRight.x, hitbox.bottomLeft.x, hitbox.bottomRight.x);
+        const right = Math.max(hitbox.topLeft.x, hitbox.topRight.x, hitbox.bottomLeft.x, hitbox.bottomRight.x);
+        const top = Math.min(hitbox.topLeft.y, hitbox.topRight.y, hitbox.bottomLeft.y, hitbox.bottomRight.y);
+        const bottom = Math.max(hitbox.topLeft.y, hitbox.topRight.y, hitbox.bottomLeft.y, hitbox.bottomRight.y);
         return {
             x: left,
             y: top,
             width: right - left,
             height: bottom - top
         };
-    };
+    }
     /**
      * Transforms a pair of x,y coordinates with a matrix
      * @param x number
@@ -76,12 +73,12 @@ var Geometry = /** @class */ (function () {
      * @param matrix mat2d
      * @returns Point
      */
-    Geometry.transformPoint = function (x, y, matrix) {
+    static transformPoint(x, y, matrix) {
         return {
             x: Math.round(x * matrix[0] + y * matrix[2] + matrix[4]),
             y: Math.round(x * matrix[1] + y * matrix[3] + matrix[5]),
         };
-    };
+    }
     /**
      * Says if the IDisplayObject collides the x,y coordinates or not
      * @param x number
@@ -89,14 +86,13 @@ var Geometry = /** @class */ (function () {
      * @param child IDisplayObject
      * @returns boolean
      */
-    Geometry.collide = function (x, y, child) {
-        var rect = this.getBoundingRect(child);
-        var out = (x < rect.x ||
+    static collide(x, y, child) {
+        const rect = this.getBoundingRect(child);
+        const out = (x < rect.x ||
             x > rect.x + rect.width ||
             y < rect.y ||
             y > rect.y + rect.height);
         return !out;
-    };
-    return Geometry;
-}());
+    }
+}
 exports.default = Geometry;

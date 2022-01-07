@@ -11,9 +11,9 @@ exports.isoSort = exports.isoToScreen = exports.screenToIso = void 0;
 * @return {row:number,col:number}
 */
 function screenToIso(x, y, cellW, cellH) {
-    var obj = { row: 0, col: 0 };
-    var divY = y / cellH;
-    var divX = x / cellW;
+    let obj = { row: 0, col: 0 };
+    let divY = y / cellH;
+    let divX = x / cellW;
     obj.col = divY + divX;
     obj.row = divY - divX;
     return obj;
@@ -29,8 +29,8 @@ exports.screenToIso = screenToIso;
 * @return {x:number,y:number} a Point Object
 */
 function isoToScreen(row, col, cellW, cellH) {
-    var x = (col - row) * (cellW * 0.5);
-    var y = (col + row) * (cellH * 0.5);
+    let x = (col - row) * (cellW * 0.5);
+    let y = (col + row) * (cellH * 0.5);
     return { x: x >> 0, y: y >> 0 };
 }
 exports.isoToScreen = isoToScreen;

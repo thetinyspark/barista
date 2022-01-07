@@ -1,7 +1,7 @@
-import { screenToIso, isoToScreen, isoSort} from "../../../lib/sdk/isometric/utils/iso.utils";
-import makeIsometric, { Isometric } from "../../../lib/sdk/isometric/mixins/mixins";
-import Animation from "../../../lib/core/display/Animation";
-import DisplayObjectContainer from "../../../lib/core/display/DisplayObjectContainer";
+import { screenToIso, isoToScreen, isoSort} from "../../../../lib/sdk/isometric/utils/iso.utils";
+import makeIsometric, { Isometric } from "../../../../lib/sdk/isometric/mixins/mixins";
+import Animation from "../../../../lib/core/display/Animation";
+import DisplayObjectContainer from "../../../../lib/core/display/DisplayObjectContainer";
 
 /*
 * MIT License

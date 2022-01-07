@@ -1,45 +1,28 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BLOB_TYPE = exports.JSON_TYPE = exports.SOUND_TYPE = exports.VIDEO_TYPE = exports.IMAGE_TYPE = exports.LOAD_SUCCESS = exports.LOAD_ERROR = void 0;
-var tiny_observer_1 = require("@thetinyspark/tiny-observer");
+const tiny_observer_1 = require("@thetinyspark/tiny-observer");
 /**
  * An AssetsManager is used to load,retrieve,transform assets.
  * You can load assets one by one or massively with queue.
  */
-var AssetsManager = /** @class */ (function (_super) {
-    __extends(AssetsManager, _super);
-    function AssetsManager() {
-        var _this = _super.call(this) || this;
-        _this.uris = new Map();
-        _this._errorHandler = function (reason) {
-            _this.emit(exports.LOAD_ERROR, reason);
+class AssetsManager extends tiny_observer_1.Emitter {
+    constructor() {
+        super();
+        this.uris = new Map();
+        this._errorHandler = (reason) => {
+            this.emit(exports.LOAD_ERROR, reason);
         };
-        _this.data = new Map();
-        _this.list = [];
-        return _this;
+        this.data = new Map();
+        this.list = [];
     }
     /**
      * Returns all loaded data
      * @returns Map<string,any> loaded datas
      */
-    AssetsManager.prototype.getAll = function () {
+    getAll() {
         return this.data;
-    };
+    }
     ;
     /**
      * Pushes a new assets to load on the queue
@@ -47,65 +30,63 @@ var AssetsManager = /** @class */ (function (_super) {
      * @param type string the asset's type
      * @param alias string the asset's alias
      */
-    AssetsManager.prototype.queue = function (uri, type, alias) {
-        if (type === void 0) { type = exports.JSON_TYPE; }
-        this.list.push({ uri: uri, type: type, alias: alias });
-    };
+    queue(uri, type = exports.JSON_TYPE, alias) {
+        this.list.push({ uri, type, alias });
+    }
     ;
     /**
      * Returns the current queue
      * @returns any[] the current queue
      */
-    AssetsManager.prototype.getQueue = function () {
+    getQueue() {
         return this.list;
-    };
+    }
     ;
     /**
      * Free the current queue
      */
-    AssetsManager.prototype.freeQueue = function () {
+    freeQueue() {
         this.list = [];
-    };
+    }
     ;
     /**
      * Loads the queue and return a Promise<any[]> when any[] represents all the loaded data
      * @returns Promise<any[]>
      */
-    AssetsManager.prototype.loadQueue = function () {
-        var _this = this;
-        return Promise.all(this.list.map(function (cur) { return _this.load(cur.uri, cur.type, cur.alias); })).then(function (data) {
-            _this.freeQueue();
+    loadQueue() {
+        return Promise.all(this.list.map(cur => this.load(cur.uri, cur.type, cur.alias))).then((data) => {
+            this.freeQueue();
             return data;
         });
-    };
+    }
     ;
     /**
      * Returns all the uris of all the loaded data associated to the corresponding aliases
      * @returns any
      */
-    AssetsManager.prototype.getUris = function () {
-        var result = {};
-        this.uris.forEach(function (value, key) {
+    getUris() {
+        const result = {};
+        this.uris.forEach((value, key) => {
             result[key] = value;
         });
         return result;
-    };
+    }
     /**
      * Returns the current uri of the loaded data associated to a specific alias
      * @param alias string the loaded data alias
      * @returns string
      */
-    AssetsManager.prototype.getUri = function (alias) {
+    getUri(alias) {
         return this.uris.get(alias);
-    };
+    }
     /**
      * Returns the data associated to a specific alias
      * @param alias string the loaded data alias
      * @returns any
      */
-    AssetsManager.prototype.get = function (alias) {
+    get(alias) {
         return this.data.get(alias);
-    };
+    }
     ;
     /**
      * Loads an assets and return a Promise<any> where any represents the loaded data.
@@ -114,28 +95,26 @@ var AssetsManager = /** @class */ (function (_super) {
      * @param alias string the asset's alias
      * @returns Promise<any>
      */
-    AssetsManager.prototype.load = function (uri, type, alias) {
-        var _this = this;
-        if (type === void 0) { type = exports.JSON_TYPE; }
-        return this._loadBlob(uri).then(function (data) {
+    load(uri, type = exports.JSON_TYPE, alias) {
+        return this._loadBlob(uri).then((data) => {
             switch (type) {
                 case exports.IMAGE_TYPE:
-                    return AssetsManager.blobToImage(data).catch(_this._errorHandler);
+                    return AssetsManager.blobToImage(data).catch(this._errorHandler);
                 case exports.JSON_TYPE:
-                    return AssetsManager.blobToJSON(data).catch(_this._errorHandler);
+                    return AssetsManager.blobToJSON(data).catch(this._errorHandler);
                 case exports.VIDEO_TYPE:
-                    return AssetsManager.blobToVideo(data).catch(_this._errorHandler);
+                    return AssetsManager.blobToVideo(data).catch(this._errorHandler);
                 case exports.SOUND_TYPE:
-                    return AssetsManager.blobToSound(data).catch(_this._errorHandler);
+                    return AssetsManager.blobToSound(data).catch(this._errorHandler);
                 default:
                     return data;
             }
-        }).then(function (data) {
-            _this.set(data, alias, uri);
-            _this.emit(exports.LOAD_SUCCESS, data);
+        }).then((data) => {
+            this.set(data, alias, uri);
+            this.emit(exports.LOAD_SUCCESS, data);
             return data;
         });
-    };
+    }
     ;
     /**
      * Sets a specific data and associate it with an alias and an uri
@@ -143,55 +122,53 @@ var AssetsManager = /** @class */ (function (_super) {
      * @param alias string the specific data's alias
      * @param uri string the specific data's uri
      */
-    AssetsManager.prototype.set = function (data, alias, uri) {
-        if (uri === void 0) { uri = ""; }
+    set(data, alias, uri = "") {
         this.uris.set(alias, uri);
         this.data.set(alias, data);
-    };
+    }
     ;
     /**
      * Delete the data associated to a specific alias and returns boolean if it has been well deleted
      * @param alias string the loaded data alias
      * @returns boolean
      */
-    AssetsManager.prototype.delete = function (alias) {
+    delete(alias) {
         return this.getAll().delete(alias);
-    };
+    }
     ;
     /**
      * Clear all loaded datas
      */
-    AssetsManager.prototype.destroy = function () {
+    destroy() {
         this.getAll().clear();
-    };
+    }
     ;
-    AssetsManager.prototype._loadBlob = function (uri) {
-        var _this = this;
-        return fetch(uri).then(function (response) {
+    _loadBlob(uri) {
+        return fetch(uri).then(response => {
             if (response.status === 200) {
                 return response.blob();
             }
             else {
-                _this._errorHandler(response.statusText);
+                this._errorHandler(response.statusText);
             }
         }).catch(this._errorHandler);
-    };
+    }
     // add static conversion method
     /**
      * Converts a Blob into an HTMLAudioElement.
      * @param data Blob
      * @returns Promise<HTMLAudioElement>
      */
-    AssetsManager.blobToSound = function (data) {
-        return new Promise(function (resolve, reject) {
-            var audio = document.createElement("audio");
-            var objectURL = URL.createObjectURL(data);
-            var cbk = function (e) {
+    static blobToSound(data) {
+        return new Promise((resolve, reject) => {
+            const audio = document.createElement("audio");
+            const objectURL = URL.createObjectURL(data);
+            const cbk = (e) => {
                 audio.removeEventListener("loadeddata", cbk);
                 audio.removeEventListener("error", err);
                 resolve(audio);
             };
-            var err = function (e) {
+            const err = (e) => {
                 audio.removeEventListener("loadeddata", cbk);
                 audio.removeEventListener("error", err);
                 reject("unable to load audio from source");
@@ -201,63 +178,63 @@ var AssetsManager = /** @class */ (function (_super) {
             audio.src = objectURL;
             audio.load();
         });
-    };
+    }
     ;
     /**
      * Converts a Blob into an JSON Object .
      * @param data Blob
      * @returns Promise<any>
      */
-    AssetsManager.blobToJSON = function (data) {
-        return new Promise(function (resolve) {
-            var reader = new FileReader();
-            reader.addEventListener("load", function () {
+    static blobToJSON(data) {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
                 resolve(JSON.parse(reader.result.toString()));
             });
             reader.readAsText(data, "utf8");
         });
-    };
+    }
     ;
     /**
      * Converts a Blob into an Image Object .
      * @param data Blob
      * @returns Promise<HTMLImageElement>
      */
-    AssetsManager.blobToImage = function (data) {
-        return new Promise(function (resolve, reject) {
-            var image = new Image();
-            var err = function (e) {
+    static blobToImage(data) {
+        return new Promise((resolve, reject) => {
+            const image = new Image();
+            const err = (e) => {
                 image.removeEventListener("load", cbk);
                 image.removeEventListener("error", err);
                 reject("unable to load image from source");
             };
-            var cbk = function (e) {
+            const cbk = (e) => {
                 image.removeEventListener("load", cbk);
                 image.removeEventListener("error", err);
                 resolve(image);
             };
             image.addEventListener("load", cbk);
             image.addEventListener("error", err);
-            var objectURL = URL.createObjectURL(data);
+            const objectURL = URL.createObjectURL(data);
             image.src = objectURL;
         });
-    };
+    }
     ;
     /**
      * Converts a Blob into an HTMLVideoElement Object .
      * @param data Blob
      * @returns Promise<HTMLVideoElement>
      */
-    AssetsManager.blobToVideo = function (data) {
-        return new Promise(function (resolve, reject) {
-            var video = document.createElement("video");
-            var objectURL = URL.createObjectURL(data);
-            var cbk = function (e) {
+    static blobToVideo(data) {
+        return new Promise((resolve, reject) => {
+            const video = document.createElement("video");
+            const objectURL = URL.createObjectURL(data);
+            const cbk = (e) => {
                 video.removeEventListener("loadeddata", cbk);
                 video.removeEventListener("error", err);
                 resolve(video);
             };
-            var err = function (e) {
+            const err = (e) => {
                 video.removeEventListener("loadeddata", cbk);
                 video.removeEventListener("error", err);
                 reject("unable to load video from source");
@@ -267,10 +244,9 @@ var AssetsManager = /** @class */ (function (_super) {
             video.src = objectURL;
             video.load();
         });
-    };
+    }
     ;
-    return AssetsManager;
-}(tiny_observer_1.Emitter));
+}
 exports.default = AssetsManager;
 exports.LOAD_ERROR = "LOAD_ERROR";
 exports.LOAD_SUCCESS = "LOAD_SUCCESS";

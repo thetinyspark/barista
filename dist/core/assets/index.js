@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VIDEO_TYPE = exports.SOUND_TYPE = exports.LOAD_SUCCESS = exports.LOAD_ERROR = exports.JSON_TYPE = exports.IMAGE_TYPE = exports.BLOB_TYPE = exports.AssetsManager = void 0;
-var AssetsManager_1 = require("./AssetsManager");
+const AssetsManager_1 = require("./AssetsManager");
 exports.AssetsManager = AssetsManager_1.default;
 Object.defineProperty(exports, "BLOB_TYPE", { enumerable: true, get: function () { return AssetsManager_1.BLOB_TYPE; } });
 Object.defineProperty(exports, "IMAGE_TYPE", { enumerable: true, get: function () { return AssetsManager_1.IMAGE_TYPE; } });

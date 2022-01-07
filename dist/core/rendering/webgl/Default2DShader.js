@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var WebGlConfig_1 = require("./WebGlConfig");
+const WebGlConfig_1 = require("./WebGlConfig");
 /**
  * The Default2DShader class is the base class for WebGL 2d rendering.
  * It is used by the WebGL2DRenderer class.
  */
-var Default2DShader = /** @class */ (function () {
-    function Default2DShader(context) {
+class Default2DShader {
+    constructor(context) {
         /**
          * The shader's id
          */
@@ -20,20 +20,20 @@ var Default2DShader = /** @class */ (function () {
         this.projectionPointer = 0;
         this._init(context);
     }
-    Default2DShader.prototype._init = function (context) {
+    _init(context) {
         /*
         [a, b, 0,
         c, d, 0,
         tx, ty, 1]
         */
-        var vertexPosAttribPointer = 0;
-        var opacityPointer = 0;
-        var uvsAttribPointer = 0;
-        var worldMatrixPointer1 = 0;
-        var worldMatrixPointer2 = 0;
-        var samplerPointer = 0;
-        var projectionPointer = 0;
-        var stride = WebGlConfig_1.default.VERTEX_SIZE * 4;
+        let vertexPosAttribPointer = 0;
+        let opacityPointer = 0;
+        let uvsAttribPointer = 0;
+        let worldMatrixPointer1 = 0;
+        let worldMatrixPointer2 = 0;
+        let samplerPointer = 0;
+        let projectionPointer = 0;
+        let stride = WebGlConfig_1.default.VERTEX_SIZE * 4;
         // let stride = 0;
         this.fragmentShader = this._compile(context, this._getFragmentSource(), context.FRAGMENT_SHADER);
         this.vertexShader = this._compile(context, this._getVertexSource(), context.VERTEX_SHADER);
@@ -67,22 +67,59 @@ var Default2DShader = /** @class */ (function () {
         projectionPointer = context.getUniformLocation(this.program, "uProjection");
         context.uniform1i(samplerPointer, 0);
         this.projectionPointer = projectionPointer;
-    };
-    Default2DShader.prototype._compile = function (context, source, type) {
-        var shader = context.createShader(type);
+    }
+    _compile(context, source, type) {
+        const shader = context.createShader(type);
         context.shaderSource(shader, source);
         context.compileShader(shader);
         if (!context.getShaderParameter(shader, context.COMPILE_STATUS))
             throw new Error(source + "*********" + context.getShaderInfoLog(shader));
         return shader;
-    };
-    Default2DShader.prototype._getVertexSource = function () {
-        return "\n\t\tattribute vec2 vertexPos;\n\t\tattribute vec2 uvCoords;\n\t\tattribute vec4 wmat1;\n\t\tattribute vec2 wmat2;\n\t\tattribute float worldOpacity;\n\t\tvarying vec4 vColor;\n\t\tvarying vec2 uvs;\n\t\tuniform vec2 uProjection;\n\t\tconst vec3 center = vec3(-1.0, 1.0, 0);\n\n\n\n\t\tvoid main(void) {\n\n\t\t\tmat3 worldMatrix = mat3(\n\t\t\t\tvec3(wmat1.x, wmat1.z, wmat2.x),\n\t\t\t\tvec3(wmat1.y, wmat1.w, wmat2.y),\n\t\t\t\tvec3(0.0, 0.0, 1.0)\n\t\t\t);\n\n\t\t\tvec3 tmp = vec3( vertexPos, 1.0) * worldMatrix;\n\t\t\tgl_Position = vec4((tmp / vec3(uProjection,1)) + center, 1.0);\n\n\t\t\tuvs = uvCoords;\n\n\t\t\tvColor = vec4(1.0, 1.0, 1.0, worldOpacity);\n\n\t\t}\n        ";
-    };
+    }
+    _getVertexSource() {
+        return `
+		attribute vec2 vertexPos;
+		attribute vec2 uvCoords;
+		attribute vec4 wmat1;
+		attribute vec2 wmat2;
+		attribute float worldOpacity;
+		varying vec4 vColor;
+		varying vec2 uvs;
+		uniform vec2 uProjection;
+		const vec3 center = vec3(-1.0, 1.0, 0);
+
+
+
+		void main(void) {
+
+			mat3 worldMatrix = mat3(
+				vec3(wmat1.x, wmat1.z, wmat2.x),
+				vec3(wmat1.y, wmat1.w, wmat2.y),
+				vec3(0.0, 0.0, 1.0)
+			);
+
+			vec3 tmp = vec3( vertexPos, 1.0) * worldMatrix;
+			gl_Position = vec4((tmp / vec3(uProjection,1)) + center, 1.0);
+
+			uvs = uvCoords;
+
+			vColor = vec4(1.0, 1.0, 1.0, worldOpacity);
+
+		}
+        `;
+    }
     ;
-    Default2DShader.prototype._getFragmentSource = function () {
-        return "\n\t\tprecision lowp float;\n\t\tvarying vec4 vColor;\n\t\tvarying vec2 uvs;\n\t\tuniform sampler2D uSampler;\n        \n\t\tvoid main(void) {\n            gl_FragColor = texture2D(uSampler,uvs) * vColor.a;\n\t\t}\n        ";
-    };
-    return Default2DShader;
-}());
+    _getFragmentSource() {
+        return `
+		precision lowp float;
+		varying vec4 vColor;
+		varying vec2 uvs;
+		uniform sampler2D uSampler;
+        
+		void main(void) {
+            gl_FragColor = texture2D(uSampler,uvs) * vColor.a;
+		}
+        `;
+    }
+}
 exports.default = Default2DShader;
