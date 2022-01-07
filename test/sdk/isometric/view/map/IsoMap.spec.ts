@@ -1,7 +1,7 @@
-import IsoMap from "../../../../lib/sdk/isometric/view/map/IsoMap";
-import makeIsometric, { Isometric } from "../../../../lib/sdk/isometric/mixins/mixins";
-import Animation from "../../../../lib/core/display/Animation";
-import Stage from "../../../../lib/core/display/Stage";
+import IsoMap from "../../../../../lib/sdk/isometric/view/map/IsoMap";
+import makeIsometric, { Isometric } from "../../../../../lib/sdk/isometric/mixins/mixins";
+import Animation from "../../../../../lib/core/display/Animation";
+import Stage from "../../../../../lib/core/display/Stage";
 
 
 describe(

@@ -1,4 +1,4 @@
-import Grid3D from "../../../../../../lib/sdk/common/model/space/partitioning/grid/Grid3D";
+import Grid3D from "../../../../../../../lib/sdk/common/model/space/partitioning/grid/Grid3D";
 
 describe('Grid3D test suite', 
 ()=>{

@@ -1,4 +1,4 @@
-import Grid2D from "../../../../../../lib/sdk/common/model/space/partitioning/grid/Grid2D";
+import Grid2D from "../../../../../../../lib/sdk/common/model/space/partitioning/grid/Grid2D";
 
 describe('Grid2D test suite', 
 ()=>{

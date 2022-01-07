@@ -1,4 +1,4 @@
-import Inventory from "../../../../../lib/sdk/common/model/space/storage/Inventory";
+import Inventory from "../../../../../../lib/sdk/common/model/space/storage/Inventory";
 
 describe("Inventory test suite", () => {
   const inventory = new Inventory();
