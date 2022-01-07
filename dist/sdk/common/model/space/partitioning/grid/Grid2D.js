@@ -1,67 +1,98 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Grid2D = /** @class */ (function () {
-    function Grid2D() {
+class Grid2D {
+    constructor() {
         this._map = [];
         this._numRows = 0;
         this._numCols = 0;
     }
-    Grid2D.prototype.reset = function (rows, cols) {
+    reset(rows, cols) {
         this._numRows = rows;
         this._numCols = cols;
         this._map = [];
-        for (var i = 0; i < rows; i++) {
-            var col = [];
-            for (var j = 0; j < cols; j++) {
+        for (let i = 0; i < rows; i++) {
+            const col = [];
+            for (let j = 0; j < cols; j++) {
                 col.push(null);
             }
             this._map.push(col);
         }
-    };
-    Grid2D.prototype.destroy = function () {
+    }
+    destroy() {
         this._map = [];
         this._numRows = 0;
         this._numCols = 0;
-    };
-    Grid2D.prototype.getAt = function (row, col) {
+    }
+    getNeighbours(row, col) {
+        return {
+            topLeft: this.getTopLeft(row, col),
+            top: this.getTop(row, col),
+            topRight: this.getTopRight(row, col),
+            left: this.getLeft(row, col),
+            center: this.getAt(row, col),
+            right: this.getRight(row, col),
+            bottomLeft: this.getBottomLeft(row, col),
+            bottom: this.getBottom(row, col),
+            bottomRight: this.getBottomRight(row, col),
+        };
+    }
+    getLeft(row, col) {
+        return this.getAt(row, col - 1);
+    }
+    getRight(row, col) {
+        return this.getAt(row, col + 1);
+    }
+    getBottom(row, col) {
+        return this.getAt(row + 1, col);
+    }
+    getBottomLeft(row, col) {
+        return this.getAt(row + 1, col - 1);
+    }
+    getBottomRight(row, col) {
+        return this.getAt(row + 1, col + 1);
+    }
+    getTop(row, col) {
+        return this.getAt(row - 1, col);
+    }
+    getTopLeft(row, col) {
+        return this.getAt(row - 1, col - 1);
+    }
+    getTopRight(row, col) {
+        return this.getAt(row - 1, col + 1);
+    }
+    getAt(row, col) {
         if (this.isOutOfBounds(row, col))
             return null;
         return this._map[row][col];
-    };
-    Grid2D.prototype.addAt = function (row, col, value) {
+    }
+    addAt(row, col, value) {
         if (this.isOutOfBounds(row, col))
             return;
         this._map[row][col] = value;
-    };
-    Grid2D.prototype.removeAt = function (row, col) {
+    }
+    removeAt(row, col) {
         if (this.isOutOfBounds(row, col))
             return;
         this._map[row][col] = null;
-    };
-    Grid2D.prototype.isOutOfBounds = function (row, col) {
+    }
+    isOutOfBounds(row, col) {
         return (row > this.numRows - 1 || col > this.numCols - 1 || row < 0 || col < 0);
-    };
-    Grid2D.prototype.forEach = function (func) {
-        for (var i = 0; i < this.numRows; i++) {
-            for (var j = 0; j < this.numCols; j++) {
+    }
+    forEach(func) {
+        for (let i = 0; i < this.numRows; i++) {
+            for (let j = 0; j < this.numCols; j++) {
                 func(this._map[i][j], i, j);
             }
         }
-    };
-    Object.defineProperty(Grid2D.prototype, "numCols", {
-        get: function () {
-            return this._numRows;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Grid2D.prototype, "numRows", {
-        get: function () {
-            return this._numCols;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return Grid2D;
-}());
+    }
+    get numCols() {
+        return this._numRows;
+    }
+    get numRows() {
+        return this._numCols;
+    }
+    get data() {
+        return this._map;
+    }
+}
 exports.default = Grid2D;

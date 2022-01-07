@@ -7,9 +7,9 @@ exports.MAX_QUAD_PER_CALL = Math.floor(65535 / exports.VERTEX_SIZE / exports.NUM
 exports.VERTEX_ARRAY_SIZE = exports.MAX_QUAD_PER_CALL * exports.NUM_VERTICES_PER_QUAD * exports.VERTEX_SIZE;
 exports.INDICES_PER_QUAD = 6;
 function pushVerticesInto(children, vertexArray) {
-    var pos = 0;
-    for (var i = 0; i < children.length; i++) {
-        var current = children[i];
+    let pos = 0;
+    for (let i = 0; i < children.length; i++) {
+        const current = children[i];
         // topleft
         vertexArray[pos++] = 0; // x
         vertexArray[pos++] = 0; // y
@@ -66,10 +66,10 @@ function createVertexArray() {
 }
 exports.createVertexArray = createVertexArray;
 function createIndexArray() {
-    var size = exports.MAX_QUAD_PER_CALL * exports.INDICES_PER_QUAD;
-    var indexArray = new Uint16Array(size);
-    var vertexPos = 0;
-    for (var i = 0; i < size; i += exports.INDICES_PER_QUAD) {
+    const size = exports.MAX_QUAD_PER_CALL * exports.INDICES_PER_QUAD;
+    const indexArray = new Uint16Array(size);
+    let vertexPos = 0;
+    for (let i = 0; i < size; i += exports.INDICES_PER_QUAD) {
         indexArray[i + 0] = vertexPos + 0;
         indexArray[i + 1] = vertexPos + 1;
         indexArray[i + 2] = vertexPos + 2;
@@ -88,17 +88,14 @@ exports.createIndexArray = createIndexArray;
  * configuration stands that indices array has a max length
  * of 65536 (2 words) which is an old limitation.
  */
-var WebGlConfig = /** @class */ (function () {
-    function WebGlConfig() {
-    }
-    WebGlConfig.VERTEX_SIZE = exports.VERTEX_SIZE;
-    WebGlConfig.NUM_VERTICES_PER_QUAD = exports.NUM_VERTICES_PER_QUAD;
-    WebGlConfig.MAX_QUAD_PER_CALL = exports.MAX_QUAD_PER_CALL;
-    WebGlConfig.VERTEX_ARRAY_SIZE = exports.VERTEX_ARRAY_SIZE;
-    WebGlConfig.INDICES_PER_QUAD = exports.INDICES_PER_QUAD;
-    WebGlConfig.pushVerticesInto = pushVerticesInto;
-    WebGlConfig.createVertexArray = createVertexArray;
-    WebGlConfig.createIndexArray = createIndexArray;
-    return WebGlConfig;
-}());
+class WebGlConfig {
+}
 exports.default = WebGlConfig;
+WebGlConfig.VERTEX_SIZE = exports.VERTEX_SIZE;
+WebGlConfig.NUM_VERTICES_PER_QUAD = exports.NUM_VERTICES_PER_QUAD;
+WebGlConfig.MAX_QUAD_PER_CALL = exports.MAX_QUAD_PER_CALL;
+WebGlConfig.VERTEX_ARRAY_SIZE = exports.VERTEX_ARRAY_SIZE;
+WebGlConfig.INDICES_PER_QUAD = exports.INDICES_PER_QUAD;
+WebGlConfig.pushVerticesInto = pushVerticesInto;
+WebGlConfig.createVertexArray = createVertexArray;
+WebGlConfig.createIndexArray = createIndexArray;

@@ -5,11 +5,31 @@ export default class Grid2D<T> {
     constructor();
     reset(rows: number, cols: number): void;
     destroy(): void;
+    getNeighbours(row: number, col: number): {
+        topLeft: T;
+        top: T;
+        topRight: T;
+        left: T;
+        center: T;
+        right: T;
+        bottomLeft: T;
+        bottom: T;
+        bottomRight: T;
+    };
+    getLeft(row: number, col: number): T;
+    getRight(row: number, col: number): T;
+    getBottom(row: number, col: number): T;
+    getBottomLeft(row: number, col: number): T;
+    getBottomRight(row: number, col: number): T;
+    getTop(row: number, col: number): T;
+    getTopLeft(row: number, col: number): T;
+    getTopRight(row: number, col: number): T;
     getAt(row: number, col: number): T | null;
     addAt(row: number, col: number, value: T): void;
     removeAt(row: number, col: number): void;
     isOutOfBounds(row: number, col: number): boolean;
-    forEach(func: Function): void;
+    forEach(func: (value: T, row: number, col: number) => void): void;
     get numCols(): number;
     get numRows(): number;
+    get data(): T[][] | null[][];
 }

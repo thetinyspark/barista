@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Default2DShader_1 = require("./Default2DShader");
-var WebGlConfig_1 = require("./WebGlConfig");
-var CanvasUtils_1 = require("../../utils/CanvasUtils");
+const Default2DShader_1 = require("./Default2DShader");
+const WebGlConfig_1 = require("./WebGlConfig");
+const CanvasUtils_1 = require("../../utils/CanvasUtils");
 /**
  * The Webgl2DRenderer class is the base class for WebGL2d rendering.
  */
-var Webgl2DRenderer = /** @class */ (function () {
-    function Webgl2DRenderer() {
+class Webgl2DRenderer {
+    constructor() {
         this._children = [];
         this._init();
     }
-    Webgl2DRenderer.prototype._init = function () {
+    _init() {
         // init canvas
         this._canvas = CanvasUtils_1.default.create();
         this._context = this._canvas.getContext("webgl");
@@ -34,56 +34,55 @@ var Webgl2DRenderer = /** @class */ (function () {
         // init blend func
         this._context.blendFunc(this._context.ONE, this._context.ONE_MINUS_SRC_ALPHA);
         this._context.enable(this._context.BLEND);
-    };
-    Webgl2DRenderer.prototype.add = function (child) {
+    }
+    add(child) {
         this._children.push(child);
-    };
-    Webgl2DRenderer.prototype.getCanvas = function () {
+    }
+    getCanvas() {
         return this._canvas;
-    };
-    Webgl2DRenderer.prototype.getContext = function () {
+    }
+    getContext() {
         return this._context;
-    };
-    Webgl2DRenderer.prototype.getChildren = function () {
+    }
+    getChildren() {
         return this._children;
-    };
-    Webgl2DRenderer.prototype.clear = function () {
+    }
+    clear() {
         this._children = [];
-    };
-    Webgl2DRenderer.prototype.draw = function (canvas, context) {
-        var _this = this;
-        var x = canvas.width / 2;
-        var y = -canvas.height / 2;
+    }
+    draw(canvas, context) {
+        const x = canvas.width / 2;
+        const y = -canvas.height / 2;
         context.uniform2f(this._currentShader.projectionPointer, x, y);
         context.clearColor(0.0, 0.0, 0.0, 1.0);
         context.viewport(0, 0, canvas.width, canvas.height);
         context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT);
-        var batched = this.batch(this._children);
-        batched.forEach(function (currentBatch) {
+        const batched = this.batch(this._children);
+        batched.forEach((currentBatch) => {
             if (currentBatch.length === 0)
                 return;
-            var first = currentBatch[0];
-            _this._currentTexture = first.texture;
-            WebGlConfig_1.default.pushVerticesInto(currentBatch, _this._vertexArray);
-            var context = _this._context;
+            const first = currentBatch[0];
+            this._currentTexture = first.texture;
+            WebGlConfig_1.default.pushVerticesInto(currentBatch, this._vertexArray);
+            const context = this._context;
             context.activeTexture(context.TEXTURE0);
-            context.bindTexture(context.TEXTURE_2D, _this._currentTexture.data.getGlTexture(context));
+            context.bindTexture(context.TEXTURE_2D, this._currentTexture.data.getGlTexture(context));
             if (currentBatch.length > WebGlConfig_1.default.MAX_QUAD_PER_CALL >> 1) {
-                context.bufferSubData(context.ARRAY_BUFFER, 0, _this._vertexArray);
+                context.bufferSubData(context.ARRAY_BUFFER, 0, this._vertexArray);
             }
             else {
-                var view = _this._vertexArray.subarray(0, currentBatch.length * 4 * WebGlConfig_1.default.VERTEX_SIZE);
+                const view = this._vertexArray.subarray(0, currentBatch.length * 4 * WebGlConfig_1.default.VERTEX_SIZE);
                 context.bufferSubData(context.ARRAY_BUFFER, 0, view);
             }
             context.drawElements(context.TRIANGLES, currentBatch.length * WebGlConfig_1.default.INDICES_PER_QUAD, context.UNSIGNED_SHORT, 0);
         });
-    };
-    Webgl2DRenderer.prototype.batch = function (children) {
-        var result = [];
-        var batch = [];
-        var texId = "";
-        var counter = 0;
-        for (var i = 0; i < children.length; i++) {
+    }
+    batch(children) {
+        const result = [];
+        let batch = [];
+        let texId = "";
+        let counter = 0;
+        for (let i = 0; i < children.length; i++) {
             if (children[i].texture === null)
                 continue;
             if (children[i].texture.textureUid !== texId || counter % WebGlConfig_1.default.MAX_QUAD_PER_CALL === 0) {
@@ -96,7 +95,6 @@ var Webgl2DRenderer = /** @class */ (function () {
             counter++;
         }
         return result;
-    };
-    return Webgl2DRenderer;
-}());
+    }
+}
 exports.default = Webgl2DRenderer;
