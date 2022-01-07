@@ -8,6 +8,7 @@ export * from "./core/texture/index";
 export * from "./core/utils/index";
 export * from "@thetinyspark/tiny-observer";
 
+export * from "./sdk/common/utils/index";
 export * from "./sdk/common/model/node/index";
 export * from "./sdk/common/model/space/partitioning/grid/index";
 export * from "./sdk/common/model/space/storage/index";
