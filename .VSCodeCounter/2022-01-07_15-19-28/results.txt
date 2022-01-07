@@ -1,0 +1,100 @@
+Date : 2022-01-07 15:19:28
+Directory : c:\pro\UwAmp\www\repositories\moocaccino\barista\lib
+Total : 51 files,  2007 codes, 894 comments, 453 blanks, all 3354 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| TypeScript |         51 |      2,007 |        894 |        453 |      3,354 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                    | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                       |         51 |      2,007 |        894 |        453 |      3,354 |
+| core                                                                                                    |         32 |      1,532 |        854 |        340 |      2,726 |
+| core\assets                                                                                             |          2 |        183 |         81 |         42 |        306 |
+| core\controls                                                                                           |          2 |         71 |         19 |         12 |        102 |
+| core\display                                                                                            |          9 |        436 |        434 |         92 |        962 |
+| core\filters                                                                                            |          2 |          8 |         15 |          2 |         25 |
+| core\rendering                                                                                          |          7 |        372 |         69 |        101 |        542 |
+| core\rendering\webgl                                                                                    |          4 |        308 |         38 |         84 |        430 |
+| core\texture                                                                                            |          5 |        307 |        177 |         69 |        553 |
+| core\utils                                                                                              |          5 |        155 |         59 |         22 |        236 |
+| sdk                                                                                                     |         18 |        459 |         40 |        112 |        611 |
+| sdk\common                                                                                              |         10 |        365 |         13 |         90 |        468 |
+| sdk\common\model                                                                                        |          8 |        259 |          0 |         67 |        326 |
+| sdk\common\model\node                                                                                   |          2 |          6 |          0 |          0 |          6 |
+| sdk\common\model\space                                                                                  |          6 |        253 |          0 |         67 |        320 |
+| sdk\common\model\space\partitioning                                                                     |          3 |        166 |          0 |         44 |        210 |
+| sdk\common\model\space\partitioning\grid                                                                |          3 |        166 |          0 |         44 |        210 |
+| sdk\common\model\space\storage                                                                          |          3 |         87 |          0 |         23 |        110 |
+| sdk\common\utils                                                                                        |          2 |        106 |         13 |         23 |        142 |
+| sdk\isometric                                                                                           |          8 |         94 |         27 |         22 |        143 |
+| sdk\isometric\mixins                                                                                    |          2 |         20 |          0 |          5 |         25 |
+| sdk\isometric\model                                                                                     |          2 |         32 |          0 |          7 |         39 |
+| sdk\isometric\model\node                                                                                |          2 |         32 |          0 |          7 |         39 |
+| sdk\isometric\utils                                                                                     |          2 |         23 |         27 |          5 |         55 |
+| sdk\isometric\view                                                                                      |          2 |         19 |          0 |          5 |         24 |
+| sdk\isometric\view\map                                                                                  |          2 |         19 |          0 |          5 |         24 |
++---------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\assets\AssetsManager.ts                       | TypeScript |        181 |         81 |         42 |        304 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\assets\index.ts                               | TypeScript |          2 |          0 |          0 |          2 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\controls\MouseControl.ts                      | TypeScript |         69 |         19 |         12 |        100 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\controls\index.ts                             | TypeScript |          2 |          0 |          0 |          2 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\display\Animation.ts                          | TypeScript |         97 |         67 |         26 |        190 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\display\Camera.ts                             | TypeScript |         16 |         15 |          2 |         33 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\display\DisplayObject.ts                      | TypeScript |         71 |         56 |          9 |        136 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\display\DisplayObjectContainer.ts             | TypeScript |         65 |         65 |         16 |        146 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\display\IDisplayObject.ts                     | TypeScript |         28 |         57 |          2 |         87 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\display\IDisplayObjectContainer.ts            | TypeScript |         11 |         30 |          2 |         43 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\display\Stage.ts                              | TypeScript |         64 |         98 |         20 |        182 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\display\Stats.ts                              | TypeScript |         66 |         46 |         14 |        126 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\display\index.ts                              | TypeScript |         18 |          0 |          1 |         19 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\filters\IFilter.ts                            | TypeScript |          6 |         15 |          2 |         23 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\filters\index.ts                              | TypeScript |          2 |          0 |          0 |          2 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\rendering\Canvas2DRenderer.ts                 | TypeScript |         52 |          3 |         12 |         67 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\rendering\IRenderer.ts                        | TypeScript |          9 |         28 |          5 |         42 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\rendering\index.ts                            | TypeScript |          3 |          0 |          0 |          3 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\rendering\webgl\Default2DShader.ts            | TypeScript |         97 |         17 |         37 |        151 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\rendering\webgl\WebGlConfig.ts                | TypeScript |         84 |         11 |         10 |        105 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\rendering\webgl\Webgl2DRenderer.ts            | TypeScript |        102 |         10 |         35 |        147 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\rendering\webgl\index.ts                      | TypeScript |         25 |          0 |          2 |         27 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\texture\Spritesheet.ts                        | TypeScript |        109 |         26 |         27 |        162 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\texture\Texture.ts                            | TypeScript |         70 |         74 |         18 |        162 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\texture\TextureData.ts                        | TypeScript |         58 |         40 |         16 |        114 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\texture\Zone.ts                               | TypeScript |         60 |         37 |          7 |        104 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\texture\index.ts                              | TypeScript |         10 |          0 |          1 |         11 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\utils\CanvasUtils.ts                          | TypeScript |         50 |          3 |          7 |         60 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\utils\Geometry.ts                             | TypeScript |         75 |         38 |         11 |        124 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\utils\MathUtils.ts                            | TypeScript |          9 |          9 |          1 |         19 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\utils\index.ts                                | TypeScript |         10 |          0 |          1 |         11 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\core\utils\isser.ts                                | TypeScript |         11 |          9 |          2 |         22 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\index.ts                                           | TypeScript |         16 |          0 |          1 |         17 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\model\node\GameNode.ts                  | TypeScript |          4 |          0 |          0 |          4 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\model\node\index.ts                     | TypeScript |          2 |          0 |          0 |          2 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\model\space\partitioning\grid\Grid2D.ts | TypeScript |         93 |          0 |         26 |        119 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\model\space\partitioning\grid\Grid3D.ts | TypeScript |         70 |          0 |         17 |         87 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\model\space\partitioning\grid\index.ts  | TypeScript |          3 |          0 |          1 |          4 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\model\space\storage\IStorable.ts        | TypeScript |          4 |          0 |          0 |          4 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\model\space\storage\Inventory.ts        | TypeScript |         80 |          0 |         21 |        101 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\model\space\storage\index.ts            | TypeScript |          3 |          0 |          2 |          5 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\utils\Maze2D.ts                         | TypeScript |        104 |         13 |         23 |        140 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\common\utils\index.ts                          | TypeScript |          2 |          0 |          0 |          2 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\isometric\mixins\index.ts                      | TypeScript |          2 |          0 |          0 |          2 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\isometric\mixins\mixins.ts                     | TypeScript |         18 |          0 |          5 |         23 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\isometric\model\node\IsoNode.ts                | TypeScript |         30 |          0 |          6 |         36 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\isometric\model\node\index.ts                  | TypeScript |          2 |          0 |          1 |          3 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\isometric\utils\index.ts                       | TypeScript |          2 |          0 |          0 |          2 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\isometric\utils\iso.utils.ts                   | TypeScript |         21 |         27 |          5 |         53 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\isometric\view\map\IsoMap.ts                   | TypeScript |         17 |          0 |          5 |         22 |
+| c:\pro\UwAmp\www\repositories\moocaccino\barista\lib\sdk\isometric\view\map\index.ts                    | TypeScript |          2 |          0 |          0 |          2 |
+| Total                                                                                                   |            |      2,007 |        894 |        453 |      3,354 |
++---------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

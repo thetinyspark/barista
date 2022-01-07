@@ -93,6 +93,54 @@ describe('Grid3D test suite',
         ); 
 
         expect(counter).toEqual(expected);
-    })
+    }); 
+
+    it('should ge able to get neighbours', 
+    ()=>{
+        // given 
+        grid.reset(3, 3, 3);
+        grid.forEach( 
+            (value, row, col, layer)=>{
+                grid.addAt(row, col, layer,"_"+row+"_"+col+"_"+layer);
+            }
+        );
+        const expected = {
+            topLeftFront: "_0_0_0",
+            topFront: "_0_1_0",
+            topRightFront: "_0_2_0",
+            leftFront: "_1_0_0",
+            centerFront: "_1_1_0",
+            rightFront: "_1_2_0",
+            bottomLeftFront: "_2_0_0",
+            bottomFront: "_2_1_0",
+            bottomRightFront: "_2_2_0",
+
+            topLeftBack: "_0_0_2",
+            topBack: "_0_1_2",
+            topRightBack: "_0_2_2",
+            leftBack: "_1_0_2",
+            centerBack: "_1_1_2",
+            rightBack: "_1_2_2",
+            bottomLeftBack: "_2_0_2",
+            bottomBack: "_2_1_2",
+            bottomRightBack: "_2_2_2",
+            
+            topLeft: "_0_0_1",
+            top: "_0_1_1",
+            topRight: "_0_2_1",
+            left: "_1_0_1",
+            center: "_1_1_1",
+            right: "_1_2_1",
+            bottomLeft: "_2_0_1",
+            bottom: "_2_1_1",
+            bottomRight: "_2_2_1",
+        }
+
+        // when 
+        const neighbours = grid.getNeighbours(1,1,1);
+
+        // then 
+        expect(neighbours).toEqual(expected);
+    });
 
 });

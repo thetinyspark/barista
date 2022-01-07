@@ -119,6 +119,6 @@ describe('Grid2D test suite',
 
         // then 
         expect(neighbours).toEqual(expected);
-    })
+    });
 
 });

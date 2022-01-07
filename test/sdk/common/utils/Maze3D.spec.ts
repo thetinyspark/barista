@@ -1,38 +1,38 @@
 import { GameNode } from "../../../../lib/sdk/common/model/node";
-import Maze2D, {MazeNodeType} from "../../../../lib/sdk/common/utils/Maze2D";
+import {Maze3D,MazeNodeType} from "../../../../lib/sdk/common/utils/";
 
-describe('Maze2D test suite', 
+describe('Maze3D test suite', 
 ()=>{
 
-    it('should be able to create a Maze2D', 
+    it('should be able to create a Maze3D', 
     ()=>{
-        const maze = new Maze2D();
+        const maze = new Maze3D();
         expect(maze).toBeTruthy();
     }); 
 
     it('should be able to reset maze', 
     ()=>{
         // given
-        const maze = new Maze2D();
+        const maze = new Maze3D();
 
         // when 
-        maze.reset(10,10,1,1);
+        maze.reset(10,10,10,1,1,1);
 
         // then 
         expect(maze.getRows()).toEqual(10);
         expect(maze.getCols()).toEqual(10);
-        expect(maze.getData().flat(2).length).toEqual(100);
+        expect(maze.getData().flat(3).length).toEqual(1000);
     }); 
 
     it('should have a state.type property on each node which is equal to BLOCK or WALL after reset', 
     ()=>{
         // given
-        const maze = new Maze2D();
+        const maze = new Maze3D();
         const types = [MazeNodeType.BLOCK, MazeNodeType.WALL]
 
         // when 
-        maze.reset(10,10,1,1);
-        const nodes = maze.getData().flat(2);
+        maze.reset(10,10,10,1,1,1);
+        const nodes = maze.getData().flat(3);
 
         // then 
         nodes.forEach( 
@@ -45,8 +45,8 @@ describe('Maze2D test suite',
     it('should dig a wall between current node and a random BLOCK neighbour', 
     ()=>{
         // given
-        const maze = new Maze2D();
-        maze.reset(10,10,1,1); 
+        const maze = new Maze3D();
+        maze.reset(10,10,10,1,1,1);
         const lastCurrentNode = maze.getCurrentNode();
 
         // when 
@@ -62,8 +62,8 @@ describe('Maze2D test suite',
     it('should not have finished the maze generation if there is one remaining BLOCK', 
     ()=>{
         // given
-        const maze = new Maze2D();
-        maze.reset(10,10,1,1); 
+        const maze = new Maze3D();
+        maze.reset(10,10,10,1,1,1);
 
         // when 
         maze.step();
@@ -79,8 +79,8 @@ describe('Maze2D test suite',
     it('should be able to finalize generation and should not contain a BLOCK is the maze generation is finished', 
     ()=>{
         // given
-        const maze = new Maze2D();
-        maze.reset(10,10,1,1); 
+        const maze = new Maze3D();
+        maze.reset(10,10,10,1,1,1);
 
         // when 
         maze.finalize();
