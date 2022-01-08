@@ -71,9 +71,19 @@ export default class Spritesheet {
     if (zone === null) 
         return false;
 
-    
-    const bottom = zone.splitBottom(source.source.height as number);
-    const right = zone.splitRight(source.source.width as number );
+    let bottom = null;
+    let right = null;
+
+    // from zone, split bottom && from zone split right
+    if( source.source.width > source.source.height){
+      bottom = zone.splitBottom(source.source.height as number);
+      right = zone.splitRight(source.source.width as number );
+    }
+    else {
+        // from zone, split right && from zone split bottom
+        right = zone.splitRight(source.source.width as number );
+        bottom = zone.splitBottom(source.source.height as number);
+    }
 
     zone.data = source;
 
@@ -112,10 +122,11 @@ export default class Spritesheet {
 
     sources.sort(this._sortSourcesByAreaAsc);
 
-    while(sources.length > 0 ){
-      const current = sources.shift();
-      this._addSource(current);
-    }
+    sources.forEach(
+      (current)=>{
+        this._addSource(current);
+      }
+    );
 
     this._textures = this._drawTextures();
   }
