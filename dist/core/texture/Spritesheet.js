@@ -54,8 +54,18 @@ class Spritesheet {
         const zone = this._findFreeZoneFor(source.source);
         if (zone === null)
             return false;
-        const bottom = zone.splitBottom(source.source.height);
-        const right = zone.splitRight(source.source.width);
+        let bottom = null;
+        let right = null;
+        // from zone, split bottom && from zone split right
+        if (source.source.width > source.source.height) {
+            bottom = zone.splitBottom(source.source.height);
+            right = zone.splitRight(source.source.width);
+        }
+        else {
+            // from zone, split right && from zone split bottom
+            right = zone.splitRight(source.source.width);
+            bottom = zone.splitBottom(source.source.height);
+        }
         zone.data = source;
         if (right !== null && right.getArea() > 0)
             this._zones.push(right);
@@ -81,10 +91,13 @@ class Spritesheet {
         zone.data = null;
         this._zones = [zone];
         sources.sort(this._sortSourcesByAreaAsc);
-        while (sources.length > 0) {
-            const current = sources.shift();
+        sources.forEach((current) => {
             this._addSource(current);
-        }
+        });
+        // while(sources.length > 0 ){
+        //   const current = sources.shift();
+        //   this._addSource(current);
+        // }
         this._textures = this._drawTextures();
     }
     /**
