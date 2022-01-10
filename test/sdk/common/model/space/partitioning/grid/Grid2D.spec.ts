@@ -121,4 +121,73 @@ describe('Grid2D test suite',
         expect(neighbours).toEqual(expected);
     });
 
+    it('should be able to create a grid2d from a typed double array', 
+    ()=>{
+        // given
+        const numbers = [
+            [0,0,0,0,0],
+            [1,2,3,4,5]
+        ];
+
+        // when
+        const numericGrid:Grid2D<number> = Grid2D.from<number>(numbers);
+
+        // then
+        expect(numericGrid).not.toBeNull();
+        expect(numericGrid.data).toEqual(numbers);
+    });
+
+    it('should be able to map the grid and returns another grid', 
+    ()=>{
+        // given
+        const numbers = [[1,2],[3,4]];
+        const expected = [ 
+            [
+                {value:1 * 2, row:0, col:0},
+                {value:2 * 2, row:0, col:1},
+            ], 
+            [
+                {value:3 * 2, row:1, col:0},
+                {value:4 * 2, row:1, col:1},
+            ] 
+        ];
+        const numericGrid:Grid2D<number> = Grid2D.from<number>(numbers);
+
+        // when
+        const anotherGrid = numericGrid.map(
+            (value:number, row:number, col:number)=>{
+                return {value:value * 2, row, col};
+            }
+        );
+        
+
+        // then
+        expect(anotherGrid.data).toEqual(expected);
+    });
+
+    it('should be able to extract a portion of the grid', 
+    ()=>{
+        // given
+        const numbers =[
+            [0,0,0,0,0],
+            [0,8,2,8,0],
+            [0,2,2,2,0],
+            [0,8,2,8,0],
+            [0,0,0,0,0],
+        ];
+
+        const numericGrid:Grid2D<number> = Grid2D.from<number>(numbers);
+        // when
+        const extracted = numericGrid.extract(1,3,1,3);
+
+        // then
+        expect(extracted.data).toEqual(
+            [
+                [8,2,8],
+                [2,2,2],
+                [8,2,8],
+            ]
+        );
+    });
+
 });

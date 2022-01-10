@@ -72,8 +72,6 @@ export default class Grid2D<T> {
     return this.getAt(row-1,col+1);
   }
 
-
-
   public getAt(row: number, col: number): T | null {
     if (this.isOutOfBounds(row, col)) return null;
 
@@ -106,13 +104,62 @@ export default class Grid2D<T> {
     }
   }
 
+  public map<U>(func: (value:T, row:number, col:number)=>U):Grid2D<U>{
+    const data:U[][] = [];
+
+    for (let i: number = 0; i < this.numRows; i++) {
+      data[i] = [];
+      for (let j: number = 0; j < this.numCols; j++) {
+        data[i][j] = func(this._map[i][j], i, j);
+      }
+    }
+
+    return Grid2D.from<U>(data);
+  }
+
+  public extract( fromRow:number, toRow:number, fromCol:number, toCol:number ):Grid2D<T>{
+    const data = []; 
+    toRow = toRow > this.numRows - 1 ? this.numRows - 1 : toRow;
+    toCol = toCol > this.numCols - 1 ? this.numCols - 1 : toCol;
+
+    fromRow = fromRow < 0 ? 0 : fromRow;
+    fromCol = fromCol < 0 ? 0 : fromCol;
+
+    for (let i: number = fromRow; i <= toRow; i++) {
+      const row = []
+      for (let j: number = fromCol; j <= toCol; j++) {
+        row.push(this.getAt(i,j));
+      }
+      data.push(row);
+    }
+      
+  
+    return Grid2D.from(data);
+  }
+
   public get numCols(): number {
     return this._numCols;
   }
+
   public get numRows(): number {
     return this._numRows;
   }
+
   public get data(){
     return this._map;
+  }
+
+  public static from<T>(data:T[][]):Grid2D<T>{
+    const grid = new Grid2D<T>();
+    const rows = data.length; 
+    const cols = data[0]?.length || 0;
+    grid.reset(rows, cols);
+    for (let i: number = 0; i < rows; i++) {
+      for (let j: number = 0; j < cols; j++) {
+        grid.addAt(i,j,data[i][j]);
+      }
+    }
+
+    return grid;
   }
 }

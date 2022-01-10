@@ -171,6 +171,55 @@ class Grid3D {
     getTopRight(row, col, layer) {
         return this.getAt(row - 1, col + 1, layer);
     }
+    map(func) {
+        const data = [];
+        for (let k = 0; k < this.numLayers; k++) {
+            data[k] = [];
+            for (let i = 0; i < this.numRows; i++) {
+                data[k][i] = [];
+                for (let j = 0; j < this.numCols; j++) {
+                    data[k][i][j] = func(this._map[k][i][j], i, j, k);
+                }
+            }
+        }
+        return Grid3D.from(data);
+    }
+    extract(fromRow, toRow, fromCol, toCol, fromLayer, toLayer) {
+        const data = [];
+        toLayer = toLayer > this.numLayers - 1 ? this.numLayers - 1 : toLayer;
+        toRow = toRow > this.numRows - 1 ? this.numRows - 1 : toRow;
+        toCol = toCol > this.numCols - 1 ? this.numCols - 1 : toCol;
+        fromRow = fromRow < 0 ? 0 : fromRow;
+        fromCol = fromCol < 0 ? 0 : fromCol;
+        fromLayer = fromLayer < 0 ? 0 : fromLayer;
+        for (let k = fromLayer; k <= toLayer; k++) {
+            const layer = [];
+            for (let i = fromRow; i <= toRow; i++) {
+                const row = [];
+                for (let j = fromCol; j <= toCol; j++) {
+                    row.push(this.getAt(i, j, k));
+                }
+                layer.push(row);
+            }
+            data.push(layer);
+        }
+        return Grid3D.from(data);
+    }
+    static from(data) {
+        const grid = new Grid3D();
+        const layers = data.length;
+        const rows = data[0]?.length || 0;
+        const cols = data[0]?.[0]?.length || 0;
+        grid.reset(rows, cols, layers);
+        for (let k = 0; k < layers; k++) {
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    grid.addAt(i, j, k, data[k][i][j]);
+                }
+            }
+        }
+        return grid;
+    }
     get numLayers() {
         return this._numLayers;
     }

@@ -66,6 +66,9 @@ export default class Grid3D<T> {
     getTop(row: number, col: number, layer: number): T;
     getTopLeft(row: number, col: number, layer: number): T;
     getTopRight(row: number, col: number, layer: number): T;
+    map<U>(func: (value: T, row: number, col: number, layer: number) => U): Grid3D<U>;
+    extract(fromRow: number, toRow: number, fromCol: number, toCol: number, fromLayer: number, toLayer: number): Grid3D<T>;
+    static from<T>(data: T[][][]): Grid3D<T>;
     get numLayers(): number;
     get numCols(): number;
     get numRows(): number;

@@ -143,4 +143,117 @@ describe('Grid3D test suite',
         expect(neighbours).toEqual(expected);
     });
 
+    
+    it('should be able to create a grid3d from a typed triple array', 
+    ()=>{
+        // given
+        const numbers = [
+            [
+                [0,0,0,0,0],
+                [0,0,0,0,0]
+            ], 
+            [
+                [1,1,1,1,1],
+                [1,1,1,1,1]
+            ]
+        ];
+
+        // when
+        const numericGrid:Grid3D<number> = Grid3D.from<number>(numbers);
+
+        // then
+        expect(numericGrid).not.toBeNull();
+        expect(numericGrid.data).toEqual(numbers);
+    });
+
+    it('should be able to map the grid and returns another grid', 
+    ()=>{
+        // given
+        const numbers = [
+            [
+                [1,2],
+                [3,4]
+            ],
+            [
+                [5,6],
+                [7,8]
+            ],
+        ];
+        const expected = [
+            [ 
+                [
+                    {value:1 * 2, row:0, col:0, layer:0},
+                    {value:2 * 2, row:0, col:1, layer:0},
+                ], 
+                [
+                    {value:3 * 2, row:1, col:0, layer:0},
+                    {value:4 * 2, row:1, col:1, layer:0},
+                ] 
+            ],
+            [ 
+                [
+                    {value:5 * 2, row:0, col:0, layer:1},
+                    {value:6 * 2, row:0, col:1, layer:1},
+                ], 
+                [
+                    {value:7 * 2, row:1, col:0, layer:1},
+                    {value:8 * 2, row:1, col:1, layer:1},
+                ] 
+            ],
+        ];
+
+        const numericGrid:Grid3D<number> = Grid3D.from<number>(numbers);
+
+        // when
+        const anotherGrid = numericGrid.map(
+            (value:number, row:number, col:number,layer:number)=>{
+                return {value:value * 2, row, col,layer};
+            }
+        );
+        
+
+        // then
+        expect(anotherGrid.data).toEqual(expected);
+    });
+
+    it('should be able to extract a portion of the grid', 
+    ()=>{
+        // given
+        const numbers = [
+            [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+            ], 
+            [
+                [1,1,1,1,1],
+                [1,1,1,1,1],
+                [1,1,1,1,1],
+            ],
+            [
+                [2,2,2,2,2],
+                [2,2,2,2,2],
+                [2,2,2,2,2],
+            ]
+        ];
+
+        const numericGrid:Grid3D<number> = Grid3D.from<number>(numbers);
+        // when
+        const extracted = numericGrid.extract(1,2,0,0,0,1);
+
+        // then
+        expect(extracted.data).toEqual(
+            [
+                [
+                    [0],
+                    [0]
+                ],
+                [
+                    [1],
+                    [1]
+                ]
+            ]
+        );
+    });
+
 });

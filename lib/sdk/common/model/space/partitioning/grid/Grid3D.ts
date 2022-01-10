@@ -243,6 +243,66 @@ export default class Grid3D<T> {
     return this.getAt(row-1,col+1,layer);
   }
 
+  public map<U>(func: (value:T, row:number, col:number,layer:number)=>U):Grid3D<U>{
+    const data:U[][][] = [];
+
+    for( let k:number = 0; k < this.numLayers; k++ ){
+      data[k] = [];
+      for (let i: number = 0; i < this.numRows; i++) {
+        data[k][i] = [];
+        for (let j: number = 0; j < this.numCols; j++) {
+          data[k][i][j] = func(this._map[k][i][j], i, j,k);
+        }
+      }
+    }
+
+    return Grid3D.from<U>(data);
+  }
+
+  public extract( fromRow:number, toRow:number, fromCol:number, toCol:number, fromLayer:number, toLayer:number):Grid3D<T>{
+    const data = []; 
+    toLayer = toLayer > this.numLayers - 1 ? this.numLayers - 1 : toLayer;
+    toRow = toRow > this.numRows - 1 ? this.numRows - 1 : toRow;
+    toCol = toCol > this.numCols - 1 ? this.numCols - 1 : toCol;
+
+    fromRow = fromRow < 0 ? 0 : fromRow;
+    fromCol = fromCol < 0 ? 0 : fromCol;
+    fromLayer = fromLayer < 0 ? 0 : fromLayer;
+
+    for( let k:number = fromLayer; k <= toLayer; k++ ){
+      const layer = [];
+      for (let i: number = fromRow; i <= toRow; i++) {
+        const row = []
+        for (let j: number = fromCol; j <= toCol; j++) {
+          row.push(this.getAt(i,j,k));
+        }
+        layer.push(row);
+      }
+      data.push(layer);
+    } 
+  
+    return Grid3D.from(data);
+  }
+
+  public static from<T>(data:T[][][]):Grid3D<T>{
+    const grid = new Grid3D<T>();
+    const layers = data.length; 
+    const rows = data[0]?.length || 0; 
+    const cols = data[0]?.[0]?.length || 0;
+    grid.reset(rows, cols, layers);
+    for( let k:number = 0; k < layers; k++ ){
+      for (let i: number = 0; i < rows; i++) {
+        for (let j: number = 0; j < cols; j++) {
+          grid.addAt(i,j,k,data[k][i][j]);
+        }
+      }
+    }
+
+    return grid;
+  }
+
+  
+
 
   public get numLayers(): number {
     return this._numLayers;

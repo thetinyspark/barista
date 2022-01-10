@@ -85,6 +85,31 @@ class Grid2D {
             }
         }
     }
+    map(func) {
+        const data = [];
+        for (let i = 0; i < this.numRows; i++) {
+            data[i] = [];
+            for (let j = 0; j < this.numCols; j++) {
+                data[i][j] = func(this._map[i][j], i, j);
+            }
+        }
+        return Grid2D.from(data);
+    }
+    extract(fromRow, toRow, fromCol, toCol) {
+        const data = [];
+        toRow = toRow > this.numRows - 1 ? this.numRows - 1 : toRow;
+        toCol = toCol > this.numCols - 1 ? this.numCols - 1 : toCol;
+        fromRow = fromRow < 0 ? 0 : fromRow;
+        fromCol = fromCol < 0 ? 0 : fromCol;
+        for (let i = fromRow; i <= toRow; i++) {
+            const row = [];
+            for (let j = fromCol; j <= toCol; j++) {
+                row.push(this.getAt(i, j));
+            }
+            data.push(row);
+        }
+        return Grid2D.from(data);
+    }
     get numCols() {
         return this._numCols;
     }
@@ -93,6 +118,18 @@ class Grid2D {
     }
     get data() {
         return this._map;
+    }
+    static from(data) {
+        const grid = new Grid2D();
+        const rows = data.length;
+        const cols = data[0]?.length || 0;
+        grid.reset(rows, cols);
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                grid.addAt(i, j, data[i][j]);
+            }
+        }
+        return grid;
     }
 }
 exports.default = Grid2D;

@@ -29,7 +29,10 @@ export default class Grid2D<T> {
     removeAt(row: number, col: number): void;
     isOutOfBounds(row: number, col: number): boolean;
     forEach(func: (value: T, row: number, col: number) => void): void;
+    map<U>(func: (value: T, row: number, col: number) => U): Grid2D<U>;
+    extract(fromRow: number, toRow: number, fromCol: number, toCol: number): Grid2D<T>;
     get numCols(): number;
     get numRows(): number;
     get data(): T[][] | null[][];
+    static from<T>(data: T[][]): Grid2D<T>;
 }
