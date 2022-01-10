@@ -68,7 +68,7 @@ export default class PathFinder2D {
                 hasNextStep = false;
                 break;
             }
-            
+
             const currentNode = this.opened[0];
 
             // b. Basculer CURRENT dans la liste fermée.
@@ -92,6 +92,7 @@ export default class PathFinder2D {
             }
             // we remove non existing neighbours
             const nonEmpty = neighbours.filter( node => node !== null );
+
 
             // Pour chacun des nodes adjacents à CURRENT appliquer la méthode suivante:
             nonEmpty.forEach(
