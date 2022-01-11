@@ -20,6 +20,7 @@ __exportStar(require("./core/texture/index"), exports);
 __exportStar(require("./core/utils/index"), exports);
 __exportStar(require("@thetinyspark/tiny-observer"), exports);
 __exportStar(require("./sdk/common/utils/index"), exports);
+__exportStar(require("./sdk/common/utils/fsm/index"), exports);
 __exportStar(require("./sdk/common/model/node/index"), exports);
 __exportStar(require("./sdk/common/model/space/partitioning/grid/index"), exports);
 __exportStar(require("./sdk/common/model/space/storage/index"), exports);
