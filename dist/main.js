@@ -30,6 +30,26 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n
 
 /***/ }),
 
+/***/ "./dist/core/controls/GamePad.js":
+/*!***************************************!*\
+  !*** ./dist/core/controls/GamePad.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.GamePadTouchEvent = void 0;\r\nconst tiny_observer_1 = __webpack_require__(/*! @thetinyspark/tiny-observer */ \"./node_modules/@thetinyspark/tiny-observer/dist/index.js\");\r\nclass GamePad extends tiny_observer_1.Emitter {\r\n    constructor() {\r\n        super(...arguments);\r\n        this._touches = [];\r\n        this._pressed = [];\r\n    }\r\n    setTouches(touches) {\r\n        this._touches = touches;\r\n    }\r\n    getTouches() {\r\n        return this._touches;\r\n    }\r\n    getTouchByKey(key) {\r\n        return this.getTouches().find(touch => touch.key === key) || null;\r\n    }\r\n    getTouchByValue(value) {\r\n        return this.getTouches().find(touch => touch.value === value) || null;\r\n    }\r\n    getPressedTouches() {\r\n        return this._pressed;\r\n    }\r\n    press(touch, timestamp = 0) {\r\n        touch.press(timestamp);\r\n        if (!this._pressed.includes(touch)) {\r\n            this._pressed.push(touch);\r\n            this.emit(GamePadTouchEvent.PRESS_KEY, touch);\r\n        }\r\n    }\r\n    release(touch, timestamp = 0) {\r\n        const pos = this._pressed.indexOf(touch);\r\n        if (pos > -1) {\r\n            this._pressed.splice(this._pressed.indexOf(touch), 1);\r\n            const time = touch.release(timestamp);\r\n            this.emit(GamePadTouchEvent.PRESS_KEY, touch);\r\n            return time;\r\n        }\r\n        else {\r\n            return touch.getElapsedTime();\r\n        }\r\n    }\r\n}\r\nexports.default = GamePad;\r\nvar GamePadTouchEvent;\r\n(function (GamePadTouchEvent) {\r\n    GamePadTouchEvent[\"PRESS_KEY\"] = \"PRESS_KEY\";\r\n    GamePadTouchEvent[\"RELEASE_KEY\"] = \"RELEASE_KEY\";\r\n})(GamePadTouchEvent = exports.GamePadTouchEvent || (exports.GamePadTouchEvent = {}));\r\n\n\n//# sourceURL=webpack://@thetinyspark/moocaccino-barista/./dist/core/controls/GamePad.js?");
+
+/***/ }),
+
+/***/ "./dist/core/controls/GamePadTouch.js":
+/*!********************************************!*\
+  !*** ./dist/core/controls/GamePadTouch.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nclass GamePadTouch {\r\n    constructor(key = '', value = '') {\r\n        this._pressing = false;\r\n        this._timestamp = 0;\r\n        this.value = value;\r\n        this.key = key;\r\n    }\r\n    get pressing() {\r\n        return this._pressing;\r\n    }\r\n    getElapsedTime(timestamp = 0) {\r\n        return (this.pressing) ? timestamp - this._timestamp : 0;\r\n    }\r\n    release(timestamp = 0) {\r\n        const elapsed = this.getElapsedTime(timestamp);\r\n        this._pressing = false;\r\n        return elapsed;\r\n    }\r\n    press(timestamp = 0) {\r\n        this._pressing = true;\r\n        this._timestamp = timestamp;\r\n    }\r\n}\r\nexports.default = GamePadTouch;\r\n\n\n//# sourceURL=webpack://@thetinyspark/moocaccino-barista/./dist/core/controls/GamePadTouch.js?");
+
+/***/ }),
+
 /***/ "./dist/core/controls/MouseControl.js":
 /*!********************************************!*\
   !*** ./dist/core/controls/MouseControl.js ***!
@@ -46,7 +66,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n
   \*************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.MouseControlEvent = exports.MouseControl = void 0;\r\nconst MouseControl_1 = __webpack_require__(/*! ./MouseControl */ \"./dist/core/controls/MouseControl.js\");\r\nexports.MouseControl = MouseControl_1.default;\r\nObject.defineProperty(exports, \"MouseControlEvent\", ({ enumerable: true, get: function () { return MouseControl_1.MouseControlEvent; } }));\r\n\n\n//# sourceURL=webpack://@thetinyspark/moocaccino-barista/./dist/core/controls/index.js?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.GamePadTouchEvent = exports.GamePadTouch = exports.GamePad = exports.MouseControlEvent = exports.MouseControl = void 0;\r\nconst MouseControl_1 = __webpack_require__(/*! ./MouseControl */ \"./dist/core/controls/MouseControl.js\");\r\nexports.MouseControl = MouseControl_1.default;\r\nObject.defineProperty(exports, \"MouseControlEvent\", ({ enumerable: true, get: function () { return MouseControl_1.MouseControlEvent; } }));\r\nconst GamePad_1 = __webpack_require__(/*! ./GamePad */ \"./dist/core/controls/GamePad.js\");\r\nexports.GamePad = GamePad_1.default;\r\nObject.defineProperty(exports, \"GamePadTouchEvent\", ({ enumerable: true, get: function () { return GamePad_1.GamePadTouchEvent; } }));\r\nconst GamePadTouch_1 = __webpack_require__(/*! ./GamePadTouch */ \"./dist/core/controls/GamePadTouch.js\");\r\nexports.GamePadTouch = GamePadTouch_1.default;\r\n\n\n//# sourceURL=webpack://@thetinyspark/moocaccino-barista/./dist/core/controls/index.js?");
 
 /***/ }),
 

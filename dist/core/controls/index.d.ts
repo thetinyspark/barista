@@ -1,2 +1,4 @@
 import MouseControl, { MouseControlEvent } from "./MouseControl";
-export { MouseControl, MouseControlEvent };
+import GamePad, { GamePadTouchEvent } from "./GamePad";
+import GamePadTouch from "./GamePadTouch";
+export { MouseControl, MouseControlEvent, GamePad, GamePadTouch, GamePadTouchEvent };
