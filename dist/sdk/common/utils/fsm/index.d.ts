@@ -1,3 +1,3 @@
-import FinalStateMachine from "./FinalStateMachine";
+import FiniteStateMachine from "./FiniteStateMachine";
 import IState from "./IState";
-export { FinalStateMachine, IState };
+export { FiniteStateMachine, IState };

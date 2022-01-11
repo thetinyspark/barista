@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FinalStateMachine = void 0;
-const FinalStateMachine_1 = require("./FinalStateMachine");
-exports.FinalStateMachine = FinalStateMachine_1.default;
+exports.FiniteStateMachine = void 0;
+const FiniteStateMachine_1 = require("./FiniteStateMachine");
+exports.FiniteStateMachine = FiniteStateMachine_1.default;

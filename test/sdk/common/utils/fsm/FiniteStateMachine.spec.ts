@@ -1,18 +1,18 @@
-import {FinalStateMachine, IState} from "../../../../../lib/sdk/common/utils/fsm/";
+import {FiniteStateMachine, IState} from "../../../../../lib/sdk/common/utils/fsm";
 
-describe('FinalStateMachine test suite', 
+describe('FiniteStateMachine test suite', 
 ()=>{
 
-    it('should be able to create a FinalStateMachine', 
+    it('should be able to create a FiniteStateMachine', 
     ()=>{
-        const fsm = new FinalStateMachine();
+        const fsm = new FiniteStateMachine();
         expect(fsm).toBeTruthy();
     }); 
 
-    it('should be able to add/get a state on FinalStateMachine', 
+    it('should be able to add/get a state on FiniteStateMachine', 
     ()=>{
         // given
-        const fsm = new FinalStateMachine();
+        const fsm = new FiniteStateMachine();
         const state1 = { actions: [],  data: {},  id: "state1" };
         const state2 = { actions: [],  data: {},  id: "state2" };
 
@@ -26,10 +26,10 @@ describe('FinalStateMachine test suite',
         expect(fsm.getStateById('state2')).toBe(state2);
     }); 
 
-    it('should be able to remove a state from FinalStateMachine', 
+    it('should be able to remove a state from FiniteStateMachine', 
     ()=>{
         // given
-        const fsm = new FinalStateMachine();
+        const fsm = new FiniteStateMachine();
         const state1 = { actions: [],  data: {},  id: "state1" };
         const state2 = { actions: [],  data: {},  id: "state2" };
 
@@ -48,7 +48,7 @@ describe('FinalStateMachine test suite',
     it('should be able to set/get current state', 
     ()=>{
         // given
-        const fsm = new FinalStateMachine();
+        const fsm = new FiniteStateMachine();
         const state1 = { actions: [],  data: {},  id: "state1" };
 
         // when
@@ -62,7 +62,7 @@ describe('FinalStateMachine test suite',
     it('should dispatch an action and go to next state2', 
     ()=>{
         // given
-        const fsm = new FinalStateMachine();
+        const fsm = new FiniteStateMachine();
         const jump = {actions:[{name:"PRESS_X", target:"atck"}], id: 'jump', data:{}};
         const atck = {actions:[{name:"PRESS_X", target:"idle"}], id: 'atck', data:{}};
         const dodge = {actions:[{name:"PRESS_X", target:"jump"}], id: 'dodge', data:{}};
@@ -100,7 +100,7 @@ describe('FinalStateMachine test suite',
     it('should be able to reset machine', 
     ()=>{
         // given
-        const fsm = new FinalStateMachine();
+        const fsm = new FiniteStateMachine();
         const jump = {actions:[{name:"PRESS_X", target:"atck"}], id: 'jump', data:{}};
         const atck = {actions:[{name:"PRESS_X", target:"idle"}], id: 'atck', data:{}};
         const dodge = {actions:[{name:"PRESS_X", target:"jump"}], id: 'dodge', data:{}};

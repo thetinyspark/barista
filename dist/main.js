@@ -420,13 +420,13 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n
 
 /***/ }),
 
-/***/ "./dist/sdk/common/utils/fsm/FinalStateMachine.js":
-/*!********************************************************!*\
-  !*** ./dist/sdk/common/utils/fsm/FinalStateMachine.js ***!
-  \********************************************************/
+/***/ "./dist/sdk/common/utils/fsm/FiniteStateMachine.js":
+/*!*********************************************************!*\
+  !*** ./dist/sdk/common/utils/fsm/FiniteStateMachine.js ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nclass FinalStateMachine {\r\n    constructor() {\r\n        this._states = [];\r\n        this._current = null;\r\n    }\r\n    addState(state) {\r\n        this._states.push(state);\r\n    }\r\n    removeState(state) {\r\n        this._states.splice(this._states.indexOf(state), 1);\r\n    }\r\n    reset() {\r\n        this._current = null;\r\n        this._states = [];\r\n    }\r\n    hasState(id) {\r\n        return this.getStateById(id) !== null;\r\n    }\r\n    getStateById(id) {\r\n        return this._states.find(state => state.id === id) || null;\r\n    }\r\n    dispatch(action) {\r\n        const current = this.getCurrentState();\r\n        if (current === null)\r\n            return;\r\n        const currentAction = current.actions.find(cur => cur.name === action) || null;\r\n        if (currentAction === null)\r\n            return;\r\n        const target = this.getStateById(currentAction.target);\r\n        this.setCurrentState(target);\r\n    }\r\n    getCurrentState() {\r\n        return this._current || null;\r\n    }\r\n    setCurrentState(state) {\r\n        if (!this.hasState(state.id))\r\n            this.addState(state);\r\n        this._current = state;\r\n    }\r\n    getStates() {\r\n        return this._states;\r\n    }\r\n}\r\nexports.default = FinalStateMachine;\r\n\n\n//# sourceURL=webpack://@thetinyspark/moocaccino-barista/./dist/sdk/common/utils/fsm/FinalStateMachine.js?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nclass FiniteStateMachine {\r\n    constructor() {\r\n        this._states = [];\r\n        this._current = null;\r\n    }\r\n    addState(state) {\r\n        this._states.push(state);\r\n    }\r\n    removeState(state) {\r\n        this._states.splice(this._states.indexOf(state), 1);\r\n    }\r\n    reset() {\r\n        this._current = null;\r\n        this._states = [];\r\n    }\r\n    hasState(id) {\r\n        return this.getStateById(id) !== null;\r\n    }\r\n    getStateById(id) {\r\n        return this._states.find(state => state.id === id) || null;\r\n    }\r\n    dispatch(action) {\r\n        const current = this.getCurrentState();\r\n        if (current === null)\r\n            return;\r\n        const currentAction = current.actions.find(cur => cur.name === action) || null;\r\n        if (currentAction === null)\r\n            return;\r\n        const target = this.getStateById(currentAction.target);\r\n        this.setCurrentState(target);\r\n    }\r\n    getCurrentState() {\r\n        return this._current || null;\r\n    }\r\n    setCurrentState(state) {\r\n        if (!this.hasState(state.id))\r\n            this.addState(state);\r\n        this._current = state;\r\n    }\r\n    getStates() {\r\n        return this._states;\r\n    }\r\n}\r\nexports.default = FiniteStateMachine;\r\n\n\n//# sourceURL=webpack://@thetinyspark/moocaccino-barista/./dist/sdk/common/utils/fsm/FiniteStateMachine.js?");
 
 /***/ }),
 
@@ -436,7 +436,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n
   \********************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.FinalStateMachine = void 0;\r\nconst FinalStateMachine_1 = __webpack_require__(/*! ./FinalStateMachine */ \"./dist/sdk/common/utils/fsm/FinalStateMachine.js\");\r\nexports.FinalStateMachine = FinalStateMachine_1.default;\r\n\n\n//# sourceURL=webpack://@thetinyspark/moocaccino-barista/./dist/sdk/common/utils/fsm/index.js?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.FiniteStateMachine = void 0;\r\nconst FiniteStateMachine_1 = __webpack_require__(/*! ./FiniteStateMachine */ \"./dist/sdk/common/utils/fsm/FiniteStateMachine.js\");\r\nexports.FiniteStateMachine = FiniteStateMachine_1.default;\r\n\n\n//# sourceURL=webpack://@thetinyspark/moocaccino-barista/./dist/sdk/common/utils/fsm/index.js?");
 
 /***/ }),
 

@@ -1,6 +1,6 @@
 import IState from "./IState";
 
-export default class FinalStateMachine{
+export default class FiniteStateMachine{
     private _states:IState[] = [];
     private _current:IState = null;
 
