@@ -1,6 +1,6 @@
-import CanvasUtils from "../utils/CanvasUtils";
-import IDisplayObject from "../display/IDisplayObject";
-import IRenderer from "./IRenderer";
+import CanvasUtils from "../../utils/CanvasUtils";
+import IDisplayObject from "../../display/IDisplayObject";
+import IRenderer from "../IRenderer";
 /**
  * The Canvas2DRenderer class is the base class for non GPU 2d rendering.
  */
@@ -13,6 +13,10 @@ export default class Canvas2DRenderer implements IRenderer{
     constructor(){
         this._canvas = CanvasUtils.create();
         this._context = this._canvas.getContext("2d");
+    }
+
+    getNumDrawCalls(): number {
+        return this._children.length;
     }
 
     getContext():CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext{

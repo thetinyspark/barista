@@ -1,9 +1,9 @@
-import Stage from "../../../lib/core/display/Stage";
-import Canvas2DRenderer from "../../../lib/core/rendering/Canvas2DRenderer";
-import DisplayObject from "../../../lib/core/display/DisplayObject";
-import IDisplayObject from "../../../lib/core/display/IDisplayObject";
-import IRenderer from "../../../lib/core/rendering/IRenderer";
-import { canvasPixelToRGBA, clearCanvas, create2DScene, createCanvas, createDisplayObjectFromCanvas, fillRect, getCanvasPixel } from "../../test_utils/canvas.utils.spec";
+import Stage from "../../../../lib/core/display/Stage";
+import Canvas2DRenderer from "../../../../lib/core/rendering/canvas/Canvas2DRenderer";
+import DisplayObject from "../../../../lib/core/display/DisplayObject";
+import IDisplayObject from "../../../../lib/core/display/IDisplayObject";
+import IRenderer from "../../../../lib/core/rendering/IRenderer";
+import { canvasPixelToRGBA, clearCanvas, create2DScene, createCanvas, createDisplayObjectFromCanvas, fillRect, getCanvasPixel } from "../../../test_utils/canvas.utils.spec";
 
 describe('Canvas2DRenderer test suite', 
     ()=>{

@@ -1,3 +1,4 @@
+import { mat2d } from "gl-matrix";
 import IRenderer from "../rendering/IRenderer";
 import Camera from "./Camera";
 import DisplayObjectContainer from "./DisplayObjectContainer";
@@ -55,6 +56,10 @@ export default class Stage extends DisplayObjectContainer {
     private _currentFrame;
     private _renderer;
     private _clippingStrategy;
+    /**
+     * Tells if the matrices are updated every frame or not
+     */
+    autoUpdateMatrices: boolean;
     constructor();
     /**
      * Sets the current Stage Camera, default is null
@@ -104,13 +109,14 @@ export default class Stage extends DisplayObjectContainer {
      */
     getCurrentFrame(): number;
     /**
-     * Updates every DisplayObject matrices.
+     * Updates every DisplayObject matrices (if auto).
      * Increase current frame.
      * Applies clipping strategy if there is one.
      * Renders the display list.
      * Emit events (ENTER_FRAME & FRAME_END)
      */
     nextFrame(): void;
+    update(worldMatrix: mat2d, worldOpacity: number): void;
 }
 export declare enum StageEvent {
     ENTER_FRAME = "ENTER_FRAME",

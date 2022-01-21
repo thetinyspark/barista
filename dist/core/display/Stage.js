@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StageEvent = void 0;
 const gl_matrix_1 = require("gl-matrix");
-const Canvas2DRenderer_1 = require("../rendering/Canvas2DRenderer");
+const Canvas2DRenderer_1 = require("../rendering/canvas/Canvas2DRenderer");
 const DisplayObjectContainer_1 = require("./DisplayObjectContainer");
 /**
  * The Stage class is the base class for the scene.
@@ -60,6 +60,10 @@ class Stage extends DisplayObjectContainer_1.default {
         this._currentFrame = 0;
         this._renderer = new Canvas2DRenderer_1.default();
         this._clippingStrategy = null;
+        /**
+         * Tells if the matrices are updated every frame or not
+         */
+        this.autoUpdateMatrices = true;
     }
     /**
      * Sets the current Stage Camera, default is null
@@ -127,7 +131,7 @@ class Stage extends DisplayObjectContainer_1.default {
         return this._currentFrame;
     }
     /**
-     * Updates every DisplayObject matrices.
+     * Updates every DisplayObject matrices (if auto).
      * Increase current frame.
      * Applies clipping strategy if there is one.
      * Renders the display list.
@@ -135,14 +139,9 @@ class Stage extends DisplayObjectContainer_1.default {
      */
     nextFrame() {
         this._currentFrame++;
-        if (this._camera !== null) {
-            this._camera.update(gl_matrix_1.mat2d.create(), 1);
-            this.update(this._camera.getRevertWorldMatrix(), 1);
-        }
-        else {
-            this.update(gl_matrix_1.mat2d.create(), 1);
-        }
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);
+        if (this.autoUpdateMatrices === true)
+            this.update(gl_matrix_1.mat2d.create(), 1);
         // apply clipping strategy if there is one
         if (this._clippingStrategy !== null && this._camera !== null) {
             this._clippingStrategy(this, this._camera);
@@ -154,6 +153,13 @@ class Stage extends DisplayObjectContainer_1.default {
         // draw objects
         this._renderer.draw(this._renderer.getCanvas(), this._renderer.getContext());
         this.emit(StageEvent.FRAME_END, this._currentFrame);
+    }
+    update(worldMatrix, worldOpacity) {
+        if (this._camera !== null) {
+            this._camera.update(worldMatrix, 1);
+            worldMatrix = this._camera.getRevertWorldMatrix();
+        }
+        super.update(worldMatrix, worldOpacity);
     }
 }
 exports.default = Stage;

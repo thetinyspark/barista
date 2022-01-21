@@ -43,7 +43,7 @@ export default class Stats extends DisplayObject{
         super(); 
 
         const data = CanvasUtils.create();
-        this.width = data.width = 200;
+        this.width = data.width = 450;
         this.height = data.height = 50;
         this.texture = new Texture(
             "stats_texture", 
@@ -101,14 +101,17 @@ export default class Stats extends DisplayObject{
     public getFps():number{
         return this._monitoring ? Math.round( 1000 / this._elapsedTime ) : -1;
     }
+    
 
     private _enterFrame = (notification:INotification):void => {
         this._elapsedTime = new Date().getTime() - this._lastFrameTime;
         this._lastFrameTime = new Date().getTime();
         const currentFrame:number = notification.getPayload() as number;
+        const drawCalls = this._stage.getRenderer().getNumDrawCalls();
+        const numQuads = this._stage.getRenderer().getChildren().length;
         if( currentFrame % 60 === 0 ){
 
-            const info = "fps: "+this.getFps()+", frame: "+currentFrame
+            const info = "fps: "+this.getFps()+", frame: "+currentFrame + ", drawCalls: "+drawCalls +", quads: "+numQuads;
             
             const context = this._context;
             context.beginPath();

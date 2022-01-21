@@ -1,6 +1,8 @@
 /**
  * The Default2DShader class is the base class for WebGL 2d rendering.
- * It is used by the WebGL2DRenderer class.
+ * It is used by the WebGL2DRenderer class. This class provides a dynamic
+ * basic fragment shader which adapts itself to the number of maximum
+ * texture units.
  */
 export default class Default2DShader {
     /**

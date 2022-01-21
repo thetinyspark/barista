@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const CanvasUtils_1 = require("../utils/CanvasUtils");
+const CanvasUtils_1 = require("../../utils/CanvasUtils");
 /**
  * The Canvas2DRenderer class is the base class for non GPU 2d rendering.
  */
@@ -9,6 +9,9 @@ class Canvas2DRenderer {
         this._children = [];
         this._canvas = CanvasUtils_1.default.create();
         this._context = this._canvas.getContext("2d");
+    }
+    getNumDrawCalls() {
+        return this._children.length;
     }
     getContext() {
         return this._context;

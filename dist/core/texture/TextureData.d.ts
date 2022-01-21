@@ -12,6 +12,11 @@ export default class TextureData {
      * The height of the texture data
      */
     height: number;
+    /**
+     * The position of the texture data inside webgl program
+     * (used by TextureDataManager at every frame do NOT touch it unless you know what you're doing)
+     */
+    texturePos: number;
     private _source;
     private _uid;
     private _glTexture;

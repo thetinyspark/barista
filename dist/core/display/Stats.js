@@ -44,8 +44,10 @@ class Stats extends DisplayObject_1.default {
             this._elapsedTime = new Date().getTime() - this._lastFrameTime;
             this._lastFrameTime = new Date().getTime();
             const currentFrame = notification.getPayload();
+            const drawCalls = this._stage.getRenderer().getNumDrawCalls();
+            const numQuads = this._stage.getRenderer().getChildren().length;
             if (currentFrame % 60 === 0) {
-                const info = "fps: " + this.getFps() + ", frame: " + currentFrame;
+                const info = "fps: " + this.getFps() + ", frame: " + currentFrame + ", drawCalls: " + drawCalls + ", quads: " + numQuads;
                 const context = this._context;
                 context.beginPath();
                 context.fillStyle = "black";
@@ -58,7 +60,7 @@ class Stats extends DisplayObject_1.default {
             }
         };
         const data = CanvasUtils_1.default.create();
-        this.width = data.width = 200;
+        this.width = data.width = 450;
         this.height = data.height = 50;
         this.texture = new Texture_1.default("stats_texture", new TextureData_1.default(data), 0, 0, data.width, data.height);
         this.texture.data.isDynamic = true;

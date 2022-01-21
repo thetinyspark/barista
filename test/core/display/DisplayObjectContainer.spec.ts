@@ -1,4 +1,4 @@
-import Canvas2DRenderer from "../../../lib/core/rendering/Canvas2DRenderer";
+import Canvas2DRenderer from "../../../lib/core/rendering/canvas/Canvas2DRenderer";
 import DisplayObject from "../../../lib/core/display/DisplayObject";
 import DisplayObjectContainer from "../../../lib/core/display/DisplayObjectContainer";
 describe( 

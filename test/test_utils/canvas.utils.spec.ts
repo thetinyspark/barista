@@ -3,12 +3,25 @@ import DisplayObject from "../../lib/core/display/DisplayObject";
 import IDisplayObject from "../../lib/core/display/IDisplayObject";
 import Stage from "../../lib/core/display/Stage";
 import IFilter from "../../lib/core/filters/IFilter";
-import Canvas2DRenderer from "../../lib/core/rendering/Canvas2DRenderer";
+import Canvas2DRenderer from "../../lib/core/rendering/canvas/Canvas2DRenderer";
 import Webglrenderer from "../../lib/core/rendering/webgl/Webgl2DRenderer";
 import Texture from "../../lib/core/texture/Texture";
 import TextureData from "../../lib/core/texture/TextureData";
 import { audioBase64d, videobase64 } from "./data.base64.spec";
 
+export function createObjectsFromTexture(numObjects:number, texture:Texture):IDisplayObject[]{
+    const objects = [];
+    for( let i = 0; i < numObjects; i++ ){
+        objects.push(DisplayObject.createFromTexture(texture));
+    }
+    return objects;
+}
+
+export function createColoredTexture(color:string, width:number, height:number):Texture{
+    const canvas = createCanvas(width,height);
+    fillRect(canvas,color,0,0,width,height); 
+    return Texture.createFromSource(color,canvas);
+}
 
 export function base64ToBlob(base64:string):Blob{
     // Split into two parts
