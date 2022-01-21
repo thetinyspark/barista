@@ -1,6 +1,6 @@
 import { mat2d } from "gl-matrix";
 import { Emitter } from "@thetinyspark/tiny-observer";
-import Canvas2DRenderer from "../rendering/Canvas2DRenderer";
+import Canvas2DRenderer from "../rendering/canvas/Canvas2DRenderer";
 import IRenderer from "../rendering/IRenderer";
 import Texture from "../texture/Texture";
 import IDisplayObject from "./IDisplayObject";
@@ -99,14 +99,14 @@ export default class DisplayObject extends Emitter implements IDisplayObject {
   public update(worldMatrix: mat2d, worldOpacity: number = 1): void {
     mat2d.identity(this.matrix);
     mat2d.translate(this.matrix, this.matrix, [
-      this.x + this.transformOrigin.x,
-      this.y + this.transformOrigin.y,
+      this.x + this.transformOrigin.x>>0,
+      this.y + this.transformOrigin.y>>0,
     ]);
     mat2d.rotate(this.matrix, this.matrix, this.rotation * (Math.PI / 180));
     mat2d.scale(this.matrix, this.matrix, [this.scaleX, this.scaleY]);
     mat2d.translate(this.matrix, this.matrix, [
-      -this.transformOrigin.x,
-      -this.transformOrigin.y,
+      -this.transformOrigin.x>>0,
+      -this.transformOrigin.y>>0,
     ]);
     mat2d.multiply(this.worldMatrix, worldMatrix, this.matrix);
     if (this.opacity > 1) this.opacity = 1;

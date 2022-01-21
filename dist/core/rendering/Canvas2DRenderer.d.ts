@@ -8,6 +8,7 @@ export default class Canvas2DRenderer implements IRenderer {
     private _canvas;
     private _context;
     constructor();
+    getNumDrawCalls(): number;
     getContext(): CanvasRenderingContext2D | WebGLRenderingContext | WebGL2RenderingContext;
     getCanvas(): HTMLCanvasElement;
     add(child: IDisplayObject): void;

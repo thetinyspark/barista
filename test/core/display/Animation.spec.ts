@@ -2,7 +2,7 @@ import Animation, {AnimationEvent} from "../../../lib/core/display/Animation";
 import Texture from "../../../lib/core/texture/Texture";
 import IRenderer from "../../../lib/core/rendering/IRenderer";
 import TextureData from "../../../lib/core/texture/TextureData";
-import Canvas2DRenderer from "../../../lib/core/rendering/Canvas2DRenderer";
+import Canvas2DRenderer from "../../../lib/core/rendering/canvas/Canvas2DRenderer";
 describe("Animation test suite",
 ()=>{
     

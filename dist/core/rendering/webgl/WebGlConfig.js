@@ -1,15 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createIndexArray = exports.createVertexArray = exports.pushVerticesInto = exports.INDICES_PER_QUAD = exports.VERTEX_ARRAY_SIZE = exports.MAX_QUAD_PER_CALL = exports.NUM_VERTICES_PER_QUAD = exports.VERTEX_SIZE = void 0;
-exports.VERTEX_SIZE = 11;
-exports.NUM_VERTICES_PER_QUAD = 4;
-exports.MAX_QUAD_PER_CALL = Math.floor(65535 / exports.VERTEX_SIZE / exports.NUM_VERTICES_PER_QUAD);
-exports.VERTEX_ARRAY_SIZE = exports.MAX_QUAD_PER_CALL * exports.NUM_VERTICES_PER_QUAD * exports.VERTEX_SIZE;
+exports.createIndexArray = exports.createVertexArray = exports.pushVerticesInto = exports.VERTEX_ARRAY_SIZE = exports.MAX_QUAD_PER_CALL = exports.MAX_TEXTURES_UNITS = exports.NUM_VERTICES_PER_QUAD = exports.INDICES_PER_QUAD = exports.VERTEX_SIZE = void 0;
+const utils_1 = require("../../utils");
+function getGlParam(param) {
+    const ctx = utils_1.CanvasUtils.create().getContext("webgl");
+    return ctx.getParameter(ctx[param]);
+}
+exports.VERTEX_SIZE = 12;
 exports.INDICES_PER_QUAD = 6;
+exports.NUM_VERTICES_PER_QUAD = 4;
+exports.MAX_TEXTURES_UNITS = getGlParam('MAX_TEXTURE_IMAGE_UNITS');
+// export const MAX_QUAD_PER_CALL:number = Math.floor( 65535 * 8 / VERTEX_SIZE / NUM_VERTICES_PER_QUAD );
+exports.MAX_QUAD_PER_CALL = Math.floor(65535 / exports.INDICES_PER_QUAD);
+exports.VERTEX_ARRAY_SIZE = exports.MAX_QUAD_PER_CALL * exports.NUM_VERTICES_PER_QUAD * exports.VERTEX_SIZE;
 function pushVerticesInto(children, vertexArray) {
     let pos = 0;
     for (let i = 0; i < children.length; i++) {
         const current = children[i];
+        const textureIndex = current.texture.data.texturePos;
         // topleft
         vertexArray[pos++] = 0; // x
         vertexArray[pos++] = 0; // y
@@ -22,6 +30,7 @@ function pushVerticesInto(children, vertexArray) {
         vertexArray[pos++] = current.worldMatrix[4]; // tx
         vertexArray[pos++] = current.worldMatrix[5]; // ty
         vertexArray[pos++] = current.worldOpacity; // opacity
+        vertexArray[pos++] = textureIndex; // textureIndex
         // topright
         vertexArray[pos++] = current.width; // x
         vertexArray[pos++] = 0; // y
@@ -34,6 +43,7 @@ function pushVerticesInto(children, vertexArray) {
         vertexArray[pos++] = current.worldMatrix[4]; // tx
         vertexArray[pos++] = current.worldMatrix[5]; // ty
         vertexArray[pos++] = current.worldOpacity; //  opacity
+        vertexArray[pos++] = textureIndex; // textureIndex
         // bottomleft
         vertexArray[pos++] = 0; // x
         vertexArray[pos++] = current.height; // y
@@ -46,6 +56,7 @@ function pushVerticesInto(children, vertexArray) {
         vertexArray[pos++] = current.worldMatrix[4]; // tx
         vertexArray[pos++] = current.worldMatrix[5]; // ty
         vertexArray[pos++] = current.worldOpacity; // opacity
+        vertexArray[pos++] = textureIndex; // textureIndex
         // bottomright
         vertexArray[pos++] = current.width; // x
         vertexArray[pos++] = current.height; // y
@@ -58,6 +69,7 @@ function pushVerticesInto(children, vertexArray) {
         vertexArray[pos++] = current.worldMatrix[4]; // tx
         vertexArray[pos++] = current.worldMatrix[5]; // ty
         vertexArray[pos++] = current.worldOpacity; // opacity
+        vertexArray[pos++] = textureIndex; // textureIndex
     }
 }
 exports.pushVerticesInto = pushVerticesInto;
@@ -93,6 +105,7 @@ class WebGlConfig {
 exports.default = WebGlConfig;
 WebGlConfig.VERTEX_SIZE = exports.VERTEX_SIZE;
 WebGlConfig.NUM_VERTICES_PER_QUAD = exports.NUM_VERTICES_PER_QUAD;
+WebGlConfig.MAX_TEXTURES_UNITS = exports.MAX_TEXTURES_UNITS;
 WebGlConfig.MAX_QUAD_PER_CALL = exports.MAX_QUAD_PER_CALL;
 WebGlConfig.VERTEX_ARRAY_SIZE = exports.VERTEX_ARRAY_SIZE;
 WebGlConfig.INDICES_PER_QUAD = exports.INDICES_PER_QUAD;

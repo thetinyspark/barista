@@ -1,7 +1,7 @@
-import DisplayObject from "../../../lib/core/display/DisplayObject";
-import WebGlConfig from "../../../lib/core/rendering/webgl/WebGlConfig";
-import Texture from "../../../lib/core/texture/Texture";
-import TextureData from "../../../lib/core/texture/TextureData";
+import DisplayObject from "../../../../lib/core/display/DisplayObject";
+import WebGlConfig from "../../../../lib/core/rendering/webgl/WebGlConfig";
+import Texture from "../../../../lib/core/texture/Texture";
+import TextureData from "../../../../lib/core/texture/TextureData";
 
 describe("WebglConfig test suite", 
     ()=>{

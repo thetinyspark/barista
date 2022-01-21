@@ -3,12 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Default2DShader_1 = require("./Default2DShader");
 const WebGlConfig_1 = require("./WebGlConfig");
 const CanvasUtils_1 = require("../../utils/CanvasUtils");
+const BatchTexture_1 = require("./batch/BatchTexture");
+const TextureDataManager_1 = require("./TextureDataManager");
+const BatchDrawCall_1 = require("./batch/BatchDrawCall");
 /**
  * The Webgl2DRenderer class is the base class for WebGL2d rendering.
  */
 class Webgl2DRenderer {
     constructor() {
         this._children = [];
+        this._drawCalls = 0;
         this._init();
     }
     _init() {
@@ -38,6 +42,9 @@ class Webgl2DRenderer {
     add(child) {
         this._children.push(child);
     }
+    getNumDrawCalls() {
+        return this._drawCalls;
+    }
     getCanvas() {
         return this._canvas;
     }
@@ -57,44 +64,28 @@ class Webgl2DRenderer {
         context.clearColor(0.0, 0.0, 0.0, 1.0);
         context.viewport(0, 0, canvas.width, canvas.height);
         context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT);
-        const batched = this.batch(this._children);
-        batched.forEach((currentBatch) => {
-            if (currentBatch.length === 0)
-                return;
-            const first = currentBatch[0];
-            this._currentTexture = first.texture;
-            WebGlConfig_1.default.pushVerticesInto(currentBatch, this._vertexArray);
-            const context = this._context;
-            context.activeTexture(context.TEXTURE0);
-            context.bindTexture(context.TEXTURE_2D, this._currentTexture.data.getGlTexture(context));
-            if (currentBatch.length > WebGlConfig_1.default.MAX_QUAD_PER_CALL >> 1) {
+        const manager = new TextureDataManager_1.default();
+        const batches = this.batch(this._children);
+        this._drawCalls = 0;
+        batches.forEach((current) => {
+            manager.reset(context, WebGlConfig_1.default.MAX_TEXTURES_UNITS);
+            Array.from(current.datas).forEach((textureData, index) => {
+                manager.fillChannelAt(index, textureData);
+            });
+            current.subBatches.forEach((subBatch) => {
+                WebGlConfig_1.default.pushVerticesInto(subBatch.objects, this._vertexArray);
                 context.bufferSubData(context.ARRAY_BUFFER, 0, this._vertexArray);
-            }
-            else {
-                const view = this._vertexArray.subarray(0, currentBatch.length * 4 * WebGlConfig_1.default.VERTEX_SIZE);
-                context.bufferSubData(context.ARRAY_BUFFER, 0, view);
-            }
-            context.drawElements(context.TRIANGLES, currentBatch.length * WebGlConfig_1.default.INDICES_PER_QUAD, context.UNSIGNED_SHORT, 0);
+                context.drawElements(context.TRIANGLES, subBatch.objects.length * WebGlConfig_1.default.INDICES_PER_QUAD, context.UNSIGNED_SHORT, 0);
+                this._drawCalls++;
+            });
         });
     }
     batch(children) {
-        const result = [];
-        let batch = [];
-        let texId = "";
-        let counter = 0;
-        for (let i = 0; i < children.length; i++) {
-            if (children[i].texture === null)
-                continue;
-            if (children[i].texture.textureUid !== texId || counter % WebGlConfig_1.default.MAX_QUAD_PER_CALL === 0) {
-                batch = [];
-                result.push(batch);
-                texId = children[i].texture.textureUid;
-                counter = 0;
-            }
-            batch.push(children[i]);
-            counter++;
-        }
-        return result;
+        const batchTextures = BatchTexture_1.default.create(children.filter(child => child.texture !== null), WebGlConfig_1.default.MAX_TEXTURES_UNITS);
+        batchTextures.forEach((current) => {
+            current.subBatches = BatchDrawCall_1.default.create(current.objects, WebGlConfig_1.default.MAX_QUAD_PER_CALL);
+        });
+        return batchTextures;
     }
 }
 exports.default = Webgl2DRenderer;

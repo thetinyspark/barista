@@ -10,6 +10,9 @@ class Canvas2DRenderer {
         this._canvas = CanvasUtils_1.default.create();
         this._context = this._canvas.getContext("2d");
     }
+    getNumDrawCalls() {
+        return this._children.length;
+    }
     getContext() {
         return this._context;
     }

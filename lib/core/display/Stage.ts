@@ -1,5 +1,5 @@
 import { mat2d } from "gl-matrix";
-import Canvas2DRenderer from "../rendering/Canvas2DRenderer";
+import Canvas2DRenderer from "../rendering/canvas/Canvas2DRenderer";
 import IRenderer from "../rendering/IRenderer";
 import Camera from "./Camera";
 import DisplayObjectContainer from "./DisplayObjectContainer";
@@ -59,6 +59,11 @@ export default class Stage extends DisplayObjectContainer{
     private _currentFrame:number = 0;
     private _renderer:IRenderer = new Canvas2DRenderer();
     private _clippingStrategy:ClippingStrategy = null;
+
+    /**
+     * Tells if the matrices are updated every frame or not
+     */
+    public autoUpdateMatrices:boolean = true;
 
     constructor(){
         super();
@@ -139,23 +144,20 @@ export default class Stage extends DisplayObjectContainer{
     }
 
     /**
-     * Updates every DisplayObject matrices. 
+     * Updates every DisplayObject matrices (if auto). 
      * Increase current frame.
      * Applies clipping strategy if there is one.
      * Renders the display list.
      * Emit events (ENTER_FRAME & FRAME_END)
      */
     public nextFrame():void{
-        this._currentFrame++; 
-        if( this._camera !== null ){
-            this._camera.update(mat2d.create(), 1);
-            this.update(this._camera.getRevertWorldMatrix(), 1);
-        }
-        else{
-            this.update(mat2d.create(), 1);
-        }
         
+        this._currentFrame++; 
         this.emit(StageEvent.ENTER_FRAME, this._currentFrame);
+
+        if( this.autoUpdateMatrices === true )
+            this.update(mat2d.create(), 1);
+        
 
         // apply clipping strategy if there is one
         if( this._clippingStrategy !== null && this._camera !== null ){
@@ -171,6 +173,14 @@ export default class Stage extends DisplayObjectContainer{
         // draw objects
         this._renderer.draw(this._renderer.getCanvas(), this._renderer.getContext());
         this.emit(StageEvent.FRAME_END, this._currentFrame);
+    }
+
+    public update(worldMatrix: mat2d, worldOpacity: number): void {
+        if( this._camera !== null ){
+            this._camera.update(worldMatrix, 1);
+            worldMatrix = this._camera.getRevertWorldMatrix();
+        }
+        super.update(worldMatrix, worldOpacity);
     }
 }
 

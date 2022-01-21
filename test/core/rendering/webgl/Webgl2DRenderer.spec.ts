@@ -1,11 +1,11 @@
-import Texture from "../../../lib/core/texture/Texture";
-import Stage from "../../../lib/core/display/Stage";
-import Webgl2DRenderer from "../../../lib/core/rendering/webgl/Webgl2DRenderer";
-import WebGlConfig from "../../../lib/core/rendering/webgl/WebGlConfig";
-import DisplayObject from "../../../lib/core/display/DisplayObject";
-import IDisplayObject from "../../../lib/core/display/IDisplayObject";
-import TextureData from "../../../lib/core/texture/TextureData";
-import {canvasPixelToRGBA, createCanvas, createDisplayObjectFromCanvas, createGlScene, fillRect, getCanvasPixel} from "../../test_utils/canvas.utils.spec";
+import Texture from "../../../../lib/core/texture/Texture";
+import Stage from "../../../../lib/core/display/Stage";
+import Webgl2DRenderer from "../../../../lib/core/rendering/webgl/Webgl2DRenderer";
+import WebGlConfig from "../../../../lib/core/rendering/webgl/WebGlConfig";
+import DisplayObject from "../../../../lib/core/display/DisplayObject";
+import IDisplayObject from "../../../../lib/core/display/IDisplayObject";
+import TextureData from "../../../../lib/core/texture/TextureData";
+import {canvasPixelToRGBA, createCanvas, createDisplayObjectFromCanvas, createGlScene, fillRect, getCanvasPixel} from "../../../test_utils/canvas.utils.spec";
 
 describe('Webgl2DRenderer test suite', 
     ()=>{
@@ -233,34 +233,6 @@ describe('Webgl2DRenderer test suite',
 
                 //then
                 expect(renderer.getChildren().length).toEqual(501);
-            }
-        );
-
-        it('should return multiple displayobjects arrays, grouped by texture, and for a maximum of n displayobjects per texture ',
-            ()=>{
-                const children = []; 
-                const textures = [
-                    new Texture("A", new TextureData( document.createElement("canvas") ), 0, 0, 0, 0),
-                    new Texture("B", new TextureData( document.createElement("canvas") ), 0, 0, 0, 0),
-                    new Texture("C", new TextureData( document.createElement("canvas") ), 0, 0, 0, 0),
-                ];
-
-                for( let i:number = 0; i < 10678; i++ ){
-                    const object = new DisplayObject();
-                    object.texture = textures[i%3];
-                    children.push(object);
-                }
-
-                const result = renderer.batch(children);
-
-                result.forEach( 
-                    (currentBatch:IDisplayObject[])=>{
-                            const ids = currentBatch.map( value => value.texture.textureUid ); 
-                            const uniqueIds = Array.from( new Set(ids) );
-                            expect(currentBatch.length).toBeLessThanOrEqual(WebGlConfig.MAX_QUAD_PER_CALL); 
-                            expect(uniqueIds.length).toEqual(1);
-                    }
-                );
             }
         );
 

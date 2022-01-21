@@ -34,4 +34,8 @@ export default interface IRenderer {
      * @param context CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext
      */
     draw(canvas: HTMLCanvasElement, context: CanvasRenderingContext2D | WebGLRenderingContext | WebGL2RenderingContext): void;
+    /**
+     * Get the number of draw calls
+     */
+    getNumDrawCalls(): number;
 }

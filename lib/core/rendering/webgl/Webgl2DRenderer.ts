@@ -1,9 +1,12 @@
 import IDisplayObject from "../../display/IDisplayObject";
-import Texture from "../../texture/Texture";
 import Default2DShader from "./Default2DShader";
 import IRenderer from "../IRenderer";
 import WebGlConfig from "./WebGlConfig";
 import CanvasUtils from "../../utils/CanvasUtils";
+import BatchTexture from "./batch/BatchTexture";
+import TextureDataManager from "./TextureDataManager";
+import { TextureData } from "../../texture";
+import BatchDrawCall from "./batch/BatchDrawCall";
 /**
  * The Webgl2DRenderer class is the base class for WebGL2d rendering.
  */
@@ -16,7 +19,7 @@ export default class Webgl2DRenderer implements IRenderer{
     private _vertexBuffer:WebGLBuffer;
     private _indexBuffer:WebGLBuffer;
     private _currentShader:Default2DShader;
-    private _currentTexture:Texture;
+    private _drawCalls:number = 0;
 
     constructor(){
         this._init();
@@ -62,6 +65,10 @@ export default class Webgl2DRenderer implements IRenderer{
         this._children.push(child);
     }
 
+    getNumDrawCalls(): number {
+        return this._drawCalls;
+    }
+
     getCanvas():HTMLCanvasElement{
         return this._canvas;
     }   
@@ -87,61 +94,49 @@ export default class Webgl2DRenderer implements IRenderer{
 		context.viewport(0, 0, canvas.width, canvas.height);
 		context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT);
 
-        const batched = this.batch(this._children); 
-        batched.forEach( 
-            (currentBatch)=>{
-                if( currentBatch.length === 0 )
-                    return; 
+        const manager = new TextureDataManager();
+        const batches = this.batch(this._children);
 
-                const first = currentBatch[0]; 
-                this._currentTexture = first.texture; 
-                WebGlConfig.pushVerticesInto(currentBatch, this._vertexArray);
-                
+        this._drawCalls = 0;
+        
+        batches.forEach( 
+            (current:BatchTexture)=>{
 
-                const context = this._context;		
-                context.activeTexture(context.TEXTURE0);
-                context.bindTexture(context.TEXTURE_2D, this._currentTexture.data.getGlTexture(context));
-                    
-                if( currentBatch.length > WebGlConfig.MAX_QUAD_PER_CALL >> 1 )
-                {
-                    context.bufferSubData(context.ARRAY_BUFFER, 0, this._vertexArray);
-                }
-                else
-                {
-                	const view = this._vertexArray.subarray(0, currentBatch.length * 4 * WebGlConfig.VERTEX_SIZE);
-                	context.bufferSubData(context.ARRAY_BUFFER, 0, view);
-                }
+                manager.reset(context, WebGlConfig.MAX_TEXTURES_UNITS);
 
-                context.drawElements(context.TRIANGLES, currentBatch.length * WebGlConfig.INDICES_PER_QUAD, context.UNSIGNED_SHORT, 0 );
+                Array.from(current.datas).forEach( 
+                    (textureData:TextureData, index:number)=>{
+                        manager.fillChannelAt(index, textureData);
+                    }
+                ); 
 
+                current.subBatches.forEach( 
+                    (subBatch:BatchDrawCall)=>{
+                        WebGlConfig.pushVerticesInto(subBatch.objects, this._vertexArray);
+                        context.bufferSubData(context.ARRAY_BUFFER, 0, this._vertexArray);
+                        context.drawElements(
+                            context.TRIANGLES, 
+                            subBatch.objects.length * WebGlConfig.INDICES_PER_QUAD, 
+                            context.UNSIGNED_SHORT, 
+                            0 
+                        );
+
+                        this._drawCalls++;
+                    }
+                )
             }
-        ); 
+        );
     }
 
-    batch(children:IDisplayObject[]):IDisplayObject[][]{
-    
-        const result = []; 
-        let batch = [];
-        let texId:string = "";
-        let counter:number = 0;
-        
-        for( let i:number = 0; i < children.length; i++ ){
-
-            if( children[i].texture === null )
-                continue;
-
-            if( children[i].texture.textureUid !== texId || counter % WebGlConfig.MAX_QUAD_PER_CALL === 0 ){
-                batch = [];
-                result.push(batch);
-                texId = children[i].texture.textureUid;
-                counter = 0;
+    batch(children:IDisplayObject[]):BatchTexture[]{
+        const batchTextures = BatchTexture.create(children.filter( child => child.texture !== null), WebGlConfig.MAX_TEXTURES_UNITS);
+        batchTextures.forEach( 
+            (current)=>{
+                current.subBatches = BatchDrawCall.create(current.objects, WebGlConfig.MAX_QUAD_PER_CALL);
             }
-    
-            batch.push(children[i]);
-            counter++;
-        }
-    
-        return result;
+        ); 
+
+        return batchTextures;
     }
 
 }

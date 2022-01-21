@@ -90,7 +90,7 @@ describe(
                 ()=>{
                     const stage = new Stage();
                     const camera = new Camera();
-                    const spy = spyOn(stage,"update");
+                    // const spy = spyOn(camera,"update");
                     camera.x = 10;
                     camera.y = 10;
                     camera.width = 100;
@@ -101,7 +101,11 @@ describe(
                     stage.nextFrame();
 
                     // then
-                    expect(spy).toHaveBeenCalledWith(camera.getRevertWorldMatrix(), 1);
+                    expect(
+                        stage.worldMatrix.map( (num)=> num === -0 ? 0 : 0 )
+                    ).toEqual(
+                        camera.getRevertWorldMatrix().map( (num)=> num === -0 ? 0 : 0 )
+                    );
                 });
 
                 it('should be able to remove the camera', 

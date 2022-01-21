@@ -1,7 +1,9 @@
 import WebGlConfig from "./WebGlConfig";
 /**
  * The Default2DShader class is the base class for WebGL 2d rendering.
- * It is used by the WebGL2DRenderer class.
+ * It is used by the WebGL2DRenderer class. This class provides a dynamic 
+ * basic fragment shader which adapts itself to the number of maximum 
+ * texture units.
  */
 export default class Default2DShader{
 
@@ -30,6 +32,7 @@ export default class Default2DShader{
 		
 		let vertexPosAttribPointer:number = 0;
 		let opacityPointer:number = 0;
+		let texturePosPointer:number = 0;
 		let uvsAttribPointer:number = 0;
 		let worldMatrixPointer1:number = 0;
 		let worldMatrixPointer2:number = 0;
@@ -65,7 +68,9 @@ export default class Default2DShader{
 		uvsAttribPointer = context.getAttribLocation(this.program, "uvCoords"); 
 		worldMatrixPointer1 = context.getAttribLocation(this.program, "wmat1"); 
 		worldMatrixPointer2 = context.getAttribLocation(this.program, "wmat2"); 
+		texturePosPointer = context.getAttribLocation(this.program, "texturePos"); 
 
+		context.enableVertexAttribArray(texturePosPointer);
 		context.enableVertexAttribArray(opacityPointer);
 		context.enableVertexAttribArray(vertexPosAttribPointer);
 		context.enableVertexAttribArray(uvsAttribPointer);
@@ -78,10 +83,16 @@ export default class Default2DShader{
 		context.vertexAttribPointer(worldMatrixPointer1, 4, context.FLOAT, false, stride, 4*4);
 		context.vertexAttribPointer(worldMatrixPointer2, 2, context.FLOAT, false, stride, 8*4);
 		context.vertexAttribPointer(opacityPointer, 1, context.FLOAT, false, stride, 10*4);
+		context.vertexAttribPointer(texturePosPointer, 1, context.FLOAT, false, stride, 11*4);
 		
-		samplerPointer = context.getUniformLocation(this.program,"uSampler");
+		samplerPointer = context.getUniformLocation(this.program,"uSamplers");
 		projectionPointer = context.getUniformLocation(this.program,"uProjection");
-		context.uniform1i(samplerPointer, 0);
+
+		const texturePositions = [];
+		for( let i = 0; i < WebGlConfig.MAX_TEXTURES_UNITS; i++ ){
+			texturePositions.push(i);
+		}
+		context.uniform1iv(samplerPointer, texturePositions);
 		
 		this.projectionPointer = projectionPointer;
 		
@@ -109,6 +120,8 @@ export default class Default2DShader{
 		attribute vec4 wmat1;
 		attribute vec2 wmat2;
 		attribute float worldOpacity;
+		attribute float texturePos;
+		varying float textureIndex;
 		varying vec4 vColor;
 		varying vec2 uvs;
 		uniform vec2 uProjection;
@@ -128,6 +141,7 @@ export default class Default2DShader{
 			gl_Position = vec4((tmp / vec3(uProjection,1)) + center, 1.0);
 
 			uvs = uvCoords;
+			textureIndex = texturePos;
 
 			vColor = vec4(1.0, 1.0, 1.0, worldOpacity);
 
@@ -137,14 +151,28 @@ export default class Default2DShader{
 
     private _getFragmentSource(){
         
+		let conditions = ''; 
+		for( let i = 0; i < WebGlConfig.MAX_TEXTURES_UNITS; i++ ){
+			if( i > 0 ){
+				conditions += 'else ';
+			}
+			conditions += `if(index == ${i}){
+				gl_FragColor = texture2D(uSamplers[${i}], uvs) * vColor.a;
+			}`;
+		}
+
 		return `
+		#define numTextures ${WebGlConfig.MAX_TEXTURES_UNITS}
+
 		precision lowp float;
 		varying vec4 vColor;
 		varying vec2 uvs;
-		uniform sampler2D uSampler;
+		varying float textureIndex;
+		uniform sampler2D uSamplers[numTextures];
         
 		void main(void) {
-            gl_FragColor = texture2D(uSampler,uvs) * vColor.a;
+			int index = int(textureIndex);
+			${conditions}
 		}
         `;
     }

@@ -1,15 +1,24 @@
 import IDisplayObject from "../../display/IDisplayObject";
+import { CanvasUtils } from "../../utils";
+function getGlParam(param:string){
+    const ctx = CanvasUtils.create().getContext("webgl");
+    return ctx.getParameter(ctx[param]);
+}
 
-export const VERTEX_SIZE:number = 11;
-export const NUM_VERTICES_PER_QUAD:number = 4; 
-export const MAX_QUAD_PER_CALL:number = Math.floor( 65535 / VERTEX_SIZE / NUM_VERTICES_PER_QUAD );
-export const VERTEX_ARRAY_SIZE:number = MAX_QUAD_PER_CALL * NUM_VERTICES_PER_QUAD * VERTEX_SIZE;
+
+export const VERTEX_SIZE:number = 12;
 export const INDICES_PER_QUAD:number = 6;
+export const NUM_VERTICES_PER_QUAD:number = 4; 
+export const MAX_TEXTURES_UNITS:number = getGlParam('MAX_TEXTURE_IMAGE_UNITS');
+// export const MAX_QUAD_PER_CALL:number = Math.floor( 65535 * 8 / VERTEX_SIZE / NUM_VERTICES_PER_QUAD );
+export const MAX_QUAD_PER_CALL:number = Math.floor( 65535 / INDICES_PER_QUAD );
+export const VERTEX_ARRAY_SIZE:number = MAX_QUAD_PER_CALL * NUM_VERTICES_PER_QUAD * VERTEX_SIZE;
 
 export function pushVerticesInto(children:IDisplayObject[], vertexArray:Float32Array):void{
     let pos:number = 0;
     for( let i:number = 0; i < children.length; i++ ){
         const current = children[i];
+        const textureIndex = current.texture.data.texturePos;
 
         // topleft
         vertexArray[pos++] = 0; // x
@@ -23,6 +32,7 @@ export function pushVerticesInto(children:IDisplayObject[], vertexArray:Float32A
         vertexArray[pos++] = current.worldMatrix[4]; // tx
         vertexArray[pos++] = current.worldMatrix[5]; // ty
         vertexArray[pos++] = current.worldOpacity; // opacity
+        vertexArray[pos++] = textureIndex; // textureIndex
 
         // topright
         vertexArray[pos++] = current.width; // x
@@ -36,6 +46,7 @@ export function pushVerticesInto(children:IDisplayObject[], vertexArray:Float32A
         vertexArray[pos++] = current.worldMatrix[4]; // tx
         vertexArray[pos++] = current.worldMatrix[5]; // ty
         vertexArray[pos++] = current.worldOpacity; //  opacity
+        vertexArray[pos++] = textureIndex; // textureIndex
 
         // bottomleft
         vertexArray[pos++] = 0; // x
@@ -49,6 +60,7 @@ export function pushVerticesInto(children:IDisplayObject[], vertexArray:Float32A
         vertexArray[pos++] = current.worldMatrix[4]; // tx
         vertexArray[pos++] = current.worldMatrix[5]; // ty
         vertexArray[pos++] = current.worldOpacity; // opacity
+        vertexArray[pos++] = textureIndex; // textureIndex
 
         // bottomright
         vertexArray[pos++] = current.width; // x
@@ -62,6 +74,7 @@ export function pushVerticesInto(children:IDisplayObject[], vertexArray:Float32A
         vertexArray[pos++] = current.worldMatrix[4]; // tx
         vertexArray[pos++] = current.worldMatrix[5]; // ty
         vertexArray[pos++] = current.worldOpacity; // opacity
+        vertexArray[pos++] = textureIndex; // textureIndex
     }
 }
 
@@ -96,6 +109,7 @@ export function createIndexArray():Uint16Array{
 export default class WebGlConfig{
     public static VERTEX_SIZE:number            = VERTEX_SIZE;
     public static NUM_VERTICES_PER_QUAD:number  = NUM_VERTICES_PER_QUAD;
+    public static MAX_TEXTURES_UNITS:number     = MAX_TEXTURES_UNITS;
     public static MAX_QUAD_PER_CALL:number      = MAX_QUAD_PER_CALL;
     public static VERTEX_ARRAY_SIZE:number      = VERTEX_ARRAY_SIZE;
     public static INDICES_PER_QUAD:number       = INDICES_PER_QUAD;
