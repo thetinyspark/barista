@@ -32,12 +32,14 @@
   "dependencies": {
     "@thetinyspark/moocaccino-barista": "^2.0.0",
     "@thetinyspark/tiny-observer": "^1.0.1",
-    "gl-matrix": "^3.3.0"
+    "gl-matrix": "^3.3.0",
+    "typedoc-plugin-markdown": "^3.11.12"
   },
   "devDependencies": {
     "@types/jasmine": "^3.8.1",
     "@types/node": "^16.4.5",
     "concurrently": "^6.2.0",
+    "docsify": "^4.12.2",
     "jasmine": "^3.8.0",
     "jasmine-core": "^3.8.0",
     "karma": "^6.3.4",

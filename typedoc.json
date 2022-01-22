@@ -1,5 +1,6 @@
 {
     "entryPoints": ["./lib/index.ts"],
-    "out": "docs", 
-    "githubPages": false
+    "out": "docs/", 
+    "githubPages": false, 
+    "cleanOutputDir": false
   }
