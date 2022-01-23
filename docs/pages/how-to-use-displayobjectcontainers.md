@@ -9,6 +9,15 @@ You can set the "texture" property of a DisplayObjectContainer, but it would be 
 because the main purpose of a DisplayObjectContainer is to contain "children" (displayobjects)
 and render them. 
 
+<iframe src="https://codesandbox.io/embed/how-to-use-displayobjectcontainers-in-barista-4776d?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="How to use DisplayObjectContainers in Barista ?"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+You can play with DisplayObjectContainers here on codesandbox
+
 ## How to create a DisplayObjectContainer ? 
 
 Here is the easiest way to create a DisplayObject from an Image

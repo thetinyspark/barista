@@ -1,5 +1,17 @@
 # How to setup a Barista project ? 
 
+This tutorial will guide you to create your first Barista project. 
+
+
+<iframe src="https://codesandbox.io/embed/getting-started-with-barista-6h5gu?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Getting started with Barista"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+
+You can play with the code [here with codesandbox](https://codesandbox.io/s/getting-started-with-barista-6h5gu).
 
 ## Create your project directory
 Open a terminal and type:
@@ -93,6 +105,17 @@ Now you can add an index.html file
 Create the src/index.ts file and paste this code into it
 ```typescript
 import {Stage, Stats} from "@thetinyspark/moocaccino-barista";
+
+// render loop
+function render(stage:Stage){
+    stage.nextFrame();
+    window.requestAnimationFrame( 
+        ()=>{
+            render(stage);
+        }
+    )
+}
+
 function start(){
     window.removeEventListener("load", start);
 
@@ -123,16 +146,6 @@ function start(){
     render(stage);
 }
 
-// render loop
-function render(stage){
-    stage.nextFrame();
-    window.requestAnimationFrame( 
-        ()=>{
-            render(stage);
-        }
-    )
-}
-
 window.addEventListener("load", start);
 ```
 
@@ -154,3 +167,6 @@ npm run start
 # Now serve the project with http-server
 http-server ./
 ```
+## Conclusion
+Congratulations, you've just setup your first Barista project.  
+This project is quite empty, so let's check out the next tutorials.

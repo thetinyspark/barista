@@ -1,7 +1,7 @@
 ## What is a DisplayObject ? 
 
-In order to display things with Barista, you have to use DisplayObjects. 
-DisplayObjects are inspired by AS3 DisplayObject class (which is abstract, so not instanciable). 
+In order to display things with Barista, you have to use DisplayObjects. <br/>
+DisplayObjects are inspired by AS3 DisplayObject class (which is abstract, so not instanciable). <br/>
 As you can see, DisplayObject is the base class for everything which is visible. 
 
 A DisplayObject is an object which is associated to a Texture object. 
@@ -15,7 +15,15 @@ That's why DisplayObjects have a set of transformation properties like:
 - scaleX, scaleY (1 based, 1 = 100%, 2 = 200%)
 - width and height (you can distort the source)
 
-etc etc ...
+<iframe src="https://codesandbox.io/embed/how-to-use-displayobject-in-barista-nphhc?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="How to use DisplayObject in Barista ?"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+
+You can play with DisplayObjects here on codesandbox
 
 ## How to create a DisplayObject ? 
 
