@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[lib/core/display/Stage.ts:188](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/Stage.ts#L188)
+[lib/core/display/Stage.ts:188](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/Stage.ts#L188)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[lib/core/display/Stage.ts:189](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/Stage.ts#L189)
+[lib/core/display/Stage.ts:189](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/Stage.ts#L189)

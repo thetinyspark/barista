@@ -28,21 +28,22 @@ npm i typescript @thetinyspark/moocaccino-barista webpack webpack-cli http-serve
 Then create a tsconfig.json file
 ```js
 {
-  "include": ["src"],
-  "compilerOptions": {
-    "target": "es2021",
-    "module": "commonjs",
-    "declaration": true,
-    "outDir": "./dist",
-    "strict": false,
-    "typeRoots": [
-      "node_modules/@types"
+    "include": [
+        "src"
     ],
-    "types": [
-      "@types/jasmine",
-      "@types/node"
-    ],
-  }
+    "compilerOptions": {
+        "target": "es2021",
+        "module": "commonjs",
+        "declaration": true,
+        "outDir": "./dist",
+        "strict": false,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "types": [
+            "@types/node"
+        ],
+    }
 }
 ```
 And a webpack.config.js file
@@ -66,15 +67,24 @@ Now you can add an index.html file
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Example</title>
     <script src="dist/main.js"></script>
     <style>
-        body{background-color: black;}
-        #img{display: none;}
+        html{height: 99%;}
+        body{
+            height: 99%;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas{
+            border: 1px solid black;
+            background-color: black;
+        }
     </style>
 </head>
 <body>
-    <img src="./moocaccino.png" alt="moocaccino logo" id="img"/>
 </body>
 </html>
 ```
@@ -98,15 +108,19 @@ function start(){
 
     // create stats object
     const stats = new Stats();
+    
+    // specify to stats object which object to monitore
+    stats.setStage(stage);
+
+    // start monitoring
+    stats.start();
 
     // add stats object to the stage
     stage.addChild(stats);
 
-    // specify to stats object which object to monitore
-    stats.setStage(stage);
 
     // start render loop
-    render();
+    render(stage);
 }
 
 // render loop
@@ -114,7 +128,7 @@ function render(stage){
     stage.nextFrame();
     window.requestAnimationFrame( 
         ()=>{
-            loop(stage);
+            render(stage);
         }
     )
 }
@@ -123,11 +137,20 @@ window.addEventListener("load", start);
 ```
 
 ## Compile and run
+Create a new script into your package.json 
+```js
+{
+    "scripts": {
+        "start": "tsc && npx webpack --config webpack.config.js"
+    }
+}
+This command will compile & package your project.
+```
 Open a terminal and type
 ```bash
 # Compile your project and package it with webpack
-tsc && npx webpack --config webpack.config.js
+npm run start
 
 # Now serve the project with http-server
-http-serve ./
+http-server ./
 ```

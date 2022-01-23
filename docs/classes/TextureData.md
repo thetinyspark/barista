@@ -51,7 +51,7 @@ Creates a new TextureData object which hold the graphic source passed in param.
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:35](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L35)
+[lib/core/texture/TextureData.ts:35](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L35)
 
 ## Properties
 
@@ -61,7 +61,7 @@ Creates a new TextureData object which hold the graphic source passed in param.
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:25](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L25)
+[lib/core/texture/TextureData.ts:25](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L25)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:26](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L26)
+[lib/core/texture/TextureData.ts:26](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L26)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:23](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L23)
+[lib/core/texture/TextureData.ts:23](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L23)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:24](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L24)
+[lib/core/texture/TextureData.ts:24](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L24)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:27](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L27)
+[lib/core/texture/TextureData.ts:27](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L27)
 
 ___
 
@@ -113,7 +113,7 @@ The height of the texture data
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:17](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L17)
+[lib/core/texture/TextureData.ts:17](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L17)
 
 ___
 
@@ -126,7 +126,7 @@ The position of the texture data inside webgl program
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:22](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L22)
+[lib/core/texture/TextureData.ts:22](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L22)
 
 ___
 
@@ -138,7 +138,7 @@ The width of the texture data
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:13](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L13)
+[lib/core/texture/TextureData.ts:13](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L13)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:29](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L29)
+[lib/core/texture/TextureData.ts:29](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L29)
 
 ## Accessors
 
@@ -166,7 +166,7 @@ boolean
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:109](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L109)
+[lib/core/texture/TextureData.ts:109](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L109)
 
 • `set` **isDynamic**(`value`): `void`
 
@@ -186,7 +186,7 @@ boolean
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:116](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L116)
+[lib/core/texture/TextureData.ts:116](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L116)
 
 ___
 
@@ -202,7 +202,7 @@ The TextureData unique id
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:101](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L101)
+[lib/core/texture/TextureData.ts:101](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L101)
 
 ## Methods
 
@@ -228,7 +228,7 @@ WebGLTexture object
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:75](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L75)
+[lib/core/texture/TextureData.ts:75](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L75)
 
 ___
 
@@ -246,7 +246,7 @@ CanvasImageSource
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:64](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L64)
+[lib/core/texture/TextureData.ts:64](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L64)
 
 ___
 
@@ -268,4 +268,4 @@ Sets the current TextureData source
 
 #### Defined in
 
-[lib/core/texture/TextureData.ts:44](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/TextureData.ts#L44)
+[lib/core/texture/TextureData.ts:44](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/TextureData.ts#L44)

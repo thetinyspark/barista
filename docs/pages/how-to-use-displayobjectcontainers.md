@@ -43,6 +43,10 @@ function start(){
 
     // create the scene/stage, note: Stage inherits from DisplayObjectContainer
     const stage = new Stage();
+    
+    // define stage width and height
+    stage.getCanvas().width = 1024;
+    stage.getCanvas().height = 768;
 
     // adds canvas to html page
     document.body.appendChild(stage.getRenderer().getCanvas());

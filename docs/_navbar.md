@@ -1,5 +1,4 @@
-* [Home](/README "The greatest guide in the world")
-* Want more ?
+* Links
 
   * [On Youtube](https://www.youtube.com/channel/UChURQuW24XwekTrbvjgY7WA)
   * [On Discord](https://discordapp.com/invite/WUfVsrz)

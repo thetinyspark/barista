@@ -44,7 +44,7 @@ Each TextureData is contained within a WebGLTextureChannel type object.
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:10](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L10)
+[lib/core/rendering/webgl/TextureDataManager.ts:10](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L10)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:9](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L9)
+[lib/core/rendering/webgl/TextureDataManager.ts:9](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L9)
 
 ## Methods
 
@@ -82,7 +82,7 @@ boolean
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:125](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L125)
+[lib/core/rendering/webgl/TextureDataManager.ts:125](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L125)
 
 ___
 
@@ -106,7 +106,7 @@ WebGLTextureChannel
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:105](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L105)
+[lib/core/rendering/webgl/TextureDataManager.ts:105](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L105)
 
 ___
 
@@ -130,7 +130,7 @@ WebGLTextureChannel || null
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:72](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L72)
+[lib/core/rendering/webgl/TextureDataManager.ts:72](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L72)
 
 ___
 
@@ -148,7 +148,7 @@ WebGLTextureChannel[]
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:85](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L85)
+[lib/core/rendering/webgl/TextureDataManager.ts:85](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L85)
 
 ___
 
@@ -168,7 +168,7 @@ WebGLTextureChannel[]
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:47](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L47)
+[lib/core/rendering/webgl/TextureDataManager.ts:47](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L47)
 
 ___
 
@@ -188,7 +188,7 @@ WebGLTextureChannel[]
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:60](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L60)
+[lib/core/rendering/webgl/TextureDataManager.ts:60](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L60)
 
 ___
 
@@ -206,7 +206,7 @@ Map<string,WebGLTextureChannel>
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:92](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L92)
+[lib/core/rendering/webgl/TextureDataManager.ts:92](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L92)
 
 ___
 
@@ -224,7 +224,7 @@ boolean
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:37](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L37)
+[lib/core/rendering/webgl/TextureDataManager.ts:37](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L37)
 
 ___
 
@@ -248,7 +248,7 @@ boolean
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:113](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L113)
+[lib/core/rendering/webgl/TextureDataManager.ts:113](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L113)
 
 ___
 
@@ -271,4 +271,4 @@ Reset channels
 
 #### Defined in
 
-[lib/core/rendering/webgl/TextureDataManager.ts:17](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/TextureDataManager.ts#L17)
+[lib/core/rendering/webgl/TextureDataManager.ts:17](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/TextureDataManager.ts#L17)

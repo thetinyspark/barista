@@ -82,7 +82,7 @@
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:7](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L7)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:7](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L7)
 
 ## Properties
 
@@ -92,7 +92,7 @@
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:2](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L2)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:2](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L2)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:4](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L4)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:4](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L4)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:5](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L5)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:5](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L5)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:3](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L3)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:3](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L3)
 
 ## Accessors
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:316](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L316)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:316](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L316)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:310](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L310)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:310](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L310)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:307](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L307)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:307](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L307)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:313](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L313)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:313](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L313)
 
 ## Methods
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:44](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L44)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:44](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L44)
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:31](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L31)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:31](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L31)
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:262](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L262)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:262](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L262)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:67](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L67)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:67](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L67)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:38](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L38)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:38](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L38)
 
 ___
 
@@ -304,7 +304,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:178](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L178)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:178](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L178)
 
 ___
 
@@ -326,7 +326,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:222](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L222)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:222](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L222)
 
 ___
 
@@ -348,7 +348,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:190](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L190)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:190](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L190)
 
 ___
 
@@ -370,7 +370,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:150](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L150)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:150](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L150)
 
 ___
 
@@ -392,7 +392,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:226](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L226)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:226](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L226)
 
 ___
 
@@ -414,7 +414,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:194](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L194)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:194](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L194)
 
 ___
 
@@ -436,7 +436,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:154](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L154)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:154](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L154)
 
 ___
 
@@ -458,7 +458,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:230](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L230)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:230](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L230)
 
 ___
 
@@ -480,7 +480,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:198](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L198)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:198](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L198)
 
 ___
 
@@ -502,7 +502,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:158](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L158)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:158](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L158)
 
 ___
 
@@ -524,7 +524,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:174](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L174)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:174](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L174)
 
 ___
 
@@ -546,7 +546,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:214](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L214)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:214](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L214)
 
 ___
 
@@ -568,7 +568,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:182](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L182)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:182](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L182)
 
 ___
 
@@ -590,7 +590,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:142](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L142)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:142](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L142)
 
 ___
 
@@ -642,7 +642,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:78](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L78)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:78](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L78)
 
 ___
 
@@ -664,7 +664,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:218](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L218)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:218](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L218)
 
 ___
 
@@ -686,7 +686,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:186](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L186)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:186](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L186)
 
 ___
 
@@ -708,7 +708,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:146](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L146)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:146](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L146)
 
 ___
 
@@ -730,7 +730,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:234](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L234)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:234](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L234)
 
 ___
 
@@ -752,7 +752,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:202](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L202)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:202](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L202)
 
 ___
 
@@ -774,7 +774,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:162](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L162)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:162](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L162)
 
 ___
 
@@ -796,7 +796,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:238](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L238)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:238](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L238)
 
 ___
 
@@ -818,7 +818,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:206](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L206)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:206](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L206)
 
 ___
 
@@ -840,7 +840,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:166](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L166)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:166](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L166)
 
 ___
 
@@ -862,7 +862,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:242](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L242)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:242](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L242)
 
 ___
 
@@ -884,7 +884,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:210](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L210)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:210](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L210)
 
 ___
 
@@ -906,7 +906,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:170](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L170)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:170](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L170)
 
 ___
 
@@ -928,7 +928,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:56](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L56)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:56](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L56)
 
 ___
 
@@ -954,7 +954,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:246](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L246)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:246](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L246)
 
 ___
 
@@ -976,7 +976,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:50](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L50)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:50](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L50)
 
 ___
 
@@ -998,7 +998,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:9](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L9)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:9](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L9)
 
 ___
 
@@ -1024,4 +1024,4 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:287](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L287)
+[lib/sdk/common/model/space/partitioning/grid/Grid3D.ts:287](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/partitioning/grid/Grid3D.ts#L287)

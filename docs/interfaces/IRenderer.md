@@ -41,7 +41,7 @@ Adds an IDisplayObject to the rendering pipeline
 
 #### Defined in
 
-[lib/core/rendering/IRenderer.ts:10](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/IRenderer.ts#L10)
+[lib/core/rendering/IRenderer.ts:10](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/IRenderer.ts#L10)
 
 ___
 
@@ -57,7 +57,7 @@ Clears the current rendering pipeline
 
 #### Defined in
 
-[lib/core/rendering/IRenderer.ts:21](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/IRenderer.ts#L21)
+[lib/core/rendering/IRenderer.ts:21](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/IRenderer.ts#L21)
 
 ___
 
@@ -81,7 +81,7 @@ into the specified canvas, with the specified rendering context
 
 #### Defined in
 
-[lib/core/rendering/IRenderer.ts:41](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/IRenderer.ts#L41)
+[lib/core/rendering/IRenderer.ts:41](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/IRenderer.ts#L41)
 
 ___
 
@@ -99,7 +99,7 @@ HTMLCanvasElement
 
 #### Defined in
 
-[lib/core/rendering/IRenderer.ts:33](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/IRenderer.ts#L33)
+[lib/core/rendering/IRenderer.ts:33](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/IRenderer.ts#L33)
 
 ___
 
@@ -117,7 +117,7 @@ IDisplayObject[]
 
 #### Defined in
 
-[lib/core/rendering/IRenderer.ts:16](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/IRenderer.ts#L16)
+[lib/core/rendering/IRenderer.ts:16](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/IRenderer.ts#L16)
 
 ___
 
@@ -135,7 +135,7 @@ CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext
 
 #### Defined in
 
-[lib/core/rendering/IRenderer.ts:27](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/IRenderer.ts#L27)
+[lib/core/rendering/IRenderer.ts:27](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/IRenderer.ts#L27)
 
 ___
 
@@ -151,4 +151,4 @@ Get the number of draw calls
 
 #### Defined in
 
-[lib/core/rendering/IRenderer.ts:46](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/IRenderer.ts#L46)
+[lib/core/rendering/IRenderer.ts:46](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/IRenderer.ts#L46)

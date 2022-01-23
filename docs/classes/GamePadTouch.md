@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[lib/core/controls/GamePadTouch.ts:8](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePadTouch.ts#L8)
+[lib/core/controls/GamePadTouch.ts:8](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePadTouch.ts#L8)
 
 ## Properties
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[lib/core/controls/GamePadTouch.ts:2](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePadTouch.ts#L2)
+[lib/core/controls/GamePadTouch.ts:2](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePadTouch.ts#L2)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[lib/core/controls/GamePadTouch.ts:3](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePadTouch.ts#L3)
+[lib/core/controls/GamePadTouch.ts:3](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePadTouch.ts#L3)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[lib/core/controls/GamePadTouch.ts:6](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePadTouch.ts#L6)
+[lib/core/controls/GamePadTouch.ts:6](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePadTouch.ts#L6)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[lib/core/controls/GamePadTouch.ts:5](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePadTouch.ts#L5)
+[lib/core/controls/GamePadTouch.ts:5](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePadTouch.ts#L5)
 
 ## Accessors
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[lib/core/controls/GamePadTouch.ts:13](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePadTouch.ts#L13)
+[lib/core/controls/GamePadTouch.ts:13](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePadTouch.ts#L13)
 
 ## Methods
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[lib/core/controls/GamePadTouch.ts:17](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePadTouch.ts#L17)
+[lib/core/controls/GamePadTouch.ts:17](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePadTouch.ts#L17)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[lib/core/controls/GamePadTouch.ts:27](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePadTouch.ts#L27)
+[lib/core/controls/GamePadTouch.ts:27](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePadTouch.ts#L27)
 
 ___
 
@@ -154,4 +154,4 @@ ___
 
 #### Defined in
 
-[lib/core/controls/GamePadTouch.ts:21](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePadTouch.ts#L21)
+[lib/core/controls/GamePadTouch.ts:21](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePadTouch.ts#L21)

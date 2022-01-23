@@ -47,7 +47,7 @@ boolean
 
 #### Defined in
 
-[lib/core/utils/Geometry.ts:101](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/Geometry.ts#L101)
+[lib/core/utils/Geometry.ts:101](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/Geometry.ts#L101)
 
 ___
 
@@ -72,7 +72,7 @@ Rectangle
 
 #### Defined in
 
-[lib/core/utils/Geometry.ts:64](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/Geometry.ts#L64)
+[lib/core/utils/Geometry.ts:64](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/Geometry.ts#L64)
 
 ___
 
@@ -97,7 +97,7 @@ HitBox
 
 #### Defined in
 
-[lib/core/utils/Geometry.ts:16](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/Geometry.ts#L16)
+[lib/core/utils/Geometry.ts:16](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/Geometry.ts#L16)
 
 ___
 
@@ -123,4 +123,4 @@ Point
 
 #### Defined in
 
-[lib/core/utils/Geometry.ts:87](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/Geometry.ts#L87)
+[lib/core/utils/Geometry.ts:87](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/Geometry.ts#L87)

@@ -40,7 +40,7 @@ of 65536 (2 words) which is an old limitation.
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:115](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L115)
+[lib/core/rendering/webgl/WebGlConfig.ts:115](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L115)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:113](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L113)
+[lib/core/rendering/webgl/WebGlConfig.ts:113](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L113)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:112](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L112)
+[lib/core/rendering/webgl/WebGlConfig.ts:112](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L112)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:111](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L111)
+[lib/core/rendering/webgl/WebGlConfig.ts:111](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L111)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:114](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L114)
+[lib/core/rendering/webgl/WebGlConfig.ts:114](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L114)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:110](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L110)
+[lib/core/rendering/webgl/WebGlConfig.ts:110](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L110)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:118](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L118)
+[lib/core/rendering/webgl/WebGlConfig.ts:118](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L118)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:117](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L117)
+[lib/core/rendering/webgl/WebGlConfig.ts:117](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L117)
 
 ___
 
@@ -120,4 +120,4 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:116](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L116)
+[lib/core/rendering/webgl/WebGlConfig.ts:116](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L116)

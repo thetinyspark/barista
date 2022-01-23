@@ -145,7 +145,7 @@ document.body.appendChild(stage.getRenderer().getCanvas());
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:73](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L73)
+[lib/core/display/DisplayObjectContainer.ts:73](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L73)
 
 ___
 
@@ -165,7 +165,7 @@ An indexed array that contains each filter associated to the object
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:61](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L61)
+[lib/core/display/DisplayObject.ts:61](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L61)
 
 ___
 
@@ -185,7 +185,7 @@ Indicates the height of the display object, in pixels.
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:73](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L73)
+[lib/core/display/DisplayObject.ts:73](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L73)
 
 ___
 
@@ -205,7 +205,7 @@ The transformation matrix of the object
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:64](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L64)
+[lib/core/display/DisplayObject.ts:64](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L64)
 
 ___
 
@@ -225,7 +225,7 @@ Indicates the transparency value of the object.
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:67](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L67)
+[lib/core/display/DisplayObject.ts:67](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L67)
 
 ___
 
@@ -245,7 +245,7 @@ Indicates the IDisplayObjectContainer object that contains this object.
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:75](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L75)
+[lib/core/display/DisplayObject.ts:75](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L75)
 
 ___
 
@@ -265,7 +265,7 @@ Indicates the rotation of the object, in degrees, from its original orientation.
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:71](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L71)
+[lib/core/display/DisplayObject.ts:71](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L71)
 
 ___
 
@@ -285,7 +285,7 @@ Indicates the horizontal scale (percentage) of the object as applied from the re
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:69](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L69)
+[lib/core/display/DisplayObject.ts:69](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L69)
 
 ___
 
@@ -305,7 +305,7 @@ Indicates the vertical scale (percentage) of the object as applied from the regi
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:70](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L70)
+[lib/core/display/DisplayObject.ts:70](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L70)
 
 ___
 
@@ -325,7 +325,7 @@ The current texture object associated to this object.
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:62](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L62)
+[lib/core/display/DisplayObject.ts:62](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L62)
 
 ___
 
@@ -345,7 +345,7 @@ The origin point of all object's transformations
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:74](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L74)
+[lib/core/display/DisplayObject.ts:74](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L74)
 
 ___
 
@@ -365,7 +365,7 @@ Says wether or not the object is visible
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:76](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L76)
+[lib/core/display/DisplayObject.ts:76](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L76)
 
 ___
 
@@ -385,7 +385,7 @@ Indicates the width of the object, in pixels.
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:72](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L72)
+[lib/core/display/DisplayObject.ts:72](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L72)
 
 ___
 
@@ -405,7 +405,7 @@ contains the result of object's matrix by world transformation matrix
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:63](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L63)
+[lib/core/display/DisplayObject.ts:63](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L63)
 
 ___
 
@@ -425,7 +425,7 @@ Indicates the result of object's opacity by world's opacity.
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:68](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L68)
+[lib/core/display/DisplayObject.ts:68](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L68)
 
 ___
 
@@ -445,7 +445,7 @@ Indicates the x coordinate of the object relative to the local coordinates of it
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:65](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L65)
+[lib/core/display/DisplayObject.ts:65](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L65)
 
 ___
 
@@ -465,7 +465,7 @@ Indicates the y coordinate of the object relative to the local coordinates of it
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:66](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L66)
+[lib/core/display/DisplayObject.ts:66](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L66)
 
 ## Methods
 
@@ -495,7 +495,7 @@ the object is removed from the children list of the other IDisplayObjectContaine
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:75](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L75)
+[lib/core/display/DisplayObjectContainer.ts:75](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L75)
 
 ___
 
@@ -524,7 +524,7 @@ An index of 0 represents the back (bottom) of the IDisplayObjectContainer's disp
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:88](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L88)
+[lib/core/display/DisplayObjectContainer.ts:88](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L88)
 
 ___
 
@@ -550,7 +550,7 @@ Tells whether or not the specified IDisplayObject is a child of the IDisplayObje
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:115](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L115)
+[lib/core/display/DisplayObjectContainer.ts:115](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L115)
 
 ___
 
@@ -605,7 +605,7 @@ Returns specified IDisplayObject's position inside the IDisplayObjectContainer's
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:111](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L111)
+[lib/core/display/DisplayObjectContainer.ts:111](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L111)
 
 ___
 
@@ -625,7 +625,7 @@ Returns IDisplayObjectContainer's children list
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:107](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L107)
+[lib/core/display/DisplayObjectContainer.ts:107](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L107)
 
 ___
 
@@ -708,7 +708,7 @@ Removes the specified IDisplayObject child from the IDisplayObjectContainer's ch
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:83](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L83)
+[lib/core/display/DisplayObjectContainer.ts:83](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L83)
 
 ___
 
@@ -734,7 +734,7 @@ Removes an IDisplayObject child at the specified index position from the IDispla
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:97](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L97)
+[lib/core/display/DisplayObjectContainer.ts:97](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L97)
 
 ___
 
@@ -754,7 +754,7 @@ Removes all IDisplayObject children of the IDisplayObjectContainer children list
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:119](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L119)
+[lib/core/display/DisplayObjectContainer.ts:119](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L119)
 
 ___
 
@@ -784,7 +784,7 @@ Draws the object into using the IRenderer passed in param
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:134](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L134)
+[lib/core/display/DisplayObjectContainer.ts:134](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L134)
 
 ___
 
@@ -808,7 +808,7 @@ Returns a snapshot of the object
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:78](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L78)
+[lib/core/display/DisplayObject.ts:78](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L78)
 
 ___
 
@@ -919,7 +919,7 @@ update object's matrix, world matrix, opacity and world opacity
 
 #### Defined in
 
-[lib/core/display/DisplayObjectContainer.ts:125](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObjectContainer.ts#L125)
+[lib/core/display/DisplayObjectContainer.ts:125](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObjectContainer.ts#L125)
 
 ___
 
@@ -948,4 +948,4 @@ The "texture" property will contains the Texture object.
 
 #### Defined in
 
-[lib/core/display/DisplayObject.ts:128](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/DisplayObject.ts#L128)
+[lib/core/display/DisplayObject.ts:128](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/DisplayObject.ts#L128)

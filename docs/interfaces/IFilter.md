@@ -32,7 +32,7 @@ Applies filter to the current DisplayObject.
 
 #### Defined in
 
-[lib/core/filters/IFilter.ts:16](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/filters/IFilter.ts#L16)
+[lib/core/filters/IFilter.ts:16](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/filters/IFilter.ts#L16)
 
 ___
 
@@ -54,7 +54,7 @@ Make the DisplayObject comes back to the last saved state.
 
 #### Defined in
 
-[lib/core/filters/IFilter.ts:22](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/filters/IFilter.ts#L22)
+[lib/core/filters/IFilter.ts:22](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/filters/IFilter.ts#L22)
 
 ___
 
@@ -76,4 +76,4 @@ Saves the current DisplayObject state before filtering.
 
 #### Defined in
 
-[lib/core/filters/IFilter.ts:10](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/filters/IFilter.ts#L10)
+[lib/core/filters/IFilter.ts:10](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/filters/IFilter.ts#L10)

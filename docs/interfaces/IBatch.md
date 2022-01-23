@@ -26,7 +26,7 @@ The batch's objects
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/IBatch.ts:9](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/IBatch.ts#L9)
+[lib/core/rendering/webgl/batch/IBatch.ts:9](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/IBatch.ts#L9)
 
 ___
 
@@ -40,4 +40,4 @@ own batching system
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/IBatch.ts:15](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/IBatch.ts#L15)
+[lib/core/rendering/webgl/batch/IBatch.ts:15](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/IBatch.ts#L15)

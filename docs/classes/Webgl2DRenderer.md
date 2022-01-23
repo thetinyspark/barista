@@ -46,7 +46,7 @@ The Webgl2DRenderer class is the base class for WebGL2d rendering.
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:24](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L24)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:24](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L24)
 
 ## Properties
 
@@ -56,7 +56,7 @@ The Webgl2DRenderer class is the base class for WebGL2d rendering.
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:15](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L15)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:15](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L15)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:14](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L14)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:14](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L14)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:16](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L16)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:16](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L16)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:21](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L21)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:21](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L21)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:22](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L22)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:22](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L22)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:18](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L18)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:18](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L18)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:20](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L20)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:20](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L20)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:17](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L17)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:17](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L17)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:19](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L19)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:19](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L19)
 
 ## Methods
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:28](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L28)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:28](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L28)
 
 ___
 
@@ -176,7 +176,7 @@ Adds an IDisplayObject to the rendering pipeline
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:64](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L64)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:64](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L64)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:131](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L131)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:131](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L131)
 
 ___
 
@@ -216,7 +216,7 @@ Clears the current rendering pipeline
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:84](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L84)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:84](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L84)
 
 ___
 
@@ -244,7 +244,7 @@ into the specified canvas, with the specified rendering context
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:88](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L88)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:88](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L88)
 
 ___
 
@@ -266,7 +266,7 @@ HTMLCanvasElement
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:72](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L72)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:72](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L72)
 
 ___
 
@@ -288,7 +288,7 @@ IDisplayObject[]
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:80](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L80)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:80](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L80)
 
 ___
 
@@ -310,7 +310,7 @@ CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:76](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L76)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:76](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L76)
 
 ___
 
@@ -330,4 +330,4 @@ Get the number of draw calls
 
 #### Defined in
 
-[lib/core/rendering/webgl/Webgl2DRenderer.ts:68](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Webgl2DRenderer.ts#L68)
+[lib/core/rendering/webgl/Webgl2DRenderer.ts:68](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Webgl2DRenderer.ts#L68)

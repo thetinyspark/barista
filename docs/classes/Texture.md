@@ -57,7 +57,7 @@ A Texture object represents a portion of the original source.
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:56](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L56)
+[lib/core/texture/Texture.ts:56](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L56)
 
 ## Properties
 
@@ -67,7 +67,7 @@ A Texture object represents a portion of the original source.
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:15](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L15)
+[lib/core/texture/Texture.ts:15](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L15)
 
 ___
 
@@ -79,7 +79,7 @@ The bottomleft uv coordinates of source portion to be drawn
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:44](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L44)
+[lib/core/texture/Texture.ts:44](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L44)
 
 ___
 
@@ -91,7 +91,7 @@ The bottomright uv coordinates of source portion to be drawn
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:48](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L48)
+[lib/core/texture/Texture.ts:48](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L48)
 
 ___
 
@@ -103,7 +103,7 @@ The id of the Texture object
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:53](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L53)
+[lib/core/texture/Texture.ts:53](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L53)
 
 ___
 
@@ -115,7 +115,7 @@ The height of the source portion to be drawn
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:31](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L31)
+[lib/core/texture/Texture.ts:31](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L31)
 
 ___
 
@@ -127,7 +127,7 @@ The width of the source portion to be drawn
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:27](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L27)
+[lib/core/texture/Texture.ts:27](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L27)
 
 ___
 
@@ -139,7 +139,7 @@ The x coordinates of the source portion to be drawn
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:19](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L19)
+[lib/core/texture/Texture.ts:19](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L19)
 
 ___
 
@@ -151,7 +151,7 @@ The y coordinates of the source portion to be drawn
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:23](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L23)
+[lib/core/texture/Texture.ts:23](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L23)
 
 ___
 
@@ -163,7 +163,7 @@ The topleft uv coordinates of source portion to be drawn
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:36](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L36)
+[lib/core/texture/Texture.ts:36](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L36)
 
 ___
 
@@ -175,7 +175,7 @@ The topright uv coordinates of source portion to be drawn
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:40](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L40)
+[lib/core/texture/Texture.ts:40](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L40)
 
 ## Accessors
 
@@ -193,7 +193,7 @@ TextureData
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:112](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L112)
+[lib/core/texture/Texture.ts:112](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L112)
 
 ___
 
@@ -211,7 +211,7 @@ CanvasImageSource
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:120](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L120)
+[lib/core/texture/Texture.ts:120](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L120)
 
 ___
 
@@ -229,7 +229,7 @@ string
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:104](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L104)
+[lib/core/texture/Texture.ts:104](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L104)
 
 ## Methods
 
@@ -247,7 +247,7 @@ properties of the Texture object
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:78](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L78)
+[lib/core/texture/Texture.ts:78](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L78)
 
 ___
 
@@ -275,7 +275,7 @@ Texture object
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:133](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L133)
+[lib/core/texture/Texture.ts:133](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L133)
 
 ___
 
@@ -299,7 +299,7 @@ Texture[] object
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:142](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L142)
+[lib/core/texture/Texture.ts:142](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L142)
 
 ___
 
@@ -325,4 +325,4 @@ Texture object
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:155](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L155)
+[lib/core/texture/Texture.ts:155](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L155)

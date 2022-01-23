@@ -42,7 +42,7 @@ texture units.
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:22](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L22)
+[lib/core/rendering/webgl/Default2DShader.ts:22](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L22)
 
 ## Properties
 
@@ -52,7 +52,7 @@ texture units.
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:14](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L14)
+[lib/core/rendering/webgl/Default2DShader.ts:14](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L14)
 
 ___
 
@@ -64,7 +64,7 @@ The shader's id
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:13](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L13)
+[lib/core/rendering/webgl/Default2DShader.ts:13](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L13)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:16](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L16)
+[lib/core/rendering/webgl/Default2DShader.ts:16](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L16)
 
 ___
 
@@ -86,7 +86,7 @@ The projection pointer is used to set the center of the world
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:20](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L20)
+[lib/core/rendering/webgl/Default2DShader.ts:20](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L20)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:15](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L15)
+[lib/core/rendering/webgl/Default2DShader.ts:15](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L15)
 
 ## Methods
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:101](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L101)
+[lib/core/rendering/webgl/Default2DShader.ts:101](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L101)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:152](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L152)
+[lib/core/rendering/webgl/Default2DShader.ts:152](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L152)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:115](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L115)
+[lib/core/rendering/webgl/Default2DShader.ts:115](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L115)
 
 ___
 
@@ -166,4 +166,4 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/Default2DShader.ts:26](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/Default2DShader.ts#L26)
+[lib/core/rendering/webgl/Default2DShader.ts:26](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/Default2DShader.ts#L26)

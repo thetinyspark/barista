@@ -43,7 +43,7 @@ TextureData objects
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/BatchTexture.ts:58](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/BatchTexture.ts#L58)
+[lib/core/rendering/webgl/batch/BatchTexture.ts:58](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/BatchTexture.ts#L58)
 
 ___
 
@@ -59,7 +59,7 @@ The batch's objects
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/BatchTexture.ts:50](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/BatchTexture.ts#L50)
+[lib/core/rendering/webgl/batch/BatchTexture.ts:50](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/BatchTexture.ts#L50)
 
 ___
 
@@ -77,7 +77,7 @@ own batching system
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/BatchTexture.ts:46](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/BatchTexture.ts#L46)
+[lib/core/rendering/webgl/batch/BatchTexture.ts:46](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/BatchTexture.ts#L46)
 
 ___
 
@@ -89,7 +89,7 @@ TextureData objects uids
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/BatchTexture.ts:54](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/BatchTexture.ts#L54)
+[lib/core/rendering/webgl/batch/BatchTexture.ts:54](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/BatchTexture.ts#L54)
 
 ## Methods
 
@@ -113,4 +113,4 @@ a maximum of <maxTexturesPerBatch> per batch.
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/BatchTexture.ts:19](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/BatchTexture.ts#L19)
+[lib/core/rendering/webgl/batch/BatchTexture.ts:19](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/BatchTexture.ts#L19)

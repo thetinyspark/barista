@@ -39,7 +39,7 @@ And finally, it can detect which DisplayObject is targeted by the event.
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:15](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L15)
+[lib/core/controls/MouseControl.ts:15](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L15)
 
 ## Properties
 
@@ -49,7 +49,7 @@ And finally, it can detect which DisplayObject is targeted by the event.
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:13](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L13)
+[lib/core/controls/MouseControl.ts:13](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L13)
 
 ## Methods
 
@@ -71,7 +71,7 @@ And finally, it can detect which DisplayObject is targeted by the event.
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:57](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L57)
+[lib/core/controls/MouseControl.ts:57](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L57)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:40](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L40)
+[lib/core/controls/MouseControl.ts:40](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L40)
 
 ___
 
@@ -107,7 +107,7 @@ Starts stage monitoring
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:22](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L22)
+[lib/core/controls/MouseControl.ts:22](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L22)
 
 ___
 
@@ -123,7 +123,7 @@ Stops stage monitoring
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:33](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L33)
+[lib/core/controls/MouseControl.ts:33](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L33)
 
 ___
 
@@ -148,4 +148,4 @@ It acts like a virtual mouse.
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:83](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L83)
+[lib/core/controls/MouseControl.ts:83](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L83)

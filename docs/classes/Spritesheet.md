@@ -51,7 +51,7 @@ a certain amount of CanvasImageSources.
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:20](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L20)
+[lib/core/texture/Spritesheet.ts:20](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L20)
 
 ## Properties
 
@@ -61,7 +61,7 @@ a certain amount of CanvasImageSources.
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:15](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L15)
+[lib/core/texture/Spritesheet.ts:15](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L15)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:18](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L18)
+[lib/core/texture/Spritesheet.ts:18](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L18)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:17](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L17)
+[lib/core/texture/Spritesheet.ts:17](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L17)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:14](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L14)
+[lib/core/texture/Spritesheet.ts:14](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L14)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:16](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L16)
+[lib/core/texture/Spritesheet.ts:16](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L16)
 
 ## Methods
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:69](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L69)
+[lib/core/texture/Spritesheet.ts:69](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L69)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:37](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L37)
+[lib/core/texture/Spritesheet.ts:37](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L37)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:99](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L99)
+[lib/core/texture/Spritesheet.ts:99](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L99)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:111](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L111)
+[lib/core/texture/Spritesheet.ts:111](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L111)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:28](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L28)
+[lib/core/texture/Spritesheet.ts:28](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L28)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:24](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L24)
+[lib/core/texture/Spritesheet.ts:24](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L24)
 
 ___
 
@@ -243,7 +243,7 @@ number
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:170](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L170)
+[lib/core/texture/Spritesheet.ts:170](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L170)
 
 ___
 
@@ -261,7 +261,7 @@ TextureData
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:138](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L138)
+[lib/core/texture/Spritesheet.ts:138](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L138)
 
 ___
 
@@ -279,7 +279,7 @@ Texture[]
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:146](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L146)
+[lib/core/texture/Spritesheet.ts:146](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L146)
 
 ___
 
@@ -297,7 +297,7 @@ number
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:162](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L162)
+[lib/core/texture/Spritesheet.ts:162](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L162)
 
 ___
 
@@ -315,4 +315,4 @@ Zone[]
 
 #### Defined in
 
-[lib/core/texture/Spritesheet.ts:154](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Spritesheet.ts#L154)
+[lib/core/texture/Spritesheet.ts:154](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Spritesheet.ts#L154)

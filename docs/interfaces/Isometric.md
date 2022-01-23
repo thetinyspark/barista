@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[lib/sdk/isometric/mixins/mixins.ts:7](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/isometric/mixins/mixins.ts#L7)
+[lib/sdk/isometric/mixins/mixins.ts:7](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/isometric/mixins/mixins.ts#L7)
 
 ## Methods
 
@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[lib/sdk/isometric/mixins/mixins.ts:8](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/isometric/mixins/mixins.ts#L8)
+[lib/sdk/isometric/mixins/mixins.ts:8](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/isometric/mixins/mixins.ts#L8)

@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[lib/core/display/Animation.ts:189](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/Animation.ts#L189)
+[lib/core/display/Animation.ts:189](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/Animation.ts#L189)

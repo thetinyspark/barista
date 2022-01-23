@@ -46,7 +46,7 @@ the right, left, top and bottom sides.
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:12](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L12)
+[lib/core/texture/Zone.ts:12](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L12)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:11](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L11)
+[lib/core/texture/Zone.ts:11](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L11)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:10](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L10)
+[lib/core/texture/Zone.ts:10](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L10)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:8](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L8)
+[lib/core/texture/Zone.ts:8](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L8)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:9](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L9)
+[lib/core/texture/Zone.ts:9](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L9)
 
 ## Methods
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:18](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L18)
+[lib/core/texture/Zone.ts:18](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L18)
 
 ___
 
@@ -124,7 +124,7 @@ object which has a specific width & height.
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:101](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L101)
+[lib/core/texture/Zone.ts:101](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L101)
 
 ___
 
@@ -142,7 +142,7 @@ number
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:91](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L91)
+[lib/core/texture/Zone.ts:91](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L91)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:14](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L14)
+[lib/core/texture/Zone.ts:14](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L14)
 
 ___
 
@@ -180,7 +180,7 @@ Zone
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:62](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L62)
+[lib/core/texture/Zone.ts:62](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L62)
 
 ___
 
@@ -204,7 +204,7 @@ Zone
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:47](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L47)
+[lib/core/texture/Zone.ts:47](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L47)
 
 ___
 
@@ -228,7 +228,7 @@ Zone
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:32](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L32)
+[lib/core/texture/Zone.ts:32](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L32)
 
 ___
 
@@ -252,4 +252,4 @@ Zone
 
 #### Defined in
 
-[lib/core/texture/Zone.ts:77](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Zone.ts#L77)
+[lib/core/texture/Zone.ts:77](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Zone.ts#L77)

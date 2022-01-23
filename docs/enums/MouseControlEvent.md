@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:96](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L96)
+[lib/core/controls/MouseControl.ts:96](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L96)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:99](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L99)
+[lib/core/controls/MouseControl.ts:99](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L99)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:97](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L97)
+[lib/core/controls/MouseControl.ts:97](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L97)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[lib/core/controls/MouseControl.ts:98](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/MouseControl.ts#L98)
+[lib/core/controls/MouseControl.ts:98](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/MouseControl.ts#L98)

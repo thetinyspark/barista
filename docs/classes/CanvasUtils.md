@@ -50,7 +50,7 @@ The CanvasUtils class is a set of utilitaries for canvas elements.
 
 #### Defined in
 
-[lib/core/utils/CanvasUtils.ts:40](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/CanvasUtils.ts#L40)
+[lib/core/utils/CanvasUtils.ts:40](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/CanvasUtils.ts#L40)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[lib/core/utils/CanvasUtils.ts:5](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/CanvasUtils.ts#L5)
+[lib/core/utils/CanvasUtils.ts:5](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/CanvasUtils.ts#L5)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[lib/core/utils/CanvasUtils.ts:12](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/CanvasUtils.ts#L12)
+[lib/core/utils/CanvasUtils.ts:12](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/CanvasUtils.ts#L12)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[lib/core/utils/CanvasUtils.ts:29](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/CanvasUtils.ts#L29)
+[lib/core/utils/CanvasUtils.ts:29](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/CanvasUtils.ts#L29)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[lib/core/utils/CanvasUtils.ts:23](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/CanvasUtils.ts#L23)
+[lib/core/utils/CanvasUtils.ts:23](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/CanvasUtils.ts#L23)
 
 ___
 
@@ -159,4 +159,4 @@ ___
 
 #### Defined in
 
-[lib/core/utils/CanvasUtils.ts:49](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/CanvasUtils.ts#L49)
+[lib/core/utils/CanvasUtils.ts:49](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/CanvasUtils.ts#L49)

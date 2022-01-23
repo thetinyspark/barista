@@ -1,3 +1,5 @@
+@thetinyspark/moocaccino-barista / [Exports](modules.md)
+
 # Barista
 
 A caffeinated HTML5 canvas rendering engine & Game SDK which you can use for creating:

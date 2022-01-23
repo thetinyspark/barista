@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[lib/sdk/common/model/node/GameNode.ts:2](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/node/GameNode.ts#L2)
+[lib/sdk/common/model/node/GameNode.ts:2](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/node/GameNode.ts#L2)
 
 ___
 
@@ -43,4 +43,4 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/node/GameNode.ts:3](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/node/GameNode.ts#L3)
+[lib/sdk/common/model/node/GameNode.ts:3](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/node/GameNode.ts#L3)

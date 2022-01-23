@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[lib/core/controls/GamePad.ts:52](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePad.ts#L52)
+[lib/core/controls/GamePad.ts:52](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePad.ts#L52)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[lib/core/controls/GamePad.ts:53](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/controls/GamePad.ts#L53)
+[lib/core/controls/GamePad.ts:53](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/controls/GamePad.ts#L53)

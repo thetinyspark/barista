@@ -1,4 +1,8 @@
-# Table of contents
+[@thetinyspark/moocaccino-barista](README.md) / Exports
+
+# @thetinyspark/moocaccino-barista
+
+## Table of contents
 
 ### Enumerations
 
@@ -120,7 +124,7 @@
 
 #### Defined in
 
-[lib/core/display/Stage.ts:192](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/display/Stage.ts#L192)
+[lib/core/display/Stage.ts:192](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/display/Stage.ts#L192)
 
 ___
 
@@ -146,7 +150,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/isometric/mixins/mixins.ts:4](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/isometric/mixins/mixins.ts#L4)
+[lib/sdk/isometric/mixins/mixins.ts:4](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/isometric/mixins/mixins.ts#L4)
 
 ___
 
@@ -167,7 +171,7 @@ An object type which defines four points representing an hitbox
 
 #### Defined in
 
-[lib/core/utils/Geometry.ts:116](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/Geometry.ts#L116)
+[lib/core/utils/Geometry.ts:116](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/Geometry.ts#L116)
 
 ___
 
@@ -186,7 +190,7 @@ An object type which a 2d point (x,y)
 
 #### Defined in
 
-[lib/core/utils/Geometry.ts:120](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/Geometry.ts#L120)
+[lib/core/utils/Geometry.ts:120](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/Geometry.ts#L120)
 
 ___
 
@@ -207,7 +211,7 @@ An object type which represents a Rectangle
 
 #### Defined in
 
-[lib/core/utils/Geometry.ts:124](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/Geometry.ts#L124)
+[lib/core/utils/Geometry.ts:124](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/Geometry.ts#L124)
 
 ___
 
@@ -227,7 +231,7 @@ sx, sy, sw, sh properties into the TextureData
 
 #### Defined in
 
-[lib/core/texture/Texture.ts:7](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/texture/Texture.ts#L7)
+[lib/core/texture/Texture.ts:7](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/texture/Texture.ts#L7)
 
 ## Variables
 
@@ -237,7 +241,7 @@ sx, sy, sw, sh properties into the TextureData
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:304](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L304)
+[lib/core/assets/AssetsManager.ts:304](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L304)
 
 ___
 
@@ -247,7 +251,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:300](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L300)
+[lib/core/assets/AssetsManager.ts:300](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L300)
 
 ___
 
@@ -257,7 +261,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:10](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L10)
+[lib/core/rendering/webgl/WebGlConfig.ts:10](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L10)
 
 ___
 
@@ -267,7 +271,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:303](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L303)
+[lib/core/assets/AssetsManager.ts:303](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L303)
 
 ___
 
@@ -277,7 +281,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:297](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L297)
+[lib/core/assets/AssetsManager.ts:297](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L297)
 
 ___
 
@@ -287,7 +291,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:298](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L298)
+[lib/core/assets/AssetsManager.ts:298](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L298)
 
 ___
 
@@ -297,7 +301,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:14](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L14)
+[lib/core/rendering/webgl/WebGlConfig.ts:14](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L14)
 
 ___
 
@@ -307,7 +311,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:11](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L11)
+[lib/core/rendering/webgl/WebGlConfig.ts:11](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L11)
 
 ___
 
@@ -317,7 +321,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:302](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L302)
+[lib/core/assets/AssetsManager.ts:302](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L302)
 
 ___
 
@@ -327,7 +331,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:15](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L15)
+[lib/core/rendering/webgl/WebGlConfig.ts:15](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L15)
 
 ___
 
@@ -337,7 +341,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:9](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L9)
+[lib/core/rendering/webgl/WebGlConfig.ts:9](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L9)
 
 ___
 
@@ -347,7 +351,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:301](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L301)
+[lib/core/assets/AssetsManager.ts:301](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L301)
 
 ## Functions
 
@@ -361,7 +365,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:85](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L85)
+[lib/core/rendering/webgl/WebGlConfig.ts:85](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L85)
 
 ___
 
@@ -375,7 +379,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:81](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L81)
+[lib/core/rendering/webgl/WebGlConfig.ts:81](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L81)
 
 ___
 
@@ -399,7 +403,7 @@ boolean
 
 #### Defined in
 
-[lib/core/utils/isser.ts:10](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/isser.ts#L10)
+[lib/core/utils/isser.ts:10](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/isser.ts#L10)
 
 ___
 
@@ -417,7 +421,7 @@ boolean
 
 #### Defined in
 
-[lib/core/utils/isser.ts:18](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/isser.ts#L18)
+[lib/core/utils/isser.ts:18](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/isser.ts#L18)
 
 ___
 
@@ -446,7 +450,7 @@ If both objects share the same isoY:
 
 #### Defined in
 
-[lib/sdk/isometric/utils/iso.utils.ts:45](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/isometric/utils/iso.utils.ts#L45)
+[lib/sdk/isometric/utils/iso.utils.ts:45](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/isometric/utils/iso.utils.ts#L45)
 
 ___
 
@@ -480,7 +484,7 @@ a Point Object
 
 #### Defined in
 
-[lib/sdk/isometric/utils/iso.utils.ts:30](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/isometric/utils/iso.utils.ts#L30)
+[lib/sdk/isometric/utils/iso.utils.ts:30](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/isometric/utils/iso.utils.ts#L30)
 
 ___
 
@@ -506,7 +510,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/isometric/mixins/mixins.ts:11](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/isometric/mixins/mixins.ts#L11)
+[lib/sdk/isometric/mixins/mixins.ts:11](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/isometric/mixins/mixins.ts#L11)
 
 ___
 
@@ -527,7 +531,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/webgl/WebGlConfig.ts:17](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/WebGlConfig.ts#L17)
+[lib/core/rendering/webgl/WebGlConfig.ts:17](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/WebGlConfig.ts#L17)
 
 ___
 
@@ -559,4 +563,4 @@ Converts a pair of x,y coordinates with specifics cell's width and height into a
 
 #### Defined in
 
-[lib/sdk/isometric/utils/iso.utils.ts:12](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/isometric/utils/iso.utils.ts#L12)
+[lib/sdk/isometric/utils/iso.utils.ts:12](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/isometric/utils/iso.utils.ts#L12)

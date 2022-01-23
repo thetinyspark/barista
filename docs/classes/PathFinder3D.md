@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[lib/sdk/common/utils/PathFinder3D.ts:6](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/utils/PathFinder3D.ts#L6)
+[lib/sdk/common/utils/PathFinder3D.ts:6](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/utils/PathFinder3D.ts#L6)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/utils/PathFinder3D.ts:5](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/utils/PathFinder3D.ts#L5)
+[lib/sdk/common/utils/PathFinder3D.ts:5](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/utils/PathFinder3D.ts#L5)
 
 ## Methods
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/utils/PathFinder3D.ts:173](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/utils/PathFinder3D.ts#L173)
+[lib/sdk/common/utils/PathFinder3D.ts:173](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/utils/PathFinder3D.ts#L173)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/utils/PathFinder3D.ts:182](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/utils/PathFinder3D.ts#L182)
+[lib/sdk/common/utils/PathFinder3D.ts:182](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/utils/PathFinder3D.ts#L182)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/utils/PathFinder3D.ts:195](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/utils/PathFinder3D.ts#L195)
+[lib/sdk/common/utils/PathFinder3D.ts:195](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/utils/PathFinder3D.ts#L195)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/utils/PathFinder3D.ts:191](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/utils/PathFinder3D.ts#L191)
+[lib/sdk/common/utils/PathFinder3D.ts:191](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/utils/PathFinder3D.ts#L191)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/utils/PathFinder3D.ts:8](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/utils/PathFinder3D.ts#L8)
+[lib/sdk/common/utils/PathFinder3D.ts:8](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/utils/PathFinder3D.ts#L8)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/utils/PathFinder3D.ts:50](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/utils/PathFinder3D.ts#L50)
+[lib/sdk/common/utils/PathFinder3D.ts:50](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/utils/PathFinder3D.ts#L50)
 
 ___
 
@@ -191,4 +191,4 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/utils/PathFinder3D.ts:30](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/utils/PathFinder3D.ts#L30)
+[lib/sdk/common/utils/PathFinder3D.ts:30](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/utils/PathFinder3D.ts#L30)

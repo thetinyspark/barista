@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:9](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L9)
+[lib/sdk/common/model/space/storage/Inventory.ts:9](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L9)
 
 ## Properties
 
@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:7](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L7)
+[lib/sdk/common/model/space/storage/Inventory.ts:7](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L7)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:6](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L6)
+[lib/sdk/common/model/space/storage/Inventory.ts:6](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L6)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:5](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L5)
+[lib/sdk/common/model/space/storage/Inventory.ts:5](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L5)
 
 ## Accessors
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:93](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L93)
+[lib/sdk/common/model/space/storage/Inventory.ts:93](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L93)
 
 • `set` **maxItems**(`value`): `void`
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:97](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L97)
+[lib/sdk/common/model/space/storage/Inventory.ts:97](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L97)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:85](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L85)
+[lib/sdk/common/model/space/storage/Inventory.ts:85](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L85)
 
 • `set` **maxWeight**(`value`): `void`
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:89](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L89)
+[lib/sdk/common/model/space/storage/Inventory.ts:89](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L89)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:77](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L77)
+[lib/sdk/common/model/space/storage/Inventory.ts:77](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L77)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:65](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L65)
+[lib/sdk/common/model/space/storage/Inventory.ts:65](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L65)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:81](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L81)
+[lib/sdk/common/model/space/storage/Inventory.ts:81](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L81)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:69](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L69)
+[lib/sdk/common/model/space/storage/Inventory.ts:69](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L69)
 
 ## Methods
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:19](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L19)
+[lib/sdk/common/model/space/storage/Inventory.ts:19](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L19)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:61](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L61)
+[lib/sdk/common/model/space/storage/Inventory.ts:61](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L61)
 
 ___
 
@@ -247,7 +247,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:28](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L28)
+[lib/sdk/common/model/space/storage/Inventory.ts:28](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L28)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:36](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L36)
+[lib/sdk/common/model/space/storage/Inventory.ts:36](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L36)
 
 ___
 
@@ -275,7 +275,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:42](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L42)
+[lib/sdk/common/model/space/storage/Inventory.ts:42](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L42)
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:51](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L51)
+[lib/sdk/common/model/space/storage/Inventory.ts:51](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L51)
 
 ___
 
@@ -316,4 +316,4 @@ ___
 
 #### Defined in
 
-[lib/sdk/common/model/space/storage/Inventory.ts:13](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/sdk/common/model/space/storage/Inventory.ts#L13)
+[lib/sdk/common/model/space/storage/Inventory.ts:13](https://github.com/thetinyspark/barista/blob/93f33857/lib/sdk/common/model/space/storage/Inventory.ts#L13)

@@ -42,7 +42,7 @@ Tells wether or not this batch is full
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/BatchDrawCall.ts:41](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/BatchDrawCall.ts#L41)
+[lib/core/rendering/webgl/batch/BatchDrawCall.ts:41](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/BatchDrawCall.ts#L41)
 
 ___
 
@@ -58,7 +58,7 @@ The batch's objects
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/BatchDrawCall.ts:46](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/BatchDrawCall.ts#L46)
+[lib/core/rendering/webgl/batch/BatchDrawCall.ts:46](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/BatchDrawCall.ts#L46)
 
 ___
 
@@ -76,7 +76,7 @@ own batching system
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/BatchDrawCall.ts:36](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/BatchDrawCall.ts#L36)
+[lib/core/rendering/webgl/batch/BatchDrawCall.ts:36](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/BatchDrawCall.ts#L36)
 
 ## Methods
 
@@ -100,4 +100,4 @@ a maximum of <maxObjectsPerBatch> per batch.
 
 #### Defined in
 
-[lib/core/rendering/webgl/batch/BatchDrawCall.ts:18](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/webgl/batch/BatchDrawCall.ts#L18)
+[lib/core/rendering/webgl/batch/BatchDrawCall.ts:18](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/webgl/batch/BatchDrawCall.ts#L18)

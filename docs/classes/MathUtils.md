@@ -43,4 +43,4 @@ number
 
 #### Defined in
 
-[lib/core/utils/MathUtils.ts:11](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/utils/MathUtils.ts#L11)
+[lib/core/utils/MathUtils.ts:11](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/utils/MathUtils.ts#L11)

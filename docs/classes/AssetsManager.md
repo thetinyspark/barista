@@ -62,7 +62,7 @@ You can load assets one by one or massively with queue.
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:13](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L13)
+[lib/core/assets/AssetsManager.ts:13](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L13)
 
 ## Properties
 
@@ -72,7 +72,7 @@ You can load assets one by one or massively with queue.
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:10](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L10)
+[lib/core/assets/AssetsManager.ts:10](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L10)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:11](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L11)
+[lib/core/assets/AssetsManager.ts:11](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L11)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:9](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L9)
+[lib/core/assets/AssetsManager.ts:9](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L9)
 
 ## Methods
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:161](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L161)
+[lib/core/assets/AssetsManager.ts:161](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L161)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:165](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L165)
+[lib/core/assets/AssetsManager.ts:165](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L165)
 
 ___
 
@@ -156,7 +156,7 @@ boolean
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:150](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L150)
+[lib/core/assets/AssetsManager.ts:150](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L150)
 
 ___
 
@@ -172,7 +172,7 @@ Clear all loaded datas
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:157](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L157)
+[lib/core/assets/AssetsManager.ts:157](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L157)
 
 ___
 
@@ -213,7 +213,7 @@ Free the current queue
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:48](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L48)
+[lib/core/assets/AssetsManager.ts:48](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L48)
 
 ___
 
@@ -237,7 +237,7 @@ any
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:93](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L93)
+[lib/core/assets/AssetsManager.ts:93](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L93)
 
 ___
 
@@ -255,7 +255,7 @@ Map<string,any> loaded datas
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:23](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L23)
+[lib/core/assets/AssetsManager.ts:23](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L23)
 
 ___
 
@@ -273,7 +273,7 @@ any[] the current queue
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:41](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L41)
+[lib/core/assets/AssetsManager.ts:41](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L41)
 
 ___
 
@@ -297,7 +297,7 @@ string
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:84](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L84)
+[lib/core/assets/AssetsManager.ts:84](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L84)
 
 ___
 
@@ -315,7 +315,7 @@ any
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:69](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L69)
+[lib/core/assets/AssetsManager.ts:69](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L69)
 
 ___
 
@@ -390,7 +390,7 @@ Promise<any>
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:104](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L104)
+[lib/core/assets/AssetsManager.ts:104](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L104)
 
 ___
 
@@ -408,7 +408,7 @@ Promise<any[]>
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:56](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L56)
+[lib/core/assets/AssetsManager.ts:56](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L56)
 
 ___
 
@@ -432,7 +432,7 @@ Pushes a new assets to load on the queue
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:33](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L33)
+[lib/core/assets/AssetsManager.ts:33](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L33)
 
 ___
 
@@ -456,7 +456,7 @@ Sets a specific data and associate it with an alias and an uri
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:140](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L140)
+[lib/core/assets/AssetsManager.ts:140](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L140)
 
 ___
 
@@ -548,7 +548,7 @@ Promise<HTMLImageElement>
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:237](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L237)
+[lib/core/assets/AssetsManager.ts:237](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L237)
 
 ___
 
@@ -572,7 +572,7 @@ Promise<any>
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:217](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L217)
+[lib/core/assets/AssetsManager.ts:217](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L217)
 
 ___
 
@@ -596,7 +596,7 @@ Promise<HTMLAudioElement>
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:185](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L185)
+[lib/core/assets/AssetsManager.ts:185](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L185)
 
 ___
 
@@ -620,4 +620,4 @@ Promise<HTMLVideoElement>
 
 #### Defined in
 
-[lib/core/assets/AssetsManager.ts:268](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/assets/AssetsManager.ts#L268)
+[lib/core/assets/AssetsManager.ts:268](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/assets/AssetsManager.ts#L268)

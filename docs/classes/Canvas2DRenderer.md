@@ -38,7 +38,7 @@ The Canvas2DRenderer class is the base class for non GPU 2d rendering.
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:13](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L13)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:13](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L13)
 
 ## Properties
 
@@ -48,7 +48,7 @@ The Canvas2DRenderer class is the base class for non GPU 2d rendering.
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:9](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L9)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:9](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L9)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:8](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L8)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:8](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L8)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:10](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L10)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:10](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L10)
 
 ## Methods
 
@@ -94,7 +94,7 @@ Adds an IDisplayObject to the rendering pipeline
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:30](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L30)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:30](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L30)
 
 ___
 
@@ -114,7 +114,7 @@ Clears the current rendering pipeline
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:38](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L38)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:38](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L38)
 
 ___
 
@@ -142,7 +142,7 @@ into the specified canvas, with the specified rendering context
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:42](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L42)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:42](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L42)
 
 ___
 
@@ -164,7 +164,7 @@ HTMLCanvasElement
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:26](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L26)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:26](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L26)
 
 ___
 
@@ -186,7 +186,7 @@ IDisplayObject[]
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:34](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L34)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:34](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L34)
 
 ___
 
@@ -208,7 +208,7 @@ CanvasRenderingContext2D|WebGLRenderingContext|WebGL2RenderingContext
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:22](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L22)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:22](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L22)
 
 ___
 
@@ -228,4 +228,4 @@ Get the number of draw calls
 
 #### Defined in
 
-[lib/core/rendering/canvas/Canvas2DRenderer.ts:18](https://github.com/thetinyspark/barista/blob/f0ed0f6e/lib/core/rendering/canvas/Canvas2DRenderer.ts#L18)
+[lib/core/rendering/canvas/Canvas2DRenderer.ts:18](https://github.com/thetinyspark/barista/blob/93f33857/lib/core/rendering/canvas/Canvas2DRenderer.ts#L18)
