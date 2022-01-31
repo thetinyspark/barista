@@ -19,22 +19,24 @@ export default class BatchTexture implements IBatch{
     public static create(objects:IDisplayObject[], maxTexturesPerBatch:number):BatchTexture[]{
         const batches = [ new BatchTexture() ]; 
         let currentBatch = batches[0];
-        objects.forEach( 
-            (object)=>{
-                const uid = object.texture.textureUid;
-                const hasUid = currentBatch.uids.has(uid);
+        let start = 0;
+        for( let i = 0; i < objects.length; i++){
+            const object = objects[i];
+            const uid = object.texture.textureUid;
+            const hasUid = currentBatch.uids.has(uid);
 
-                if( currentBatch.uids.size >= maxTexturesPerBatch && !hasUid ){
+            if( !hasUid ){
+                if( currentBatch.uids.size >= maxTexturesPerBatch ){
+                    currentBatch.objects = objects.slice(start, i); 
+                    start = i;
                     currentBatch = new BatchTexture();
                     batches.push(currentBatch);
                 }
-                
                 currentBatch.uids.add(uid);
                 currentBatch.datas.add(object.texture.data);
-                currentBatch.objects.push(object);
             }
-        ); 
-
+        }
+        currentBatch.objects = objects.slice(start); 
         return batches.filter( b => b.objects.length > 0);
     }
 
