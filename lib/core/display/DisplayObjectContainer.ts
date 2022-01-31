@@ -1,5 +1,6 @@
 import { mat2d } from "gl-matrix";
 import IRenderer from "../rendering/IRenderer";
+import { isDisplayObjectContainer } from "../utils";
 import DisplayObject from "./DisplayObject";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
@@ -106,6 +107,37 @@ export default class DisplayObjectContainer extends DisplayObject implements IDi
 
     public getChildren(): IDisplayObject[] {
         return this._children;
+    }
+
+    public getAllNestedChildrenIterative():IDisplayObject[]{
+        let objects = []; 
+        let stack:DisplayObjectContainer[] = [];
+        stack.push(this);
+        
+        while( stack.length > 0 ){
+            const container = stack.shift(); 
+            const pos = objects.indexOf(container) + 1; 
+            const after = objects.splice(pos);
+
+            for( let i = 0; i < container._children.length; i++ ){
+                const obj = container._children[i];
+                objects.push(obj); 
+                if((obj as IDisplayObjectContainer).getChildren !== undefined)
+                    stack.push(obj as DisplayObjectContainer);
+            }
+            objects = objects.concat(after);
+        }
+        return objects;
+    }
+
+    public getAllNestedChildren(collection:IDisplayObject[] = []):IDisplayObject[]{
+        for( let i = 0; i < this._children.length; i++ ){
+            const object = this._children[i];
+            collection.push(object);
+            if((object as IDisplayObjectContainer).getChildren !== undefined)
+                (object as DisplayObjectContainer).getAllNestedChildren(collection);
+        }
+        return collection;
     }
 
     public getChildIndex(child: IDisplayObject): number {

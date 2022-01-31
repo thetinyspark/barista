@@ -251,5 +251,86 @@ describe(
                 );
             }
         );
+        describe("get all nested children suite", 
+            ()=>{
+                it("shoud be able to retrieve all nested children recusively",
+                    ()=>{
+                        // when 
+                        const container1 = new DisplayObjectContainer(); 
+                        const container2 = new DisplayObjectContainer(); 
+                        const container3 = new DisplayObjectContainer(); 
+                        const object1 = new DisplayObject();
+                        const object2 = new DisplayObject();
+                        const object3 = new DisplayObject();
+                        const object4 = new DisplayObject();
+
+                        container1.addChild(container2);
+                        container1.addChild(container3);
+                        container2.addChild(object1);
+                        container3.addChild(object2);
+                        container3.addChild(object3);
+                        container3.addChild(object4);
+
+                        // using
+                        const nested = container1.getAllNestedChildren();
+
+                        // then
+                        expect(nested).toEqual(
+                            [
+                                container2, 
+                                    object1, 
+                                container3, 
+                                    object2,
+                                    object4,
+                                    object4,
+                            ]
+                        );
+                    }
+                );
+                it("shoud be able to retrieve all nested children iteratively",
+                    ()=>{
+                        // when 
+                        const container1 = new DisplayObjectContainer(); 
+                        const container2 = new DisplayObjectContainer(); 
+                        const container3 = new DisplayObjectContainer(); 
+                        const object1 = new DisplayObject();
+                        const object2 = new DisplayObject();
+                        const object3 = new DisplayObject();
+                        const object4 = new DisplayObject();
+
+                        container1.name = "container1";
+                        container2.name = "container2";
+                        container3.name = "container3";
+                        object1.name = "object1";
+                        object2.name = "object2";
+                        object3.name = "object3";
+                        object4.name = "object4";
+
+                        container1.addChild(container2);
+                        container1.addChild(container3);
+                        container2.addChild(object1);
+                        container3.addChild(object2);
+                        container3.addChild(object3);
+                        container3.addChild(object4);
+                        const expected =  [
+                            container2, 
+                                object1, 
+                            container3, 
+                                object2,
+                                object3,
+                                object4,
+                        ];
+
+                        // using
+                        const iterative = container1.getAllNestedChildrenIterative();
+                        const recursive = container1.getAllNestedChildren();
+
+                        // then
+                        expect(iterative).toEqual(expected);
+                        expect(iterative).toEqual(recursive);
+                    }
+                );
+            }
+        );
     }
 )

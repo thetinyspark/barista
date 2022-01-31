@@ -35,6 +35,10 @@ export default class Canvas2DRenderer implements IRenderer{
         return this._children;
     }
 
+    setChildren(objects:IDisplayObject[]):void {
+        this._children = objects;
+    }
+
     clear(): void {
         this._children = []; 
     }

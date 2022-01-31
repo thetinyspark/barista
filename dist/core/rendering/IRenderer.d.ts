@@ -4,7 +4,7 @@ import IDisplayObject from "../display/IDisplayObject";
  */
 export default interface IRenderer {
     /**
-     * Adds an IDisplayObject to the rendering pipeline
+     * Adds a IDisplayObject to the rendering pipeline
      * @param child IDisplayObject
      */
     add(child: IDisplayObject): void;
@@ -13,6 +13,11 @@ export default interface IRenderer {
      * @returns IDisplayObject[]
      */
     getChildren(): IDisplayObject[];
+    /**
+     * Sets the current rendering pipeline
+     * @returns void
+     */
+    setChildren(objects: IDisplayObject[]): void;
     /**
      * Clears the current rendering pipeline
      */

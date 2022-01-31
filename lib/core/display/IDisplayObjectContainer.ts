@@ -39,4 +39,8 @@ export default interface IDisplayObjectContainer extends IDisplayObject {
    * Removes all IDisplayObject children of the IDisplayObjectContainer children list.
    */
   removeChildren();
+  /**
+   * get all nested children
+   */
+  getAllNestedChildren():IDisplayObject[];
 }

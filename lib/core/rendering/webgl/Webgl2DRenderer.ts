@@ -81,6 +81,10 @@ export default class Webgl2DRenderer implements IRenderer{
         return this._children;
     }
 
+    setChildren(objects:IDisplayObject[]):void {
+        this._children = objects;
+    }
+
     clear(): void {
         this._children = []; 
     }

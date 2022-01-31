@@ -73,6 +73,7 @@ export default class DisplayObject extends Emitter implements IDisplayObject {
     transformOrigin: Point;
     parent: IDisplayObjectContainer | null;
     visible: boolean;
+    name: string;
     snapshot(): HTMLCanvasElement;
     update(worldMatrix: mat2d, worldOpacity?: number): void;
     render(renderer: IRenderer): void;

@@ -82,4 +82,8 @@ export default interface IDisplayObject extends IEmitter {
      * Says wether or not the object is visible
      */
     visible: Boolean;
+    /**
+     * The name of the IDisplayObject instance
+     */
+    name: string;
 }

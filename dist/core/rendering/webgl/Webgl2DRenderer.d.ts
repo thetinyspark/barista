@@ -21,6 +21,7 @@ export default class Webgl2DRenderer implements IRenderer {
     getCanvas(): HTMLCanvasElement;
     getContext(): CanvasRenderingContext2D | WebGLRenderingContext | WebGL2RenderingContext;
     getChildren(): IDisplayObject[];
+    setChildren(objects: IDisplayObject[]): void;
     clear(): void;
     draw(canvas: HTMLCanvasElement, context: WebGLRenderingContext): void;
     batch(children: IDisplayObject[]): BatchTexture[];

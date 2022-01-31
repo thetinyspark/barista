@@ -4,6 +4,24 @@ import IDisplayObject from "../display/IDisplayObject";
  * The Geometry class is a set of utilitaries functions.
  */
 export default class Geometry {
+    static TO_RADIANS: number;
+    /**
+     * Array of precompute degree to radians angles
+     */
+    static FAST_ANGLES: number[];
+    /**
+     * Array of precompute sinus(degree to radians angles)
+     */
+    static FAST_SIN: number[];
+    /**
+     * Array of precompute cosinus(degree to radians angles)
+     */
+    static FAST_COS: number[];
+    private static getFastAngle;
+    private static getFastSinus;
+    private static getFastCosinus;
+    static updateTransformAll(worldMatrix: any, objects: IDisplayObject[]): void;
+    static updateTransform(worldMatrix: mat2d, object: IDisplayObject): void;
     /**
      * Calculates and returns the IDisplayObject's Hitbox
      * in the world space coordinates.
