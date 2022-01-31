@@ -13,6 +13,7 @@ export default class Canvas2DRenderer implements IRenderer {
     getCanvas(): HTMLCanvasElement;
     add(child: IDisplayObject): void;
     getChildren(): IDisplayObject[];
+    setChildren(objects: IDisplayObject[]): void;
     clear(): void;
     draw(canvas: HTMLCanvasElement, context: CanvasRenderingContext2D): void;
 }

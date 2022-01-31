@@ -75,6 +75,8 @@ export default class DisplayObjectContainer extends DisplayObject implements IDi
     addChildAt(child: IDisplayObject, index: number): void;
     removeChildAt(index: number): IDisplayObject;
     getChildren(): IDisplayObject[];
+    getAllNestedChildrenIterative(): IDisplayObject[];
+    getAllNestedChildren(collection?: IDisplayObject[]): IDisplayObject[];
     getChildIndex(child: IDisplayObject): number;
     contains(child: IDisplayObject): boolean;
     removeChildren(): void;

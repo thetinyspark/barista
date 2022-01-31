@@ -99,6 +99,33 @@ class DisplayObjectContainer extends DisplayObject_1.default {
     getChildren() {
         return this._children;
     }
+    getAllNestedChildrenIterative() {
+        let objects = [];
+        let stack = [];
+        stack.push(this);
+        while (stack.length > 0) {
+            const container = stack.shift();
+            const pos = objects.indexOf(container) + 1;
+            const after = objects.splice(pos);
+            for (let i = 0; i < container._children.length; i++) {
+                const obj = container._children[i];
+                objects.push(obj);
+                if (obj.getChildren !== undefined)
+                    stack.push(obj);
+            }
+            objects = objects.concat(after);
+        }
+        return objects;
+    }
+    getAllNestedChildren(collection = []) {
+        for (let i = 0; i < this._children.length; i++) {
+            const object = this._children[i];
+            collection.push(object);
+            if (object.getChildren !== undefined)
+                object.getAllNestedChildren(collection);
+        }
+        return collection;
+    }
     getChildIndex(child) {
         return this._children.indexOf(child);
     }

@@ -166,10 +166,10 @@ export default class Stage extends DisplayObjectContainer{
 
         // clear the rendering pipeline
         this._renderer.clear();
-
+        
         // add children to rendering pipeline
         this.render(this._renderer);
-
+        
         // draw objects
         this._renderer.draw(this._renderer.getCanvas(), this._renderer.getContext());
         this.emit(StageEvent.FRAME_END, this._currentFrame);

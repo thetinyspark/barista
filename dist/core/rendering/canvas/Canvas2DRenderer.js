@@ -25,6 +25,9 @@ class Canvas2DRenderer {
     getChildren() {
         return this._children;
     }
+    setChildren(objects) {
+        this._children = objects;
+    }
     clear() {
         this._children = [];
     }

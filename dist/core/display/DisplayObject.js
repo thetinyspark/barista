@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const gl_matrix_1 = require("gl-matrix");
 const tiny_observer_1 = require("@thetinyspark/tiny-observer");
 const Canvas2DRenderer_1 = require("../rendering/canvas/Canvas2DRenderer");
+const utils_1 = require("../utils");
 /**
  * The DisplayObject class is the base class for all objects that can be placed on the display list.
  * It supports basic functionality like the x and y position of an object, as well as more advanced
@@ -72,6 +73,7 @@ class DisplayObject extends tiny_observer_1.Emitter {
         this.transformOrigin = { x: 0, y: 0 };
         this.parent = null;
         this.visible = true;
+        this.name = '';
     }
     snapshot() {
         const renderer = new Canvas2DRenderer_1.default();
@@ -90,18 +92,7 @@ class DisplayObject extends tiny_observer_1.Emitter {
         return renderer.getCanvas();
     }
     update(worldMatrix, worldOpacity = 1) {
-        gl_matrix_1.mat2d.identity(this.matrix);
-        gl_matrix_1.mat2d.translate(this.matrix, this.matrix, [
-            this.x + this.transformOrigin.x >> 0,
-            this.y + this.transformOrigin.y >> 0,
-        ]);
-        gl_matrix_1.mat2d.rotate(this.matrix, this.matrix, this.rotation * (Math.PI / 180));
-        gl_matrix_1.mat2d.scale(this.matrix, this.matrix, [this.scaleX, this.scaleY]);
-        gl_matrix_1.mat2d.translate(this.matrix, this.matrix, [
-            -this.transformOrigin.x >> 0,
-            -this.transformOrigin.y >> 0,
-        ]);
-        gl_matrix_1.mat2d.multiply(this.worldMatrix, worldMatrix, this.matrix);
+        utils_1.Geometry.updateTransform(worldMatrix, this);
         if (this.opacity > 1)
             this.opacity = 1;
         if (this.opacity < 0)

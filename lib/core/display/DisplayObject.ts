@@ -7,6 +7,7 @@ import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 import IFilter from "../filters/IFilter";
 import { Point } from "../..";
+import { Geometry } from "../utils";
 /**
  * The DisplayObject class is the base class for all objects that can be placed on the display list.
  * It supports basic functionality like the x and y position of an object, as well as more advanced
@@ -74,6 +75,7 @@ export default class DisplayObject extends Emitter implements IDisplayObject {
   public transformOrigin: Point = { x: 0, y: 0 };
   public parent: IDisplayObjectContainer | null = null;
   public visible:boolean = true;
+  public name:string = '';
 
   public snapshot(): HTMLCanvasElement {
     const renderer = new Canvas2DRenderer();
@@ -97,18 +99,7 @@ export default class DisplayObject extends Emitter implements IDisplayObject {
   }
 
   public update(worldMatrix: mat2d, worldOpacity: number = 1): void {
-    mat2d.identity(this.matrix);
-    mat2d.translate(this.matrix, this.matrix, [
-      this.x + this.transformOrigin.x>>0,
-      this.y + this.transformOrigin.y>>0,
-    ]);
-    mat2d.rotate(this.matrix, this.matrix, this.rotation * (Math.PI / 180));
-    mat2d.scale(this.matrix, this.matrix, [this.scaleX, this.scaleY]);
-    mat2d.translate(this.matrix, this.matrix, [
-      -this.transformOrigin.x>>0,
-      -this.transformOrigin.y>>0,
-    ]);
-    mat2d.multiply(this.worldMatrix, worldMatrix, this.matrix);
+    Geometry.updateTransform(worldMatrix, this);
     if (this.opacity > 1) this.opacity = 1;
     if (this.opacity < 0) this.opacity = 0;
     this.worldOpacity = worldOpacity * this.opacity;
