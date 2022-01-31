@@ -30,3 +30,5 @@ __exportStar(require("./sdk/isometric/mixins/index"), exports);
 __exportStar(require("./sdk/isometric/model/node/index"), exports);
 __exportStar(require("./sdk/isometric/utils/index"), exports);
 __exportStar(require("./sdk/isometric/view/map/index"), exports);
+const gl_matrix_1 = require("gl-matrix");
+gl_matrix_1.glMatrix.setMatrixArrayType(Array);

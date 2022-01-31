@@ -20,3 +20,6 @@ export * from "./sdk/isometric/model/node/index";
 export * from "./sdk/isometric/utils/index";
 export * from "./sdk/isometric/view/map/index";
 
+
+import { glMatrix } from "gl-matrix";
+glMatrix.setMatrixArrayType(Array);

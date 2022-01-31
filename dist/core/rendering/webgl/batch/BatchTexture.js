@@ -36,17 +36,23 @@ class BatchTexture {
     static create(objects, maxTexturesPerBatch) {
         const batches = [new BatchTexture()];
         let currentBatch = batches[0];
-        objects.forEach((object) => {
+        let start = 0;
+        for (let i = 0; i < objects.length; i++) {
+            const object = objects[i];
             const uid = object.texture.textureUid;
             const hasUid = currentBatch.uids.has(uid);
-            if (currentBatch.uids.size >= maxTexturesPerBatch && !hasUid) {
-                currentBatch = new BatchTexture();
-                batches.push(currentBatch);
+            if (!hasUid) {
+                if (currentBatch.uids.size >= maxTexturesPerBatch) {
+                    currentBatch.objects = objects.slice(start, i);
+                    start = i;
+                    currentBatch = new BatchTexture();
+                    batches.push(currentBatch);
+                }
+                currentBatch.uids.add(uid);
+                currentBatch.datas.add(object.texture.data);
             }
-            currentBatch.uids.add(uid);
-            currentBatch.datas.add(object.texture.data);
-            currentBatch.objects.push(object);
-        });
+        }
+        currentBatch.objects = objects.slice(start);
         return batches.filter(b => b.objects.length > 0);
     }
 }

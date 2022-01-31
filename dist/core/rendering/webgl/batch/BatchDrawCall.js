@@ -31,10 +31,9 @@ class BatchDrawCall {
      */
     static create(objects, maxObjectsPerBatch) {
         const batches = [];
-        const copy = objects;
-        while (copy.length > 0) {
+        while (objects.length > 0) {
             const batch = new BatchDrawCall();
-            batch.objects = copy.splice(0, maxObjectsPerBatch);
+            batch.objects = objects.splice(0, maxObjectsPerBatch);
             batch.full = batch.objects.length >= maxObjectsPerBatch;
             batches.push(batch);
         }
