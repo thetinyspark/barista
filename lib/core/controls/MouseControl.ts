@@ -65,9 +65,11 @@ export default class MouseControl{
                     return result;
             }
             else{
-                const result = Geometry.collide(x, y, current); 
-                if( result )
+                if( current.mouseEventsEnabled ){
+                    const result = Geometry.collide(x, y, current); 
+                        if( result )
                     return current;
+                }
             }
         }
         return null; 

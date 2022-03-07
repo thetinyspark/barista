@@ -76,6 +76,7 @@ export default class DisplayObject extends Emitter implements IDisplayObject {
   public parent: IDisplayObjectContainer | null = null;
   public visible:boolean = true;
   public name:string = '';
+  public mouseEventsEnabled: boolean = true;
 
   public snapshot(): HTMLCanvasElement {
     const renderer = new Canvas2DRenderer();
