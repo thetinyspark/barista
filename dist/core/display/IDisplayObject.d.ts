@@ -86,4 +86,8 @@ export default interface IDisplayObject extends IEmitter {
      * The name of the IDisplayObject instance
      */
     name: string;
+    /**
+     *  Says wether or not the object receive mouse events
+     */
+    mouseEventsEnabled: boolean;
 }

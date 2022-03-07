@@ -74,6 +74,7 @@ class DisplayObject extends tiny_observer_1.Emitter {
         this.parent = null;
         this.visible = true;
         this.name = '';
+        this.mouseEventsEnabled = true;
     }
     snapshot() {
         const renderer = new Canvas2DRenderer_1.default();
