@@ -11,6 +11,26 @@ const isser_1 = require("../utils/isser");
  */
 class MouseControl {
     constructor(stage) {
+        this._touchHandler = (e) => {
+            const canvas = this._stage.getCanvas();
+            const bounds = canvas.getBoundingClientRect();
+            const clientX = (e.touches.length == 0) ? e.changedTouches[0].clientX : e.touches[0].clientX;
+            const clientY = (e.touches.length == 0) ? e.changedTouches[0].clientY : e.touches[0].clientY;
+            const x = (clientX - bounds.x) >> 0;
+            const y = (clientY - bounds.y) >> 0;
+            e.preventDefault();
+            switch (e.type) {
+                case "touchstart":
+                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_DOWN);
+                    break;
+                case "touchend":
+                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_UP);
+                    break;
+                case "touchmove":
+                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_MOVE);
+                    break;
+            }
+        };
         this._handler = (e) => {
             const canvas = this._stage.getCanvas();
             const bounds = canvas.getBoundingClientRect();
@@ -42,6 +62,9 @@ class MouseControl {
         this._stage.getCanvas().addEventListener("mouseup", this._handler);
         this._stage.getCanvas().addEventListener("mousedown", this._handler);
         this._stage.getCanvas().addEventListener("mousemove", this._handler);
+        this._stage.getCanvas().addEventListener("touchstart", this._touchHandler);
+        this._stage.getCanvas().addEventListener("touchend", this._touchHandler);
+        this._stage.getCanvas().addEventListener("touchmove", this._touchHandler);
     }
     /**
      * Stops stage monitoring
@@ -51,6 +74,9 @@ class MouseControl {
         this._stage.getCanvas().removeEventListener("mouseup", this._handler);
         this._stage.getCanvas().removeEventListener("mousedown", this._handler);
         this._stage.getCanvas().removeEventListener("mousemove", this._handler);
+        this._stage.getCanvas().removeEventListener("touchstart", this._touchHandler);
+        this._stage.getCanvas().removeEventListener("touchend", this._touchHandler);
+        this._stage.getCanvas().removeEventListener("touchmove", this._touchHandler);
     }
     _getObjectUnderPointRecursive(x, y, container) {
         const children = container.getChildren();

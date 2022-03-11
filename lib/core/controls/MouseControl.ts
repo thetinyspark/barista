@@ -25,6 +25,9 @@ export default class MouseControl{
         this._stage.getCanvas().addEventListener("mouseup", this._handler );
         this._stage.getCanvas().addEventListener("mousedown", this._handler );
         this._stage.getCanvas().addEventListener("mousemove", this._handler );
+        this._stage.getCanvas().addEventListener("touchstart", this._touchHandler );
+        this._stage.getCanvas().addEventListener("touchend", this._touchHandler );
+        this._stage.getCanvas().addEventListener("touchmove", this._touchHandler );
     }
 
     /**
@@ -35,15 +38,34 @@ export default class MouseControl{
         this._stage.getCanvas().removeEventListener("mouseup", this._handler );
         this._stage.getCanvas().removeEventListener("mousedown", this._handler );
         this._stage.getCanvas().removeEventListener("mousemove", this._handler );
+        this._stage.getCanvas().removeEventListener("touchstart", this._touchHandler );
+        this._stage.getCanvas().removeEventListener("touchend", this._touchHandler );
+        this._stage.getCanvas().removeEventListener("touchmove", this._touchHandler );
     }
+
+    private _touchHandler = (e:TouchEvent) =>{
+        const canvas = this._stage.getCanvas(); 
+        const bounds = canvas.getBoundingClientRect();
+        
+        const clientX = (e.touches.length == 0) ? e.changedTouches[0].clientX : e.touches[0].clientX;
+        const clientY = (e.touches.length == 0) ? e.changedTouches[0].clientY : e.touches[0].clientY;
+
+        const x:number = ( clientX - bounds.x ) >> 0;
+        const y:number = ( clientY - bounds.y ) >> 0;
+
+        e.preventDefault();
+        switch( e.type ){
+            case "touchstart": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_DOWN); break;
+            case "touchend":this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_UP); break;
+            case "touchmove": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_MOVE); break;
+        }
+    };
 
     private _handler = (e:MouseEvent)=>{
         const canvas = this._stage.getCanvas(); 
         const bounds = canvas.getBoundingClientRect();
         const x:number = ( e.clientX - bounds.x ) >> 0;
         const y:number = ( e.clientY - bounds.y ) >> 0;
-        
-
 
         switch( e.type ){
             case "click": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_CLICK); break;

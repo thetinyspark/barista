@@ -16,6 +16,7 @@ export default class MouseControl {
      * Stops stage monitoring
      */
     deactivate(): void;
+    private _touchHandler;
     private _handler;
     private _getObjectUnderPointRecursive;
     /**
