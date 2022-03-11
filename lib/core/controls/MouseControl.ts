@@ -23,8 +23,11 @@ export default class MouseControl{
         this.deactivate();
         this._stage.getCanvas().addEventListener("click", this._handler );
         this._stage.getCanvas().addEventListener("mouseup", this._handler );
+        this._stage.getCanvas().addEventListener("touchend", this._handler );
         this._stage.getCanvas().addEventListener("mousedown", this._handler );
+        this._stage.getCanvas().addEventListener("touchdown", this._handler );
         this._stage.getCanvas().addEventListener("mousemove", this._handler );
+        this._stage.getCanvas().addEventListener("touchmove", this._handler );
     }
 
     /**
@@ -33,8 +36,11 @@ export default class MouseControl{
     public deactivate():void{
         this._stage.getCanvas().removeEventListener("click", this._handler );
         this._stage.getCanvas().removeEventListener("mouseup", this._handler );
+        this._stage.getCanvas().removeEventListener("touchend", this._handler );
         this._stage.getCanvas().removeEventListener("mousedown", this._handler );
+        this._stage.getCanvas().removeEventListener("touchdown", this._handler );
         this._stage.getCanvas().removeEventListener("mousemove", this._handler );
+        this._stage.getCanvas().removeEventListener("touchmove", this._handler );
     }
 
     private _handler = (e:MouseEvent)=>{
@@ -48,8 +54,11 @@ export default class MouseControl{
         switch( e.type ){
             case "click": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_CLICK); break;
             case "mouseup":this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_UP); break;
+            case "touchend":this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_UP); break;
             case "mousedown": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_DOWN); break;
+            case "touchdown": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_DOWN); break;
             case "mousemove": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_MOVE); break;
+            case "touchmove": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_MOVE); break;
         }
         
     }
