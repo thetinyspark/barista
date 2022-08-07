@@ -51,6 +51,7 @@ class Animation extends DisplayObject_1.default {
     clearFrames() {
         this._currentFrameIndex = 0;
         this._framesTextures = [];
+        this._framesOffset = [];
     }
     /**
      * Sets the texture for the frame index passed in params
@@ -59,6 +60,27 @@ class Animation extends DisplayObject_1.default {
      */
     setFrameTexture(frameIndex, texture) {
         this._framesTextures[frameIndex] = texture;
+    }
+    /**
+     * Sets the texture for the frame index passed in params
+     * @param frameIndex the frame index
+     * @param offsetX  the offsetX associated to the frame index
+     * @param offsetY  the offsetX associated to the frame index
+     */
+    setFrameOffset(frameIndex, offsetX, offsetY) {
+        this._framesOffset[frameIndex] = { offsetX, offsetY };
+    }
+    /**
+     * Returns the current frame texture if it exists
+     * @returns a Texture object or null
+     */
+    getCurrentFrameOffset() {
+        let current = this.getFrameOffset(this.getCurrentFrameIndex());
+        if (current === null && this._forwarding)
+            current = this.getPreviousDefinedFrameOffset(this.getCurrentFrameIndex());
+        else if (current === null && !this._forwarding)
+            current = this.getNextDefinedFrameOffset(this.getCurrentFrameIndex());
+        return current;
     }
     /**
      * Returns the current frame texture if it exists
@@ -81,6 +103,14 @@ class Animation extends DisplayObject_1.default {
         return this._framesTextures[frameIndex] || null;
     }
     /**
+     * Returns the frame offsets at a specific index if it exists
+     * @param frameIndex the specific frame index
+     * @returns an object
+     */
+    getFrameOffset(frameIndex) {
+        return this._framesOffset[frameIndex] || null;
+    }
+    /**
      * Returns the closest defined frame texture( if it exists)
      * before the specific frame index.
      * @param frameIndex the specific frame index
@@ -92,6 +122,19 @@ class Animation extends DisplayObject_1.default {
             texture = this.getFrameTexture(frameIndex--);
         }
         return texture;
+    }
+    /**
+     * Returns the closest defined frame offset( if it exists)
+     * before the specific frame index.
+     * @param frameIndex the specific frame index
+     * @returns an object with offsetX & offsetY or null
+     */
+    getPreviousDefinedFrameOffset(frameIndex) {
+        let offset = null;
+        while (offset === null && frameIndex > -1) {
+            offset = this.getFrameOffset(frameIndex--);
+        }
+        return offset;
     }
     /**
      * Returns the closest defined frame texture( if it exists)
@@ -107,11 +150,31 @@ class Animation extends DisplayObject_1.default {
         return texture;
     }
     /**
+     * Returns the closest defined frame offset( if it exists)
+     * after the specific frame index.
+     * @param frameIndex the specific frame index
+     * @returns an object with offsetX & offsetY or null
+     */
+    getNextDefinedFrameOffset(frameIndex) {
+        let offset = null;
+        while (offset === null && frameIndex <= this.getLastFrameIndex()) {
+            offset = this.getFrameOffset(frameIndex++);
+        }
+        return offset;
+    }
+    /**
      * Removes the frame texture at a specific index
      * @param frameIndex the specific index
      */
     removeFrameTexture(frameIndex) {
         this._framesTextures[frameIndex] = null;
+    }
+    /**
+     * Removes the frame offset at a specific index
+     * @param frameIndex the specific index
+     */
+    removeFrameOffset(frameIndex) {
+        this._framesOffset[frameIndex] = null;
     }
     /**
      * @returns number the animation length (num frames)
@@ -146,6 +209,11 @@ class Animation extends DisplayObject_1.default {
         }
         this._currentFrameIndex = frameIndex;
         this.texture = this.getCurrentFrameTexture();
+        const offset = this.getCurrentFrameOffset();
+        if (offset !== null) {
+            this.offsetX = offset.offsetX;
+            this.offsetY = offset.offsetY;
+        }
         this.emit(AnimationEvent.PLAY_FRAME, this._currentFrameIndex);
     }
     /**
