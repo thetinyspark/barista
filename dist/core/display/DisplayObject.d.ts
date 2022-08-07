@@ -61,8 +61,6 @@ export default class DisplayObject extends Emitter implements IDisplayObject {
     texture: Texture | null;
     worldMatrix: mat2d;
     matrix: mat2d;
-    offsetX: number;
-    offsetY: number;
     x: number;
     y: number;
     opacity: number;

@@ -1,6 +1,7 @@
 import IRenderer from "../rendering/IRenderer";
 import Texture from "../texture/Texture";
-import DisplayObject from "./DisplayObject";
+import AnimationFrameData from "./AnimationFrameData";
+import DisplayObjectContainer from "./DisplayObjectContainer";
 /**
  * The Animation class is the base class for all animations that can be placed on the display list.
  * It supports basic functionality like play, rewind, stop, loop the animations.
@@ -8,13 +9,13 @@ import DisplayObject from "./DisplayObject";
  * Everytime the render method is called, the currentFrameIndex is increased or decreased
  * depending on animation length, animation way (backward||forward)
  */
-export default class Animation extends DisplayObject {
-    private _framesOffset;
-    private _framesTextures;
+export default class Animation extends DisplayObjectContainer {
+    private _frames;
     private _currentFrameIndex;
     private _playing;
     private _forwarding;
     loop: boolean;
+    constructor();
     /**
      * Plays the animation forward
      */
@@ -33,90 +34,41 @@ export default class Animation extends DisplayObject {
      */
     clearFrames(): void;
     /**
-     * Sets the texture for the frame index passed in params
+     * Sets frame data for the frame index passed in params
      * @param frameIndex the frame index
-     * @param texture  the texture associated to the frame index
+     * @param frameData  the AnimationFrameData associated to the frame index
      */
-    setFrameTexture(frameIndex: number, texture: Texture): void;
+    setFrameAt(frameIndex: number, frameData: AnimationFrameData): void;
     /**
-     * Sets the texture for the frame index passed in params
-     * @param frameIndex the frame index
-     * @param offsetX  the offsetX associated to the frame index
-     * @param offsetY  the offsetX associated to the frame index
-     */
-    setFrameOffset(frameIndex: number, offsetX: number, offsetY: number): void;
-    /**
-     * Returns the current frame texture if it exists
-     * @returns a Texture object or null
-     */
-    getCurrentFrameOffset(): {
-        offsetX: number;
-        offsetY: number;
-    };
-    /**
-     * Returns the current frame texture if it exists
-     * @returns a Texture object or null
-     */
-    getCurrentFrameTexture(): Texture | null;
-    /**
-     * Returns the frame texture at a specific index if it exists
+     * Returns the frame data at a specific index if it exists
      * @param frameIndex the specific frame index
-     * @returns a Texture object or null
+     * @returns an AnimationFrameData object or null
      */
-    getFrameTexture(frameIndex: number): Texture | null;
+    getFrameAt(frameIndex: number): AnimationFrameData | null;
     /**
-     * Returns the frame offsets at a specific index if it exists
-     * @param frameIndex the specific frame index
-     * @returns an object
+     * Returns the current frame data if it exists
+     * @returns an AnimationFrameData object or null
      */
-    getFrameOffset(frameIndex: number): {
-        offsetX: number;
-        offsetY: number;
-    } | null;
+    getCurrentFrame(): AnimationFrameData | null;
     /**
-     * Returns the closest defined frame texture( if it exists)
+     * Returns the closest defined frame data( if it exists)
      * before the specific frame index.
      * @param frameIndex the specific frame index
-     * @returns a Texture object or null
+     * @returns an AnimationFrameData object or null
      */
-    getPreviousDefinedFrameTexture(frameIndex: number): Texture | null;
+    getPreviousDefinedFrameAt(frameIndex: number): AnimationFrameData | null;
     /**
-     * Returns the closest defined frame offset( if it exists)
-     * before the specific frame index.
-     * @param frameIndex the specific frame index
-     * @returns an object with offsetX & offsetY or null
-     */
-    getPreviousDefinedFrameOffset(frameIndex: number): {
-        offsetX: number;
-        offsetY: number;
-    } | null;
-    /**
-     * Returns the closest defined frame texture( if it exists)
+     * Returns the closest defined frame data( if it exists)
      * after the specific frame index.
      * @param frameIndex the specific frame index
-     * @returns a Texture object or null
+     * @returns an AnimationFrameData object or null
      */
-    getNextDefinedFrameTexture(frameIndex: number): Texture | null;
+    getNextDefinedFrameAt(frameIndex: number): AnimationFrameData | null;
     /**
-     * Returns the closest defined frame offset( if it exists)
-     * after the specific frame index.
-     * @param frameIndex the specific frame index
-     * @returns an object with offsetX & offsetY or null
-     */
-    getNextDefinedFrameOffset(frameIndex: number): {
-        offsetX: number;
-        offsetY: number;
-    } | null;
-    /**
-     * Removes the frame texture at a specific index
+     * Removes the frame data at a specific index
      * @param frameIndex the specific index
      */
-    removeFrameTexture(frameIndex: number): void;
-    /**
-     * Removes the frame offset at a specific index
-     * @param frameIndex the specific index
-     */
-    removeFrameOffset(frameIndex: number): void;
+    removeFrameAt(frameIndex: number): void;
     /**
      * @returns number the animation length (num frames)
      */

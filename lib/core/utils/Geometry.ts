@@ -82,8 +82,8 @@ export default class Geometry{
             omat[1] = s * v0;
             omat[2] = -s * v1;
             omat[3] = c * v1;
-            omat[4] = omat[0] * -p0 + omat[2] * -p1 + object.x + object.offsetX + p0;
-            omat[5] = omat[1] * -p0 + omat[3] * -p1 + object.y + object.offsetY + p1;
+            omat[4] = omat[0] * -p0 + omat[2] * -p1 + object.x + p0;
+            omat[5] = omat[1] * -p0 + omat[3] * -p1 + object.y + p1;
 
             // multiply world matrix
             if( object.parent !== lastparent ){
@@ -129,8 +129,8 @@ export default class Geometry{
         omat[1] = 0;
         omat[2] = 0;
         omat[3] = 1;
-        omat[4] = object.x + object.offsetX + object.transformOrigin.x>>0;
-        omat[5] = object.y + object.offsetY + object.transformOrigin.y>>0;
+        omat[4] = object.x + object.transformOrigin.x>>0;
+        omat[5] = object.y + object.transformOrigin.y>>0;
 
         // rotate 
         a0 = omat[0]; a1 = omat[1]; a2 = omat[2];

@@ -3,6 +3,7 @@ import Texture from "../../../lib/core/texture/Texture";
 import IRenderer from "../../../lib/core/rendering/IRenderer";
 import TextureData from "../../../lib/core/texture/TextureData";
 import Canvas2DRenderer from "../../../lib/core/rendering/canvas/Canvas2DRenderer";
+import AnimationFrameData from "../../../lib/core/display/AnimationFrameData";
 describe("Animation test suite",
 ()=>{
     
@@ -10,6 +11,29 @@ describe("Animation test suite",
     const animation:Animation = new Animation();
     const texture:Texture = new Texture("texture", new TextureData(data) );
     const fakeRenderer:IRenderer = new Canvas2DRenderer();
+    const frame1:AnimationFrameData = {
+        name: "first", 
+        index: 0, 
+        width: 100, 
+        height: 100, 
+        offsetX: 100, 
+        offsetY: 100,
+        originalWidth: 100,
+        originalHeight: 100,
+        texture: null
+    };
+
+    const frame2:AnimationFrameData = {
+        name: "second", 
+        index: 0, 
+        width: 100, 
+        height: 100, 
+        offsetX: 100, 
+        offsetY: 100,
+        originalWidth: 100,
+        originalHeight: 100,
+        texture: null
+    };
 
     beforeEach(
         ()=>{
@@ -24,120 +48,125 @@ describe("Animation test suite",
         expect(animation).toBeTruthy();
     }); 
 
-    it("should be able to set and retrieve a texture for a specific frame",
+    it("should be able to set and retrieve an AnimationFrameData for a specific frame",
     ()=>{
-        animation.setFrameTexture(0, texture);
-        animation.setFrameTexture(1, texture);
-        animation.setFrameTexture(2, texture);
-        expect( animation.getFrameTexture(0) ).toBe(texture); 
-        expect( animation.getFrameTexture(1) ).toBe(texture); 
-        expect( animation.getFrameTexture(2) ).toBe(texture); 
+        // given
+
+        // when
+        animation.setFrameAt(0, frame1);
+        animation.setFrameAt(10, frame2);
+
+        // then
+        expect( animation.getFrameAt(0) ).toBe(frame1); 
+        expect( animation.getFrameAt(10) ).toBe(frame2); 
+        expect( animation.getFrameAt(5) ).toBeNull(); 
+        expect( frame1.index ).toEqual(0);
+        expect( frame2.index ).toEqual(10);
+    });
+    
+    it("should be able to remove an AnimationFrameData for a specific frame",
+    ()=>{
+        animation.setFrameAt(1, frame1);
+        animation.removeFrameAt(1);
+        expect( animation.getFrameAt(1) ).toBeNull();
     });
 
-    it("should be able to remove a texture for a specific frame",
+    it("should be able to give animation length based on last defined frame",
     ()=>{
-        animation.setFrameTexture(1, texture);
-        animation.removeFrameTexture(1);
-        expect( animation.getFrameTexture(1) ).toBeNull();
+        animation.setFrameAt(2, frame1);
+        animation.setFrameAt(20, frame2);
+        expect( animation.getAnimationLength() ).toEqual(21); // <-- cause it's based on 0
     });
 
-    it("should be able to give animation length based on last defined frame texture",
+    it("should be able to give last frame index based on last defined frame",
     ()=>{
-        animation.setFrameTexture(9, texture);
-        animation.setFrameTexture(10, texture);
-        expect( animation.getAnimationLength() ).toEqual(11); // <-- cause it's based on 0
-    });
-
-    it("should be able to give last frame index based on last defined frame texture",
-    ()=>{
-        animation.setFrameTexture(9, texture);
-        animation.setFrameTexture(10, texture);
+        animation.setFrameAt(9, frame1);
+        animation.setFrameAt(10, frame2);
         expect( animation.getLastFrameIndex() ).toEqual(10);
-    });
-
-    it("should returns null if frameindex is not good",
-    ()=>{
-        expect( animation.getFrameTexture(1) ).toBeNull(); 
     });
 
     it("should be able to clear all frames", 
     ()=>{
-        animation.setFrameTexture(9, texture);
-        animation.setFrameTexture(10, texture);
+        animation.setFrameAt(9, frame1);
+        animation.setFrameAt(10, frame2);
         animation.clearFrames();
         expect(animation.getAnimationLength()).toEqual(0);
-    })
+    }); 
 
-    it( "should returns the previous defined texture for a specific frame index", 
+    it( "should returns the previous defined framedata for a specific frame index", 
     ()=>{
-        animation.setFrameTexture(1, texture);
-        const result:Texture|null = animation.getPreviousDefinedFrameTexture(10);
-        expect(result).toBe(texture);
+        animation.setFrameAt(1, frame1);
+        const result:AnimationFrameData|null = animation.getPreviousDefinedFrameAt(10);
+        expect(result).toBe(frame1);
     });
 
-    it( "should return null if there's no previous defined frame texture", 
+    it( "should return null if there's no previous defined frame data", 
     ()=>{
-        const result:Texture|null = animation.getPreviousDefinedFrameTexture(1);
+        const result:AnimationFrameData|null = animation.getPreviousDefinedFrameAt(1);
         expect(result).toBeNull();
     });
 
-    it( "should returns the next defined texture for a specific frame index", 
+    it( "should returns the next defined frame for a specific frame index", 
     ()=>{
-        animation.setFrameTexture(10, texture);
-        const result:Texture|null = animation.getNextDefinedFrameTexture(1);
-        expect(result).toBe(texture);
+        animation.setFrameAt(10, frame1);
+        const result:AnimationFrameData|null = animation.getNextDefinedFrameAt(1);
+        expect(result).toBe(frame1);
     });
 
-    it( "should return null if there's no next defined frame texture", 
+    it( "should return null if there's no next defined frame", 
     ()=>{
-        const result:Texture|null = animation.getNextDefinedFrameTexture(10);
+        const result:AnimationFrameData|null = animation.getNextDefinedFrameAt(10);
         expect(result).toBeNull();
     });
 
+    it("should be able to return the current frame data", 
+    ()=>{
+        const sub = texture.createSubTexture("sub",0,0,50,50);
+        animation.setFrameAt(0, frame1);
+        animation.setFrameAt(1, frame1);
+        animation.setFrameAt(2, frame1);
+        animation.setFrameAt(3, frame2);
+        animation.setFrameAt(4, frame1);
+        animation.goToFrame(3);
+        expect(animation.getCurrentFrame()).toBe(frame2);
+    }); 
+
+
+    it("should returns null if frameindex is not good",
+    ()=>{
+        expect( animation.getFrameAt(1) ).toBeNull(); 
+    });
 
     it("should be able to go a specific frame", 
     ()=>{
-        animation.setFrameTexture(0, texture);
-        animation.setFrameTexture(1, texture);
-        animation.setFrameTexture(2, texture);
-        animation.setFrameTexture(3, texture);
-        animation.setFrameTexture(4, texture);
+        animation.setFrameAt(0, frame1);
+        animation.setFrameAt(1, frame1);
+        animation.setFrameAt(2, frame1);
+        animation.setFrameAt(3, frame1);
+        animation.setFrameAt(4, frame1);
         animation.goToFrame(3);
         expect(animation.getCurrentFrameIndex()).toEqual(3);
     }); 
 
-    it("should be able to return the current frame texture", 
+    it("should return the previous framedata if current is null and play forward", 
     ()=>{
-        const sub = texture.createSubTexture("sub",0,0,50,50);
-        animation.setFrameTexture(0, texture);
-        animation.setFrameTexture(1, texture);
-        animation.setFrameTexture(2, texture);
-        animation.setFrameTexture(3, sub);
-        animation.setFrameTexture(4, texture);
-        animation.goToFrame(3);
-        expect(animation.getCurrentFrameTexture()).toBe(sub);
-    }); 
-
-    it("should return the previous texture if current is null and play forward", 
-    ()=>{
-        const sub = texture.createSubTexture("sub",0,0,50,50);
-        animation.setFrameTexture(0, texture);
-        animation.setFrameTexture(1, texture);
-        animation.setFrameTexture(2, sub);
-        animation.setFrameTexture(4, texture);
+        animation.setFrameAt(0, frame1);
+        animation.setFrameAt(1, frame1);
+        animation.setFrameAt(2, frame2);
+        animation.setFrameAt(4, frame1);
         animation.play();
         animation.goToFrame(3);
-        expect(animation.getCurrentFrameTexture()).toBe(sub);
+        expect(animation.getCurrentFrame()).toBe(frame2);
     })
 
     it("should be able to play an animation forward", 
     ()=>{        
         // given 
-        animation.setFrameTexture(0, texture);
-        animation.setFrameTexture(1, texture);
-        animation.setFrameTexture(2, texture);
-        animation.setFrameTexture(3, texture);
-        animation.setFrameTexture(4, texture);
+        animation.setFrameAt(0, frame1);
+        animation.setFrameAt(1, frame1);
+        animation.setFrameAt(2, frame1);
+        animation.setFrameAt(3, frame1);
+        animation.setFrameAt(4, frame1);
 
         // when
         animation.play(); 
@@ -155,11 +184,11 @@ describe("Animation test suite",
     it("should be able to play an animation backward", 
     ()=>{        
         // given 
-        animation.setFrameTexture(0, texture);
-        animation.setFrameTexture(1, texture);
-        animation.setFrameTexture(2, texture);
-        animation.setFrameTexture(3, texture);
-        animation.setFrameTexture(4, texture);
+        animation.setFrameAt(0, frame1);
+        animation.setFrameAt(1, frame1);
+        animation.setFrameAt(2, frame1);
+        animation.setFrameAt(3, frame1);
+        animation.setFrameAt(4, frame1);
 
         // when
         animation.goToFrame(4);
@@ -178,11 +207,11 @@ describe("Animation test suite",
     it("should be able to stop an animation", 
     ()=>{        
         // given 
-        animation.setFrameTexture(0, texture);
-        animation.setFrameTexture(1, texture);
-        animation.setFrameTexture(2, texture);
-        animation.setFrameTexture(3, texture);
-        animation.setFrameTexture(4, texture);
+        animation.setFrameAt(0, frame1);
+        animation.setFrameAt(1, frame1);
+        animation.setFrameAt(2, frame1);
+        animation.setFrameAt(3, frame1);
+        animation.setFrameAt(4, frame1);
 
         // when
         animation.goToFrame(4);
@@ -202,11 +231,11 @@ describe("Animation test suite",
     it("should be able to loop an animation", 
     ()=>{        
         // given 
-        animation.setFrameTexture(0, texture);
-        animation.setFrameTexture(1, texture);
-        animation.setFrameTexture(2, texture);
-        animation.setFrameTexture(3, texture);
-        animation.setFrameTexture(4, texture);
+        animation.setFrameAt(0, frame1);
+        animation.setFrameAt(1, frame1);
+        animation.setFrameAt(2, frame1);
+        animation.setFrameAt(3, frame1);
+        animation.setFrameAt(4, frame1);
 
         // when
         animation.loop = true;
@@ -229,11 +258,11 @@ describe("Animation test suite",
             currentFrame = animation.getCurrentFrameIndex()
         };
 
-        animation.setFrameTexture(0, texture);
-        animation.setFrameTexture(1, texture);
-        animation.setFrameTexture(2, texture);
-        animation.setFrameTexture(3, texture);
-        animation.setFrameTexture(4, texture);
+        animation.setFrameAt(0, frame1);
+        animation.setFrameAt(1, frame1);
+        animation.setFrameAt(2, frame1);
+        animation.setFrameAt(3, frame1);
+        animation.setFrameAt(4, frame1);
 
         // when
         animation.loop = true;
@@ -264,7 +293,7 @@ describe("Animation test suite",
         expect(anim).toBeTruthy();
         desc.forEach(
             (frameconfig)=>{
-                expect(anim.getFrameTexture(frameconfig.frame)).toBe(frameconfig.texture);
+                expect(anim.getFrameAt(frameconfig.frame)?.texture).toBe(frameconfig.texture);
             }
         );
     });

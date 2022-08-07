@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AnimationEvent = void 0;
+const AnimationFrameData_1 = require("./AnimationFrameData");
 const DisplayObject_1 = require("./DisplayObject");
+const DisplayObjectContainer_1 = require("./DisplayObjectContainer");
 /**
  * The Animation class is the base class for all animations that can be placed on the display list.
  * It supports basic functionality like play, rewind, stop, loop the animations.
@@ -9,15 +11,15 @@ const DisplayObject_1 = require("./DisplayObject");
  * Everytime the render method is called, the currentFrameIndex is increased or decreased
  * depending on animation length, animation way (backward||forward)
  */
-class Animation extends DisplayObject_1.default {
+class Animation extends DisplayObjectContainer_1.default {
     constructor() {
-        super(...arguments);
-        this._framesOffset = [];
-        this._framesTextures = [];
+        super();
+        this._frames = [];
         this._currentFrameIndex = 0;
         this._playing = false;
         this._forwarding = true;
         this.loop = false;
+        this.addChild(new DisplayObject_1.default());
     }
     /**
      * Plays the animation forward
@@ -51,137 +53,75 @@ class Animation extends DisplayObject_1.default {
      */
     clearFrames() {
         this._currentFrameIndex = 0;
-        this._framesTextures = [];
-        this._framesOffset = [];
+        this._frames = [];
     }
     /**
-     * Sets the texture for the frame index passed in params
+     * Sets frame data for the frame index passed in params
      * @param frameIndex the frame index
-     * @param texture  the texture associated to the frame index
+     * @param frameData  the AnimationFrameData associated to the frame index
      */
-    setFrameTexture(frameIndex, texture) {
-        this._framesTextures[frameIndex] = texture;
+    setFrameAt(frameIndex, frameData) {
+        frameData.index = frameIndex;
+        this._frames[frameIndex] = frameData;
     }
     /**
-     * Sets the texture for the frame index passed in params
-     * @param frameIndex the frame index
-     * @param offsetX  the offsetX associated to the frame index
-     * @param offsetY  the offsetX associated to the frame index
+     * Returns the frame data at a specific index if it exists
+     * @param frameIndex the specific frame index
+     * @returns an AnimationFrameData object or null
      */
-    setFrameOffset(frameIndex, offsetX, offsetY) {
-        this._framesOffset[frameIndex] = { offsetX, offsetY };
+    getFrameAt(frameIndex) {
+        return this._frames[frameIndex] || null;
     }
     /**
-     * Returns the current frame texture if it exists
-     * @returns a Texture object or null
+     * Returns the current frame data if it exists
+     * @returns an AnimationFrameData object or null
      */
-    getCurrentFrameOffset() {
-        let current = this.getFrameOffset(this.getCurrentFrameIndex());
+    getCurrentFrame() {
+        let current = this.getFrameAt(this.getCurrentFrameIndex());
         if (current === null && this._forwarding)
-            current = this.getPreviousDefinedFrameOffset(this.getCurrentFrameIndex());
+            current = this.getPreviousDefinedFrameAt(this.getCurrentFrameIndex());
         else if (current === null && !this._forwarding)
-            current = this.getNextDefinedFrameOffset(this.getCurrentFrameIndex());
+            current = this.getNextDefinedFrameAt(this.getCurrentFrameIndex());
         return current;
     }
     /**
-     * Returns the current frame texture if it exists
-     * @returns a Texture object or null
-     */
-    getCurrentFrameTexture() {
-        let current = this.getFrameTexture(this.getCurrentFrameIndex());
-        if (current === null && this._forwarding)
-            current = this.getPreviousDefinedFrameTexture(this.getCurrentFrameIndex());
-        else if (current === null && !this._forwarding)
-            current = this.getNextDefinedFrameTexture(this.getCurrentFrameIndex());
-        return current;
-    }
-    /**
-     * Returns the frame texture at a specific index if it exists
-     * @param frameIndex the specific frame index
-     * @returns a Texture object or null
-     */
-    getFrameTexture(frameIndex) {
-        return this._framesTextures[frameIndex] || null;
-    }
-    /**
-     * Returns the frame offsets at a specific index if it exists
-     * @param frameIndex the specific frame index
-     * @returns an object
-     */
-    getFrameOffset(frameIndex) {
-        return this._framesOffset[frameIndex] || null;
-    }
-    /**
-     * Returns the closest defined frame texture( if it exists)
+     * Returns the closest defined frame data( if it exists)
      * before the specific frame index.
      * @param frameIndex the specific frame index
-     * @returns a Texture object or null
+     * @returns an AnimationFrameData object or null
      */
-    getPreviousDefinedFrameTexture(frameIndex) {
-        let texture = null;
-        while (texture === null && frameIndex > -1) {
-            texture = this.getFrameTexture(frameIndex--);
+    getPreviousDefinedFrameAt(frameIndex) {
+        let frame = null;
+        while (frame === null && frameIndex > -1) {
+            frame = this.getFrameAt(frameIndex--);
         }
-        return texture;
+        return frame;
     }
     /**
-     * Returns the closest defined frame offset( if it exists)
-     * before the specific frame index.
-     * @param frameIndex the specific frame index
-     * @returns an object with offsetX & offsetY or null
-     */
-    getPreviousDefinedFrameOffset(frameIndex) {
-        let offset = null;
-        while (offset === null && frameIndex > -1) {
-            offset = this.getFrameOffset(frameIndex--);
-        }
-        return offset;
-    }
-    /**
-     * Returns the closest defined frame texture( if it exists)
+     * Returns the closest defined frame data( if it exists)
      * after the specific frame index.
      * @param frameIndex the specific frame index
-     * @returns a Texture object or null
+     * @returns an AnimationFrameData object or null
      */
-    getNextDefinedFrameTexture(frameIndex) {
-        let texture = null;
-        while (texture === null && frameIndex <= this.getLastFrameIndex()) {
-            texture = this.getFrameTexture(frameIndex++);
+    getNextDefinedFrameAt(frameIndex) {
+        let frame = null;
+        while (frame === null && frameIndex <= this.getLastFrameIndex()) {
+            frame = this.getFrameAt(frameIndex++);
         }
-        return texture;
+        return frame;
     }
     /**
-     * Returns the closest defined frame offset( if it exists)
-     * after the specific frame index.
-     * @param frameIndex the specific frame index
-     * @returns an object with offsetX & offsetY or null
-     */
-    getNextDefinedFrameOffset(frameIndex) {
-        let offset = null;
-        while (offset === null && frameIndex <= this.getLastFrameIndex()) {
-            offset = this.getFrameOffset(frameIndex++);
-        }
-        return offset;
-    }
-    /**
-     * Removes the frame texture at a specific index
+     * Removes the frame data at a specific index
      * @param frameIndex the specific index
      */
-    removeFrameTexture(frameIndex) {
-        this._framesTextures[frameIndex] = null;
-    }
-    /**
-     * Removes the frame offset at a specific index
-     * @param frameIndex the specific index
-     */
-    removeFrameOffset(frameIndex) {
-        this._framesOffset[frameIndex] = null;
+    removeFrameAt(frameIndex) {
+        this._frames[frameIndex] = null;
     }
     /**
      * @returns number the animation length (num frames)
      */
     getAnimationLength() {
-        return this._framesTextures.length;
+        return this._frames.length;
     }
     /**
      * @returns number The last valid frame index (0-based)
@@ -209,12 +149,13 @@ class Animation extends DisplayObject_1.default {
             frameIndex = (frameIndex < 0) ? 0 : frameIndex;
         }
         this._currentFrameIndex = frameIndex;
-        this.texture = this.getCurrentFrameTexture();
-        const offset = this.getCurrentFrameOffset();
-        if (offset !== null) {
-            this.offsetX = offset.offsetX;
-            this.offsetY = offset.offsetY;
-        }
+        const frame = this.getCurrentFrame();
+        const child = this.getChildren()[0];
+        child.texture = frame.texture;
+        child.width = frame.width;
+        child.height = frame.height;
+        child.x = frame.offsetX;
+        child.y = frame.offsetY;
         this.emit(AnimationEvent.PLAY_FRAME, this._currentFrameIndex);
     }
     /**
@@ -225,7 +166,13 @@ class Animation extends DisplayObject_1.default {
     static createFromTexturesAndFrames(desc) {
         const anim = new Animation();
         desc.forEach((frameConfig) => {
-            anim.setFrameTexture(frameConfig.frame, frameConfig.texture);
+            const data = new AnimationFrameData_1.default();
+            data.width = frameConfig.texture.sw;
+            data.height = frameConfig.texture.sh;
+            data.originalWidth = data.width;
+            data.originalHeight = data.height;
+            data.texture = frameConfig.texture;
+            anim.setFrameAt(frameConfig.frame, data);
         });
         return anim;
     }

@@ -61,8 +61,6 @@ class DisplayObject extends tiny_observer_1.Emitter {
         this.texture = null;
         this.worldMatrix = gl_matrix_1.mat2d.create();
         this.matrix = gl_matrix_1.mat2d.create();
-        this.offsetX = 0;
-        this.offsetY = 0;
         this.x = 0;
         this.y = 0;
         this.opacity = 1;
