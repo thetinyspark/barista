@@ -10,7 +10,7 @@ import DisplayObject from "./DisplayObject";
  */
 export default class Animation extends DisplayObject{
 
-    private _framesOffset:{offsetX:number, offsetY:number}[];
+    private _framesOffset:{offsetX:number, offsetY:number}[] = [];
     private _framesTextures:Texture[] = [];
     private _currentFrameIndex:number = 0;
     private _playing:boolean = false; 

@@ -12,6 +12,7 @@ const DisplayObject_1 = require("./DisplayObject");
 class Animation extends DisplayObject_1.default {
     constructor() {
         super(...arguments);
+        this._framesOffset = [];
         this._framesTextures = [];
         this._currentFrameIndex = 0;
         this._playing = false;
