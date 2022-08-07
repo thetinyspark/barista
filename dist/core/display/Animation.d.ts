@@ -9,6 +9,7 @@ import DisplayObject from "./DisplayObject";
  * depending on animation length, animation way (backward||forward)
  */
 export default class Animation extends DisplayObject {
+    private _framesOffset;
     private _framesTextures;
     private _currentFrameIndex;
     private _playing;
@@ -38,6 +39,21 @@ export default class Animation extends DisplayObject {
      */
     setFrameTexture(frameIndex: number, texture: Texture): void;
     /**
+     * Sets the texture for the frame index passed in params
+     * @param frameIndex the frame index
+     * @param offsetX  the offsetX associated to the frame index
+     * @param offsetY  the offsetX associated to the frame index
+     */
+    setFrameOffset(frameIndex: number, offsetX: number, offsetY: number): void;
+    /**
+     * Returns the current frame texture if it exists
+     * @returns a Texture object or null
+     */
+    getCurrentFrameOffset(): {
+        offsetX: number;
+        offsetY: number;
+    };
+    /**
      * Returns the current frame texture if it exists
      * @returns a Texture object or null
      */
@@ -49,12 +65,31 @@ export default class Animation extends DisplayObject {
      */
     getFrameTexture(frameIndex: number): Texture | null;
     /**
+     * Returns the frame offsets at a specific index if it exists
+     * @param frameIndex the specific frame index
+     * @returns an object
+     */
+    getFrameOffset(frameIndex: number): {
+        offsetX: number;
+        offsetY: number;
+    } | null;
+    /**
      * Returns the closest defined frame texture( if it exists)
      * before the specific frame index.
      * @param frameIndex the specific frame index
      * @returns a Texture object or null
      */
     getPreviousDefinedFrameTexture(frameIndex: number): Texture | null;
+    /**
+     * Returns the closest defined frame offset( if it exists)
+     * before the specific frame index.
+     * @param frameIndex the specific frame index
+     * @returns an object with offsetX & offsetY or null
+     */
+    getPreviousDefinedFrameOffset(frameIndex: number): {
+        offsetX: number;
+        offsetY: number;
+    } | null;
     /**
      * Returns the closest defined frame texture( if it exists)
      * after the specific frame index.
@@ -63,10 +98,25 @@ export default class Animation extends DisplayObject {
      */
     getNextDefinedFrameTexture(frameIndex: number): Texture | null;
     /**
+     * Returns the closest defined frame offset( if it exists)
+     * after the specific frame index.
+     * @param frameIndex the specific frame index
+     * @returns an object with offsetX & offsetY or null
+     */
+    getNextDefinedFrameOffset(frameIndex: number): {
+        offsetX: number;
+        offsetY: number;
+    } | null;
+    /**
      * Removes the frame texture at a specific index
      * @param frameIndex the specific index
      */
     removeFrameTexture(frameIndex: number): void;
+    /**
+     * Removes the frame offset at a specific index
+     * @param frameIndex the specific index
+     */
+    removeFrameOffset(frameIndex: number): void;
     /**
      * @returns number the animation length (num frames)
      */

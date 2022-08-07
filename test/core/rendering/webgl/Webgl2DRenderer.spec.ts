@@ -135,6 +135,55 @@ describe('Webgl2DRenderer test suite',
             }
         );
 
+
+        it('should draw texture on canvas with an offset',
+        ()=>{
+            // given 
+            const bmp = new DisplayObject();
+            const texture = new Texture(
+                "fake", 
+                fakeTextureData,
+                0, 
+                0, 
+                fakeCanvas.width, 
+                fakeCanvas.height
+            );
+
+            bmp.width = 100; 
+            bmp.height = 100;
+            bmp.texture = texture;
+            stage.addChild(bmp);
+            renderer.add(stage);
+            renderer.add(bmp);
+
+            // when 
+            bmp.offsetX = 1;
+            bmp.offsetY = 1;
+            stage.nextFrame();
+            // renderer.draw(stage.getCanvas(), stage.getContext() as WebGLRenderingContext);
+            bmp.offsetX = 0;
+            bmp.offsetY = 0;
+
+            // then 
+            const pixels = getPixels(renderer.getCanvas(), 0, 0, 3, 3).data;
+            expect(pixels[0]).toEqual(0);
+            expect(pixels[1]).toEqual(0);
+            expect(pixels[2]).toEqual(0);
+            expect(pixels[3]).toEqual(255);
+
+            expect(pixels[28]).toEqual(255);
+            expect(pixels[29]).toEqual(0);
+            expect(pixels[30]).toEqual(0);
+            expect(pixels[31]).toEqual(255);
+
+            expect(pixels[32]).toEqual(255);
+            expect(pixels[33]).toEqual(0);
+            expect(pixels[34]).toEqual(0);
+            expect(pixels[35]).toEqual(255);
+        }
+    );
+
+
         it('should not draw texture on canvas if object is not visble',
             ()=>{
                 // given 

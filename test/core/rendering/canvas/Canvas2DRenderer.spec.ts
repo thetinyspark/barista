@@ -73,6 +73,29 @@ describe('Canvas2DRenderer test suite',
             }
         );
 
+        it('should draw texture on canvas with an offset',
+            ()=>{
+                // given 
+                const stage = create2DScene(640,480);
+                const bmp = createDisplayObjectFromCanvas("fake", biColorCanvas);
+                stage.addChild(bmp);
+
+
+                // when 
+                bmp.offsetX = 10;
+                bmp.offsetY = 10;
+                stage.nextFrame();
+                bmp.offsetX = 0;
+                bmp.offsetY = 0;
+
+                // then 
+                const pixel1 = canvasPixelToRGBA( getCanvasPixel(stage.getCanvas(), 0, 0) ); 
+                const pixel2 = canvasPixelToRGBA( getCanvasPixel(stage.getCanvas(), 10, 10) ); 
+                expect(pixel1).toEqual({r:0, g:0, b:0, a:0});
+                expect(pixel2).toEqual({r:255, g:0, b:0, a:255});
+            }
+        );
+
         it('should draw a portion of the texture on canvas',
             ()=>{
                 // given 

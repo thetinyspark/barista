@@ -52,6 +52,14 @@ export default interface IDisplayObject extends IEmitter {
    */
   rotation: number;
   /**
+   * The x coordinates amount to shift the portion to be drawn 
+   */
+  offsetX:number; 
+  /**
+  * The y coordinates amount to shift the portion to be drawn 
+  */
+  offsetY:number; 
+  /**
    * Indicates the x coordinate of the object relative to the local coordinates of its parent.
    */
   x: number;

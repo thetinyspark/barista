@@ -10,6 +10,7 @@ import DisplayObject from "./DisplayObject";
  */
 export default class Animation extends DisplayObject{
 
+    private _framesOffset:{offsetX:number, offsetY:number}[];
     private _framesTextures:Texture[] = [];
     private _currentFrameIndex:number = 0;
     private _playing:boolean = false; 
@@ -55,6 +56,7 @@ export default class Animation extends DisplayObject{
     public clearFrames():void{
         this._currentFrameIndex = 0;
         this._framesTextures = [];
+        this._framesOffset = [];
     }
 
     /**
@@ -66,6 +68,29 @@ export default class Animation extends DisplayObject{
         this._framesTextures[frameIndex] = texture; 
     }
 
+    /**
+     * Sets the texture for the frame index passed in params
+     * @param frameIndex the frame index
+     * @param offsetX  the offsetX associated to the frame index
+     * @param offsetY  the offsetX associated to the frame index
+     */
+    public setFrameOffset(frameIndex:number, offsetX:number, offsetY:number):void{
+        this._framesOffset[frameIndex] = {offsetX, offsetY}; 
+    }
+
+    /**
+     * Returns the current frame texture if it exists
+     * @returns a Texture object or null
+     */
+    public getCurrentFrameOffset():{offsetX:number, offsetY:number}{
+        let current:{offsetX:number, offsetY:number} = this.getFrameOffset(this.getCurrentFrameIndex());
+        if( current === null && this._forwarding )
+            current = this.getPreviousDefinedFrameOffset(this.getCurrentFrameIndex());
+        else if( current === null && !this._forwarding )
+            current = this.getNextDefinedFrameOffset( this.getCurrentFrameIndex() );
+        
+        return current;
+    }
     /**
      * Returns the current frame texture if it exists
      * @returns a Texture object or null
@@ -90,6 +115,15 @@ export default class Animation extends DisplayObject{
     }
 
     /**
+     * Returns the frame offsets at a specific index if it exists
+     * @param frameIndex the specific frame index
+     * @returns an object
+     */
+    public getFrameOffset(frameIndex:number):{offsetX:number, offsetY:number}|null{
+        return this._framesOffset[frameIndex] || null;
+    }
+
+    /**
      * Returns the closest defined frame texture( if it exists) 
      * before the specific frame index.
      * @param frameIndex the specific frame index
@@ -103,6 +137,22 @@ export default class Animation extends DisplayObject{
         }
 
         return texture;
+    }
+
+    /**
+     * Returns the closest defined frame offset( if it exists) 
+     * before the specific frame index.
+     * @param frameIndex the specific frame index
+     * @returns an object with offsetX & offsetY or null
+     */
+    public getPreviousDefinedFrameOffset(frameIndex:number):{offsetX:number, offsetY:number}|null{
+        let offset:{offsetX:number, offsetY:number}|null = null; 
+
+        while( offset === null && frameIndex > -1 ){
+            offset = this.getFrameOffset(frameIndex--);
+        }
+
+        return offset;
     }
 
     /**
@@ -121,12 +171,37 @@ export default class Animation extends DisplayObject{
         return texture;
     }
 
+    
+    /**
+     * Returns the closest defined frame offset( if it exists) 
+     * after the specific frame index.
+     * @param frameIndex the specific frame index
+     * @returns an object with offsetX & offsetY or null
+     */
+     public getNextDefinedFrameOffset(frameIndex:number):{offsetX:number, offsetY:number}|null{
+        let offset:{offsetX:number, offsetY:number}|null = null; 
+
+        while( offset === null && frameIndex <= this.getLastFrameIndex() ){
+            offset = this.getFrameOffset(frameIndex++);
+        }
+
+        return offset;
+    }
+
     /**
      * Removes the frame texture at a specific index
      * @param frameIndex the specific index
      */
     public removeFrameTexture(frameIndex:number):void{
         this._framesTextures[frameIndex] = null;
+    }
+
+    /**
+     * Removes the frame offset at a specific index
+     * @param frameIndex the specific index
+     */
+    public removeFrameOffset(frameIndex:number):void{
+        this._framesOffset[frameIndex] = null;
     }
 
     /**
@@ -165,6 +240,11 @@ export default class Animation extends DisplayObject{
         }
         this._currentFrameIndex = frameIndex;
         this.texture = this.getCurrentFrameTexture();
+        const offset = this.getCurrentFrameOffset(); 
+        if( offset !== null ){
+            this.offsetX = offset.offsetX;
+            this.offsetY = offset.offsetY;
+        }
         this.emit( AnimationEvent.PLAY_FRAME, this._currentFrameIndex );
     }
 
