@@ -156,6 +156,7 @@ class Animation extends DisplayObjectContainer_1.default {
         child.height = frame.height;
         child.x = frame.offsetX;
         child.y = frame.offsetY;
+        child.update(this.worldMatrix, this.worldOpacity);
         this.emit(AnimationEvent.PLAY_FRAME, this._currentFrameIndex);
     }
     /**
