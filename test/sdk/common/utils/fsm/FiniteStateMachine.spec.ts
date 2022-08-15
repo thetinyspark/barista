@@ -1,3 +1,4 @@
+import { INotification } from "@thetinyspark/tiny-observer";
 import {FiniteStateMachine, IState} from "../../../../../lib/sdk/common/utils/fsm";
 
 describe('FiniteStateMachine test suite', 
@@ -126,4 +127,85 @@ describe('FiniteStateMachine test suite',
         expect(fsm.getStates().length).toEqual(0);
         expect(fsm.getCurrentState()).toBeNull();
     }); 
+
+    it('should be able to dispatch an event when state changes', 
+    ()=>{
+        // given
+        const fsm = new FiniteStateMachine();
+        const stack:string[] = [];
+        const jump = {actions:[{name:"PRESS_X", target:"atck"}], id: 'jump', data:{}};
+        const atck = {actions:[{name:"PRESS_X", target:"dodge"}], id: 'atck', data:{}};
+        const dodge = {actions:[{name:"PRESS_X", target:"jump"}], id: 'dodge', data:{}};
+
+        const onChange = (notification:INotification) => { stack.push(notification.getPayload().id)};
+
+        fsm.addState(dodge);
+        fsm.addState(jump);
+        fsm.addState(atck);
+        fsm.setCurrentState(jump);
+        
+        // when
+        fsm.subscribe("CHANGE_STATE", onChange);
+        fsm.dispatch("PRESS_X");
+        fsm.dispatch("PRESS_X");
+        fsm.dispatch("PRESS_X");
+
+
+        // when then 
+        expect(stack).toEqual(["atck","dodge","jump"]);
+    });
+
+    it('should be able to lock a state during a certain amount of time', 
+    ()=>{
+        // given
+        const fsm = new FiniteStateMachine();
+        const jump = {actions:[{name:"PRESS_X", target:"atck"}], id: 'jump', data:{}, duration: 100, cancelable: false};
+        const atck = {actions:[], id: 'atck', data:{}};
+
+        fsm.addState(jump);
+        fsm.addState(atck);
+        fsm.setCurrentState(jump, 0);
+        
+        // when
+        fsm.dispatch("PRESS_X");
+        const result1 = fsm.getCurrentState().id;
+
+        fsm.dispatch("PRESS_X", 99);
+        const result2 = fsm.getCurrentState().id;
+
+        fsm.dispatch("PRESS_X", 100);
+        const result3 = fsm.getCurrentState().id;
+
+        // then
+        expect(result1).toEqual("jump");
+        expect(result2).toEqual("jump");
+        expect(result3).toEqual("atck");
+    });
+
+    it('should be able to lock a state during a certain amount of time, but if it is cancelable, you can break it before', 
+    ()=>{
+        // given
+        const fsm = new FiniteStateMachine();
+        const jump = {actions:[{name:"PRESS_X", target:"atck"}], id: 'jump', data:{}, duration: 100, cancelable: true};
+        const atck = {actions:[], id: 'atck', data:{}};
+
+        fsm.addState(jump);
+        fsm.addState(atck);
+        fsm.setCurrentState(jump, 0);
+        
+        // when
+        fsm.dispatch("PRESS_X");
+        const result1 = fsm.getCurrentState().id;
+
+        fsm.dispatch("PRESS_X", 99);
+        const result2 = fsm.getCurrentState().id;
+
+        fsm.dispatch("PRESS_X", 100);
+        const result3 = fsm.getCurrentState().id;
+
+        // then
+        expect(result1).toEqual("atck");
+        expect(result2).toEqual("atck");
+        expect(result3).toEqual("atck");
+    });
 });
