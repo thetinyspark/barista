@@ -5,4 +5,7 @@ export default interface IState {
         name: string;
         target: string;
     }>;
+    startTime?: number;
+    duration?: number;
+    cancelable?: boolean;
 }
