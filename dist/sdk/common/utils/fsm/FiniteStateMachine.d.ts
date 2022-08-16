@@ -4,6 +4,7 @@ export default class FiniteStateMachine extends Emitter {
     private _states;
     private _current;
     private _timestamp;
+    static ON_COMPLETE_ACTION: string;
     setTime(time: number): void;
     getTime(): number;
     addState(state: IState): void;

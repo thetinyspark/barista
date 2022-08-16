@@ -7,6 +7,8 @@ export default class FiniteStateMachine extends Emitter{
     private _current:IState = null;
     private _timestamp:number = 0;
 
+    public static ON_COMPLETE_ACTION:string = "ON_COMPLETE_ACTION";
+
     public setTime(time:number):void{
 
         this._timestamp = time;
@@ -21,7 +23,7 @@ export default class FiniteStateMachine extends Emitter{
         if( this.getElapsedTime() < duration )
             return;
 
-        this.dispatch(state.onCompleteAction);
+        this.emit("ON_COMPLETE_ACTION",state.onCompleteAction);
     }
 
     public getTime():number{

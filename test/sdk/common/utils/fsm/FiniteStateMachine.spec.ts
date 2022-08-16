@@ -195,6 +195,7 @@ describe('FiniteStateMachine test suite',
         fsm.addState(jump);
         fsm.addState(atck);
         fsm.setCurrentState(jump);
+        fsm.subscribe(FiniteStateMachine.ON_COMPLETE_ACTION, (notif:INotification) => fsm.dispatch( notif.getPayload() as string ));
         
         // when
         fsm.setTime(0);

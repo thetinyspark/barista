@@ -18,7 +18,7 @@ class FiniteStateMachine extends tiny_observer_1.Emitter {
         const duration = Math.max(duration1, duration2);
         if (this.getElapsedTime() < duration)
             return;
-        this.dispatch(state.onCompleteAction);
+        this.emit("ON_COMPLETE_ACTION", state.onCompleteAction);
     }
     getTime() {
         return this._timestamp;
@@ -73,3 +73,4 @@ class FiniteStateMachine extends tiny_observer_1.Emitter {
     }
 }
 exports.default = FiniteStateMachine;
+FiniteStateMachine.ON_COMPLETE_ACTION = "ON_COMPLETE_ACTION";
