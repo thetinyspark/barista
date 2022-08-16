@@ -159,21 +159,24 @@ describe('FiniteStateMachine test suite',
     ()=>{
         // given
         const fsm = new FiniteStateMachine();
-        const jump = {actions:[{name:"PRESS_X", target:"atck"}], id: 'jump', data:{}, duration: 100, cancelable: false};
+        const jump = {actions:[{name:"PRESS_X", target:"atck"}], id: 'jump', data:{}, lockDuration: 100};
         const atck = {actions:[], id: 'atck', data:{}};
 
         fsm.addState(jump);
         fsm.addState(atck);
-        fsm.setCurrentState(jump, 0);
+        fsm.setCurrentState(jump);
         
         // when
+        fsm.setTime(0);
         fsm.dispatch("PRESS_X");
         const result1 = fsm.getCurrentState().id;
 
-        fsm.dispatch("PRESS_X", 99);
+        fsm.setTime(99);
+        fsm.dispatch("PRESS_X");
         const result2 = fsm.getCurrentState().id;
 
-        fsm.dispatch("PRESS_X", 100);
+        fsm.setTime(100);
+        fsm.dispatch("PRESS_X");
         const result3 = fsm.getCurrentState().id;
 
         // then
@@ -182,30 +185,30 @@ describe('FiniteStateMachine test suite',
         expect(result3).toEqual("atck");
     });
 
-    it('should be able to lock a state during a certain amount of time, but if it is cancelable, you can break it before', 
+    it('should be able to dispatch an action at the end of the current state', 
     ()=>{
         // given
         const fsm = new FiniteStateMachine();
-        const jump = {actions:[{name:"PRESS_X", target:"atck"}], id: 'jump', data:{}, duration: 100, cancelable: true};
+        const jump = {actions:[{name:"done", target:"atck"}], id: 'jump', data:{}, duration: 100, onCompleteAction: "done"};
         const atck = {actions:[], id: 'atck', data:{}};
 
         fsm.addState(jump);
         fsm.addState(atck);
-        fsm.setCurrentState(jump, 0);
+        fsm.setCurrentState(jump);
         
         // when
-        fsm.dispatch("PRESS_X");
+        fsm.setTime(0);
         const result1 = fsm.getCurrentState().id;
 
-        fsm.dispatch("PRESS_X", 99);
+        fsm.setTime(99);
         const result2 = fsm.getCurrentState().id;
 
-        fsm.dispatch("PRESS_X", 100);
+        fsm.setTime(101);
         const result3 = fsm.getCurrentState().id;
 
         // then
-        expect(result1).toEqual("atck");
-        expect(result2).toEqual("atck");
+        expect(result1).toEqual("jump");
+        expect(result2).toEqual("jump");
         expect(result3).toEqual("atck");
     });
 });

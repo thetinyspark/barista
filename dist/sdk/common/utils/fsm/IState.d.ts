@@ -6,6 +6,7 @@ export default interface IState {
         target: string;
     }>;
     startTime?: number;
+    lockDuration?: number;
     duration?: number;
-    cancelable?: boolean;
+    onCompleteAction?: string | null;
 }

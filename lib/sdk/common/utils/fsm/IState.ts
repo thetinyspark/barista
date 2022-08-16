@@ -4,6 +4,7 @@ export default interface IState{
     data:any,
     actions:Array<{name:string, target:string}>;
     startTime?:number;
+    lockDuration?:number;
     duration?:number; 
-    cancelable?:boolean;
+    onCompleteAction?:string|null;
 }

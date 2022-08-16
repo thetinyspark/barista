@@ -1,9 +1,32 @@
 import { Emitter } from "@thetinyspark/tiny-observer";
+import { cpuUsage } from "process";
 import IState from "./IState";
 
 export default class FiniteStateMachine extends Emitter{
     private _states:IState[] = [];
     private _current:IState = null;
+    private _timestamp:number = 0;
+
+    public setTime(time:number):void{
+
+        this._timestamp = time;
+        const state = this.getCurrentState(); 
+        if( state === null || state.onCompleteAction === null )
+            return;
+
+        const duration1 = state.duration || 0;
+        const duration2 = state.lockDuration || 0;
+        const duration = Math.max(duration1, duration2);
+
+        if( this.getElapsedTime() < duration )
+            return;
+
+        this.dispatch(state.onCompleteAction);
+    }
+
+    public getTime():number{
+        return this._timestamp;
+    }
 
     public addState( state:IState ):void{
         this._states.push(state);
@@ -26,15 +49,20 @@ export default class FiniteStateMachine extends Emitter{
         return this._states.find( state => state.id === id ) || null;
     }
 
-    public dispatch(action:string, timestamp:number = 0):void{
+    public getElapsedTime():number{
+        const current = this.getCurrentState(); 
+        return current === null ? -1 : this._timestamp - current.startTime;
+    }
+
+    public dispatch(action:string):void{
         const current = this.getCurrentState();
 
         if( current === null )
             return;
 
         
-        const elapsed = timestamp - current.startTime;
-        if( current.cancelable !== true && elapsed < current.duration )
+        const elapsed = this._timestamp - current.startTime;
+        if( elapsed < current.lockDuration )
             return;
 
         const currentAction = current.actions.find( cur => cur.name === action ) || null;
@@ -44,7 +72,7 @@ export default class FiniteStateMachine extends Emitter{
         const target = this.getStateById(currentAction.target);
 
         if( target !== current ){
-            this.setCurrentState(target, timestamp);
+            this.setCurrentState(target);
             this.emit("CHANGE_STATE", target);
         }
     }
@@ -53,11 +81,11 @@ export default class FiniteStateMachine extends Emitter{
         return this._current || null;
     }
 
-    public setCurrentState(state:IState, timestamp:number = 0):void{
+    public setCurrentState(state:IState):void{
         if( !this.hasState(state.id) )
             this.addState(state);
 
-        state.startTime = timestamp;
+        state.startTime = this._timestamp;
         this._current = state;
     }
 
