@@ -25,6 +25,7 @@ __exportStar(require("./sdk/common/utils/index"), exports);
 __exportStar(require("./sdk/common/utils/fsm/index"), exports);
 __exportStar(require("./sdk/common/model/node/index"), exports);
 __exportStar(require("./sdk/common/model/space/partitioning/grid/index"), exports);
+__exportStar(require("./sdk/common/model/space/partitioning/tree/index"), exports);
 __exportStar(require("./sdk/common/model/space/storage/index"), exports);
 __exportStar(require("./sdk/isometric/mixins/index"), exports);
 __exportStar(require("./sdk/isometric/model/node/index"), exports);
