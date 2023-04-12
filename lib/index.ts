@@ -14,6 +14,7 @@ export * from "./sdk/common/utils/index";
 export * from "./sdk/common/utils/fsm/index";
 export * from "./sdk/common/model/node/index";
 export * from "./sdk/common/model/space/partitioning/grid/index";
+export * from "./sdk/common/model/space/partitioning/tree/index";
 export * from "./sdk/common/model/space/storage/index";
 export * from "./sdk/isometric/mixins/index";
 export * from "./sdk/isometric/model/node/index";
