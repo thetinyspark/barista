@@ -11,6 +11,7 @@ const isser_1 = require("../utils/isser");
  */
 class MouseControl {
     constructor(stage) {
+        this._lastTouch = 0;
         this._touchHandler = (e) => {
             const canvas = this._stage.getCanvas();
             const bounds = canvas.getBoundingClientRect();
@@ -29,6 +30,13 @@ class MouseControl {
                 case "touchmove":
                     this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_MOVE);
                     break;
+            }
+            if (e.type == "touchstart") {
+                this._lastTouch = Date.now();
+            }
+            else if (e.type == "touchend" && Date.now() - this._lastTouch < 135) {
+                this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_CLICK);
+                this._lastTouch = Date.now();
             }
         };
         this._handler = (e) => {
