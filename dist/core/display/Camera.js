@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const DisplayObject_1 = require("./DisplayObject");
-const gl_matrix_1 = require("gl-matrix");
 const Geometry_1 = require("../utils/Geometry");
 /**
  * The Camera class is the base class for every Camera.
@@ -19,9 +18,7 @@ class Camera extends DisplayObject_1.default {
     * point of view.
     **/
     getRevertWorldMatrix() {
-        const out = gl_matrix_1.mat2d.create();
-        gl_matrix_1.mat2d.invert(out, this.worldMatrix);
-        return out;
+        return Geometry_1.default.getRevertWorldMatrix(this.worldMatrix);
     }
     /**
     * Returns the real bounds of the camera.

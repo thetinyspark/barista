@@ -269,6 +269,15 @@ export default class Geometry{
     }
 
     /**
+    * Returns the opposite of the worldMatrix passed in param.
+    **/
+    public static getRevertWorldMatrix(worldMatrix:mat2d){
+        const out = mat2d.create();
+        mat2d.invert(out, worldMatrix);
+        return out;
+    }
+
+    /**
      * Says if the IDisplayObject collides the x,y coordinates or not
      * @param x number
      * @param y number

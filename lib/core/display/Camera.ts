@@ -18,9 +18,7 @@ export default class Camera extends DisplayObject{
    * point of view.
    **/
     public getRevertWorldMatrix(){
-        const out = mat2d.create();
-        mat2d.invert(out, this.worldMatrix);
-        return out;
+        return Geometry.getRevertWorldMatrix(this.worldMatrix);
     }
 
    /**

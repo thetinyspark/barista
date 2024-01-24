@@ -218,6 +218,14 @@ class Geometry {
         };
     }
     /**
+    * Returns the opposite of the worldMatrix passed in param.
+    **/
+    static getRevertWorldMatrix(worldMatrix) {
+        const out = gl_matrix_1.mat2d.create();
+        gl_matrix_1.mat2d.invert(out, worldMatrix);
+        return out;
+    }
+    /**
      * Says if the IDisplayObject collides the x,y coordinates or not
      * @param x number
      * @param y number
