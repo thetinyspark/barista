@@ -9,26 +9,29 @@ const MathUtils_1 = require("../utils/MathUtils");
  */
 class TextureData {
     /**
+     * The width of the texture data
+     */
+    width = 0;
+    /**
+     * The height of the texture data
+     */
+    height = 0;
+    /**
+     * The position of the texture data inside webgl program
+     * (used by TextureDataManager at every frame do NOT touch it unless you know what you're doing)
+     */
+    texturePos = 0;
+    _source;
+    _uid;
+    _glTexture = null;
+    _isDynamic = false;
+    _updateNextFrame = false;
+    static _counter = 0;
+    /**
      * Creates a new TextureData object which hold the graphic source passed in param.
      * @param source CanvasImageSource the graphic source
      */
     constructor(source) {
-        /**
-         * The width of the texture data
-         */
-        this.width = 0;
-        /**
-         * The height of the texture data
-         */
-        this.height = 0;
-        /**
-         * The position of the texture data inside webgl program
-         * (used by TextureDataManager at every frame do NOT touch it unless you know what you're doing)
-         */
-        this.texturePos = 0;
-        this._glTexture = null;
-        this._isDynamic = false;
-        this._updateNextFrame = false;
         this.setSource(source);
         this._uid = "texture_data_" + TextureData._counter++;
     }
@@ -101,4 +104,3 @@ class TextureData {
     }
 }
 exports.default = TextureData;
-TextureData._counter = 0;

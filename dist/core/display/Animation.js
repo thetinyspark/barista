@@ -12,13 +12,13 @@ const DisplayObjectContainer_1 = require("./DisplayObjectContainer");
  * depending on animation length, animation way (backward||forward)
  */
 class Animation extends DisplayObjectContainer_1.default {
+    _frames = [];
+    _currentFrameIndex = 0;
+    _playing = false;
+    _forwarding = true;
+    loop = false;
     constructor() {
         super();
-        this._frames = [];
-        this._currentFrameIndex = 0;
-        this._playing = false;
-        this._forwarding = true;
-        this.loop = false;
         this.addChild(new DisplayObject_1.default());
     }
     /**

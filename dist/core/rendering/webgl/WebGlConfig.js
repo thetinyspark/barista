@@ -126,14 +126,14 @@ exports.createIndexArray = createIndexArray;
  * of 65536 (2 words) which is an old limitation.
  */
 class WebGlConfig {
+    static VERTEX_SIZE = exports.VERTEX_SIZE;
+    static NUM_VERTICES_PER_QUAD = exports.NUM_VERTICES_PER_QUAD;
+    static MAX_TEXTURES_UNITS = exports.MAX_TEXTURES_UNITS;
+    static MAX_QUAD_PER_CALL = exports.MAX_QUAD_PER_CALL;
+    static VERTEX_ARRAY_SIZE = exports.VERTEX_ARRAY_SIZE;
+    static INDICES_PER_QUAD = exports.INDICES_PER_QUAD;
+    static pushVerticesInto = pushVerticesInto;
+    static createVertexArray = createVertexArray;
+    static createIndexArray = createIndexArray;
 }
 exports.default = WebGlConfig;
-WebGlConfig.VERTEX_SIZE = exports.VERTEX_SIZE;
-WebGlConfig.NUM_VERTICES_PER_QUAD = exports.NUM_VERTICES_PER_QUAD;
-WebGlConfig.MAX_TEXTURES_UNITS = exports.MAX_TEXTURES_UNITS;
-WebGlConfig.MAX_QUAD_PER_CALL = exports.MAX_QUAD_PER_CALL;
-WebGlConfig.VERTEX_ARRAY_SIZE = exports.VERTEX_ARRAY_SIZE;
-WebGlConfig.INDICES_PER_QUAD = exports.INDICES_PER_QUAD;
-WebGlConfig.pushVerticesInto = pushVerticesInto;
-WebGlConfig.createVertexArray = createVertexArray;
-WebGlConfig.createIndexArray = createIndexArray;

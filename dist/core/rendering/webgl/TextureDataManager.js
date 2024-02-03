@@ -6,10 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Each TextureData is contained within a WebGLTextureChannel type object.
  */
 class TextureDataManager {
-    constructor() {
-        this._textureChannel = [];
-        this._context = null;
-    }
+    _textureChannel = [];
+    _context = null;
     /**
      * Reset channels
      * @param context WebGLRenderingContext

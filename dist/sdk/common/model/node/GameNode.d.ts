@@ -1,4 +1,4 @@
 export default class GameNode {
-    id: string;
+    id: string | number;
     state: any;
 }

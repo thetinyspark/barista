@@ -34,31 +34,13 @@ const CanvasUtils_1 = require("../utils/CanvasUtils");
  * ```
  */
 class Stats extends DisplayObject_1.default {
+    _stage = null;
+    _lastFrameTime = 0;
+    _monitoring = false;
+    _elapsedTime = 0;
+    _context;
     constructor() {
         super();
-        this._stage = null;
-        this._lastFrameTime = 0;
-        this._monitoring = false;
-        this._elapsedTime = 0;
-        this._enterFrame = (notification) => {
-            this._elapsedTime = new Date().getTime() - this._lastFrameTime;
-            this._lastFrameTime = new Date().getTime();
-            const currentFrame = notification.getPayload();
-            const drawCalls = this._stage.getRenderer().getNumDrawCalls();
-            const numQuads = this._stage.getRenderer().getChildren().length;
-            if (currentFrame % 60 === 0) {
-                const info = "fps: " + this.getFps() + ", frame: " + currentFrame + ", drawCalls: " + drawCalls + ", quads: " + numQuads;
-                const context = this._context;
-                context.beginPath();
-                context.fillStyle = "black";
-                context.fillRect(0, 0, this.width, this.height);
-                context.fill();
-                context.font = "20px Arial";
-                context.fillStyle = "red";
-                context.fillText(info, 0, Math.round(this.height / 2));
-                context.closePath();
-            }
-        };
         const data = CanvasUtils_1.default.create();
         this.width = data.width = 450;
         this.height = data.height = 50;
@@ -104,5 +86,24 @@ class Stats extends DisplayObject_1.default {
     getFps() {
         return this._monitoring ? Math.round(1000 / this._elapsedTime) : -1;
     }
+    _enterFrame = (notification) => {
+        this._elapsedTime = new Date().getTime() - this._lastFrameTime;
+        this._lastFrameTime = new Date().getTime();
+        const currentFrame = notification.getPayload();
+        const drawCalls = this._stage.getRenderer().getNumDrawCalls();
+        const numQuads = this._stage.getRenderer().getChildren().length;
+        if (currentFrame % 60 === 0) {
+            const info = "fps: " + this.getFps() + ", frame: " + currentFrame + ", drawCalls: " + drawCalls + ", quads: " + numQuads;
+            const context = this._context;
+            context.beginPath();
+            context.fillStyle = "black";
+            context.fillRect(0, 0, this.width, this.height);
+            context.fill();
+            context.font = "20px Arial";
+            context.fillStyle = "red";
+            context.fillText(info, 0, Math.round(this.height / 2));
+            context.closePath();
+        }
+    };
 }
 exports.default = Stats;

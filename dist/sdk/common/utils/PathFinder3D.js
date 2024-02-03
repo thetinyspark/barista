@@ -4,10 +4,8 @@ exports.NODE_DISTANCE_VALUE = void 0;
 const grid_1 = require("../model/space/partitioning/grid");
 const node_1 = require("../model/node");
 class PathFinder3D {
-    constructor() {
-        this.opened = [];
-        this.closed = [];
-    }
+    opened = [];
+    closed = [];
     createGraphe(grid, walkableValue) {
         const graphe = new grid_1.Grid3D();
         graphe.reset(grid.numRows, grid.numCols, grid.numLayers);

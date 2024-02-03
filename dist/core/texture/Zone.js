@@ -7,9 +7,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * the right, left, top and bottom sides.
  */
 class Zone {
-    constructor() {
-        this.data = null;
-    }
+    x;
+    y;
+    width;
+    height;
+    data = null;
     isEmpty() {
         return this.data === null;
     }

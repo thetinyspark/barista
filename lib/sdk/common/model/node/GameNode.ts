@@ -1,4 +1,4 @@
 export default class GameNode{
-    public id:string = "";
+    public id:string|number = "";
     public state:any = {}; 
 }

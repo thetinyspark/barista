@@ -11,12 +11,12 @@ const Zone_1 = require("./Zone");
  * a certain amount of CanvasImageSources.
  */
 class Spritesheet {
+    _width = 0;
+    _height = 0;
+    _zones = [];
+    _textures = [];
+    _textureData = null;
     constructor(width, height, sources = []) {
-        this._width = 0;
-        this._height = 0;
-        this._zones = [];
-        this._textures = [];
-        this._textureData = null;
         this._reset(width, height, sources);
     }
     _sortZonesByAreaAsc(a, b) {

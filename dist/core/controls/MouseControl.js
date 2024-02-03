@@ -10,55 +10,9 @@ const isser_1 = require("../utils/isser");
  * And finally, it can detect which DisplayObject is targeted by the event.
  */
 class MouseControl {
+    _stage;
+    _lastTouch = 0;
     constructor(stage) {
-        this._lastTouch = 0;
-        this._touchHandler = (e) => {
-            const canvas = this._stage.getCanvas();
-            const bounds = canvas.getBoundingClientRect();
-            const clientX = (e.touches.length == 0) ? e.changedTouches[0].clientX : e.touches[0].clientX;
-            const clientY = (e.touches.length == 0) ? e.changedTouches[0].clientY : e.touches[0].clientY;
-            const x = (clientX - bounds.x) >> 0;
-            const y = (clientY - bounds.y) >> 0;
-            e.preventDefault();
-            switch (e.type) {
-                case "touchstart":
-                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_DOWN);
-                    break;
-                case "touchend":
-                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_UP);
-                    break;
-                case "touchmove":
-                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_MOVE);
-                    break;
-            }
-            if (e.type == "touchstart") {
-                this._lastTouch = Date.now();
-            }
-            else if (e.type == "touchend" && Date.now() - this._lastTouch < 135) {
-                this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_CLICK);
-                this._lastTouch = Date.now();
-            }
-        };
-        this._handler = (e) => {
-            const canvas = this._stage.getCanvas();
-            const bounds = canvas.getBoundingClientRect();
-            const x = (e.clientX - bounds.x) >> 0;
-            const y = (e.clientY - bounds.y) >> 0;
-            switch (e.type) {
-                case "click":
-                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_CLICK);
-                    break;
-                case "mouseup":
-                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_UP);
-                    break;
-                case "mousedown":
-                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_DOWN);
-                    break;
-                case "mousemove":
-                    this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_MOVE);
-                    break;
-            }
-        };
         this._stage = stage;
     }
     /**
@@ -86,6 +40,53 @@ class MouseControl {
         this._stage.getCanvas().removeEventListener("touchend", this._touchHandler);
         this._stage.getCanvas().removeEventListener("touchmove", this._touchHandler);
     }
+    _touchHandler = (e) => {
+        const canvas = this._stage.getCanvas();
+        const bounds = canvas.getBoundingClientRect();
+        const clientX = (e.touches.length == 0) ? e.changedTouches[0].clientX : e.touches[0].clientX;
+        const clientY = (e.touches.length == 0) ? e.changedTouches[0].clientY : e.touches[0].clientY;
+        const x = (clientX - bounds.x) >> 0;
+        const y = (clientY - bounds.y) >> 0;
+        e.preventDefault();
+        switch (e.type) {
+            case "touchstart":
+                this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_DOWN);
+                break;
+            case "touchend":
+                this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_UP);
+                break;
+            case "touchmove":
+                this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_MOVE);
+                break;
+        }
+        if (e.type == "touchstart") {
+            this._lastTouch = Date.now();
+        }
+        else if (e.type == "touchend" && Date.now() - this._lastTouch < 135) {
+            this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_CLICK);
+            this._lastTouch = Date.now();
+        }
+    };
+    _handler = (e) => {
+        const canvas = this._stage.getCanvas();
+        const bounds = canvas.getBoundingClientRect();
+        const x = (e.clientX - bounds.x) >> 0;
+        const y = (e.clientY - bounds.y) >> 0;
+        switch (e.type) {
+            case "click":
+                this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_CLICK);
+                break;
+            case "mouseup":
+                this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_UP);
+                break;
+            case "mousedown":
+                this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_DOWN);
+                break;
+            case "mousemove":
+                this.dispatchAt(x, y, MouseControlEvent.MOUSE_CONTROL_MOVE);
+                break;
+        }
+    };
     _getObjectUnderPointRecursive(x, y, container) {
         const children = container.getChildren();
         let i = children.length;

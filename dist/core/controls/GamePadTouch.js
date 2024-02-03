@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class GamePadTouch {
+    _pressing = false;
+    _timestamp = 0;
+    value;
+    key;
     constructor(key = '', value = '') {
-        this._pressing = false;
-        this._timestamp = 0;
         this.value = value;
         this.key = key;
     }

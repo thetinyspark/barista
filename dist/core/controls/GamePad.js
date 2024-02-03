@@ -3,11 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GamePadTouchEvent = void 0;
 const tiny_observer_1 = require("@thetinyspark/tiny-observer");
 class GamePad extends tiny_observer_1.Emitter {
-    constructor() {
-        super(...arguments);
-        this._touches = [];
-        this._pressed = [];
-    }
+    _touches = [];
+    _pressed = [];
     setTouches(touches) {
         this._touches = touches;
     }

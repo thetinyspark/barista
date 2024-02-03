@@ -54,16 +54,16 @@ const DisplayObjectContainer_1 = require("./DisplayObjectContainer");
  *
  */
 class Stage extends DisplayObjectContainer_1.default {
+    _camera = null;
+    _currentFrame = 0;
+    _renderer = new Canvas2DRenderer_1.default();
+    _clippingStrategy = null;
+    /**
+     * Tells if the matrices are updated every frame or not
+     */
+    autoUpdateMatrices = true;
     constructor() {
         super();
-        this._camera = null;
-        this._currentFrame = 0;
-        this._renderer = new Canvas2DRenderer_1.default();
-        this._clippingStrategy = null;
-        /**
-         * Tells if the matrices are updated every frame or not
-         */
-        this.autoUpdateMatrices = true;
     }
     /**
      * Sets the current Stage Camera, default is null

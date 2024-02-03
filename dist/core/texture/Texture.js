@@ -7,43 +7,44 @@ const TextureData_1 = require("./TextureData");
  * A Texture object represents a portion of the original source.
  */
 class Texture {
+    _data;
+    /**
+     * The x coordinates of the source portion to be drawn
+     */
+    sx = 0;
+    /**
+     * The y coordinates of the source portion to be drawn
+     */
+    sy = 0;
+    /**
+     * The width of the source portion to be drawn
+     */
+    sw = 0;
+    /**
+     * The height of the source portion to be drawn
+     */
+    sh = 0;
+    /**
+     * The topleft uv coordinates of source portion to be drawn
+     */
+    topLeftUv = { u: 0, v: 0 };
+    /**
+     * The topright uv coordinates of source portion to be drawn
+     */
+    topRightUv = { u: 0, v: 0 };
+    /**
+     * The bottomleft uv coordinates of source portion to be drawn
+     */
+    bottomLeftUv = { u: 0, v: 0 };
+    /**
+     * The bottomright uv coordinates of source portion to be drawn
+     */
+    bottomRightUv = { u: 0, v: 0 };
+    /**
+     * The id of the Texture object
+     */
+    id = "";
     constructor(id = "", data, sx = 0, sy = 0, sw = 0, sh = 0) {
-        /**
-         * The x coordinates of the source portion to be drawn
-         */
-        this.sx = 0;
-        /**
-         * The y coordinates of the source portion to be drawn
-         */
-        this.sy = 0;
-        /**
-         * The width of the source portion to be drawn
-         */
-        this.sw = 0;
-        /**
-         * The height of the source portion to be drawn
-         */
-        this.sh = 0;
-        /**
-         * The topleft uv coordinates of source portion to be drawn
-         */
-        this.topLeftUv = { u: 0, v: 0 };
-        /**
-         * The topright uv coordinates of source portion to be drawn
-         */
-        this.topRightUv = { u: 0, v: 0 };
-        /**
-         * The bottomleft uv coordinates of source portion to be drawn
-         */
-        this.bottomLeftUv = { u: 0, v: 0 };
-        /**
-         * The bottomright uv coordinates of source portion to be drawn
-         */
-        this.bottomRightUv = { u: 0, v: 0 };
-        /**
-         * The id of the Texture object
-         */
-        this.id = "";
         this._data = data;
         this.sx = sx;
         this.sy = sy;

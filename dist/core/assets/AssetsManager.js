@@ -7,12 +7,11 @@ const tiny_observer_1 = require("@thetinyspark/tiny-observer");
  * You can load assets one by one or massively with queue.
  */
 class AssetsManager extends tiny_observer_1.Emitter {
+    uris = new Map();
+    data;
+    list;
     constructor() {
         super();
-        this.uris = new Map();
-        this._errorHandler = (reason) => {
-            this.emit(exports.LOAD_ERROR, reason);
-        };
         this.data = new Map();
         this.list = [];
     }
@@ -143,6 +142,9 @@ class AssetsManager extends tiny_observer_1.Emitter {
         this.getAll().clear();
     }
     ;
+    _errorHandler = (reason) => {
+        this.emit(exports.LOAD_ERROR, reason);
+    };
     _loadBlob(uri) {
         return fetch(uri).then(response => {
             if (response.status === 200) {

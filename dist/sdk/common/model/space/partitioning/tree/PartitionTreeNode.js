@@ -1,15 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class PartitionTreeNode {
+    _maxChildren;
+    _depth;
+    _maxDepth;
+    _partitionMethod;
+    parent = null;
+    _left = null;
+    _right = null;
+    _children = [];
     constructor(_maxChildren, _depth, _maxDepth, _partitionMethod) {
         this._maxChildren = _maxChildren;
         this._depth = _depth;
         this._maxDepth = _maxDepth;
         this._partitionMethod = _partitionMethod;
-        this.parent = null;
-        this._left = null;
-        this._right = null;
-        this._children = [];
         this.reset();
     }
     search(...params) {

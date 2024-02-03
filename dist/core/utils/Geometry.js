@@ -6,6 +6,19 @@ const isser_1 = require("./isser");
  * The Geometry class is a set of utilitaries functions.
  */
 class Geometry {
+    static TO_RADIANS = Math.PI / 180;
+    /**
+     * Array of precompute degree to radians angles
+     */
+    static FAST_ANGLES = Geometry.getFastAngle();
+    /**
+     * Array of precompute sinus(degree to radians angles)
+     */
+    static FAST_SIN = Geometry.getFastSinus();
+    /**
+     * Array of precompute cosinus(degree to radians angles)
+     */
+    static FAST_COS = Geometry.getFastCosinus();
     static getFastAngle() {
         const results = [];
         for (let i = 0; i <= 360; i++) {
@@ -242,16 +255,3 @@ class Geometry {
     }
 }
 exports.default = Geometry;
-Geometry.TO_RADIANS = Math.PI / 180;
-/**
- * Array of precompute degree to radians angles
- */
-Geometry.FAST_ANGLES = Geometry.getFastAngle();
-/**
- * Array of precompute sinus(degree to radians angles)
- */
-Geometry.FAST_SIN = Geometry.getFastSinus();
-/**
- * Array of precompute cosinus(degree to radians angles)
- */
-Geometry.FAST_COS = Geometry.getFastCosinus();

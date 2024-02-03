@@ -1,12 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Grid3D {
-    constructor() {
-        this._map = [];
-        this._numRows = 0;
-        this._numCols = 0;
-        this._numLayers = 0;
-    }
+    _map = [];
+    _numRows = 0;
+    _numCols = 0;
+    _numLayers = 0;
+    constructor() { }
     reset(rows, cols, layers) {
         this._numRows = rows;
         this._numCols = cols;

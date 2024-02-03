@@ -6,26 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * It is used by the WebGL2DRenderer class.
  */
 class BatchTexture {
-    constructor() {
-        /**
-         * An array of subBatches.
-         * You can use it to develop your
-         * own batching system
-         */
-        this.subBatches = [];
-        /**
-         * The batch's objects
-         */
-        this.objects = [];
-        /**
-         * TextureData objects uids
-         */
-        this.uids = new Set();
-        /**
-         * TextureData objects
-         */
-        this.datas = new Set();
-    }
     /**
      * Splits an IDisplayObject Array into batches which contains
      * a maximum of <maxTexturesPerBatch> per batch.
@@ -55,5 +35,23 @@ class BatchTexture {
         currentBatch.objects = objects.slice(start);
         return batches.filter(b => b.objects.length > 0);
     }
+    /**
+     * An array of subBatches.
+     * You can use it to develop your
+     * own batching system
+     */
+    subBatches = [];
+    /**
+     * The batch's objects
+     */
+    objects = [];
+    /**
+     * TextureData objects uids
+     */
+    uids = new Set();
+    /**
+     * TextureData objects
+     */
+    datas = new Set();
 }
 exports.default = BatchTexture;
