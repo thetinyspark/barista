@@ -10,8 +10,8 @@
       "node_modules/@types"
     ],
     "types": [
-      "@types/jasmine",
-      "@types/node"
+      "jasmine",
+      "node"
     ],
   }
 }

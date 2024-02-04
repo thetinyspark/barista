@@ -1,4 +1,4 @@
-import CanvasUtils from "../../utils/CanvasUtils";
+import {CanvasUtils} from "../../../index";
 import IDisplayObject from "../../display/IDisplayObject";
 import IRenderer from "../IRenderer";
 /**

@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Stage_1 = require("./Stage");
 const DisplayObject_1 = require("./DisplayObject");
-const Texture_1 = require("../texture/Texture");
+const index_1 = require("../../index");
 const TextureData_1 = require("../texture/TextureData");
-const CanvasUtils_1 = require("../utils/CanvasUtils");
+const index_2 = require("../../index");
 /**
  * The Stats class is a basic frame counter.
  * It supports basic functionality like start, stop, getFps
@@ -41,10 +41,10 @@ class Stats extends DisplayObject_1.default {
     _context;
     constructor() {
         super();
-        const data = CanvasUtils_1.default.create();
+        const data = index_2.CanvasUtils.create();
         this.width = data.width = 450;
         this.height = data.height = 50;
-        this.texture = new Texture_1.default("stats_texture", new TextureData_1.default(data), 0, 0, data.width, data.height);
+        this.texture = new index_1.Texture("stats_texture", new TextureData_1.default(data), 0, 0, data.width, data.height);
         this.texture.data.isDynamic = true;
         this._context = this.texture.source.getContext("2d");
     }

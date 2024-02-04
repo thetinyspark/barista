@@ -1,6 +1,6 @@
 import TextureData from "../texture/TextureData";
-import Texture from "../texture/Texture";
-import CanvasUtils from "../utils/CanvasUtils";
+import {Texture} from "../../index";
+import {CanvasUtils} from "../../index";
 import MathUtils from "../utils/MathUtils";
 import Zone from "./Zone";
 

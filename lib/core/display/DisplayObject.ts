@@ -2,7 +2,7 @@ import { mat2d } from "gl-matrix";
 import { Emitter } from "@thetinyspark/tiny-observer";
 import Canvas2DRenderer from "../rendering/canvas/Canvas2DRenderer";
 import IRenderer from "../rendering/IRenderer";
-import Texture from "../texture/Texture";
+import {Texture} from "../../index";
 import IDisplayObject from "./IDisplayObject";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 import IFilter from "../filters/IFilter";

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const CanvasUtils_1 = require("../utils/CanvasUtils");
+const index_1 = require("../../index");
 const MathUtils_1 = require("../utils/MathUtils");
 /**
  * The TextureData class is the base class for containing graphic source.
@@ -42,7 +42,7 @@ class TextureData {
     setSource(source) {
         const nwidth = MathUtils_1.default.getNextPowerOf2(source.width);
         const nheight = MathUtils_1.default.getNextPowerOf2(source.height);
-        const canvas = CanvasUtils_1.default.create();
+        const canvas = index_1.CanvasUtils.create();
         const context = canvas.getContext("2d");
         canvas.width = nwidth;
         canvas.height = nheight;

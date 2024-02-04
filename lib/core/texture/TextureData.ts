@@ -1,4 +1,4 @@
-import CanvasUtils from "../utils/CanvasUtils";
+import {CanvasUtils} from "../../index";
 import MathUtils from "../utils/MathUtils";
 /**
  * The TextureData class is the base class for containing graphic source.

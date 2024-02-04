@@ -1,4 +1,4 @@
-import { Texture } from "../texture";
+import { Texture } from "../../index";
 export default class AnimationFrameData {
     name: string;
     index: number;

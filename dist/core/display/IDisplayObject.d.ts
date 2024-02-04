@@ -3,7 +3,7 @@ import { mat2d } from "gl-matrix";
 import { Point } from "../..";
 import IFilter from "../filters/IFilter";
 import IRenderer from "../rendering/IRenderer";
-import Texture from "../texture/Texture";
+import { Texture } from "../../index";
 import IDisplayObjectContainer from "./IDisplayObjectContainer";
 export default interface IDisplayObject extends IEmitter {
     /**

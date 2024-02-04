@@ -1,5 +1,5 @@
 import TextureData from "../texture/TextureData";
-import Texture from "../texture/Texture";
+import { Texture } from "../../index";
 import Zone from "./Zone";
 /**
  * The Spritesheet class is usefull to gather multiples CanvasImageSources together.

@@ -1,5 +1,5 @@
 import IRenderer from "../rendering/IRenderer";
-import Texture from "../texture/Texture";
+import { Texture } from "../../index";
 import AnimationFrameData from "./AnimationFrameData";
 import DisplayObjectContainer from "./DisplayObjectContainer";
 /**

@@ -8,6 +8,7 @@
     "/dist"
   ],
   "scripts": {
+    "start": "npm run build && node ./dist/index.js",
     "pub": "npm login && npm publish --access public",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && tsc && npx webpack --config webpack.config.js",
     "test": "karma start",
@@ -31,12 +32,15 @@
   "homepage": "https://github.com/thetinyspark/barista#readme",
   "dependencies": {
     "@thetinyspark/tiny-observer": "^1.2.0",
+    "canvas": "^2.11.2",
     "gl-matrix": "^3.3.0",
-    "typedoc-plugin-markdown": "^3.11.12"
+    "jsdom": "^24.0.0",
+    "typedoc-plugin-markdown": "^3.11.12",
+    "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
     "@types/jasmine": "^3.8.1",
-    "@types/node": "^16.4.5",
+    "@types/node": "^16.18.79",
     "concurrently": "^6.2.0",
     "docsify": "^4.12.2",
     "jasmine": "^3.8.0",

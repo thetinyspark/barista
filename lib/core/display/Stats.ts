@@ -1,9 +1,9 @@
 import Stage, { StageEvent } from "./Stage";
 import DisplayObject from "./DisplayObject";
 import {INotification} from "@thetinyspark/tiny-observer";
-import Texture from "../texture/Texture";
+import {Texture} from "../../index";
 import TextureData from "../texture/TextureData";
-import CanvasUtils from "../utils/CanvasUtils";
+import {CanvasUtils} from "../../index";
 /**
  * The Stats class is a basic frame counter.
  * It supports basic functionality like start, stop, getFps

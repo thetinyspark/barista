@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Texture_1 = require("../texture/Texture");
-const CanvasUtils_1 = require("../utils/CanvasUtils");
+const index_1 = require("../../index");
+const index_2 = require("../../index");
 const MathUtils_1 = require("../utils/MathUtils");
 const Zone_1 = require("./Zone");
 /**
@@ -28,8 +28,8 @@ class Spritesheet {
         return area1 > area2 ? -1 : 1;
     }
     _drawTextures() {
-        const source = CanvasUtils_1.default.create(this._width, this._height);
-        const mainTexture = Texture_1.default.createFromSource("main", source);
+        const source = index_2.CanvasUtils.create(this._width, this._height);
+        const mainTexture = index_1.Texture.createFromSource("main", source);
         const canvas = mainTexture.data.getSource();
         const context = canvas.getContext("2d");
         const filledZones = this.getZones().filter(zone => !zone.isEmpty());
