@@ -8,9 +8,13 @@
     "/dist"
   ],
   "scripts": {
-    "start": "npm run build && node ./dist/index.js",
+    "start": "npm run build && node ./dist/main.js",
+    "start:node": "npm run build:node && node ./dist/main.js",
     "pub": "npm login && npm publish --access public",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && tsc && npx webpack --config webpack.config.js",
+    "swap:node":"node ./scripts/swap2Node.js",
+    "swap:browser":"node ./scripts/swap2Browser.js",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && npm run swap:browser &&  tsc && npx webpack --config webpack.config.js",
+    "build:node": "set NODE_OPTIONS=--openssl-legacy-provider && npm run swap:node &&  tsc --project tsconfig.node.json && npx webpack --config webpack.node.config.js",
     "test": "karma start",
     "test:ci": "karma start --single-run",
     "doc": "npx typedoc"

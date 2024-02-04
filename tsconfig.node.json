@@ -1,12 +1,15 @@
 {
-  "include": ["lib"],
+  "include": ["lib/index.ts"],
   "exclude":[
-    "lib/core/texture/index.node.ts",
-    "lib/core/texture/NodeTexture.ts",
-    "lib/core/utils/index.node.ts",
-    "lib/core/utils/NodeCanvasUtils.ts",
-    "lib/core/assets/index.node.ts",
-    "lib/core/assets/NodeAssetsManager.ts",
+    "lib/core/rendering/webgl",
+    
+    "lib/core/texture/index.ts",
+    "lib/core/utils/index.ts",
+    "lib/core/assets/index.ts",
+
+    "lib/core/texture/Texture.ts",
+    "lib/core/utils/CanvasUtils.ts",
+    "lib/core/assets/AssetsManager.ts",
   ],
   "compilerOptions": {
     "target": "esNext",
