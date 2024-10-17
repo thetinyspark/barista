@@ -1,6 +1,6 @@
 import { GameNode } from "../../../../lib/sdk/common/model/node";
 import { Grid2D } from "../../../../lib/sdk/common/model/space/partitioning/grid";
-import {PathFinder2D} from "../../../../lib/sdk/common/utils";
+import {FastFinder2D, PathFinder2D} from "../../../../lib/sdk/common/utils";
 
 describe('PathFinder2D test suite', 
 ()=>{
@@ -130,6 +130,59 @@ describe('PathFinder2D test suite',
                 expect(node.state.parent).toBeNull();
             }
         );
+    });
+
+    fit('FastFinder should resolve the same path than pathfinder2d', 
+    ()=>{
+        // given
+
+        const finders = [new FastFinder2D(), new PathFinder2D()];
+
+          // when
+        const paths = finders.map( 
+            (currentFinder)=>{
+                const graphe = currentFinder.createGraphe(grid,0);
+                const startNode = graphe.getAt(1,1) as GameNode;
+                const endNode = graphe.getAt(3,1) as GameNode;
+                const path = finder.findPath(graphe, startNode, endNode);
+                return path.map( 
+                    (node)=>{
+                        return {
+                            row: node.state.row,
+                            col: node.state.col,
+                        }
+                    }
+                );
+            }
+        );
+
+        // then 
+        expect(paths[0]).toEqual(paths[1]);
+    });
+
+    fit('FastFinder should be faster than pathfinder2d', 
+    ()=>{
+        // given
+        const testFinder = (currentFinder)=>{
+            const graphe = currentFinder.createGraphe(grid,0);
+            const startNode = graphe.getAt(1,1);
+            const endNode = graphe.getAt(3,1);
+            const start = Date.now();
+            for( let i = 0; i < 10000; i++ ){   
+                finder.resetGraphe(graphe);
+                const path = finder.findPath(graphe, startNode, endNode);
+            }
+            const time = Date.now() - start;
+            return time;
+        };
+
+        
+        // when
+        const time1 = testFinder(new FastFinder2D());
+        const time2 = testFinder(new PathFinder2D());
+
+        // then
+        expect(time1).toBeLessThan(time2);
     });
 
 });
