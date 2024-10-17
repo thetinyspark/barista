@@ -8,18 +8,18 @@ const WebGlConfig_1 = require("./WebGlConfig");
  * texture units.
  */
 class Default2DShader {
+    /**
+     * The shader's id
+     */
+    id = 0;
+    fragmentShader = null;
+    vertexShader = null;
+    program = null;
+    /**
+     * The projection pointer is used to set the center of the world
+     */
+    projectionPointer = 0;
     constructor(context) {
-        /**
-         * The shader's id
-         */
-        this.id = 0;
-        this.fragmentShader = null;
-        this.vertexShader = null;
-        this.program = null;
-        /**
-         * The projection pointer is used to set the center of the world
-         */
-        this.projectionPointer = 0;
         this._init(context);
     }
     _init(context) {

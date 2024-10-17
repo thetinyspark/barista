@@ -7,6 +7,7 @@ import Stage from "../display/Stage";
  */
 export default class MouseControl {
     private _stage;
+    private _lastTouch;
     constructor(stage: Stage);
     /**
      * Starts stage monitoring

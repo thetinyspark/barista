@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Partition2D {
+    box;
+    axis;
     constructor(box, axis) {
         this.box = box;
         this.axis = axis;

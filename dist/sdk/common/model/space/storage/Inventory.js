@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Inventory {
+    _maxWeight = 0;
+    _maxItems = 0;
+    _items = [];
     constructor() {
-        this._maxWeight = 0;
-        this._maxItems = 0;
-        this._items = [];
         this.reset(0, 0);
     }
     reset(maxItems, maxWeight) {

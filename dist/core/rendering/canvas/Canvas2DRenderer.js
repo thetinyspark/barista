@@ -5,8 +5,10 @@ const CanvasUtils_1 = require("../../utils/CanvasUtils");
  * The Canvas2DRenderer class is the base class for non GPU 2d rendering.
  */
 class Canvas2DRenderer {
+    _children = [];
+    _canvas;
+    _context;
     constructor() {
-        this._children = [];
         this._canvas = CanvasUtils_1.default.create();
         this._context = this._canvas.getContext("2d");
     }

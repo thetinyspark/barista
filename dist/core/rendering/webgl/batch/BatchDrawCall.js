@@ -6,22 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * It is used by the WebGL2DRenderer class.
  */
 class BatchDrawCall {
-    constructor() {
-        /**
-         * An array of subBatches.
-         * You can use it to develop your
-         * own batching system
-         */
-        this.subBatches = [];
-        /**
-         * Tells wether or not this batch is full
-         */
-        this.full = false;
-        /**
-         * The batch's objects
-         */
-        this.objects = [];
-    }
     /**
      * Splits an IDisplayObject Array into batches which contains
      * a maximum of <maxObjectsPerBatch> per batch.
@@ -39,5 +23,19 @@ class BatchDrawCall {
         }
         return batches.filter(b => b.objects.length > 0);
     }
+    /**
+     * An array of subBatches.
+     * You can use it to develop your
+     * own batching system
+     */
+    subBatches = [];
+    /**
+     * Tells wether or not this batch is full
+     */
+    full = false;
+    /**
+     * The batch's objects
+     */
+    objects = [];
 }
 exports.default = BatchDrawCall;

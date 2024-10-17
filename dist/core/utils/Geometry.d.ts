@@ -45,6 +45,10 @@ export default class Geometry {
      */
     static transformPoint(x: number, y: number, matrix: mat2d): Point;
     /**
+    * Returns the opposite of the worldMatrix passed in param.
+    **/
+    static getRevertWorldMatrix(worldMatrix: mat2d): mat2d;
+    /**
      * Says if the IDisplayObject collides the x,y coordinates or not
      * @param x number
      * @param y number

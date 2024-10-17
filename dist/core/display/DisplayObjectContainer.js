@@ -67,10 +67,7 @@ const DisplayObject_1 = require("./DisplayObject");
  * ```
  */
 class DisplayObjectContainer extends DisplayObject_1.default {
-    constructor() {
-        super(...arguments);
-        this._children = [];
-    }
+    _children = [];
     addChild(child) {
         if (this.contains(child))
             this.removeChild(child);

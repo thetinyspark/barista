@@ -10,9 +10,16 @@ const BatchDrawCall_1 = require("./batch/BatchDrawCall");
  * The Webgl2DRenderer class is the base class for WebGL2d rendering.
  */
 class Webgl2DRenderer {
+    _children = [];
+    _canvas;
+    _context;
+    _vertexArray;
+    _indexArray;
+    _vertexBuffer;
+    _indexBuffer;
+    _currentShader;
+    _drawCalls = 0;
     constructor() {
-        this._children = [];
-        this._drawCalls = 0;
         this._init();
     }
     _init() {

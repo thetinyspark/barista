@@ -55,27 +55,24 @@ const utils_1 = require("../utils");
  * ```
  */
 class DisplayObject extends tiny_observer_1.Emitter {
-    constructor() {
-        super(...arguments);
-        this.filters = [];
-        this.texture = null;
-        this.worldMatrix = gl_matrix_1.mat2d.create();
-        this.matrix = gl_matrix_1.mat2d.create();
-        this.x = 0;
-        this.y = 0;
-        this.opacity = 1;
-        this.worldOpacity = 1;
-        this.scaleX = 1;
-        this.scaleY = 1;
-        this.rotation = 0;
-        this.width = 0;
-        this.height = 0;
-        this.transformOrigin = { x: 0, y: 0 };
-        this.parent = null;
-        this.visible = true;
-        this.name = '';
-        this.mouseEventsEnabled = true;
-    }
+    filters = [];
+    texture = null;
+    worldMatrix = gl_matrix_1.mat2d.create();
+    matrix = gl_matrix_1.mat2d.create();
+    x = 0;
+    y = 0;
+    opacity = 1;
+    worldOpacity = 1;
+    scaleX = 1;
+    scaleY = 1;
+    rotation = 0;
+    width = 0;
+    height = 0;
+    transformOrigin = { x: 0, y: 0 };
+    parent = null;
+    visible = true;
+    name = '';
+    mouseEventsEnabled = true;
     snapshot() {
         const renderer = new Canvas2DRenderer_1.default();
         const saveMatrix = this.matrix;

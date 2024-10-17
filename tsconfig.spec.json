@@ -2,7 +2,7 @@
   "include": ["lib", "test"],
   "exclude": ["lib/index.ts"],
   "compilerOptions": {
-    "target": "es2021",
+    "target": "esNext",
     "module": "commonjs",
     "declaration": true,
     "outDir": "./dist",

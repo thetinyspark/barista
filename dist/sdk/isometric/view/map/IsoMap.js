@@ -3,10 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const DisplayObjectContainer_1 = require("../../../../core/display/DisplayObjectContainer");
 const iso_utils_1 = require("../../utils/iso.utils");
 class IsoMap extends DisplayObjectContainer_1.default {
-    constructor() {
-        super(...arguments);
-        this.sortAuto = false;
-    }
+    sortAuto = false;
     sort() {
         const children = this.getChildren();
         children.sort(iso_utils_1.isoSort);

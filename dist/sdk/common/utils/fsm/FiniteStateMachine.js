@@ -2,12 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tiny_observer_1 = require("@thetinyspark/tiny-observer");
 class FiniteStateMachine extends tiny_observer_1.Emitter {
-    constructor() {
-        super(...arguments);
-        this._states = [];
-        this._current = null;
-        this._timestamp = 0;
-    }
+    _states = [];
+    _current = null;
+    _timestamp = 0;
+    static ON_COMPLETE_ACTION = "ON_COMPLETE_ACTION";
     setTime(time) {
         this._timestamp = time;
         const state = this.getCurrentState();
@@ -73,4 +71,3 @@ class FiniteStateMachine extends tiny_observer_1.Emitter {
     }
 }
 exports.default = FiniteStateMachine;
-FiniteStateMachine.ON_COMPLETE_ACTION = "ON_COMPLETE_ACTION";

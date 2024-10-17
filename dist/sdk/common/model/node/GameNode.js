@@ -1,9 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class GameNode {
-    constructor() {
-        this.id = "";
-        this.state = {};
-    }
+    id = "";
+    state = {};
 }
 exports.default = GameNode;

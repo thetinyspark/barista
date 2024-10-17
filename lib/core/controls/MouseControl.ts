@@ -11,6 +11,7 @@ import { isDisplayObjectContainer } from "../utils/isser";
  */
 export default class MouseControl{
     private _stage:Stage; 
+    private _lastTouch:number = 0;
 
     constructor(stage:Stage){
         this._stage = stage;
@@ -58,6 +59,14 @@ export default class MouseControl{
             case "touchstart": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_DOWN); break;
             case "touchend":this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_UP); break;
             case "touchmove": this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_MOVE); break;
+        }
+
+        if( e.type == "touchstart"){
+            this._lastTouch = Date.now();
+        }
+        else if( e.type == "touchend" && Date.now() - this._lastTouch < 135){
+            this.dispatchAt(x,y,MouseControlEvent.MOUSE_CONTROL_CLICK);
+            this._lastTouch = Date.now();
         }
     };
 
