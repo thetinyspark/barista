@@ -96,6 +96,9 @@ class DisplayObjectContainer extends DisplayObject_1.default {
     getChildren() {
         return this._children;
     }
+    getChildByName(name) {
+        return this._children.find(c => c.name === name) || null;
+    }
     getAllNestedChildrenIterative() {
         let objects = [];
         let stack = [];

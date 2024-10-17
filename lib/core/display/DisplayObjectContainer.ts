@@ -109,6 +109,10 @@ export default class DisplayObjectContainer extends DisplayObject implements IDi
         return this._children;
     }
 
+    public getChildByName(name:string): IDisplayObject {
+        return this._children.find( c=>c.name === name) || null;
+    }
+
     public getAllNestedChildrenIterative():IDisplayObject[]{
         let objects = []; 
         let stack:DisplayObjectContainer[] = [];
