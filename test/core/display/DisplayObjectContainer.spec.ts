@@ -223,6 +223,24 @@ describe(
                         expect(container.getChildIndex(object)).toEqual(5);
                     }
                 ); 
+
+                it(
+                    "should be able to retrieve a child by its name", 
+                    ()=>{
+                        const container = new DisplayObjectContainer();
+                        const disp1 = new DisplayObject();
+                        const disp2 = new DisplayObject();
+                        disp1.name = "disp1";
+                        disp2.name = "disp2";
+                        
+                        container.addChild(disp1);
+                        container.addChild(disp2);
+        
+                        expect(container.getChildByName("disp1")).toBe(disp1);
+                        expect(container.getChildByName("disp2")).toBe(disp2);
+                        expect(container.getChildByName("disp3")).toBeNull();
+                    }
+                ); 
             
             }
         );
