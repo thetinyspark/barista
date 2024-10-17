@@ -10,6 +10,7 @@ export * from "./core/texture/index";
 export * from "./core/utils/index";
 export * from "@thetinyspark/tiny-observer";
 
+export * from "./sdk/component/index";
 export * from "./sdk/common/utils/index";
 export * from "./sdk/common/utils/fsm/index";
 export * from "./sdk/common/model/node/index";
