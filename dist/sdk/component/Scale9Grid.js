@@ -2,6 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const display_1 = require("../../core/display");
 class Scale9Grid extends display_1.DisplayObjectContainer {
+    _topLeft;
+    _topRight;
+    _topCenter;
+    _left;
+    _center;
+    _right;
+    _bottomLeft;
+    _bottomCenter;
+    _bottomRight;
     constructor() {
         super();
     }
