@@ -49,8 +49,8 @@ export default class Scale9Grid extends DisplayObjectContainer{
     public resize(width:number, height:number):void{
         this.removeChildren();
         this.addChild(this._topLeft);
-        this.addChild(this._center);
         this.addChild(this._topCenter);
+        this.addChild(this._topRight);
         this.addChild(this._left);
         this.addChild(this._center);
         this.addChild(this._right);

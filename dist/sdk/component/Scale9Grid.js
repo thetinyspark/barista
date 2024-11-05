@@ -43,8 +43,8 @@ class Scale9Grid extends display_1.DisplayObjectContainer {
     resize(width, height) {
         this.removeChildren();
         this.addChild(this._topLeft);
-        this.addChild(this._center);
         this.addChild(this._topCenter);
+        this.addChild(this._topRight);
         this.addChild(this._left);
         this.addChild(this._center);
         this.addChild(this._right);
